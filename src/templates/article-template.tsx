@@ -132,6 +132,8 @@ export default function ArticlePage() {
                 <ArticleFooterNavigation 
                   previousArticle={navigation.previous}
                   nextArticle={navigation.next}
+                  isLastInSequence={!navigation.next}
+                  doorHref="/#doorways"
                 />
 
               </article>
@@ -154,6 +156,7 @@ export default function ArticlePage() {
             <ArticleNavigation 
               previous={navigation.previous}
               next={navigation.next}
+              door={articleInfo.door}
             />
 
             {/* Book Promotion */}

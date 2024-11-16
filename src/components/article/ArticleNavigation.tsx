@@ -1,6 +1,4 @@
 // src/components/article/ArticleNavigation.tsx
-'use client'
-
 import { motion } from 'framer-motion';
 import { Eye } from 'lucide-react';
 import InteractiveLink from '@/components/ui/InteractiveLink';
@@ -14,12 +12,45 @@ interface ArticleNavigationProps {
     title: string;
     href: string;
   };
+  door?: string;  // Add door prop
 }
 
-export default function ArticleNavigation({ previous, next }: ArticleNavigationProps) {
+// Function to get door-specific styles
+const getDoorStyles = (door: string) => {
+  switch (door) {
+    case "Scholar's Door":
+      return {
+        bgColor: 'bg-slate-100',
+        icon: Eye,  // You can change icons for different doors if desired
+        text: "Scholar's Door"
+      };
+    case "Observer's Door":
+      return {
+        bgColor: 'bg-stone-100',
+        icon: Eye,
+        text: "Observer's Road"
+      };
+    case "Practitioner's Door":
+      return {
+        bgColor: 'bg-emerald-50',
+        icon: Eye,
+        text: "Practitioner's Road"
+      };
+    default:
+      return {
+        bgColor: 'bg-gray-100',
+        icon: Eye,
+        text: "Continue Reading"
+      };
+  }
+};
+
+export default function ArticleNavigation({ previous, next, door = "Observer's Door" }: ArticleNavigationProps) {
+  const doorStyle = getDoorStyles(door);
+  
   return (
     <div className="rounded-lg border border-gray-200">
-      <div className="px-6 py-4 bg-stone-100 border-b border-gray-200">
+      <div className={`px-6 py-4 ${doorStyle.bgColor} border-b border-gray-200`}>
         <div className="flex items-center gap-3">
           <motion.div
             animate={{ 
@@ -32,7 +63,7 @@ export default function ArticleNavigation({ previous, next }: ArticleNavigationP
               ease: "easeInOut"
             }}
           >
-            <Eye 
+            <doorStyle.icon 
               className="w-5 h-5 text-blue-600" 
               strokeWidth={1.5}
             />
@@ -43,7 +74,7 @@ export default function ArticleNavigation({ previous, next }: ArticleNavigationP
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            The Observer's Road
+            {doorStyle.text}
           </motion.h3>
         </div>
       </div>

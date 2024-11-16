@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/books/science-of-energy/page.tsx.backup", "src/app/articles/metaphysical/nature-of-self/page.tsx.backup"],
   "exclude": ["node_modules"]
 }

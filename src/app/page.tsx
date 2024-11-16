@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Section from '@/components/ui/Section'
 import ProfileImage from '@/components/ui/ProfileImage'
-import ThreeDoorways from '@/components/features/ThreeDoorways'
+import Doorways from '@/components/features/Doorways'
 import PageTransition from '@/components/ui/PageTransition'
 import PublicationCardSkeleton from '@/components/features/PublicationCardSkeleton'
 import Card from '@/components/ui/Card'
@@ -59,7 +59,7 @@ export default function HomePage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
           Bridging Consciousness and Physical Reality
         </h1>
-        <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+        <p className="text-xl text-gray-600 mb-5 leading-relaxed">
           Exploring the fundamental nature of reality through a unified framework of energy, consciousness, and matter.
         </p>
       </Section>
@@ -79,10 +79,12 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Three Doorways */}
-      <Section background="white" width="default">
-        <ThreeDoorways />
-      </Section>
+    {/* Three Doorways */}
+    <Section background="white" width="default">
+      <div className="max-w-6xl mx-auto">
+        <Doorways showHeader={true} />
+      </div>
+    </Section>
 
       {/* Recent Publications */}
       <Section background="gray" width="default">

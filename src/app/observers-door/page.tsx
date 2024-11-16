@@ -9,10 +9,12 @@ import { Eye, ArrowRight, Book, Mail } from 'lucide-react'
 import Section from '@/components/ui/Section'
 import PageTransition from '@/components/ui/PageTransition'
 import InteractiveLink from '@/components/ui/InteractiveLink'
-import { ObserversHeader, WalkTheRoad } from '@/components/features/ObserversDoor'
+import DoorHeader from '@/components/features/DoorHeader'
+import DoorEnterButton from '@/components/features/DoorEnterButton';
+import DoorJourney from '@/components/features/DoorJourney'
+import DoorSeriesNav from '@/components/features/DoorSeriesNav';
 
 export default function ObserversDoorPage() {
-  
   const [isSubscribing, setIsSubscribing] = useState(false);
   
   return (
@@ -22,7 +24,8 @@ export default function ObserversDoorPage() {
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
             {/* Main Content */}
             <div className="lg:w-2/3 border-l border-r border-gray-100 px-8">
-              <ObserversHeader />
+            
+              <DoorHeader doorType="observers-door" />
 
               {/* Main Content */}
               <div className="prose prose-lg max-w-none">
@@ -59,7 +62,7 @@ export default function ObserversDoorPage() {
                       description: "Discover how the act of observing shapes reality, from the quantum level to our everyday interactions."
                     },
                     {
-                      title: "Truth and Illusion",
+                      title: "Belief and Truth",
                       description: "Learn to discern the beliefs that shape your perception and uncover how reality can be both stable and fluid."
                     },
                     {
@@ -73,40 +76,14 @@ export default function ObserversDoorPage() {
                       whileHover={{ y: -4 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <h3 className="text-lg font-normal mb-3 text-gray-900">{item.title}</h3>
+                      <h3 className="text-lg font-medium mb-3 text-gray-900">{item.title}</h3>
                       <p className="text-sm text-gray-600">{item.description}</p>
                     </motion.div>
                   ))}
                 </div>
                 
-                {/* Begin Button */}
-                <div className="mt-16">
-                  <motion.div
-                    className="flex justify-end"
-                    whileHover={{ 
-                      scale: 1.02,
-                      transition: { duration: 0.2 }
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Link 
-                      href="/articles/observer/significance-of-observer"
-                      className="group inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-blue-50 to-slate-50  border border-blue-100 text-blue-700 rounded-lg hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300"
-                    >
-                      <span className="font-light tracking-wide">Begin</span>
-                      <motion.div
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ 
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      >
-                        <ArrowRight className="w-4 h-4 text-blue-600/80" />
-                      </motion.div>
-                    </Link>
-                  </motion.div>
-                </div>
+            {/* Enter Button */}
+            <DoorEnterButton doorType="observers-door" />
 
               </div>
             </div>
@@ -119,32 +96,10 @@ export default function ObserversDoorPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               {/* Begin Journey Card */}
-              <WalkTheRoad />
+              <DoorJourney doorType="observers-door" />
 
               {/* Article Navigation */}
-              <div className="bg-white rounded-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-900">Article Series</h3>
-                <div className="space-y-4">
-                  <div className="text-sm">
-                    <p className="text-gray-600 mb-2">First Article</p>
-                    <InteractiveLink 
-                      href="/articles/observer/significance-of-observer"
-                      className="text-gray-900 hover:text-blue-600"
-                    >
-                      The Significance of the Observer: Why Consciousness Completes the Picture of Reality
-                    </InteractiveLink>
-                  </div>
-                  <div className="text-sm">
-                    <p className="text-gray-600 mb-2">Next</p>
-                    <InteractiveLink 
-                      href="/articles/metaphysical/nature-of-self"
-                      className="text-gray-900 hover:text-blue-600"
-                    >
-                      The Nature of the Self: Beyond Thought and Identity
-                    </InteractiveLink>
-                  </div>
-                </div>
-              </div>
+              <DoorSeriesNav doorType="observers-door" />
 
               {/* Book Promotion */}
               <motion.div 

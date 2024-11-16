@@ -49,7 +49,7 @@ export default function AboutPage() {
 
             {/* Introduction */}
             <motion.div 
-              className="prose prose-lg max-w-none mb-12"
+              className="prose prose-lg max-w-none mb-10"
               {...fadeIn}
             >
               <p className="text-xl text-gray-700 leading-relaxed">
@@ -134,27 +134,6 @@ export default function AboutPage() {
                 ))}
               </div>
             </div> */}
-
-            {/* Vision Section 
-            <motion.div 
-                className="mb-8 p-6 rounded-lg border-l-4 border-gray-100"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                style={{
-                    background: "linear-gradient(to right, rgb(249, 250, 251), white)"
-                }}
-                //whileHover={{
-                //    background: "linear-gradient(to right, rgb(239, 246, 255), rgb(249, 250, 251))",
-                //    transition: { duration: 0.5 }
-                //}}
-                >
-              <h2 className="text-2xl font-semibold mb-6 text-gray-900">Vision</h2>
-              <p className="text-gray-800 leading-relaxed text-base">
-                We're at a crucial point in human understanding where we need to bridge the gap between scientific materialism and conscious experience. My work aims to provide a theoretical foundation for this integration, offering both practical insights for individual development and new directions for scientific research.
-              </p>
-            </motion.div>*/}
 
               {/* Contact Section */}
               <motion.div 

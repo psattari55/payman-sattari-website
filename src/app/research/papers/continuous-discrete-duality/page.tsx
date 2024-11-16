@@ -39,7 +39,7 @@ export default function PaperPage() {
           <div className="mb-12 flex items-start gap-3">
             <Info className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
             <p className="text-sm text-gray-700 italic">
-              This paper is currently under peer review at Physical Review Letters. Due to journal submission policies, the full manuscript cannot be shared publicly at this time. Qualified researchers interested in discussing this work may inquire through the research contact form.
+              This paper is currently under review at Physical Review Letters. Due to journal submission policies, the full manuscript cannot be shared publicly at this time. Qualified researchers interested in discussing this work may inquire through the research contact form.
             </p>
           </div>
 
