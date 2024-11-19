@@ -27,7 +27,7 @@ const journeyConfigs: Record<string, DoorJourneyConfig> = {
     gradientVia: "blue-50"
   },
   'scholars-door': {
-    title: "Enter the Scholar's Door",
+    title: "Enter Scholar's Door",
     firstArticle: {
       title: "The History of Truth",
       href: "/articles/scientific/history-of-truth"
@@ -36,10 +36,10 @@ const journeyConfigs: Record<string, DoorJourneyConfig> = {
     gradientVia: "emerald-50"
   },
   'practitioners-door': {
-    title: "Walk the Practitioner's Road",
+    title: "Enter the Practitioner's Road",
     firstArticle: {
-      title: "The Art of Balance",
-      href: "/articles/metaphysical/art-of-balance"
+      title: "The Importance of Integration",
+      href: "/articles/development/importance-of-integration"
     },
     color: "amber",
     gradientVia: "amber-50"

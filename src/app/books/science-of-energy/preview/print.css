@@ -1,0 +1,25 @@
+@media print {
+    /* Hide navigation elements */
+    nav, 
+    button,
+    .preview-note {
+      display: none !important;
+    }
+  
+    /* Optimize text for printing */
+    body {
+      font-size: 12pt;
+      line-height: 1.5;
+      color: black;
+    }
+  
+    /* Ensure proper page breaks */
+    h1, h2, h3 {
+      page-break-after: avoid;
+    }
+  
+    p {
+      widows: 3;
+      orphans: 3;
+    }
+  }

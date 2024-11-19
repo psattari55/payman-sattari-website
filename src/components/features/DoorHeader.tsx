@@ -20,7 +20,7 @@ const doorConfigs: Record<string, DoorConfig> = {
     title: "The Observer's Door",
     subtitle: "Exploring Inner Dynamics and the Nature of Experience",
     color: 'text-blue-600/80',
-    gradientFrom: 'from-blue-100'
+    gradientFrom: 'from-slate-50'
   },
   'scholars-door': {
     icon: Book,

@@ -26,20 +26,20 @@ const menuItems: MenuItem[] = [
       { name: 'Research Overview', path: '/research' },
       { name: 'Academic Papers', path: '/research#papers' },
       { name: 'Theoretical Framework', path: '/research/framework' },
-      { name: 'Research Contact', path: '/research/contact' },
     ]
   },
   {
     name: 'Books',
-    path: '/books',
+    path: '/books/science-of-energy',
     subItems: [
       { name: 'The Science of Energy', path: '/books/science-of-energy' },
-      { name: 'Basic Duality', path: '/books/basic-duality' },
-      { name: 'Study Guides', path: '/books/study-guides' }
+      { name: 'Framework', path: '/books/science-of-energy/framework' },
+      { name: 'Understanding', path: '/books/science-of-energy/understanding' },
+      { name: 'Series Overview', path: '/books/series' }
     ]
   },
   {
-    name: 'Articles & Insights',
+    name: 'Articles',
     path: '/articles',
     subItems: [
       { name: 'Scientific Insights', path: '/articles/scientific' },
@@ -49,12 +49,22 @@ const menuItems: MenuItem[] = [
     ]
   },
   {
+    name: 'Insights',
+    path: '/insights',
+    subItems: [
+      { name: 'Daily Insights', path: '/insights/daily' },
+      { name: 'AI Conversations', path: '/insights/ai-conversations' },
+      { name: 'Multimedia Content', path: '/insights/multimedia' }
+    ]
+  },
+  {
     name: 'Practice',
     path: '/practice',
     subItems: [
-      { name: 'Integration', path: '/practice/integration' },
-      { name: 'Practical Applications', path: '/practice/applications' },
-      { name: 'Energy Principles', path: '/practice/principles' }
+      { name: 'Integration', path: '/articles/development/importance-of-integration' },
+      { name: 'Energy Principles', path: '/practice/principles' },
+      { name: 'Mantras & Meditations', path: '/practice/meditations' },
+      { name: 'Mindfulness', path: '/practice/mindfulness' },
     ]
   },
   {

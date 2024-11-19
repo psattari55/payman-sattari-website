@@ -1,6 +1,6 @@
 // src/components/article/ArticleNavigation.tsx
 import { motion } from 'framer-motion';
-import { Eye } from 'lucide-react';
+import { Eye, Book, Lightbulb, CircleDot } from 'lucide-react';
 import InteractiveLink from '@/components/ui/InteractiveLink';
 
 interface ArticleNavigationProps {
@@ -20,26 +20,26 @@ const getDoorStyles = (door: string) => {
   switch (door) {
     case "Scholar's Door":
       return {
-        bgColor: 'bg-slate-100',
-        icon: Eye,  // You can change icons for different doors if desired
+        bgColor: 'bg-gray-50',
+        icon: Book,  // You can change icons for different doors if desired
         text: "Scholar's Door"
       };
     case "Observer's Door":
       return {
-        bgColor: 'bg-stone-100',
+        bgColor: 'bg-gray-50',
         icon: Eye,
-        text: "Observer's Road"
+        text: "The Observer's Road"
       };
     case "Practitioner's Door":
       return {
-        bgColor: 'bg-emerald-50',
-        icon: Eye,
+        bgColor: 'bg-gray-50',
+        icon: Lightbulb,
         text: "Practitioner's Road"
       };
     default:
       return {
-        bgColor: 'bg-gray-100',
-        icon: Eye,
+        bgColor: 'bg-gray-50',
+        icon: CircleDot,
         text: "Continue Reading"
       };
   }

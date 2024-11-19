@@ -1,4 +1,4 @@
-// src/app/observers-door/page.tsx
+// src/app/scholars-door/page.tsx
 'use client'
 
 import React from 'react'
@@ -30,38 +30,38 @@ export default function ScholarsDoorPage() {
 
               {/* Main Content */}
               <div className="prose prose-lg max-w-none">
-                <p className="text-xl leading-relaxed text-gray-800">
+                <p className="text-lg leading-relaxed text-gray-800">
                 The Scholar's Door invites researchers, academics, and intellectual explorers to engage deeply with the empirical and theoretical advancements within this ontological framework. Here, scientific inquiry meets metaphysical investigation, bridging the classical and quantum realms through foundational principles that reveal both the geometric and experiential nature of reality. This section is designed for readers seeking precision, testable hypotheses, and groundbreaking approaches to longstanding questions in both science and metaphysics.
                 </p>
 
-                <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">Beyond the Material Paradigm</h2>
-                <p className="text-lg leading-relaxed text-gray-800">
+                <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">Beyond the Material Paradigm</h2>
+                <p className="text-lg text-gray-800">
                 Modern science stands at a crossroads. While our technological and mathematical tools have never been more sophisticated, fundamental questions about consciousness, quantum phenomena, and the nature of reality itself remain unresolved. These persistent puzzles suggest we may need more than new equations—we may need a new framework for understanding reality itself.
                 </p>
 
-                <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">A New Framework for Understanding Reality</h2>
-                <p className="text-lg leading-relaxed text-gray-800">
+                <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">A New Framework for Understanding Reality</h2>
+                <p className="text-lg text-gray-800">
                 <em>The Science of Energy</em> lays the groundwork for an ontology where reality is viewed through a holistic lens, dissolving artificial boundaries between disciplines and paving the way for a unified system of thought that redefines concepts like consciousness, matter, and duality. This approach integrates many seemingly contradictory aspects of existence, offering fresh perspectives on quantum phenomena, consciousness, and the fabric of space and time. Here, scholars will find a framework that goes beyond the often compartmentalized knowledge prevalent in academic treatments of reality, proposing a cohesive view that respects both the empirical rigor of science and the transformative potential of metaphysical inquiry.
                 </p>
 
                 <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">What You'll Discover in the Scholar's Door</h2>
-                <p className="text-lg leading-relaxed text-gray-800">
+                <p className="text-lg text-gray-800">
                 This section presents a range of resources and articles designed to engage deeply with the principles of this system. You'll find:
                 </p>
                 <ul className="list-none space-y-6 my-8">
-                  <li className="pl-6 border-l-2 border-blue-100">
+                  <li className="pl-6 border-l-2 border-emerald-100">
                     <strong className="text-gray-900">Theoretical Foundations: </strong>Delve into core concepts like continuous-discrete duality, space-time as a relational field, and the observer-observed interaction. Each concept is presented with a focus on precision and clarity, inviting scholarly engagement.
                   </li>
-                  <li className="pl-6 border-l-2 border-blue-100">
+                  <li className="pl-6 border-l-2 border-emerald-100">
                     <strong className="text-gray-900">Scientific Implications: </strong>Explore how this system applies to and expands upon contemporary scientific knowledge. By bridging quantum and classical realms, it offers insights into complex dynamics between observer and observed, wave-particle duality, and the role of consciousness in shaping physical reality.
                   </li>
-                  <li className="pl-6 border-l-2 border-blue-100">
+                  <li className="pl-6 border-l-2 border-emerald-100">
                     <strong className="text-gray-900">Innovative Perspectives on Consciousness: </strong>Investigate the nature of consciousness as more than an emergent property, exploring its foundational role in the ontological structure of reality. This approach challenges materialist views, proposing that consciousness is integral to understanding the foundations of physical and metaphysical systems.
                   </li>
                 </ul>
 
-                <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">An Invitation to Engage and Explore</h2>
-                <p className="text-lg leading-relaxed text-gray-800">
+                <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">An Invitation to Engage and Explore</h2>
+                <p className="text-lg text-gray-800">
                 More than a repository of resources, The Scholar's Door is an invitation to question, investigate, and potentially reshape our understanding of reality. We invite you to engage critically, test hypotheses, and consider how these principles might offer innovative solutions to contemporary challenges in physics, metaphysics, and our understanding of the underlying order of nature.
                 </p>
                 

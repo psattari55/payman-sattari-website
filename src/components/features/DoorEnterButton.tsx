@@ -15,7 +15,7 @@ interface DoorConfig {
 
 const doorConfigs: Record<string, DoorConfig> = {
   'scholars-door': {
-    text: "Enter the Scholar's Door",
+    text: "Enter Scholar's Door",
     color: 'from-emerald-50/50 to-slate-50',
     firstArticlePath: scholarsDoorSequence[0].path
   },

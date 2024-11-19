@@ -79,7 +79,6 @@ export default function PractitionersDoorPage() {
 
             {/* Enter Button */}
             <DoorEnterButton doorType="practitioners-door" />
-
               </div>
             </div>
 

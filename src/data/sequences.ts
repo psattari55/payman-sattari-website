@@ -81,7 +81,7 @@ interface ArticleSequence {
       subtitle: "Why Consciousness Completes the Picture of Reality",
       path: "/articles/metaphysical/significance-of-observer",
       sequence: 1,
-      description: "",
+      description: "Explores the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
       estimatedReadTime: "5 min"
     },
     {
@@ -97,7 +97,7 @@ interface ArticleSequence {
       subtitle: "Understanding the Full Spectrum of Experience",
       path: "/articles/metaphysical/inner-outer-realities",
       sequence: 3,
-      description: "",
+      description: "The role of the relationship between inner and outer realities in life and the cosmos.",
       estimatedReadTime: "6 min"
     },
     {
@@ -105,7 +105,7 @@ interface ArticleSequence {
         subtitle: "Why Opposites Unite",
         path: "/articles/metaphysical/understanding-duality",
         sequence: 4,
-        description: "",
+        description: "Explores how opposite yet complementary forces come together to form the foundation of reality.",
         estimatedReadTime: "4 min"
     },
     {
@@ -121,7 +121,7 @@ interface ArticleSequence {
         subtitle: "Shaping Reality from the Inside Out",
         path: "/articles/metaphysical/consciousness-as-creator",
         sequence: 6,
-        description: "",
+        description: "Explores the role of consciousness as creator to transform reality through focus, intention, and awareness.",
         estimatedReadTime: "7 min"
     }
   ] as const;
@@ -132,7 +132,7 @@ interface ArticleSequence {
       subtitle: "Turning Insight into Transformation",
       path: "/articles/development/importance-of-integration",
       sequence: 1,
-      description: "",
+      description: "Learn how to transform moments of insight into lasting change through the practice of integration.",
       estimatedReadTime: "6 min"
     },
     {
@@ -140,22 +140,22 @@ interface ArticleSequence {
       subtitle: "How Your Inner World Shapes Your Outer Experience",
       path: "/articles/development/primacy-of-inner-reality",
       sequence: 2,
-      description: "",
+      description: "Understanding the relationship between our inner world and outer experience for a more fulfilling life.",
       estimatedReadTime: "4 min"
     },
     {
         title: "The Power of Belief Systems in Shaping Reality",
         path: "/articles/development/belief-systems-reality",
         sequence: 3,
-        description: "",
+        description: "Exploring the nature of belief and its effect on our experience of reality.",
         estimatedReadTime: "6 min"
     },
     {
         title: "Balance in Daily Life",
-        subtitle: "Applying Yin and Yang",
+        subtitle: "A Dance of Opposites",
         path: "/articles/development/balance-in-daily-life",
         sequence: 4,
-        description: "",
+        description: "Discover how balancing opposites can create harmony, resilience, and flow in your daily life.",
         estimatedReadTime: "6 min"
     },
     {
@@ -163,7 +163,7 @@ interface ArticleSequence {
         subtitle: "Navigating Life's Ups and Downs with Grace",
         path: "/articles/development/emotional-resilience",
         sequence: 5,
-        description: "",
+        description: "Learn how to build emotional resilience through self-compassion, presence with emotions, and finding meaning in challenges.",
         estimatedReadTime: "8 min"
     },
     {
@@ -171,7 +171,7 @@ interface ArticleSequence {
         subtitle: "Coming Home to the Earth and the Body",
         path: "/articles/development/grounding",
         sequence: 6,
-        description: "",
+        description: "Explore grounding as a practice of reconnecting with the Earth, your body, and the instinctual wisdom that brings stability and belonging.",
         estimatedReadTime: "10 min"
     }
   ] as const;
