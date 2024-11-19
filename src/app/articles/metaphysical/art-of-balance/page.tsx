@@ -33,7 +33,7 @@ const fadeIn = {
 };
 
 export default function ArticlePage() {
-  /* FILL IN ALL THE ARTICLE INFO HERE */
+
     const articleInfo = {
       title: "The Art of Balance",
       subtitle: "Working with Energy Dynamics for Inner Harmony",
@@ -96,7 +96,7 @@ export default function ArticlePage() {
                 category={articleInfo.category}
                 door={articleInfo.door}
               />
-              {/* INPUT ARTICLE CONTENT STARTING HERE */}
+
               <article className="prose prose-lg max-w-none">
                 <p className="text-xl text-gray-700 mb-8">
                 In our journey to understand reality, we encounter two essential forces: the inward pull and the outward push, the continuous flow and the discrete moment, the receptive and the active. Together, these polarities create a dynamic that powers every aspect of life. The interplay of these opposing yet complementary energies is not just a cosmic principle—it's a force that shapes our personal experiences and the balance we feel within.

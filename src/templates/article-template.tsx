@@ -40,7 +40,7 @@ export default function ArticlePage() {
       publishDate: "",
       readTime: "",
       category: "",
-      door: "" 
+      door: undefined 
     };
 
     const currentPath = usePathname();
@@ -129,12 +129,14 @@ export default function ArticlePage() {
                 />
 
                 {/* End of Article Navigation */}
+                {navigation.previous || navigation.next ? (
                 <ArticleFooterNavigation 
-                  previousArticle={navigation.previous}
-                  nextArticle={navigation.next}
-                  isLastInSequence={!navigation.next}
-                  doorHref="/#doorways"
+                    previousArticle={navigation.previous}
+                    nextArticle={navigation.next}
+                    isLastInSequence={!navigation.next}
+                    doorHref="/#doorways"
                 />
+                ) : null}
 
               </article>
             </ArticleContent>
@@ -153,11 +155,13 @@ export default function ArticlePage() {
             />
 
             {/* Navigation */}
+            {articleInfo.door && (
             <ArticleNavigation 
-              previous={navigation.previous}
-              next={navigation.next}
-              door={articleInfo.door}
+                previous={navigation.previous}
+                next={navigation.next}
+                door={articleInfo.door}
             />
+            )}
 
             {/* Book Promotion */}
             <BookPromotion 
@@ -171,12 +175,12 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Primacy of the Inner Reality",
+                  href: "/articles/development/primacy-of-inner-reality"
                 },
                 {
                   title: "Understanding Duality",
@@ -187,7 +191,7 @@ export default function ArticlePage() {
                   href: "#"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>
