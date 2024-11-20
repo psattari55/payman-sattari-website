@@ -17,17 +17,17 @@ const doorConfigs: Record<string, DoorConfig> = {
   'scholars-door': {
     text: "Enter Scholar's Door",
     color: 'from-emerald-50/50 to-slate-50',
-    firstArticlePath: scholarsDoorSequence[0].path
+    firstArticlePath: scholarsDoorSequence[0].slug
   },
   'observers-door': {
     text: "Enter the Observer's Door",
     color: 'from-blue-50/50 to-slate-50',
-    firstArticlePath: observersDoorSequence[0].path
+    firstArticlePath: observersDoorSequence[0].slug
   },
   'practitioners-door': {
     text: "Enter the Practitioner's Door",
     color: 'from-amber-50/50 to-slate-50',
-    firstArticlePath: practitionersDoorSequence[0].path
+    firstArticlePath: practitionersDoorSequence[0].slug
   }
 }
 

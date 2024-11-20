@@ -44,7 +44,7 @@ const DoorSeriesNav = ({ doorType }: DoorSeriesNavProps) => {
         <div className="text-sm">
           <p className="text-gray-600 mb-2">First Article</p>
           <InteractiveLink 
-            href={firstArticle.path}
+            href={firstArticle.slug}
             className={`text-gray-900 ${getHoverColor()}`}
           >
             {firstArticle.title}
@@ -54,7 +54,7 @@ const DoorSeriesNav = ({ doorType }: DoorSeriesNavProps) => {
         <div className="text-sm">
           <p className="text-gray-600 mb-2">Next</p>
           <InteractiveLink 
-            href={secondArticle.path}
+            href={secondArticle.slug}
             className={`text-gray-900 ${getHoverColor()}`}
           >
             {secondArticle.title}

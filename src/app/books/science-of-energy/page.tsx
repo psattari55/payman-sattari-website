@@ -146,16 +146,30 @@ const editorialReviews = [
         author: "avidarkansasreader",
         quote: "This book may cause a loss of sleep. I tend to read nightly before sleep and this book offers many ideas to contemplate. An enjoyable read.",
         stars: 5,
-        source: "Goodreads",
+        source: "Amazon",
         date: "April 10, 2024"
     },
     {
-        author: "Waylon",
+        author: "John Allen",
         quote: "Perhaps the most enlightening book I have ever read. A comprehensive insight into scientific reality with a revaluation of the personal experience missing. Offering a threshold toward the deep longing we all have for the joy of living.",
         stars: 5,
         source: "Goodreads",
         date: "June 13, 2024"
     },
+    {
+      author: "Reader",
+      quote: "I LOVE THIS BOOK. It makes me love science. He walks through those who have contributed to our discoveries, theories, and knowledge. Then comes in with a smart explanation of what's presently missing in science and how we can explore this. It's brain expanding. captivating and thought-provoking. And it's also beautifully written.",
+      stars: 5,
+      source: "Amazon",
+      date: "June 26, 2024"
+    },
+    {
+      author: "Diego",
+      quote: "This book surprised me. I never thought science and metaphysics could be discussed at the same time in any coherent way, but here we are… Regardless of what you think about either topic, this book will make you think. You'd be hard pressed to walk away without something interesting or of value. 5 stars",
+      stars: 5,
+      source: "Amazon",
+      date: "June 26, 2024"
+    }
   ];
 
 export default function ScienceOfEnergyPage() {
@@ -347,7 +361,7 @@ export default function ScienceOfEnergyPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
-                    principle: "The Observer Effect",
+                    principle: "The Observer & Relativity",
                     description: "Reality is defined relative to the observer. Understanding this relationship is key to grasping the nature of existence."
                   },
                   {

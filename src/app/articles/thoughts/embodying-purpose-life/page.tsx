@@ -232,23 +232,23 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Primacy of the Inner Reality",
+                  href: "/articles/development/primacy-of-inner-reality"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
+                  title: "The Power of Belief Systems in Shaping Reality",
+                  href: "/articles/development/belief-systems-reality"
                 },
                 {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "Balance in Daily Life",
+                  href: "/articles/development/balance-in-daily-life"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>
