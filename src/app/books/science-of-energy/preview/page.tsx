@@ -53,7 +53,7 @@ export default function Preview() {
             <div className="text-center mb-24">
               <h1 className="text-4xl font-light mb-6">Bridging Consciousness and Physical Reality</h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Explore key insights from The Science of Energy that reveal how consciousness and physical reality are two aspects of the same cosmic order.
+                Explore key insights from The Science of Energy that reveal how consciousness and physical reality are two aspects of the same underlying order.
               </p>
             </div>
 

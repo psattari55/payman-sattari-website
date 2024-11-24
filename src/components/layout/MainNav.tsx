@@ -61,10 +61,14 @@ const menuItems: MenuItem[] = [
     name: 'Practice',
     path: '/practice',
     subItems: [
-      { name: 'Integration', path: '/articles/development/importance-of-integration' },
-      { name: 'Energy Principles', path: '/practice/principles' },
-      { name: 'Mantras & Meditations', path: '/practice/meditations' },
-      { name: 'Mindfulness', path: '/practice/mindfulness' },
+      { name: 'Inwardness', path: '/practice/inwardness' },
+      { name: 'Balance', path: '/practice/balance' },
+      { name: 'Discipline', path: '/practice/discipline' },
+      { name: 'Boundaries', path: '/practice/boundaries' },
+      { name: 'Empathy', path: '/practice/empathy' },
+      { name: 'Meditation', path: '/practice/meditation' },
+      { name: 'Love and Limits', path: '/practice/limits' },
+      { name: 'Practices', path: '/practice/consciousness-keys' }
     ]
   },
   {
