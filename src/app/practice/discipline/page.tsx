@@ -188,8 +188,8 @@ const DisciplinePage = () => {
                 The Dance of Love and Limits
               </p>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Discover how true discipline emerges through the dynamic harmony of love and limits,
-                creating structure that supports growth while maintaining connection.
+                Discover how true discipline emerges through the dynamic harmony between love (limitlessness, empathy) and limits (boundaries),
+                creating structures that support growth while maintaining connection.
               </p>
             </motion.div>
 

@@ -1,4 +1,4 @@
-// src/app/practice/consciousness-keys/page.tsx
+// src/app/practice/consciousness-codes/page.tsx
 'use client'
 
 import React, { useState } from 'react';
@@ -97,7 +97,7 @@ export default function ConsciousnessKeysPage() {
               <div className="prose prose-gray max-w-none">
                 <p>
                   These are not traditional koans or mantras. Rather, they are like "codes" that, when understood and spoken with intention, can shift internal energy and unlock deeper states of awareness. Be aware that the power lies not in mere repetition, but in the felt embodiment of their meaning. In other words, rather than simply "saying words", you must <em>mean</em> them.
-                  Once you have understood the phrase, repeat it in your mind while feeling its meaning. Note that virtually any of the "Daily Insights" can be used in this same way.
+                  Once you have understood the phrase, repeat it in your mind while embodying its meaning. Note that virtually any of the "Daily Insights" can be used in this same way.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
                   <div className="space-y-2">
@@ -115,7 +115,7 @@ export default function ConsciousnessKeysPage() {
                   <div className="space-y-2">
                     <h3 className="font-medium text-gray-900">Remain Present</h3>
                     <p className="text-sm text-gray-600">
-                      Keep your center. When working with these kinds of shifts in energy, it can be easy to be swept along by the current. Remain the observer.
+                      Keep your center. When working with shifts in energy, it can be easy to be swept along by the current. Remain the observer.
                     </p>
                   </div>
                 </div>

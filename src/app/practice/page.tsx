@@ -1,185 +1,190 @@
 // src/app/practice/page.tsx
 'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Eye, Scale, Heart, Shield, ArrowRight, Unplug, Brain } from 'lucide-react';
-import PageTransition from '@/components/ui/PageTransition';
-import Section from '@/components/ui/Section';
-import InteractiveLink from '@/components/ui/InteractiveLink';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { BookOpen, ChevronRight, Share2, Book } from 'lucide-react';
 
-const PracticePage = () => {
-  // Main practice categories with their subsections
-  const mainPractices = [
+export default function PracticePage() {
+  const [currentSection, setCurrentSection] = useState('meditation');
+
+  const sections = [
     {
       id: 'inwardness',
       title: 'Inwardness',
-      subtitle: 'The Foundation',
-      description: 'Learn to look inward, understand what you find, and maintain objective awareness',
-      color: 'bg-blue-500',
-      icon: Eye,
-      sections: [
-        { name: 'Meditation', description: 'The art of looking inward' },
-        { name: 'Inner Landscape', description: 'Understanding what we find' },
-        { name: 'Detachment', description: 'Creating space to see clearly' }
+      description: 'The foundation of inner work',
+      subsections: [
+        { id: 'meditation', title: 'Meditation', subtitle: 'The Gateway Inward' },
+        { id: 'landscape', title: 'Inner Landscape', subtitle: 'Understanding What We Find' },
+        { id: 'detachment', title: 'Detachment', subtitle: 'Creating Space to See' }
       ]
     },
     {
       id: 'balance',
       title: 'Balance',
-      subtitle: 'Energy Dynamics',
-      description: 'Understand and work with complementary forces in consciousness',
-      color: 'bg-purple-500',
-      icon: Scale,
-      sections: [
-        { name: 'Complementary Forces', description: 'Understanding natural opposites' },
-        { name: 'Dynamic Harmony', description: 'Working with energy patterns' }
+      description: 'Working with complementary forces',
+      subsections: [
+        { id: 'energy-dynamics', title: 'Energy Dynamics', subtitle: 'Understanding Flow' },
+        { id: 'complementary-forces', title: 'Complementary Forces', subtitle: 'The Dance of Opposites' }
       ]
     },
     {
       id: 'discipline',
       title: 'Discipline',
-      subtitle: 'Love & Limits',
-      description: 'Create healthy structure through the balance of love and limits',
-      color: 'bg-indigo-500',
-      icon: Brain,
-      sections: [
-        { name: 'Understanding Discipline', description: 'Beyond control and permissiveness' },
-        { name: 'Practical Application', description: 'Building healthy structure' }
+      description: 'The art of conscious development',
+      subsections: [
+        { id: 'love-limits', title: 'Love and Limits', subtitle: 'The Heart of Growth' },
+        { id: 'boundaries-empathy', title: 'Boundaries & Empathy', subtitle: 'Self and Other' }
       ]
     }
   ];
 
-  const practicalApplications = [
-    {
-      id: 'boundaries',
-      title: 'Boundaries',
-      subtitle: 'The Personal Force',
-      description: 'Learn to recognize, communicate, and maintain healthy limits',
-      color: 'bg-red-500',
-      icon: Shield
-    },
-    {
-      id: 'empathy',
-      title: 'Empathy',
-      subtitle: 'The Transpersonal Force',
-      description: 'Develop genuine connection while maintaining healthy separation',
-      color: 'bg-green-500',
-      icon: Heart
-    }
-  ];
-
-  const PracticeCard = ({ practice, isMain = false }) => {
-    const Icon = practice.icon;
-    return (
-      <motion.div 
-        whileHover={{ y: -4 }}
-        className="bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300"
-      >
-        <div className={`${practice.color} bg-opacity-10 p-6`}>
-          <div className="flex items-center justify-between">
-            <Icon className={`w-6 h-6 ${practice.color.replace('bg-', 'text-')}`} />
-            <ArrowRight className="w-5 h-5 text-gray-400" />
-          </div>
-          <h3 className="mt-4 text-xl font-light tracking-wide text-gray-900">{practice.title}</h3>
-          <p className="mt-1 text-sm text-gray-600">{practice.subtitle}</p>
-        </div>
-        <div className="p-6">
-          <p className="text-gray-600 mb-4">{practice.description}</p>
-          {isMain && practice.sections && (
-            <div className="space-y-3 mt-4 border-t pt-4">
-              {practice.sections.map(section => (
-                <div key={section.name} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gray-200" />
-                  <span className="text-sm text-gray-600">{section.name}</span>
+  const ProgressMap = () => (
+    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
+      <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
+        <h3 className="text-lg font-light text-gray-900">Journey Map</h3>
+      </div>
+      <div className="p-6">
+        {sections.map((section, sectionIndex) => (
+          <div key={section.id} className="mb-8 last:mb-0">
+            <div className="mb-3">
+              <h4 className="text-sm font-medium text-gray-900">{section.title}</h4>
+              <p className="text-xs text-gray-500">{section.description}</p>
+            </div>
+            <div className="relative">
+              <div className="absolute left-[11px] top-0 bottom-0 w-px bg-gray-200" />
+              {section.subsections.map((subsection, subIndex) => (
+                <div 
+                  key={subsection.id}
+                  className="relative flex items-start mb-4 last:mb-0 group cursor-pointer"
+                  onClick={() => setCurrentSection(subsection.id)}
+                >
+                  <motion.div 
+                    className={`w-6 h-6 rounded-full border-2 flex items-center justify-center bg-white
+                      ${currentSection === subsection.id ? 
+                        'border-blue-600' : 
+                        'border-gray-300 group-hover:border-gray-400'}`}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {currentSection === subsection.id && (
+                      <motion.div 
+                        className="w-3 h-3 rounded-full bg-blue-600"
+                        layoutId="progressIndicator"
+                      />
+                    )}
+                  </motion.div>
+                  <div className="ml-3 pt-1">
+                    <div className={`text-sm font-medium transition-colors
+                      ${currentSection === subsection.id ? 
+                        'text-blue-600' : 
+                        'text-gray-900 group-hover:text-gray-700'}`}>
+                      {subsection.title}
+                    </div>
+                    <div className="text-xs text-gray-500">{subsection.subtitle}</div>
+                  </div>
                 </div>
               ))}
             </div>
-          )}
-        </div>
-      </motion.div>
-    );
-  };
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Section width="default" className="pt-24 pb-16">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto px-4 py-24">
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Main Content */}
+          <div className="lg:w-2/3">
+            <article className="prose prose-lg max-w-none">
               <h1 className="text-4xl md:text-5xl font-light mb-6 tracking-wide text-gray-900">
-                Core Practices
+                Meditation: The Gateway Inward
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                A comprehensive framework for conscious development through understanding and working with the fundamental forces that shape experience.
+              
+              <p className="text-xl text-gray-700 mb-8">
+                At its essence, meditation is not a technique or set of practices, but rather 
+                the fundamental capacity to look inward—a natural movement of consciousness 
+                toward itself.
               </p>
-            </motion.div>
 
-            {/* Foundation Practices */}
-            <div className="mb-16">
-              <h2 className="text-2xl font-light mb-8 text-gray-900">Foundation</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {mainPractices.map((practice, index) => (
-                  <motion.div
-                    key={practice.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <PracticeCard practice={practice} isMain={true} />
-                  </motion.div>
-                ))}
+              <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">The Nature of Meditation</h2>
+              <p className="text-lg leading-relaxed text-gray-800">
+                Looking inward is as natural as looking outward. Just as our physical eyes 
+                allow us to perceive the outer world, we have an innate capacity for inner 
+                vision. This capacity precedes any technique or practice—it is fundamental 
+                to consciousness itself.
+              </p>
+
+              <div className="pl-6 border-l-2 border-blue-100 my-8">
+                <p className="text-lg italic text-gray-700">
+                  Just as we naturally possess the capacity to look outward through our physical 
+                  senses, we have an innate ability to turn our attention inward. This inward 
+                  looking is meditation in its purest form.
+                </p>
               </div>
-            </div>
 
-            {/* Practical Applications */}
-            <div>
-              <h2 className="text-2xl font-light mb-8 text-gray-900">Practical Applications</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {practicalApplications.map((practice, index) => (
-                  <motion.div
-                    key={practice.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <PracticeCard practice={practice} />
-                  </motion.div>
-                ))}
+              <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">Beyond Technique</h2>
+              <p className="text-lg leading-relaxed text-gray-800">
+                While various methods and practices exist to facilitate this inward movement, 
+                they are simply tools that support our natural capacity for inner attention. 
+                The essence of meditation transcends any particular approach.
+              </p>
+
+              <div className="bg-blue-50 rounded-lg border border-blue-100 p-6 my-8">
+                <h3 className="text-xl font-medium text-gray-900 mb-3">Key Understanding</h3>
+                <p className="text-gray-800 mb-0">
+                  Meditation is not about achieving particular states or experiences, but about 
+                  developing our capacity to be present with whatever arises in our awareness.
+                </p>
               </div>
-            </div>
+            </article>
+          </div>
 
-            {/* Integration Section */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-16 rounded-lg border border-gray-100 overflow-hidden bg-white"
-            >
+          {/* Sidebar */}
+          <motion.aside 
+            className="lg:w-1/3 space-y-8"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {/* Share Buttons */}
+            <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
               <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
-                <h2 className="text-xl font-light text-gray-900">The Path of Integration</h2>
+                <h3 className="text-lg font-light text-gray-900">Share</h3>
               </div>
               <div className="p-6">
-                <div className="prose max-w-none">
-                  <p className="text-gray-700 leading-relaxed">
-                    These practices work together to create a complete system of conscious development. 
-                    Beginning with inward attention, we learn to understand and work with the forces that 
-                    shape our experience. This understanding then manifests through practical applications 
-                    that transform our relationship with ourselves and others.
-                  </p>
+                <button className="w-full py-2 px-4 rounded-lg border border-gray-200 text-gray-700 flex items-center justify-center gap-2 hover:bg-gray-50">
+                  <Share2 className="w-4 h-4" />
+                  <span>Share this article</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Progress Map */}
+            <ProgressMap />
+
+            {/* Book Promotion */}
+            <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
+              <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
+                <h3 className="text-lg font-light text-gray-900">Further Reading</h3>
+              </div>
+              <div className="p-6">
+                <div className="flex items-start gap-4">
+                  <Book className="w-12 h-12 text-blue-600" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">The Science of Energy</h4>
+                    <p className="text-sm text-gray-600 mb-4">Explore the fundamental nature of reality through a unified framework.</p>
+                    <button className="text-blue-600 text-sm hover:text-blue-700">
+                      Learn more →
+                    </button>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </Section>
+            </div>
+          </motion.aside>
+        </div>
       </div>
-    </PageTransition>
+    </div>
   );
-};
-
-export default PracticePage;
+}

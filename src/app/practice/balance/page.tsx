@@ -230,8 +230,8 @@ const BalancePage = () => {
                 Understanding Energy Dynamics
               </p>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Learn to recognize and work with the complementary forces that shape experience,
-                finding dynamic harmony through understanding and conscious practice.
+                Learn to recognize and work with inner and outer elements of energy,
+                finding harmony through the dynamic balance of complementary forces.
               </p>
             </motion.div>
 

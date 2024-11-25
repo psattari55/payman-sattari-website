@@ -50,7 +50,7 @@ const menuItems: MenuItem[] = [
   },
   {
     name: 'Insights',
-    path: '/insights',
+    path: '/articles',
     subItems: [
       { name: 'Daily Insights', path: '/insights/daily' },
       { name: 'AI Conversations', path: '/insights/ai-conversations' },
@@ -61,14 +61,14 @@ const menuItems: MenuItem[] = [
     name: 'Practice',
     path: '/practice',
     subItems: [
-      { name: 'Inwardness', path: '/practice/inwardness' },
+      { name: 'Inner Work', path: '/practice/inwardness' },
       { name: 'Balance', path: '/practice/balance' },
       { name: 'Discipline', path: '/practice/discipline' },
+      { name: 'Practices', path: '/practice/practices' },
       { name: 'Boundaries', path: '/practice/boundaries' },
+      { name: 'Limits', path: '/practice/limits' },
       { name: 'Empathy', path: '/practice/empathy' },
-      { name: 'Meditation', path: '/practice/meditation' },
-      { name: 'Love and Limits', path: '/practice/limits' },
-      { name: 'Practices', path: '/practice/consciousness-keys' }
+      { name: 'Consciousness Codes', path: '/practice/consciousness-codes' }
     ]
   },
   {
