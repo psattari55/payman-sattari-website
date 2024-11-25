@@ -61,14 +61,15 @@ const menuItems: MenuItem[] = [
     name: 'Practice',
     path: '/practice',
     subItems: [
-      { name: 'Inner Work', path: '/practice/inwardness' },
+      { name: 'Inner Work', path: '/practice/inner-work' },
       { name: 'Balance', path: '/practice/balance' },
       { name: 'Discipline', path: '/practice/discipline' },
       { name: 'Practices', path: '/practice/practices' },
       { name: 'Boundaries', path: '/practice/boundaries' },
       { name: 'Limits', path: '/practice/limits' },
       { name: 'Empathy', path: '/practice/empathy' },
-      { name: 'Consciousness Codes', path: '/practice/consciousness-codes' }
+      { name: 'Consciousness Codes', path: '/practice/consciousness-codes' },
+      { name: 'Inwardness', path: '/practice/inwardness' }
     ]
   },
   {
