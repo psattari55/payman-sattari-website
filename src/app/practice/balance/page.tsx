@@ -1,301 +1,211 @@
 // src/app/practice/balance/page.tsx
 
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Scale, Brain, Heart, ArrowRight, Eye, 
-  Lightbulb, AlertCircle, ArrowLeftRight,
-  Globe, User, Compass
-} from 'lucide-react';
-import PageTransition from '@/components/ui/PageTransition';
-import Section from '@/components/ui/Section';
-import InteractiveLink from '@/components/ui/InteractiveLink';
+import React from "react";
+import Section from "@/components/ui/Section";
+import PageTransition from "@/components/ui/PageTransition";
 
-const BalancePage = () => {
-  const [selectedPair, setSelectedPair] = useState(null);
-
-  const complementaryPairs = [
-    {
-      id: 'sense-intellect',
-      title: 'Sense & Intellect',
-      leftSide: 'Sense',
-      rightSide: 'Intellect',
-      icon: Brain,
-      color: 'blue',
-      description: 'The dynamic between direct sensory knowing and rational understanding',
-      characteristics: {
-        left: ['Immediate knowing', 'Direct experience', 'Felt sense', 'Intuitive grasp'],
-        right: ['Logical analysis', 'Conceptual understanding', 'Rational thought', 'Systematic approach']
-      },
-      signs: {
-        imbalanceLeft: 'Over-reliance on intuition without verification',
-        imbalanceRight: 'Excessive analysis paralysis without trust in direct knowing',
-        balance: 'Integration of intuitive and analytical understanding'
-      },
-      practices: [
-        'Notice when you favor one mode over another',
-        'Practice switching between modes consciously',
-        'Use both in decision-making',
-        'Validate intuition with analysis and vice versa'
-      ]
-    },
-    {
-      id: 'inner-outer',
-      title: 'Inner & Outer',
-      leftSide: 'Inner',
-      rightSide: 'Outer',
-      icon: Compass,
-      color: 'purple',
-      description: 'The relationship between internal experience and external reality',
-      characteristics: {
-        left: ['Subjective experience', 'Personal reality', 'Internal world', 'Private space'],
-        right: ['Objective reality', 'External world', 'Shared experience', 'Public space']
-      },
-      signs: {
-        imbalanceLeft: 'Excessive introversion, losing touch with outer world',
-        imbalanceRight: 'Over-focus on external without inner reflection',
-        balance: 'Harmonious flow between inner and outer life'
-      },
-      practices: [
-        'Regular time for both solitude and engagement',
-        'Connect inner experience with outer activity',
-        'Balance reflection and action',
-        'Maintain awareness of both realms'
-      ]
-    },
-    {
-      id: 'individual-collective',
-      title: 'Individual & Collective',
-      leftSide: 'Individual',
-      rightSide: 'Collective',
-      icon: User,
-      color: 'green',
-      description: 'The balance between personal and communal aspects of experience',
-      characteristics: {
-        left: ['Personal uniqueness', 'Individual perspective', 'Self-expression', 'Autonomy'],
-        right: ['Shared experience', 'Community wisdom', 'Collective harmony', 'Integration']
-      },
-      signs: {
-        imbalanceLeft: 'Excessive individualism, isolation',
-        imbalanceRight: 'Loss of personal identity in group',
-        balance: 'Unique expression within community'
-      },
-      practices: [
-        'Honor both personal and shared wisdom',
-        'Find individual role in collective',
-        'Balance autonomy and connection',
-        'Contribute uniquely to whole'
-      ]
-    },
-    {
-      id: 'universal-particular',
-      title: 'Universal & Particular',
-      leftSide: 'Universal',
-      rightSide: 'Particular',
-      icon: Globe,
-      color: 'indigo',
-      description: 'The relationship between universal principles and specific manifestations',
-      characteristics: {
-        left: ['Universal truth', 'Overarching principles', 'Unified understanding', 'Wholeness'],
-        right: ['Specific instances', 'Unique expressions', 'Individual cases', 'Details']
-      },
-      signs: {
-        imbalanceLeft: 'Over-generalization, missing specifics',
-        imbalanceRight: 'Lost in details, missing larger patterns',
-        balance: 'Understanding both principle and manifestation'
-      },
-      practices: [
-        'See universal in particular',
-        'Connect specific to general',
-        'Balance broad and detailed view',
-        'Find principles in practice'
-      ]
-    }
-  ];
-
-  const PolarityCard = ({ pair }) => {
-    const isSelected = selectedPair?.id === pair.id;
-    return (
-      <motion.div 
-        whileHover={{ y: -2 }}
-        className={`bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300
-          ${isSelected ? 'ring-2 ring-offset-2 ring-blue-500' : ''}`}
-        onClick={() => setSelectedPair(pair)}
-      >
-        <div className={`bg-${pair.color}-50 p-6`}>
-          <div className="flex items-center justify-between">
-            <pair.icon className={`w-6 h-6 text-${pair.color}-600`} />
-            <ArrowRight className="w-5 h-5 text-gray-400" />
-          </div>
-          <h3 className="mt-4 text-xl font-light text-gray-900">{pair.title}</h3>
-          <p className="mt-1 text-sm text-gray-600">{pair.description}</p>
-        </div>
-        
-        {isSelected && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="border-t border-gray-100"
-          >
-            {/* Polarity Display */}
-            <div className="p-6 grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <h4 className="font-medium text-sm text-gray-900">{pair.leftSide}</h4>
-                <div className="space-y-1">
-                  {pair.characteristics.left.map((char, index) => (
-                    <div key={index} className="text-sm text-gray-600 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                      <span>{char}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-medium text-sm text-gray-900">{pair.rightSide}</h4>
-                <div className="space-y-1">
-                  {pair.characteristics.right.map((char, index) => (
-                    <div key={index} className="text-sm text-gray-600 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                      <span>{char}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Balance Indicators */}
-            <div className="p-6 border-t border-gray-100">
-              <h4 className="font-medium text-gray-900 mb-4">Recognition & Practice</h4>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center gap-2 text-red-600 mb-1">
-                    <AlertCircle className="w-4 h-4" />
-                    <span className="text-sm font-medium">Imbalance Signs</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <p className="text-sm text-gray-600">{pair.signs.imbalanceLeft}</p>
-                    <p className="text-sm text-gray-600">{pair.signs.imbalanceRight}</p>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 text-green-600 mb-1">
-                    <Scale className="w-4 h-4" />
-                    <span className="text-sm font-medium">Balance Indicator</span>
-                  </div>
-                  <p className="text-sm text-gray-600">{pair.signs.balance}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Practices */}
-            <div className="p-6 border-t border-gray-100">
-              <h4 className="font-medium text-gray-900 mb-3">Balance Practices</h4>
-              <div className="space-y-2">
-                {pair.practices.map((practice, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm">
-                    <Eye className={`w-4 h-4 text-${pair.color}-600`} />
-                    <span className="text-gray-600">{practice}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </motion.div>
-    );
-  };
-
+export default function BalancePage() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        {/* Hero Section */}
         <Section width="default" className="pt-24 pb-16">
-          <div className="max-w-6xl mx-auto">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <div className="inline-flex items-center gap-2 text-blue-600 mb-6">
-                <Scale className="w-6 h-6" />
-                <span className="text-sm uppercase tracking-wide">Core Practice</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-light mb-6 tracking-wide text-gray-900">
-                Balance
-              </h1>
-              <p className="text-xl text-gray-600 mb-4">
-                Understanding Energy Dynamics
-              </p>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Learn to recognize and work with inner and outer elements of energy,
-                finding harmony through the dynamic balance of complementary forces.
-              </p>
-            </motion.div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl font-normal mb-6 text-gray-900">Balance</h1>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              Understanding and working with the fundamental forces that shape
+              our inner and outer reality.
+            </p>
+          </div>
+        </Section>
 
-            {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-[2fr,1fr] gap-8">
-              {/* Left Column - Polarity Cards */}
-              <div className="space-y-6">
-                {complementaryPairs.map((pair, index) => (
-                  <motion.div
-                    key={pair.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <PolarityCard pair={pair} />
-                  </motion.div>
-                ))}
-              </div>
+        {/* Main Content */}
+        <Section width="default" className="pb-16">
+          <div className="max-w-3xl mx-auto">
+            {/* Understanding Balance */}
+            <div className="prose prose-lg max-w-none mb-16">
+              <p className="text-xl text-gray-700 leading-relaxed">
+                Imagine you are riding on a subway train as it moves violently
+                across the tracks. Standing near the doors, supporting yourself
+                on a horizontal beam above, you must constantly adjust your
+                balance. There's a point at which you feel most stable -
+                shifting weight between left and right, adjusting your stance
+                wider or narrower. This point of greatest stability comes from
+                bringing the different forces acting on you into dynamic
+                harmony.
+              </p>
 
-              {/* Right Column */}
-              <div className="space-y-6">
-                {/* Understanding Balance */}
-                <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-                  <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
-                    <h3 className="text-lg font-light text-gray-900">Understanding Balance</h3>
+              <p>
+                Life itself is like this. Our inner world contains many
+                different forces that must be brought into balance for us to
+                experience stability and harmony. But what does it mean to
+                balance? What are we actually balancing?
+              </p>
+
+              <h2 className="text-3xl font-normal mb-6 text-gray-900">
+                The Nature of Balance
+              </h2>
+              <p>
+                Balance implies a point of stability between two or more forces.
+                It doesn't mean much if you don't know what those forces are or
+                how to identify them. The first step in achieving balance is
+                identifying these forces and the spectrum that lies between
+                them. Only then can you find that point of balance by shifting
+                your weight - your attention and energy - in one direction or
+                the other.
+              </p>
+
+              <h2 className="text-3xl font-normal mt-12 mb-6 text-gray-900">
+                The Fundamental Duality
+              </h2>
+              <p>
+                At the heart of all reality lies a basic duality between two
+                complementary forces: the limitless (yin) and limits (yang).
+                These are not opposing forces in conflict, but complementary
+                energies that create wholeness through their interaction. Like
+                day and night working together to create a full cycle, these
+                forces balance each other, each playing a crucial role in
+                sustaining life and well-being.
+              </p>
+
+              <div className="bg-white p-6 rounded-lg border border-gray-100 my-8">
+                <h3 className="text-2xl font-normal mb-4">
+                  Understanding the Two Forces
+                </h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-xl font-normal mb-2">
+                      Yin: The Force of Limitlessness
+                    </h4>
+                    <p>
+                      Yin represents the receptive, expansive, and flowing
+                      aspects of reality. It is the energy of openness,
+                      connection, and infinite possibility. In our experience,
+                      it manifests as empathy, creativity, and the ability to
+                      extend beyond our personal boundaries.
+                    </p>
                   </div>
-                  <div className="p-6">
-                    <div className="space-y-4">
-                      {[
-                        'Balance is dynamic, not static',
-                        'Each force has its value and purpose',
-                        'Imbalance creates tension and discomfort',
-                        'Balance brings harmony and flow'
-                      ].map((point, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <Lightbulb className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-600">{point}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div>
+                    <h4 className="text-xl font-normal mb-2">
+                      Yang: The Force of Limits
+                    </h4>
+                    <p>
+                      Yang represents the structuring, defining, and containing
+                      aspects of reality. It is the energy of form, distinction,
+                      and concrete manifestation. In our experience, it
+                      manifests as boundaries, clarity, and the ability to
+                      maintain healthy separation.
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                {/* Practice Tips */}
-                <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-                  <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
-                    <h3 className="text-lg font-light text-gray-900">Working with Forces</h3>
-                  </div>
-                  <div className="p-6">
-                    <div className="space-y-4">
-                      {[
-                        'Start with recognition',
-                        'Notice natural tendencies',
-                        'Work with one pair at a time',
-                        'Use senses as guide'
-                      ].map((tip, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <ArrowLeftRight className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-600">{tip}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <h3 className="text-2xl font-normal mt-8 mb-4">
+                Finding Your Center
+              </h3>
+
+              <p className="prose prose-lg max-w-none">
+                Central to working with these forces is finding your center—the
+                point of greatest stability from which you can move in any
+                direction as needed. This center isn't a physical location but a
+                state of consciousness that allows you to recognize where you
+                are on the spectrum between these complementary forces at any
+                given moment.
+              </p>
+
+              <p className="prose prose-lg max-w-none">
+                From this center, you can observe when you're leaning too far in
+                either direction. Too much limitlessness without structure can
+                lead to chaos and dispersion. Too much limitation without
+                openness can lead to rigidity and stagnation. Balance comes from
+                recognizing these extremes and consciously adjusting your
+                position between them.
+              </p>
+
+              <h2 className="text-3xl font-normal mt-12 mb-6 text-gray-900">
+                Working with Complementary Forces
+              </h2>
+
+              <p className="prose prose-lg max-w-none">
+                These complementary forces manifest throughout all aspects of
+                life. We see them in the rhythm between activity and rest, in
+                the interplay between structure and flexibility, in the dance
+                between independence and connection. Learning to recognize these
+                polarities in our daily experience is the first step to working
+                with them consciously.
+              </p>
+
+              <div className="bg-white p-6 rounded-lg border border-gray-100 my-8">
+                <h3 className="text-2xl font-normal mb-4">
+                  Signs of Imbalance
+                </h3>
+                <ul className="space-y-4">
+                  <li className="pl-6 border-l-2 border-blue-100">
+                    When we lean too far toward limitation: rigidity,
+                    resistance, isolation, excessive control
+                  </li>
+                  <li className="pl-6 border-l-2 border-blue-100">
+                    When we lean too far toward limitlessness: chaos, overwhelm,
+                    lack of boundaries, loss of self
+                  </li>
+                </ul>
+              </div>
+
+              <p className="prose prose-lg max-w-none">
+                The art of balance lies in learning to recognize these signs and
+                make conscious adjustments. This isn't about eliminating either
+                force—both are essential to life. Instead, it's about finding
+                the dynamic harmony between them that serves each unique
+                situation.
+              </p>
+
+              <h2 className="text-3xl font-normal mt-12 mb-6 text-gray-900">
+                The Path to Harmony
+              </h2>
+
+              <p className="prose prose-lg max-w-none">
+                As we develop our capacity to work with these fundamental
+                forces, we begin to experience a deeper form of stability. This
+                isn't the rigid stability of a wall, but the dynamic stability
+                of a tree that can bend with the wind while staying rooted in
+                the earth. This is true balance—the ability to remain centered
+                while moving fluidly between different states as life requires.
+              </p>
+
+              <p className="prose prose-lg max-w-none">
+                Understanding these complementary forces and learning to work
+                with them consciously opens the door to greater harmony in all
+                aspects of life. Whether in personal growth, relationships, or
+                creative endeavors, this understanding provides a foundation for
+                navigating life's challenges with greater wisdom and grace.
+              </p>
+
+              <h2 className="text-3xl font-normal mt-12 mb-6 text-gray-900">
+                Practical Applications
+              </h2>
+
+              <p className="prose prose-lg max-w-none">
+                In practical terms, these fundamental forces manifest most
+                clearly in our lives through the twin capacities of boundaries
+                and empathy. Boundaries represent our ability to create healthy
+                limits and structure, while empathy represents our ability to
+                extend beyond those limits to connect with others and with life
+                itself. These practical tools, which we'll explore in depth in
+                later sections, provide concrete ways to work with these
+                universal principles in daily life.
+              </p>
+
+              <div className="prose prose-lg max-w-none mt-8">
+                <p>
+                  Through understanding and consciously working with these
+                  complementary forces, we create the foundation for deeper
+                  practices and greater evolution. Balance isn't just a skill to
+                  develop—it's a fundamental principle of reality that, when
+                  understood and applied, leads to greater harmony both within
+                  ourselves and in our relationship with the world around us.
+                </p>
               </div>
             </div>
           </div>
@@ -303,6 +213,4 @@ const BalancePage = () => {
       </div>
     </PageTransition>
   );
-};
-
-export default BalancePage;
+}

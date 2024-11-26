@@ -1,4 +1,3 @@
-// src/components/practice/SeriesNavigator.tsx
 'use client'
 
 import React from 'react'
@@ -23,7 +22,6 @@ const SeriesNavigator = ({ sections, currentSection }: SeriesNavigatorProps) => 
     }
   }
 
-  // Map icons to sections
   const getIcon = (id: string) => {
     switch (id) {
       case 'meditation':
@@ -37,53 +35,111 @@ const SeriesNavigator = ({ sections, currentSection }: SeriesNavigatorProps) => 
     }
   }
 
+  const containerVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30
+      }
+    }
+  }
+
+  const activeVariants = {
+    active: {
+      backgroundColor: "rgb(239 246 255)",
+      scale: 1.02,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30
+      }
+    },
+    inactive: {
+      backgroundColor: "transparent",
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30
+      }
+    }
+  }
+
   return (
     <motion.div 
       className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
     >
-      <div className="px-6 py-4 bg-stone-50 border-b border-gray-200">
+      <motion.div 
+        className="px-6 py-4 bg-stone-50 border-b border-gray-200"
+        variants={itemVariants}
+      >
         <h3 className="text-lg font-normal text-gray-900">On This Page</h3>
-      </div>
+      </motion.div>
       
       <nav className="p-2">
         {sections.map((section, index) => {
           const Icon = getIcon(section.id)
+          const isComplete = index < currentSection
+          const isActive = index === currentSection
+
           return (
             <motion.button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`flex items-center gap-3 w-full p-3 rounded-md text-left group transition-all duration-300 ${
-                index === currentSection 
-                  ? 'bg-blue-50 text-blue-600' 
-                  : 'hover:bg-gray-50 text-gray-600'
-              }`}
+              variants={activeVariants}
+              animate={isActive ? "active" : "inactive"}
+              className={`
+                flex items-center gap-3 w-full p-3 rounded-md text-left 
+                group transition-all duration-300 relative
+                ${isActive ? 'text-blue-600' : isComplete ? 'text-gray-400' : 'text-gray-600'}
+              `}
               whileHover={{ x: 4 }}
             >
-              <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-                index === currentSection 
-                  ? 'bg-blue-100' 
-                  : 'bg-gray-100 group-hover:bg-gray-200'
-              }`}>
-                <Icon className={`w-4 h-4 ${
-                  index === currentSection 
-                    ? 'text-blue-600' 
-                    : 'text-gray-500 group-hover:text-gray-700'
-                }`} />
+              <div className={`
+                flex items-center justify-center w-8 h-8 rounded-full
+                transition-colors duration-300
+                ${isActive ? 'bg-blue-100' : 
+                  isComplete ? 'bg-green-50' : 
+                  'bg-gray-100 group-hover:bg-gray-200'}
+              `}>
+                <Icon className={`
+                  w-4 h-4 transition-colors duration-300
+                  ${isActive ? 'text-blue-600' : 
+                    isComplete ? 'text-green-500' : 
+                    'text-gray-500 group-hover:text-gray-700'}
+                `} />
               </div>
               
               <div className="flex-1">
-                <span className={`text-sm font-medium transition-colors ${
-                  index === currentSection 
-                    ? 'text-blue-600' 
-                    : 'text-gray-700 group-hover:text-gray-900'
-                }`}>
+                <span className={`
+                  text-sm font-medium transition-colors duration-300
+                  ${isActive ? 'text-blue-600' : 
+                    isComplete ? 'text-gray-400' : 
+                    'text-gray-700 group-hover:text-gray-900'}
+                `}>
                   {section.title}
                 </span>
                 
-                {index === currentSection && (
+                {isActive && (
                   <motion.div 
                     className="h-0.5 bg-blue-600 mt-1"
                     layoutId="underline"
@@ -92,11 +148,22 @@ const SeriesNavigator = ({ sections, currentSection }: SeriesNavigatorProps) => 
               </div>
 
               <motion.div
-                animate={{ x: index === currentSection ? 0 : -10, opacity: index === currentSection ? 1 : 0 }}
+                animate={{ 
+                  x: isActive ? 0 : -10, 
+                  opacity: isActive ? 1 : 0 
+                }}
                 className="text-blue-600"
               >
                 →
               </motion.div>
+
+              {isComplete && (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute right-2 w-2 h-2 rounded-full bg-green-500"
+                />
+              )}
             </motion.button>
           )
         })}

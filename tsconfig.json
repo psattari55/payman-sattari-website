@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/books/science-of-energy/page.tsx.backup", "src/app/articles/metaphysical/nature-of-self/page.tsx.backup", "src/app/books/science-of-energy/page.tsx.backup2", "src/app/books/learningresources", "src/app/practice/meditation/page.tsx", "src/app/practice/inwardness/page.tsx", "src/app/practice/inner-work/page.tsx.backup"],, "src/app/practice/inner-work/page.tsx.backup"
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/books/science-of-energy/page.tsx.backup", "src/app/articles/metaphysical/nature-of-self/page.tsx.backup", "src/app/books/science-of-energy/page.tsx.backup2", "src/app/books/learningresources", "src/app/practice/meditation/page.tsx", "src/app/practice/inwardness/page.tsx", "src/app/practice/inner-work/page.tsx.backup", "src/app/practice/balance/page.tsx.backup"],, "src/app/practice/inner-work/page.tsx.backup"
   "exclude": ["node_modules"]
 }
