@@ -1,288 +1,675 @@
 // src/app/practice/discipline/page.tsx
+"use client";
 
-'use client'
+import React, { useState, useEffect } from "react";
+import { motion, useScroll } from "framer-motion";
+import Section from "@/components/ui/Section";
+import type { LucideIcon } from "lucide-react";
+import { Shield, Compass, Target, ArrowRight } from "lucide-react";
+import PageTransition from "@/components/ui/PageTransition";
+import SeriesNavigator from "@/components/practice/SeriesNavigator";
+import NewsletterSignup from "@/components/article/NewsletterSignup";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Brain, Heart, Shield, AlertCircle, CheckCircle, 
-  XCircle, Lightbulb, ArrowRight, Info, Layout 
-} from 'lucide-react';
-import PageTransition from '@/components/ui/PageTransition';
-import Section from '@/components/ui/Section';
-import InteractiveLink from '@/components/ui/InteractiveLink';
+// Helper Components
+const ScrollProgress = () => {
+  const { scrollYProgress } = useScroll();
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left"
+      style={{ scaleX: scrollYProgress }}
+    />
+  );
+};
 
-const DisciplinePage = () => {
-  const [selectedAspect, setSelectedAspect] = useState(null);
+// Interfaces
+interface Practice {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: LucideIcon;
+  color: string;
+}
 
-  const disciplineAspects = [
-    {
-      id: 'limits',
-      title: 'Limits',
-      subtitle: 'The Force of Structure',
-      icon: Shield,
-      color: 'blue',
-      description: 'Understanding limits as the force that provides form, structure, and healthy boundaries',
-      characteristics: [
-        'Creates clear structure',
-        'Provides healthy containment',
-        'Builds sense of safety',
-        'Supports development'
-      ],
-      whenMissing: [
-        'Environment becomes chaotic',
-        'Anxiety and insecurity increase',
-        'Development lacks direction',
-        'Growth becomes unfocused'
-      ],
-      practices: [
-        'Set clear boundaries',
-        'Maintain consistent structure',
-        'Communicate expectations',
-        'Follow through consistently'
-      ]
-    },
-    {
-        id: 'love',
-        title: 'Love',
-        subtitle: 'The Force of Limitlessness',
-        icon: Heart,
-        color: 'red',
-        description: 'Understanding love as the force of connection, empathy, and transcendence',
-        characteristics: [
-          'Creates safety and trust',
-          'Allows for growth and expansion',
-          'Builds genuine connection',
-          'Supports emotional development'
-        ],
-        whenMissing: [
-          'Environment feels cold and rigid',
-          'Resistance and rebellion emerge',
-          'Growth becomes stunted',
-          'Connection is impaired'
-        ],
-        practices: [
-          'Develop emotional presence',
-          'Practice active listening',
-          'Show genuine care',
-          'Create safe space for expression'
-        ]
-    },
-    {
-      id: 'integration',
-      title: 'Integration',
-      subtitle: 'The Dance of Balance',
-      icon: Layout,
-      color: 'purple',
-      description: 'Understanding how love and limits work together to create healthy discipline',
-      characteristics: [
-        'Balance of freedom and structure',
-        'Clear boundaries with warmth',
-        'Flexible yet consistent',
-        'Supportive and growth-oriented'
-      ],
-      whenMissing: [
-        'Swinging between extremes',
-        'Inconsistent development',
-        'Confusion and instability',
-        'Lack of coherent growth'
-      ],
-      practices: [
-        'Balance connection and structure',
-        'Maintain boundaries with empathy',
-        'Respond flexibly within limits',
-        'Support growth through both forces'
-      ]
+interface PracticeCardProps {
+  practice: Practice;
+}
+
+// Utility function
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+const PracticeCard = ({ practice }: PracticeCardProps) => {
+  const Icon = practice.icon;
+
+  const getColorClasses = (color: string) => {
+    switch (color) {
+      case "purple":
+        return "bg-purple-50 text-purple-600";
+      case "indigo":
+        return "bg-indigo-50 text-indigo-600";
+      default:
+        return "bg-slate-50 text-slate-600";
     }
-  ];
+  };
 
-  const AspectCard = ({ aspect }) => {
-    const isSelected = selectedAspect?.id === aspect.id;
-    return (
-      <motion.div 
-        whileHover={{ y: -2 }}
-        className={`bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300
-          ${isSelected ? 'ring-2 ring-offset-2 ring-blue-500' : ''}`}
-        onClick={() => setSelectedAspect(aspect)}
-      >
-        <div className={`bg-${aspect.color}-50 p-6`}>
-          <div className="flex items-center justify-between">
-            <aspect.icon className={`w-6 h-6 text-${aspect.color}-600`} />
-            <ArrowRight className="w-5 h-5 text-gray-400" />
-          </div>
-          <h3 className="mt-4 text-xl font-light text-gray-900">{aspect.title}</h3>
-          <p className="mt-1 text-sm text-gray-600">{aspect.subtitle}</p>
-        </div>
-        
-        <div className="p-6">
-          <p className="text-gray-600 mb-6">{aspect.description}</p>
-          
-          {isSelected && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="space-y-6"
-            >
-              <div>
-                <h4 className="font-medium text-gray-900 mb-3">Key Characteristics</h4>
-                <div className="space-y-2">
-                  {aspect.characteristics.map((char, index) => (
-                    <div key={index} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className={`w-4 h-4 text-${aspect.color}-600`} />
-                      <span className="text-gray-600">{char}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-medium text-gray-900 mb-3">When Missing</h4>
-                <div className="space-y-2">
-                  {aspect.whenMissing.map((item, index) => (
-                    <div key={index} className="flex items-center gap-2 text-sm">
-                      <AlertCircle className="w-4 h-4 text-amber-500" />
-                      <span className="text-gray-600">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-medium text-gray-900 mb-3">Practices</h4>
-                <div className="space-y-2">
-                  {aspect.practices.map((practice, index) => (
-                    <div key={index} className="flex items-center gap-2 text-sm">
-                      <Lightbulb className={`w-4 h-4 text-${aspect.color}-600`} />
-                      <span className="text-gray-600">{practice}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </motion.div>
-    );
+  const getGradientClass = (color: string) => {
+    switch (color) {
+      case "purple":
+        return "bg-gradient-to-br from-purple-600";
+      case "indigo":
+        return "bg-gradient-to-br from-indigo-600";
+      default:
+        return "bg-gradient-to-br from-slate-600";
+    }
   };
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Section width="default" className="pt-24 pb-16">
-          <div className="max-w-6xl mx-auto">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+    <div
+      onClick={() => scrollToSection(practice.id)}
+      className="cursor-pointer h-full"
+    >
+      <motion.div
+        whileHover={{ y: -4 }}
+        className="h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md overflow-hidden transition-all duration-300"
+      >
+        <div className="relative p-6 pb-8">
+          {/* Top Section */}
+          <div className="flex items-center justify-between mb-6">
+            <div
+              className={`w-10 h-10 rounded-full flex items-center justify-center ${getColorClasses(
+                practice.color
+              )}`}
             >
-              <div className="inline-flex items-center gap-2 text-blue-600 mb-6">
-                <Layout className="w-6 h-6" />
-                <span className="text-sm uppercase tracking-wide">Core Practice</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-light mb-6 tracking-wide text-gray-900">
-                Discipline
-              </h1>
-              <p className="text-xl text-gray-600 mb-4">
-                The Dance of Love and Limits
-              </p>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Discover how true discipline emerges through the dynamic harmony between love (limitlessness, empathy) and limits (boundaries),
-                creating structures that support growth while maintaining connection.
-              </p>
+              <Icon className="w-5 h-5" />
+            </div>
+            <motion.div className="text-gray-400" whileHover={{ x: 4 }}>
+              <ArrowRight className="w-5 h-5" />
             </motion.div>
+          </div>
 
-            {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-[2fr,1fr] gap-8">
-              {/* Left Column - Aspect Cards */}
-              <div className="space-y-6">
-                {disciplineAspects.map((aspect, index) => (
+          {/* Content */}
+          <div>
+            <h3 className="text-xl font-normal text-gray-900 mb-2">
+              {practice.title}
+            </h3>
+            <p className="text-sm font-medium text-black mb-4">
+              {practice.subtitle}
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {practice.description}
+            </p>
+          </div>
+
+          {/* Subtle gradient overlay */}
+          <div
+            className={`absolute inset-0 opacity-[0.03] ${getGradientClass(
+              practice.color
+            )}`}
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const practices = [
+  {
+    id: "understanding",
+    title: "Understanding Discipline",
+    subtitle: "Beyond Control",
+    description:
+      "Learn the foundational nature of discipline and what it really means.",
+    icon: Shield,
+    color: "indigo",
+  },
+  {
+    id: "elements",
+    title: "The Elements of True Discipline",
+    subtitle: "Structure and Support",
+    description:
+      "Explore how boundaries and connection work together in healthy discipline.",
+    icon: Compass,
+    color: "purple",
+  },
+  {
+    id: "practice",
+    title: "Conscious Practice",
+    subtitle: "Implementation",
+    description: "Learn to implement effective discipline in daily life.",
+    icon: Target,
+    color: "slate",
+  },
+];
+
+export default function DisciplinePage() {
+  const sections = [
+    { id: "understanding", title: "Understanding Discipline" },
+    { id: "elements", title: "The Elements of True Discipline" },
+    { id: "practice", title: "Conscious Practice" },
+  ];
+
+  const [currentSection, setCurrentSection] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const understanding = document.getElementById("understanding");
+      const elements = document.getElementById("elements");
+      const practice = document.getElementById("practice");
+
+      if (!understanding || !elements || !practice) return;
+
+      const scrollPosition = window.scrollY + 100;
+
+      if (scrollPosition < elements.offsetTop) {
+        setCurrentSection(0);
+      } else if (scrollPosition < practice.offsetTop) {
+        setCurrentSection(1);
+      } else {
+        setCurrentSection(2);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <ScrollProgress />
+      <PageTransition>
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+          {/* Hero Section */}
+          <Section width="default" className="pt-24 pb-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl mb-4">Discipline</h1>
+              <p className="text-xl font-light text-gray-600">
+                Understanding and practicing conscious self-discipline through
+                the integration of love and limits.
+              </p>
+            </div>
+
+            {/* Practice Cards */}
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-6 mt-16">
+                {practices.map((practice, index) => (
                   <motion.div
-                    key={aspect.id}
+                    key={practice.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
-                    <AspectCard aspect={aspect} />
+                    <PracticeCard practice={practice} />
                   </motion.div>
                 ))}
               </div>
+            </div>
+          </Section>
 
-              {/* Right Column */}
-              <div className="space-y-6">
-                {/* Understanding True Discipline */}
-                <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-                  <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
-                    <h3 className="text-lg font-light text-gray-900">Understanding True Discipline</h3>
+          <div className="max-w-6xl mx-auto">
+            <div className="border-b border-gray-100 my-4" />
+          </div>
+
+          {/* Main Content with Sidebar */}
+          <Section width="default" className="pb-16">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col lg:flex-row gap-12">
+                {/* Main Content */}
+                <div className="lg:w-2/3 border-l border-r border-gray-100 px-8">
+                  {/* Understanding Discipline Section */}
+                  <div id="understanding" className="mb-16">
+                    <div className="mb-8 border-b border-gray-200 pb-7">
+                      <motion.h1
+                        className="text-3xl md:text-4xl font-normal mb-1 tracking-wide text-gray-900 leading-tight flex items-center gap-3"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <Shield
+                          className="w-8 h-8 text-indigo-600"
+                          strokeWidth={2}
+                        />
+                        Understanding Discipline
+                      </motion.h1>
+                    </div>
+
+                    <div className="prose prose-lg max-w-none">
+                      <p className="text-xl text-gray-700 mb-6">
+                        Most of us carry a very specific image of discipline.
+                        Perhaps it's a drill sergeant barking orders, a strict
+                        parent enforcing rules, or our own inner voice demanding
+                        compliance with a new diet or exercise routine. In each
+                        case, discipline appears as a force of control—something
+                        that makes us or others do what we're "supposed" to do,
+                        whether we want to or not.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        This view of discipline seems effective at first glance.
+                        After all, the drill sergeant gets results. The strict
+                        parent's children appear well-behaved. Our forceful
+                        inner taskmaster might drive us to the gym for a few
+                        weeks. But looking closer, we begin to see the cracks in
+                        this approach.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        The soldier who excelled under the drill sergeant's
+                        authority might struggle to maintain discipline without
+                        external pressure. The well-behaved children of strict
+                        parents often rebel dramatically in their teens or
+                        become rigidly rule-bound adults. Our harsh inner
+                        regimens tend to collapse, leading to cycles of rigid
+                        control followed by complete abandon.
+                      </p>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        Beyond Control
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Think of how young children develop. Their growth
+                        requires two essential elements: safety to explore and
+                        boundaries to protect. A child with no boundaries
+                        becomes anxious and ungrounded, while one with only
+                        rigid rules becomes either rebellious or suppressed.
+                        True development—the kind that leads to genuine
+                        maturity—needs both support and structure.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        This same principle applies to all forms of development,
+                        whether we're learning a new skill, changing a habit,
+                        growing emotionally, or developing spiritually. The
+                        conventional view of discipline focuses entirely on the
+                        structure side of the equation—the rules, the
+                        boundaries, the "shoulds." It tries to force growth
+                        through control alone.
+                      </p>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        The Cost of Control
+                      </h2>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Short-term Compliance, Long-term Resistance
+                            </h3>
+                            <p className="text-gray-800">
+                              What looks like success on the surface often masks
+                              growing resistance underneath. We might follow the
+                              rules when watched, but secretly look for ways
+                              around them. Our inner self begins to view
+                              discipline as the enemy rather than a tool for
+                              growth.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Disconnection From Natural Motivation
+                            </h3>
+                            <p className="text-gray-800">
+                              When we're constantly told what to do, we lose
+                              touch with our natural drive to grow and develop.
+                              The "should" voice becomes so loud that we can no
+                              longer hear our authentic desires for improvement.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Hardening Against Experience
+                            </h3>
+                            <p className="text-gray-800">
+                              Perhaps most damaging, we begin to shut down our
+                              sensitivity—to ourselves and others. The more we
+                              rely on force, the less we can feel what's
+                              actually needed in any given moment.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-3">What It Is</h4>
-                        <div className="space-y-2">
-                          {[
-                            'Dynamic harmony of forces',
-                            'Balance of structure and connection',
-                            'Support for natural growth',
-                            'Framework for development'
-                          ].map((point, index) => (
-                            <div key={index} className="flex items-center gap-2 text-sm">
-                              <CheckCircle className="w-4 h-4 text-green-600" />
-                              <span className="text-gray-600">{point}</span>
-                            </div>
-                          ))}
+
+                  {/* Elements of True Discipline Section */}
+                  <div id="elements" className="mb-16">
+                    <div className="mb-8 border-b border-gray-200 pb-7">
+                      <motion.h1
+                        className="text-3xl md:text-4xl font-normal mb-1 tracking-wide text-gray-900 leading-tight flex items-center gap-3"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <Compass
+                          className="w-8 h-8 text-purple-600"
+                          strokeWidth={2}
+                        />
+                        The Elements of True Discipline
+                      </motion.h1>
+                    </div>
+
+                    <div className="prose prose-lg max-w-none">
+                      <p className="text-xl text-gray-700 mb-6">
+                        If discipline isn't about forcing compliance, what is
+                        it? At its core, effective discipline integrates two
+                        essential capacities: the ability to set clear
+                        boundaries and the ability to maintain connection. Like
+                        a parent who can say "no" to a behavior while still
+                        communicating care for the child, genuine discipline
+                        requires us to hold both structure and support
+                        simultaneously.
+                      </p>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        Setting Boundaries While Maintaining Connection
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Consider how this works in practice. When we need to
+                        establish a limit—whether with ourselves or others—we
+                        typically do one of two things: either we become harsh
+                        and controlling, or we avoid setting the boundary
+                        altogether for fear of causing harm. Both approaches
+                        stem from the same misconception: that boundaries and
+                        care are mutually exclusive.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        But boundaries don't require harshness, and care doesn't
+                        preclude limits. In fact, the most effective boundaries
+                        in the long run are those set with clear awareness and
+                        respect for what we're working with.
+                      </p>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        Reading What's Needed
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Perhaps the most crucial skill in this approach to
+                        discipline is the ability to read what's actually needed
+                        in any given moment. This requires a different kind of
+                        attention than simply enforcing rules.
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Sensitivity to Current Conditions
+                            </h3>
+                            <p className="text-gray-800">
+                              Understanding the current state of what we're
+                              working with, whether that's ourselves or others.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Understanding of Natural Rhythms
+                            </h3>
+                            <p className="text-gray-800">
+                              Recognizing that development has its own timing
+                              and patterns that can't be forced.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Recognition of Genuine Needs
+                            </h3>
+                            <p className="text-gray-800">
+                              Distinguishing between authentic needs and
+                              reactive wants or habits.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Awareness of Long-term Effects
+                            </h3>
+                            <p className="text-gray-800">
+                              Considering not just immediate results but the
+                              lasting impact of our approaches.
+                            </p>
+                          </div>
                         </div>
                       </div>
 
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-3">What It's Not</h4>
-                        <div className="space-y-2">
-                          {[
-                            'Rigid control or punishment',
-                            'Permissiveness without structure',
-                            'Disconnected authority',
-                            'Inconsistent boundaries'
-                          ].map((point, index) => (
-                            <div key={index} className="flex items-center gap-2 text-sm">
-                              <XCircle className="w-4 h-4 text-red-600" />
-                              <span className="text-gray-600">{point}</span>
-                            </div>
-                          ))}
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        Working With Inner Forces
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        A crucial aspect of this approach is understanding how
+                        to work with rather than against our inner nature. This
+                        means:
+                      </p>
+
+                      <ul className="space-y-4 mt-4">
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Recognizing that resistance often signals a need for
+                          adjustment, not just stronger force
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Understanding that development has its own timing and
+                          rhythm
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Acknowledging that sustainable change requires
+                          internal agreement, not just external compliance
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Learning to align our conscious intentions with our
+                          deeper motivations
+                        </li>
+                      </ul>
+
+                      <p className="text-lg leading-relaxed text-gray-800 mt-6">
+                        This more integrated approach doesn't mean abandoning
+                        structure or accepting every impulse. Rather, it means
+                        developing the wisdom to know how to work with our
+                        nature in service of our development.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Conscious Practice Section */}
+                  <div id="practice" className="mb-16">
+                    <div className="mb-8 border-b border-gray-200 pb-7">
+                      <motion.h1
+                        className="text-3xl md:text-4xl font-normal mb-1 tracking-wide text-gray-900 leading-tight flex items-center gap-3"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <Target
+                          className="w-8 h-8 text-slate-600"
+                          strokeWidth={2}
+                        />
+                        Conscious Practice
+                      </motion.h1>
+                    </div>
+
+                    <div className="prose prose-lg max-w-none">
+                      <p className="text-xl text-gray-700 mb-6">
+                        Understanding this approach to discipline is one thing;
+                        implementing it is another. Let's explore how to put
+                        these principles into practice, developing the skills
+                        and awareness needed for effective discipline.
+                      </p>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        Reading Our Own Needs
+                      </h2>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <p className="text-lg leading-relaxed text-gray-800 mb-6">
+                          The foundation of effective discipline is the ability
+                          to accurately read what's needed in any given moment.
+                          Sometimes that's limits, sometimes that's connection.
+                          This requires developing sensitivity on multiple
+                          levels:
+                        </p>
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Physical Signals
+                            </h3>
+                            <p className="text-gray-800">
+                              Our body often communicates needs before our mind
+                              recognizes them. Learning to read physical
+                              signals—tension, fatigue, restlessness—helps us
+                              respond appropriately rather than pushing through
+                              with predetermined rules.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Emotional Messages
+                            </h3>
+                            <p className="text-gray-800">
+                              Emotions provide crucial information about our
+                              state and needs. Instead of either suppressing
+                              them or being ruled by them, we can learn to read
+                              their messages and respond wisely.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Energy Levels
+                            </h3>
+                            <p className="text-gray-800">
+                              Understanding our natural rhythms and energy
+                              cycles helps us work with rather than against our
+                              nature. This might mean scheduling demanding tasks
+                              when we're naturally alert, or recognizing when we
+                              need rest rather than pushing harder.
+                            </p>
+                          </div>
                         </div>
                       </div>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        Working With Resistance
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Resistance is natural and often contains important
+                        information. Rather than trying to overcome it through
+                        force, we can learn to work with it:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Understanding the Message
+                            </h3>
+                            <p className="text-gray-800">
+                              Resistance often signals that something needs
+                              attention. Maybe we're moving too fast, pushing
+                              too hard, or missing an important need.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Adjusting the Approach
+                            </h3>
+                            <p className="text-gray-800">
+                              Sometimes the goal is right but the method needs
+                              adjustment. Instead of forcing our way through
+                              resistance, we can look for more aligned
+                              approaches to the same end.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Making Space for Process
+                            </h3>
+                            <p className="text-gray-800">
+                              Growth often involves working through difficult
+                              feelings or old patterns. Making space for this
+                              process—rather than demanding immediate
+                              compliance—often leads to more sustainable change.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                        The Way Forward
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Most of us have experienced moments where something
+                        shifts naturally into place—where a new skill or
+                        understanding emerges not through force but through the
+                        meeting of readiness and opportunity. A musician finds
+                        their fingers moving with new ease across their
+                        instrument. An artist discovers their hand expressing
+                        what their mind envisions. A parent realizes they've
+                        responded to their child with a wisdom they didn't know
+                        they possessed.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        These moments reveal something profound about
+                        development. They show us that growth doesn't always
+                        come through pushing harder or maintaining stricter
+                        control. Often, it emerges through providing the right
+                        conditions—through understanding what's needed and
+                        responding with intelligence rather than force.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        This is the deeper truth about discipline. Not a weapon
+                        we use against our nature, but a way of working with it.
+                        Not a force that constrains what we are, but an
+                        intelligence that supports what we're becoming. Through
+                        this understanding, we discover the possibility of
+                        genuine transformation without violence to our nature.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        The path forward isn't about becoming someone different
+                        than who we are. It's about creating the conditions
+                        through which who we truly are can fully emerge. In this
+                        light, discipline becomes not our opponent but our
+                        ally—not the force that restricts our expression, but
+                        the wisdom that enables it.
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Key Insights */}
-                <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-                  <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
-                    <h3 className="text-lg font-light text-gray-900">Key Insights</h3>
-                  </div>
-                  <div className="p-6">
-                    <div className="space-y-4">
-                      {[
-                        'Love and limits are both essential',
-                        'Each force balances the other',
-                        'Growth requires both support and structure',
-                        'Balance creates natural harmony'
-                      ].map((insight, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <Info className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-600">{insight}</span>
-                        </div>
-                      ))}
-                    </div>
+                {/* Sidebar */}
+                <div className="hidden lg:block lg:w-1/3">
+                  <div className="sticky top-24 space-y-8">
+                    <SeriesNavigator
+                      sections={sections}
+                      currentSection={currentSection}
+                    />
+                    <NewsletterSignup />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Section>
-      </div>
-    </PageTransition>
+          </Section>
+        </div>
+      </PageTransition>
+    </>
   );
-};
-
-export default DisciplinePage;
+}
