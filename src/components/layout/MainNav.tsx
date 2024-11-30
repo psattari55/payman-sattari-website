@@ -64,7 +64,7 @@ const menuItems: MenuItem[] = [
       { name: 'Inner Work', path: '/practice/inner-work' },
       { name: 'Balance', path: '/practice/balance' },
       { name: 'Discipline', path: '/practice/discipline' },
-      { name: 'Practice Library', path: '/practice/practice-library' },
+      { name: 'Practice Library', path: '/practice/library' },
     ]
   },
   {

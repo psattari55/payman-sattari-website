@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import Section from "@/components/ui/Section";
 import type { LucideIcon } from "lucide-react";
-import { Shield, Compass, Target, ArrowRight } from "lucide-react";
+import { Shield, Compass, Sprout, Target, ArrowRight } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
 import SeriesNavigator from "@/components/practice/SeriesNavigator";
 import NewsletterSignup from "@/components/article/NewsletterSignup";
@@ -52,6 +52,8 @@ const PracticeCard = ({ practice }: PracticeCardProps) => {
         return "bg-purple-50 text-purple-600";
       case "indigo":
         return "bg-indigo-50 text-indigo-600";
+      case "emerald":
+        return "bg-emerald-50 text-emerald-600";
       default:
         return "bg-slate-50 text-slate-600";
     }
@@ -63,6 +65,8 @@ const PracticeCard = ({ practice }: PracticeCardProps) => {
         return "bg-gradient-to-br from-purple-600";
       case "indigo":
         return "bg-gradient-to-br from-indigo-600";
+      case "emerald":
+        return "bg-gradient-to-br from-emerald-600";
       default:
         return "bg-gradient-to-br from-slate-600";
     }
@@ -129,7 +133,7 @@ const practices = [
   },
   {
     id: "elements",
-    title: "The Elements of True Discipline",
+    title: "The Elements of Discipline",
     subtitle: "Structure and Support",
     description:
       "Explore how boundaries and connection work together in healthy discipline.",
@@ -137,8 +141,17 @@ const practices = [
     color: "purple",
   },
   {
+    id: "maturity",
+    title: "The Path to Maturity",
+    subtitle: "Development & Growth",
+    description:
+      "Understand how different approaches to discipline affect long-term development.",
+    icon: Sprout, // We'll need to import this
+    color: "emerald", // Adding a new color
+  },
+  {
     id: "practice",
-    title: "Conscious Practice",
+    title: "Putting It Into Practice",
     subtitle: "Implementation",
     description: "Learn to implement effective discipline in daily life.",
     icon: Target,
@@ -149,8 +162,9 @@ const practices = [
 export default function DisciplinePage() {
   const sections = [
     { id: "understanding", title: "Understanding Discipline" },
-    { id: "elements", title: "The Elements of True Discipline" },
-    { id: "practice", title: "Conscious Practice" },
+    { id: "elements", title: "The Elements of Discipline" },
+    { id: "maturity", title: "The Path to Maturity" },
+    { id: "practice", title: "Putting It Into Practice" },
   ];
 
   const [currentSection, setCurrentSection] = useState(0);
@@ -159,21 +173,24 @@ export default function DisciplinePage() {
     const handleScroll = () => {
       const understanding = document.getElementById("understanding");
       const elements = document.getElementById("elements");
+      const maturity = document.getElementById("maturity");
       const practice = document.getElementById("practice");
-
-      if (!understanding || !elements || !practice) return;
-
+  
+      if (!understanding || !elements || !maturity || !practice) return;
+  
       const scrollPosition = window.scrollY + 100;
-
+  
       if (scrollPosition < elements.offsetTop) {
         setCurrentSection(0);
-      } else if (scrollPosition < practice.offsetTop) {
+      } else if (scrollPosition < maturity.offsetTop) {
         setCurrentSection(1);
-      } else {
+      } else if (scrollPosition < practice.offsetTop) {
         setCurrentSection(2);
+      } else {
+        setCurrentSection(3);
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -195,7 +212,7 @@ export default function DisciplinePage() {
 
             {/* Practice Cards */}
             <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-6 mt-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
                 {practices.map((practice, index) => (
                   <motion.div
                     key={practice.id}
@@ -267,35 +284,66 @@ export default function DisciplinePage() {
                         control followed by complete abandon.
                       </p>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Something is missing in this common understanding of
+                        discipline. To find it, we need to look more carefully
+                        at what discipline is trying to accomplish.
+                      </p>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         Beyond Control
                       </h2>
 
                       <p className="text-lg leading-relaxed text-gray-800">
                         Think of how young children develop. Their growth
                         requires two essential elements: safety to explore and
-                        boundaries to protect. A child with no boundaries
-                        becomes anxious and ungrounded, while one with only
-                        rigid rules becomes either rebellious or suppressed.
+                        boundaries to protect. A child with no boundaries can
+                        become anxious and ungrounded, while one with only rigid
+                        rules becomes either rebellious or overly submissive.
                         True development—the kind that leads to genuine
                         maturity—needs both support and structure.
                       </p>
 
                       <p className="text-lg leading-relaxed text-gray-800">
                         This same principle applies to all forms of development,
-                        whether we're learning a new skill, changing a habit,
-                        growing emotionally, or developing spiritually. The
-                        conventional view of discipline focuses entirely on the
-                        structure side of the equation—the rules, the
-                        boundaries, the "shoulds." It tries to force growth
-                        through control alone.
+                        whether we're:
                       </p>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <ul className="space-y-4 mt-4">
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Learning a new skill
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Changing a habit
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Growing emotionally
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Developing spiritually
+                        </li>
+                      </ul>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        The conventional view of discipline focuses entirely on
+                        the structure side of the equation—the rules, the
+                        boundaries, the "shoulds." It tries to force growth
+                        through control alone. But just as a plant needs both
+                        the foundation of soil and the space and time to grow
+                        naturally, genuine development requires both supportive
+                        containment, and the nurturing of attention.
+                      </p>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         The Cost of Control
                       </h2>
 
-                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        When discipline becomes purely about control, several
+                        problems emerge:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-4">
                         <div className="space-y-6">
                           <div>
                             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -336,10 +384,63 @@ export default function DisciplinePage() {
                           </div>
                         </div>
                       </div>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        A Different Approach
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Think of how a skilled mentor works with a student, or
+                        how an experienced gardener tends to plants. These
+                        relationships involve discipline, but not the kind that
+                        operates through force. Instead, they work through:
+                      </p>
+
+                      <ul className="space-y-4 mt-4">
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Understanding the inner needs of what they're working
+                          with
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Providing structure where needed
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Offering support for natural development
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Adjusting their approach based on feedback
+                        </li>
+                      </ul>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        This more complete form of discipline doesn't abandon
+                        structure—boundaries and limits remain essential. But it
+                        adds something crucial: awareness of and respect for
+                        what's being developed. Like the mentor who knows when
+                        to challenge and when to step back and support, it works
+                        with rather than against the natural processes of
+                        growth.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        In the sections that follow, we'll explore how to
+                        develop this more mature understanding of discipline.
+                        We'll learn how to maintain necessary boundaries while
+                        staying connected to ourselves and others, how to build
+                        structures that support rather than suppress growth, and
+                        how to work with instead of against our natural
+                        development.
+                      </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Most importantly, we'll discover how discipline,
+                        properly understood, becomes not our taskmaster, but our
+                        ally in growth and development.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Elements of True Discipline Section */}
+                  {/* Elements of Discipline Section */}
                   <div id="elements" className="mb-16">
                     <div className="mb-8 border-b border-gray-200 pb-7">
                       <motion.h1
@@ -368,7 +469,7 @@ export default function DisciplinePage() {
                         simultaneously.
                       </p>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         Setting Boundaries While Maintaining Connection
                       </h2>
 
@@ -386,10 +487,13 @@ export default function DisciplinePage() {
                         But boundaries don't require harshness, and care doesn't
                         preclude limits. In fact, the most effective boundaries
                         in the long run are those set with clear awareness and
-                        respect for what we're working with.
+                        respect for what we're working with. Just as a river
+                        needs banks to flow powerfully, our energy and
+                        development require conscious structure to move in
+                        beneficial directions.
                       </p>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         Reading What's Needed
                       </h2>
 
@@ -397,54 +501,111 @@ export default function DisciplinePage() {
                         Perhaps the most crucial skill in this approach to
                         discipline is the ability to read what's actually needed
                         in any given moment. This requires a different kind of
-                        attention than simply enforcing rules.
+                        attention than simply enforcing rules. We must develop:
+                      </p>
+
+                      <ul className="space-y-4 mt-4">
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Sensitivity to current conditions
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Understanding of natural rhythms and timing
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Recognition of genuine needs versus reactive wants
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Awareness of long-term effects, not just immediate
+                          results
+                        </li>
+                      </ul>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        This more nuanced attention allows us to work with
+                        rather than against the natural processes of
+                        development. Instead of forcing a predetermined outcome,
+                        we learn to support growth in its proper time and way.
+                      </p>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        The Role of Balance and Awareness
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Traditional discipline operates through control—external
+                        forces imposing order. This new approach works through
+                        balance and awareness—conscious attention guiding
+                        development toward long-term stability. When we
+                        integrate these elements, several key transformations
+                        occur:
                       </p>
 
                       <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
                         <div className="space-y-6">
                           <div>
                             <h3 className="text-lg font-medium text-gray-900 mb-2">
-                              Sensitivity to Current Conditions
+                              From Fixed Rules to Living Principles
                             </h3>
                             <p className="text-gray-800">
-                              Understanding the current state of what we're
-                              working with, whether that's ourselves or others.
+                              Rather than rigid adherence to set rules, we
+                              develop the ability to respond appropriately to
+                              each situation. The focus moves from "following
+                              the rules" to understanding and working with the
+                              principles that guide healthy development. Like a
+                              skilled surfer reading the waves, we learn to
+                              maintain stability through conscious adjustment
+                              rather than rigid control.
                             </p>
                           </div>
 
                           <div>
                             <h3 className="text-lg font-medium text-gray-900 mb-2">
-                              Understanding of Natural Rhythms
+                              From Enforcement to Guidance
                             </h3>
                             <p className="text-gray-800">
-                              Recognizing that development has its own timing
-                              and patterns that can't be forced.
+                              Instead of forcing compliance, we learn to guide
+                              energy in beneficial directions. This might mean
+                              creating supportive environments, establishing
+                              helpful routines, or developing skills that make
+                              positive choices easier. Balance comes through
+                              finding the right amount of structure—enough to
+                              support growth without constraining it.
                             </p>
                           </div>
 
                           <div>
                             <h3 className="text-lg font-medium text-gray-900 mb-2">
-                              Recognition of Genuine Needs
+                              From Resistance to Integration
                             </h3>
                             <p className="text-gray-800">
-                              Distinguishing between authentic needs and
-                              reactive wants or habits.
+                              When we're not allowed to experience and process
+                              our natural responses to limits—whether that's
+                              disappointment, frustration, or sadness—our
+                              emotional system becomes rigid. Instead of
+                              developing resilience through working with these
+                              feelings, we learn to suppress them, leading to
+                              either emotional numbness or explosive outbursts.
                             </p>
                           </div>
 
                           <div>
                             <h3 className="text-lg font-medium text-gray-900 mb-2">
-                              Awareness of Long-term Effects
+                              Dependency on External Control
                             </h3>
                             <p className="text-gray-800">
-                              Considering not just immediate results but the
-                              lasting impact of our approaches.
+                              When discipline works through balanced awareness
+                              rather than force, we encounter less internal
+                              resistance. The changes we make become integrated
+                              parts of our development rather than imposed
+                              restrictions we're waiting to escape. This
+                              integration creates stability that persists even
+                              when external pressures change.
                             </p>
                           </div>
                         </div>
                       </div>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         Working With Inner Forces
                       </h2>
 
@@ -479,10 +640,264 @@ export default function DisciplinePage() {
                         developing the wisdom to know how to work with our
                         nature in service of our development.
                       </p>
+
+                      <p className="text-lg leading-relaxed text-gray-800 mt-6">
+                        In the next section, we'll explore how this approach to
+                        discipline supports genuine maturity and growth,
+                        creating lasting positive changes rather than temporary
+                        compliance.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Conscious Practice Section */}
+                  {/* Path to Maturity Section */}
+                  <div id="maturity" className="mb-16">
+                    <div className="mb-8 border-b border-gray-200 pb-7">
+                      <motion.h1
+                        className="text-3xl md:text-4xl font-normal mb-1 tracking-wide text-gray-900 leading-tight flex items-center gap-3"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <Sprout
+                          className="w-8 h-8 text-emerald-600"
+                          strokeWidth={2}
+                        />
+                        The Path to Maturity
+                      </motion.h1>
+                    </div>
+
+                    <div className="prose prose-lg max-w-none">
+                      <p className="text-xl text-gray-700 mb-6">
+                        The way we approach discipline has profound effects on
+                        development. These effects go far beyond immediate
+                        behavior, shaping how we mature and grow over time. To
+                        understand these impacts, let's look at how different
+                        approaches to discipline affect our development.
+                      </p>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        The Impact of Control
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        When discipline operates primarily through control and
+                        force, several patterns emerge:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Hardening Against Experience
+                            </h3>
+                            <p className="text-gray-800">
+                              Over time, constant pressure to comply creates a
+                              protective shell. We become less sensitive to our
+                              own needs and feelings, less able to read subtle
+                              signals from ourselves and others. Like a plant
+                              growing in too-tight a container, our natural
+                              sensitivity and responsiveness become constricted.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Divided Self
+                            </h3>
+                            <p className="text-gray-800">
+                              Authoritarian discipline creates an internal split
+                              between the part that enforces rules and the part
+                              that wants to rebel against them. This division
+                              consumes energy and creates ongoing internal
+                              conflict. Rather than developing genuine
+                              self-regulation, we oscillate between rigid
+                              control and collapse.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Stunted Emotional Development
+                            </h3>
+                            <p className="text-gray-800">
+                              When we're not allowed to experience and process
+                              our natural responses to limits—whether that's
+                              disappointment, frustration, or sadness—our
+                              emotional system becomes rigid. Instead of
+                              developing resilience through working with these
+                              feelings, we learn to suppress them, leading to
+                              either emotional numbness or explosive outbursts.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Dependency on External Control
+                            </h3>
+                            <p className="text-gray-800">
+                              Perhaps most critically, authoritarian discipline
+                              prevents us from developing true self-regulation.
+                              We learn to behave only when watched, to respond
+                              to external pressure rather than internal
+                              guidance. When the external control is removed, we
+                              lack the inner structures needed for genuine
+                              long-term maturity.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        Supporting Natural Development
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        In contrast, when discipline provides both structure and
+                        support, it creates the conditions for genuine maturity.
+                        This shows up in several key ways:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Integration Rather Than Division
+                            </h3>
+                            <p className="text-gray-800">
+                              Instead of creating internal conflict, this
+                              approach helps integrate different aspects of
+                              ourselves. We develop the ability to work with
+                              rather than against our nature, leading to more
+                              sustainable positive changes.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Emotional Resilience
+                            </h3>
+                            <p className="text-gray-800">
+                              When limits are set with care and respect, we
+                              develop the capacity to handle disappointment and
+                              frustration constructively. Rather than
+                              suppressing these feelings or being overwhelmed by
+                              them, we learn to process them in healthy ways.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Growing Self-Regulation
+                            </h3>
+                            <p className="text-gray-800">
+                              As we experience boundaries that respect our
+                              nature while maintaining necessary limits, we
+                              internalize the capacity for healthy
+                              self-regulation. Instead of relying on external
+                              control, we develop inner guidance systems that
+                              serve us throughout life.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Natural Motivation
+                            </h3>
+                            <p className="text-gray-800">
+                              Perhaps most importantly, this approach preserves
+                              and strengthens our natural drive toward growth
+                              and development. Instead of learning to comply out
+                              of fear or pressure, we maintain connection with
+                              our authentic motivations for improvement.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        The Role of Time
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        A crucial difference between these approaches lies in
+                        their relationship with time:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Short-Term Compliance vs. Long-Term Growth
+                            </h3>
+                            <p className="text-gray-800">
+                              Authoritarian discipline focuses on immediate
+                              behavior change, often at the cost of long-term
+                              development. More complete discipline might seem
+                              slower at first, but it creates lasting positive
+                              changes by working with natural developmental
+                              processes.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Quick Fixes vs. Genuine Maturity
+                            </h3>
+                            <p className="text-gray-800">
+                              While control-based approaches might produce
+                              faster visible results, they often require
+                              increasing force to maintain over time. In
+                              contrast, development supported by proper
+                              discipline becomes self-sustaining, requiring less
+                              external structure as genuine maturity develops.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        Signs of Healthy Development
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        How do we know when discipline is supporting rather than
+                        hindering development? Several markers indicate we're on
+                        the right track:
+                      </p>
+
+                      <ul className="space-y-4 mt-4">
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Growing capacity to handle challenges without
+                          collapsing
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Increasing ability to set and maintain healthy
+                          boundaries
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Natural movement toward positive choices without
+                          external pressure
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Greater integration between different aspects of
+                          ourselves
+                        </li>
+                        <li className="text-lg leading-relaxed text-gray-800">
+                          Enhanced sensitivity to genuine needs
+                        </li>
+                      </ul>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        In the final section, we'll explore specific practices
+                        for implementing this more complete approach to
+                        discipline, learning how to work with our nature while
+                        supporting genuine growth and development.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Putting It Into Section */}
                   <div id="practice" className="mb-16">
                     <div className="mb-8 border-b border-gray-200 pb-7">
                       <motion.h1
@@ -495,7 +910,7 @@ export default function DisciplinePage() {
                           className="w-8 h-8 text-slate-600"
                           strokeWidth={2}
                         />
-                        Conscious Practice
+                        Putting It Into Practice
                       </motion.h1>
                     </div>
 
@@ -507,18 +922,18 @@ export default function DisciplinePage() {
                         and awareness needed for effective discipline.
                       </p>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         Reading Our Own Needs
                       </h2>
 
+                      <p className="text-lg leading-relaxed text-gray-800 mb-6">
+                        The foundation of effective discipline is the ability to
+                        accurately read what's needed in any given moment.
+                        Sometimes that's limits, sometimes that's connection.
+                        This requires developing sensitivity on multiple levels:
+                      </p>
+
                       <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
-                        <p className="text-lg leading-relaxed text-gray-800 mb-6">
-                          The foundation of effective discipline is the ability
-                          to accurately read what's needed in any given moment.
-                          Sometimes that's limits, sometimes that's connection.
-                          This requires developing sensitivity on multiple
-                          levels:
-                        </p>
                         <div className="space-y-6">
                           <div>
                             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -560,7 +975,58 @@ export default function DisciplinePage() {
                         </div>
                       </div>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        Setting Effective Boundaries
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800 mb-6">
+                        Boundaries are essential, but they need to be
+                        established in ways that support rather than suppress
+                        development:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Clarity Without Harshness
+                            </h3>
+                            <p className="text-gray-800">
+                              Boundaries can be clear and firm without being
+                              rigid or harsh. They can provide direction and
+                              containment while allowing natural flow within
+                              them.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Consistency With Flexibility
+                            </h3>
+                            <p className="text-gray-800">
+                              While boundaries need to be consistent to be
+                              effective, they should also be responsive to
+                              changing conditions. This isn't inconsistency, but
+                              rather intelligent adaptation to real needs.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Connection Through Limits
+                            </h3>
+                            <p className="text-gray-800">
+                              Perhaps most importantly, we can maintain
+                              connection even while setting limits. This might
+                              mean acknowledging feelings while holding a
+                              boundary, or explaining the reason for limits
+                              rather than just enforcing them.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         Working With Resistance
                       </h2>
 
@@ -609,7 +1075,52 @@ export default function DisciplinePage() {
                         </div>
                       </div>
 
-                      <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
+                        Practical Steps
+                      </h2>
+
+                      <p className="text-lg leading-relaxed text-gray-800">
+                        Some concrete practices for developing this approach:
+                      </p>
+
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 my-6">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Conscious Experiments
+                            </h3>
+                            <p className="text-gray-800">
+                              Start with small changes where you can practice
+                              holding structure while maintaining internal
+                              connection. Notice what works and what doesn't.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Recovery Time
+                            </h3>
+                            <p className="text-gray-800">
+                              Build in time for integration after challenging
+                              experiences. This allows new patterns to settle
+                              and prevents the accumulation of resistance.
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                              Reflection Practices
+                            </h3>
+                            <p className="text-gray-800">
+                              Regular reflection on what's working and what
+                              isn't helps refine our approach over time. Notice
+                              both immediate effects and longer-term patterns.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2 className="text-2xl font-medium mt-8 mb-6 text-gray-900">
                         The Way Forward
                       </h2>
 
