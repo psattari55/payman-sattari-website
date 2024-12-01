@@ -1,113 +1,144 @@
 // src/app/contact/page.tsx
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Send, Mail, MessageSquare, Calendar, Newspaper, Camera } from 'lucide-react'
-import Section from '@/components/ui/Section'
-import PageTransition from '@/components/ui/PageTransition'
-import { Toast } from '@/components/ui/Toast'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Send,
+  Mail,
+  MessageSquare,
+  Calendar,
+  Newspaper,
+  Camera,
+} from "lucide-react";
+import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
+import Section from "@/components/ui/Section";
+import PageTransition from "@/components/ui/PageTransition";
+import { Toast } from "@/components/ui/Toast";
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-}
-
-type InquiryType = 'general' | 'research' | 'speaking' | 'media' | 'newsletter'
+type InquiryType = "general" | "research" | "speaking" | "media" | "newsletter";
 
 interface ContactFormData {
-  name: string
-  email: string
-  inquiryType: InquiryType
-  subject: string
-  message: string
+  name: string;
+  email: string;
+  inquiryType: InquiryType;
+  subject: string;
+  message: string;
 }
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    inquiryType: 'general',
-    subject: '',
-    message: ''
-  })
-  
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showToast, setShowToast] = useState(false)
-  const [toastMessage, setToastMessage] = useState('')
+    name: "",
+    email: "",
+    inquiryType: "general",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const inquiryTypes = [
-    { value: 'general', label: 'General Inquiry', icon: MessageSquare },
-    { value: 'research', label: 'Research Collaboration', icon: Mail },
-    { value: 'speaking', label: 'Speaking Request', icon: Calendar },
-    { value: 'media', label: 'Media Inquiry', icon: Camera },
-    { value: 'newsletter', label: 'Newsletter', icon: Newspaper }
-  ]
+    { value: "general", label: "General Inquiry", icon: MessageSquare },
+    { value: "research", label: "Research Collaboration", icon: Mail },
+    { value: "speaking", label: "Speaking Request", icon: Calendar },
+    { value: "media", label: "Media Inquiry", icon: Camera },
+    { value: "newsletter", label: "Newsletter", icon: Newspaper },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://x.com/langoftruth",
+      label: "X (Twitter)",
+      icon: FaTwitter,
+      color: "from-gray-600 to-gray-900",
+      hoverColor: "group-hover:from-gray-700 group-hover:to-black",
+    },
+    {
+      href: "https://www.instagram.com/the.language.of.truth",
+      label: "Instagram",
+      icon: FaInstagram,
+      color: "from-purple-500 to-pink-500",
+      hoverColor: "group-hover:from-purple-600 group-hover:to-pink-600",
+    },
+    {
+      href: "https://www.facebook.com/thelanguageoftruth/",
+      label: "Facebook",
+      icon: FaFacebook,
+      color: "from-blue-500 to-blue-600",
+      hoverColor: "group-hover:from-blue-600 group-hover:to-blue-700",
+    },
+  ];
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      // Here you would typically make an API call to your backend
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      setToastMessage('Message sent successfully!')
-      setShowToast(true)
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      setToastMessage("Message sent successfully!");
+      setShowToast(true);
       setFormData({
-        name: '',
-        email: '',
-        inquiryType: 'general',
-        subject: '',
-        message: ''
-      })
+        name: "",
+        email: "",
+        inquiryType: "general",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
-      setToastMessage('Failed to send message. Please try again.')
-      setShowToast(true)
+      setToastMessage("Failed to send message. Please try again.");
+      setShowToast(true);
     } finally {
-      setIsSubmitting(false)
-      setTimeout(() => setShowToast(false), 3000)
+      setIsSubmitting(false);
+      setTimeout(() => setShowToast(false), 3000);
     }
-  }
+  };
 
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <Section width="default" className="pt-24 pb-16">
           <div className="max-w-4xl mx-auto px-6">
-            {/* Header */}
-            <motion.header 
+            <motion.header
               className="text-center mb-16"
-              {...fadeIn}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl font-normal mb-6 tracking-wide text-gray-900">
                 Contact
               </h1>
-              <div className="w-16 h-0.5 bg-blue-100 mx-auto mb-8"></div>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Whether you're interested in research collaboration, speaking engagements, or have questions about my work, I'm here to connect. Please use the form below to get in touch.
+                Whether you're interested in research collaboration, speaking
+                engagements, or have questions about my work, I'm here to
+                connect. Please use the form below to get in touch.
               </p>
             </motion.header>
 
-            {/* Contact Form */}
-            <motion.div 
+            <motion.div
               className="bg-white rounded-lg border border-gray-200 p-8"
-              {...fadeIn}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Name
                     </label>
                     <input
@@ -121,9 +152,11 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email
                     </label>
                     <input
@@ -138,9 +171,11 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Inquiry Type */}
                 <div>
-                  <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="inquiryType"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Type of Inquiry
                   </label>
                   <select
@@ -150,7 +185,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors"
                   >
-                    {inquiryTypes.map(type => (
+                    {inquiryTypes.map((type) => (
                       <option key={type.value} value={type.value}>
                         {type.label}
                       </option>
@@ -158,9 +193,11 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Subject
                   </label>
                   <input
@@ -174,9 +211,11 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -190,7 +229,6 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -200,45 +238,76 @@ export default function ContactPage() {
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Send className="w-4 h-4" />
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </span>
                 </motion.button>
               </form>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div 
-              className="mt-12 text-center"
+            <motion.div
+              className="mt-16"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              <h2 className="text-xl font-normal mb-6 text-gray-900">Connect on Social Media</h2>
-              <div className="flex justify-center gap-6">
-                {[
-                  { href: 'https://x.com/langoftruth', label: 'X (Twitter)', icon: 'X' },
-                  { href: 'https://www.instagram.com/the.language.of.truth', label: 'Instagram', icon: 'Instagram' },
-                  { href: 'https://www.facebook.com/thelanguageoftruth/', label: 'Facebook', icon: 'Facebook' }
-                ].map((social) => (
+              <h2 className="text-2xl font-light text-center mb-8 text-gray-900">
+                Connect on Social Media
+              </h2>
+              <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+                {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={`Visit ${social.label} profile`}
+                    className="group w-full md:w-auto"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <span className="text-gray-600">{social.icon}</span>
+                    <div className="relative overflow-hidden rounded-lg border border-gray-200 group-hover:border-transparent transition-colors duration-300">
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${social.color} ${social.hoverColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                      />
+
+                      <div className="relative p-6 flex flex-col items-center">
+                        <span className="text-xl mb-2 text-gray-700 group-hover:text-white transition-colors duration-300">
+                          {React.createElement(social.icon, {
+                            className: "w-6 h-6",
+                          })}
+                        </span>
+                        <span className="text-sm font-medium text-gray-600 group-hover:text-white/90 transition-colors duration-300">
+                          {social.label}
+                        </span>
+
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                          initial={false}
+                          animate={{
+                            x: ["100%", "-100%"],
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            repeatDelay: 1,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </motion.a>
                 ))}
               </div>
+
+              <motion.div
+                className="mt-12 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              ></motion.div>
             </motion.div>
           </div>
         </Section>
         {showToast && <Toast message={toastMessage} />}
       </div>
     </PageTransition>
-  )
+  );
 }

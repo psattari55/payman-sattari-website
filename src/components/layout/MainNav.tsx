@@ -54,12 +54,12 @@ const menuItems: MenuItem[] = [
     subItems: [
       { name: 'Daily Insights', path: '/insights/daily' },
       { name: 'AI Conversations', path: '/insights/ai-conversations' },
-      { name: 'Multimedia Content', path: '/insights/multimedia' }
+      { name: 'Multimedia Content', path: '' }
     ]
   },
   {
     name: 'Practice',
-    path: '/practice',
+    path: '/practice/inner-work',
     subItems: [
       { name: 'Inner Work', path: '/practice/inner-work' },
       { name: 'Balance', path: '/practice/balance' },
