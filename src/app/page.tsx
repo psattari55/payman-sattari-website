@@ -55,25 +55,25 @@ export default function HomePage() {
         background="white" 
         width="narrow"
         padding="large"
-        className="text-center"
+        className="text-center py-12 md:py-24"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
           Bridging Consciousness and Physical Reality
         </h1>
-        <p className="text-xl text-gray-600 mb-5 leading-relaxed">
+        <p className="text-xl text-gray-600 leading-relaxed">
           Exploring the fundamental nature of reality through a unified framework of energy, consciousness, and matter.
         </p>
       </Section>
 
       {/* Introduction Section */}
       <Section background="gray" width="narrow">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
           <ProfileImage />
           <div className="flex-1 space-y-4">
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-700 text-center md:text-left">
               I'm Payman Sattari, an independent researcher and author working at the intersection of physics, consciousness, and metaphysics. My work offers a unified framework for understanding reality - from quantum mechanics to human experience.
             </p>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-700 text-center md:text-left">
               Through peer-reviewed research, books, and practical guidance, I explore how energy shapes both our inner and outer reality. My framework provides new insights into fundamental questions in physics while offering practical tools for personal and collective transformation.
             </p>
           </div>
