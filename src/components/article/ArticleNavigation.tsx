@@ -1,6 +1,6 @@
 // src/components/article/ArticleNavigation.tsx
 import { motion } from 'framer-motion';
-import { Eye, Book, Lightbulb, CircleDot } from 'lucide-react';
+import { Eye, BookOpen, Lightbulb, CircleDot } from 'lucide-react';
 import InteractiveLink from '@/components/ui/InteractiveLink';
 import Link from 'next/link';
 
@@ -21,7 +21,7 @@ const getDoorStyles = (door: string) => {
     case "Scholar's Door":
       return {
         bgColor: 'bg-gray-50',
-        icon: Book,
+        icon: BookOpen,
         text: "Scholar's Door",
         href: "/scholars-door",
         hoverColor: "hover:text-emerald-600"

@@ -4,13 +4,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Book, Eye, Lightbulb } from 'lucide-react';
+import { BookOpen, Eye, Lightbulb } from 'lucide-react';
 
 interface Doorway {
   title: string;
   subtitle: string;
   description: string;
-  icon: typeof Book | typeof Eye | typeof Lightbulb;
+  icon: typeof BookOpen | typeof Eye | typeof Lightbulb;
   path: string;
   theme: {
     primary: string;
@@ -26,11 +26,11 @@ const doorways: Doorway[] = [
     title: "Scholar's Door",
     subtitle: "Research & Theory",
     description: "Explore the scientific foundations and theoretical framework bridging consciousness and physical reality.",
-    icon: Book,
+    icon: BookOpen,
     path: "/scholars-door",
     theme: {
-      primary: "from-emerald-50",
-      secondary: "to-emerald-100/50",
+      primary: "from-emerald-100",
+      secondary: "to-emerald-100/25",
       accent: "emerald-600",
       text: "emerald-900",
       shadow: "emerald-900/5"
@@ -43,8 +43,8 @@ const doorways: Doorway[] = [
     icon: Eye,
     path: "/observers-door",
     theme: {
-      primary: "from-blue-50",
-      secondary: "to-blue-100/50",
+      primary: "from-blue-100",
+      secondary: "to-blue-100/25",
       accent: "blue-600",
       text: "blue-900",
       shadow: "blue-900/5"
@@ -57,8 +57,8 @@ const doorways: Doorway[] = [
     icon: Lightbulb,
     path: "/practitioners-door",
     theme: {
-      primary: "from-amber-50",
-      secondary: "to-amber-100/50",
+      primary: "from-amber-100",
+      secondary: "to-amber-100/25",
       accent: "amber-600",
       text: "amber-900",
       shadow: "amber-900/5"

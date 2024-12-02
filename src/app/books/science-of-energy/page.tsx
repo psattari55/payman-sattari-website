@@ -177,7 +177,7 @@ export default function ScienceOfEnergyPage() {
       <PageTransition>
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
           {/* Hero Section */}
-          <Section width="default" className="pt-24 pb-24">
+          <Section width="default" className="pt-16 md:pt-24 pb-16 md:pb-24">
             <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
               {/* Content Column */}
               <motion.div 

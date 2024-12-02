@@ -3,11 +3,11 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Eye, Book, Lightbulb } from 'lucide-react'
+import { Eye, BookOpen, Lightbulb } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 interface DoorConfig {
-  icon: typeof Eye | typeof Book | typeof Lightbulb
+  icon: typeof Eye | typeof BookOpen | typeof Lightbulb
   title: string
   subtitle: string
   color: string
@@ -23,7 +23,7 @@ const doorConfigs: Record<string, DoorConfig> = {
     gradientFrom: 'from-slate-50'
   },
   'scholars-door': {
-    icon: Book,
+    icon: BookOpen,
     title: "Scholar's Door",
     subtitle: "Exploring the Theoretical Foundations of Reality",
     color: 'text-emerald-600/80',
@@ -42,7 +42,7 @@ interface DoorHeaderProps {
   doorType?: string;
   customTitle?: string;
   customSubtitle?: string;
-  customIcon?: typeof Eye | typeof Book | typeof Lightbulb;
+  customIcon?: typeof Eye | typeof BookOpen | typeof Lightbulb;
 }
 
 const DoorHeader = ({ 

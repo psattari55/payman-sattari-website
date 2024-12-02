@@ -1,77 +1,12 @@
+// src/app/layour/MainNav.tsx
+
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import MobileNav from './MobileNav'
-
-interface MenuItem {
-  name: string
-  path: string
-  subItems?: Array<{
-    name: string
-    path: string
-  }>
-}
-
-const menuItems: MenuItem[] = [
-  {
-    name: 'About',
-    path: '/about',
-  },
-  {
-    name: 'Research',
-    path: '/research',
-    subItems: [
-      { name: 'Research Overview', path: '/research' },
-      { name: 'Academic Papers', path: '/research#papers' },
-      { name: 'Theoretical Framework', path: '/research/framework' },
-    ]
-  },
-  {
-    name: 'Books',
-    path: '/books/science-of-energy',
-    subItems: [
-      { name: 'The Science of Energy', path: '/books/science-of-energy' },
-      { name: 'Framework', path: '/books/science-of-energy/framework' },
-      { name: 'Understanding', path: '/books/science-of-energy/understanding' },
-      { name: 'Series Overview', path: '/books/series' }
-    ]
-  },
-  {
-    name: 'Articles',
-    path: '/articles',
-    subItems: [
-      { name: 'Scientific Insights', path: '/articles/scientific' },
-      { name: 'Metaphysical Insights', path: '/articles/metaphysical' },
-      { name: 'Personal Development', path: '/articles/development' },
-      { name: 'Latest Thoughts', path: '/articles/thoughts' },
-    ]
-  },
-  {
-    name: 'Insights',
-    path: '/articles',
-    subItems: [
-      { name: 'Daily Insights', path: '/insights/daily' },
-      { name: 'AI Conversations', path: '/insights/ai-conversations' },
-      { name: 'Multimedia Content', path: '' }
-    ]
-  },
-  {
-    name: 'Practice',
-    path: '/practice/inner-work',
-    subItems: [
-      { name: 'Inner Work', path: '/practice/inner-work' },
-      { name: 'Balance', path: '/practice/balance' },
-      { name: 'Discipline', path: '/practice/discipline' },
-      { name: 'Practice Library', path: '/practice/library' },
-    ]
-  },
-  {
-    name: 'Contact',
-    path: '/contact',
-  },
-]
+import { menuItems } from '@/config/menuItems'
 
 export default function MainNav() {
   const [activeSection, setActiveSection] = useState<string | null>(null)
@@ -90,10 +25,9 @@ export default function MainNav() {
     }
     timeoutRef.current = setTimeout(() => {
       setActiveSection(null)
-    }, 150) // Delay in milliseconds before menu disappears
+    }, 150)
   }
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -103,13 +37,21 @@ export default function MainNav() {
   }, [])
 
   return (
-    <nav className="w-full bg-white/90 backdrop-blur-sm border-b relative z-50">
+    <nav className="w-full bg-white/90 backdrop-blur-sm border-b z-50 sticky top-0">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="font-semibold text-lg text-gray-900 hover:text-gray-600 transition-colors">
-            Payman Sattari
-          </Link>
+          {/* Mobile: Full width for logo and menu button */}
+          <div className="flex justify-between items-center w-full md:w-auto">
+            <Link href="/" className="font-semibold text-lg text-gray-900 hover:text-gray-600 transition-colors">
+              Payman Sattari
+            </Link>
+            
+            <div className="md:hidden">
+              <MobileNav />
+            </div>
+          </div>
           
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <div
@@ -148,8 +90,6 @@ export default function MainNav() {
               </div>
             ))}
           </div>
-
-          <MobileNav />
         </div>
       </div>
     </nav>

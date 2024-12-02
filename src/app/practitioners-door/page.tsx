@@ -4,7 +4,7 @@
 import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Eye, Scale, StopCircle } from "lucide-react";
+import { Eye, Scale } from "lucide-react";
 import Section from "@/components/ui/Section";
 import PageTransition from "@/components/ui/PageTransition";
 import InteractiveLink from "@/components/ui/InteractiveLink";
@@ -237,7 +237,7 @@ export default function PractitionersDoorPage() {
                             {/* Door Card Component */}
                             <DoorCard
                 title="Balance"
-                description="Explore how to understand and work with the fundamental forces that shape our inner and outer reality."
+                description="Explore how to work with and understand the fundamental forces that shape our inner and outer reality."
                 icon={Scale}
                 href="/practice/balance"
                 doorType="practitioner"

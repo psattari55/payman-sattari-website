@@ -1,196 +1,211 @@
+// src/app/layour/MobileNav.tsx
+
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { Menu, X, ChevronRight } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-
-interface MenuItem {
-  name: string
-  path: string
-  subItems?: Array<{
-    name: string
-    path: string
-  }>
-}
-
-const menuItems: MenuItem[] = [
-  {
-    name: 'Research',
-    path: '/research',
-    subItems: [
-      { name: 'Academic Publications', path: '/research/publications' },
-      { name: 'Theoretical Framework', path: '/research/framework' },
-      { name: 'Scientific Implications', path: '/research/implications' }
-    ]
-  },
-  {
-    name: 'Books',
-    path: '/books',
-    subItems: [
-      { name: 'The Science of Energy', path: '/books/science-of-energy' },
-      { name: 'Basic Duality', path: '/books/basic-duality' },
-      { name: 'Study Guides', path: '/books/study-guides' }
-    ]
-  },
-  {
-    name: 'Articles & Insights',
-    path: '/articles',
-    subItems: [
-      { name: 'Scientific Insights', path: '/articles/scientific' },
-      { name: 'Metaphysical Concepts', path: '/articles/metaphysical' },
-      { name: 'Personal Development', path: '/articles/development' }
-    ]
-  },
-  {
-    name: 'Practice',
-    path: '/practice',
-    subItems: [
-      { name: 'Integration', path: '/practice/integration' },
-      { name: 'Practical Applications', path: '/practice/applications' },
-      { name: 'Energy Principles', path: '/practice/principles' }
-    ]
-  },
-  {
-    name: 'About',
-    path: '/about',
-    subItems: [
-      { name: 'Background', path: '/about/background' },
-      { name: 'Vision', path: '/about/vision' },
-      { name: 'Journey', path: '/about/journey' }
-    ]
-  }
-]
+import { menuItems } from '@/config/menuItems'
 
 export default function MobileNav() {
+//Added this isMounted const and useeffect under it, and wrapped the creatportal with {isMounted && createPortal(
+const [isMounted, setIsMounted] = useState(false);
+
+useEffect(() => {
+  setIsMounted(true);
+}, []);
+  
+  // State management
   const [isOpen, setIsOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const [isAnimating, setIsAnimating] = useState(false)
 
-  // Prevent body scroll when menu is open
+  // Handle escape key for accessibility
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        handleClose()
+      }
+    }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [isOpen])
+
+  // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      // Prevent iOS Safari bounce scroll
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
   }, [isOpen])
 
-  // Handle menu item click
-  const handleMenuItemClick = (item: MenuItem) => {
+  // Consolidated state handlers
+  const handleOpen = useCallback(() => {
+    setIsOpen(true)
+    setIsAnimating(true)
+    // Reset animation state after transition
+    setTimeout(() => setIsAnimating(false), 500)
+  }, [])
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false)
+    setOpenSubmenu(null)
+    setIsAnimating(true)
+    setTimeout(() => setIsAnimating(false), 500)
+  }, [])
+
+  const handleMenuItemClick = useCallback((item: { name: string; subItems?: Array<{ name: string; path: string }> }) => {
     if (item.subItems) {
       setOpenSubmenu(openSubmenu === item.name ? null : item.name)
     } else {
-      setIsOpen(false)
+      handleClose()
+    }
+  }, [openSubmenu, handleClose])
+
+  const handleLinkClick = useCallback(() => {
+    handleClose()
+  }, [handleClose])
+
+  // Prevent touch events from propagating when menu is open
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (isOpen && !isAnimating) {
+      e.stopPropagation()
     }
   }
 
-  // Handle link click
-  const handleLinkClick = () => {
-    setIsOpen(false)
-    setOpenSubmenu(null)
-  }
-
   return (
-    <div className="md:hidden">
-      {/* Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
-      >
-        <Menu size={24} />
-      </button>
+    <>
+      {/* Menu Trigger Button */}
+      <div className="md:hidden">
+        <button
+          onClick={handleOpen}
+          className="p-4 -mr-4 rounded-md text-gray-600 hover:text-gray-900 active:text-gray-900 touch-manipulation transition-colors duration-200"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          aria-haspopup="true"
+        >
+          <Menu size={24} className="transform transition-transform duration-200 hover:scale-110" />
+        </button>
+      </div>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-            />
+      {/* Portal for Menu Overlay */}
+      {isMounted && createPortal(
+        <div 
+          className={`fixed inset-0 z-[100] ${
+            isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+          }`}
+          onTouchMove={handleTouchMove}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+        >
+          {/* Backdrop with blur effect */}
+          <div 
+            className={`absolute inset-0 backdrop-blur-sm bg-black/30 transition-opacity duration-300 ${
+              isOpen ? 'opacity-100' : 'opacity-0'
+            }`}
+            onClick={handleClose}
+            aria-hidden="true"
+          />
 
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-xl z-50 flex flex-col"
+          {/* Menu Panel */}
+          <div 
+            className={`fixed top-0 right-0 w-[85vw] max-w-[300px] h-full bg-white shadow-lg transform transition-all duration-500 ease-out ${
+              isOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
+          >
+            {/* Header */}
+            <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b bg-white/90 backdrop-blur-sm">
+              <Link 
+                href="/" 
+                className="text-lg font-semibold text-gray-900 hover:text-gray-600 transition-colors duration-200"
+                onClick={handleLinkClick}
+              >
+                Payman Sattari
+              </Link>
+              <button
+                onClick={handleClose}
+                className="p-4 -mr-4 rounded-md text-gray-600 hover:text-gray-900 active:text-gray-900 touch-manipulation transition-colors duration-200"
+                aria-label="Close menu"
+              >
+                <X size={24} className="transform transition-transform duration-200 hover:scale-110" />
+              </button>
+            </div>
+
+            {/* Menu Items Container */}
+            <div 
+              className="flex flex-col h-[calc(100%-65px)] overflow-y-auto overscroll-contain bg-white"
+              role="navigation"
             >
-              {/* Header */}
-              <div className="flex justify-between items-center px-4 py-3 border-b">
-                <Link 
-                  href="/" 
-                  className="font-semibold text-lg"
-                  onClick={handleLinkClick}
-                >
-                  Payman Sattari
-                </Link>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-                  aria-label="Close menu"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              {/* Menu Items */}
-              <div className="flex-1 overflow-y-auto overscroll-contain py-2">
-                {menuItems.map((item) => (
-                  <div key={item.name} className="border-b border-gray-100 last:border-0">
-                    <button
-                      onClick={() => handleMenuItemClick(item)}
-                      className="flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition-colors"
-                    >
-                      <span className="font-medium">{item.name}</span>
-                      {item.subItems && (
+              {menuItems.map((item) => (
+                <div key={item.name} className="border-b">
+                  {item.subItems ? (
+                    <>
+                      <button
+                        onClick={() => handleMenuItemClick(item)}
+                        className="w-full p-5 flex justify-between items-center bg-white text-left transition-colors duration-200 hover:bg-gray-50 active:bg-gray-100"
+                        aria-expanded={openSubmenu === item.name}
+                        aria-controls={`submenu-${item.name}`}
+                      >
+                        <span className="font-medium text-gray-900">{item.name}</span>
                         <ChevronRight
                           size={20}
-                          className={`transform transition-transform duration-200 ${
+                          className={`text-gray-600 transform transition-transform duration-300 ${
                             openSubmenu === item.name ? 'rotate-90' : ''
                           }`}
                         />
-                      )}
-                    </button>
-
-                    <AnimatePresence>
-                      {openSubmenu === item.name && item.subItems && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="overflow-hidden bg-gray-50"
-                        >
+                      </button>
+                      
+                      <div 
+                        id={`submenu-${item.name}`}
+                        className={`overflow-hidden transition-all duration-300 ease-out ${
+                          openSubmenu === item.name ? 'max-h-[400px]' : 'max-h-0'
+                        }`}
+                      >
+                        <div className="bg-gray-50 py-1">
                           {item.subItems.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.path}
                               onClick={handleLinkClick}
-                              className="block px-6 py-3 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                              className="block w-full p-5 text-sm text-gray-600 transition-colors duration-200 hover:bg-gray-100 active:bg-gray-200"
                             >
                               {subItem.name}
                             </Link>
                           ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.path}
+                      onClick={handleLinkClick}
+                      className="block w-full p-5 font-medium text-gray-900 bg-white transition-colors duration-200 hover:bg-gray-50 active:bg-gray-100"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+    </>
   )
 }
