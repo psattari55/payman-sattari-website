@@ -9,7 +9,7 @@ export default function ProfileImage() {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="w-48 h-48 relative rounded-full overflow-hidden bg-gray-200">
+    <div className="w-48 h-48 relative rounded-full overflow-hidden bg-gray-200 pt-2">
       {isLoading && <Skeleton variant="circle" className="absolute inset-0" />}
       <Image 
         src="/images/profile.jpg"
