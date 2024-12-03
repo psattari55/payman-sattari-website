@@ -63,7 +63,7 @@ const DoorHeader = ({
   
   return (
     <motion.div 
-      className="relative mb-10 overflow-hidden rounded-lg border border-gray-100"
+      className="relative mb-6 md:mb-10 overflow-hidden rounded-lg border border-gray-100"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

@@ -5,19 +5,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import Section from "@/components/ui/Section";
 import type { LucideIcon } from "lucide-react";
-import {
-  Eye,
-  Map,
-  Unplug,
-  ArrowRight,
-  Brain,
-  Waves,
-  Fingerprint,
-  User,
-  Scale,
-  Compass,
-  Library,
-} from "lucide-react";
+import { Eye, Map, Unplug, ArrowRight, Brain, Waves, Fingerprint, User, Scale, Compass, Library } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
 import SeriesNavigator from "@/components/practice/SeriesNavigator";
 import NewsletterSignup from "@/components/article/NewsletterSignup";

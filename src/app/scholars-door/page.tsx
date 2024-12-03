@@ -23,7 +23,7 @@ export default function ScholarsDoorPage() {
         <Section width="default" className="pt-12 md:pt-24 pb-16">
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
             {/* Main Content */}
-            <div className="lg:w-2/3 border-l border-r border-gray-100 px-4 md:px-8">
+            <div className="lg:w-2/3 border-l border-r border-gray-100 mx-auto md:px-8">
               <DoorHeader doorType="scholars-door" />
 
               {/* Main Content */}
