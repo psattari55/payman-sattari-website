@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import Section from "@/components/ui/Section";
-import { Scale, CircleDot, Infinity, ArrowRight } from "lucide-react";
+import { Scale, CircleDot, Infinity, ArrowRight, Compass, Library, Eye } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
 import SeriesNavigator from "@/components/practice/SeriesNavigator";
 import NewsletterSignup from "@/components/article/NewsletterSignup";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 interface Practice {
   id: string;
@@ -195,7 +196,7 @@ export default function BalancePage() {
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col lg:flex-row gap-12">
                 {/* Main Content */}
-                <div className="lg:w-2/3 border-l border-r border-gray-100 px-8">
+                <div className="lg:w-2/3 border-l border-r border-gray-100 px-4 md:px-8">
                   {/* Intro section before the three main content blocks */}
                   <div className="prose prose-lg max-w-none mb-16">
                     <p className="text-xl text-gray-800 mb-6">
@@ -554,7 +555,73 @@ export default function BalancePage() {
                     <NewsletterSignup />
                   </div>
                 </div>
+              
               </div>
+
+              {/* Next Steps Navigation */}
+              <div className="mt-8 pt-12 border-t border-gray-200">
+                <h2 className="text-2xl font-normal mt-2 mb-8 text-gray-900">
+                  Continue Reading
+                </h2>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                  <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/practice/discipline" className="block p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
+                          <Compass className="w-5 h-5" />
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-400" />
+                      </div>
+                      <h3 className="text-xl font-normal text-gray-900 mb-2">
+                        Discipline
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Develop the consistency and structure needed to create
+                        lasting transformation.
+                      </p>
+                    </Link>
+                  </div>
+
+                  <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/practice/library" className="block p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-10 h-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center">
+                          <Library className="w-5 h-5" />
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-400" />
+                      </div>
+                      <h3 className="text-xl font-normal text-gray-900 mb-2">
+                        Practice Library
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Explore a collection of practices and techniques for
+                        conscious development.
+                      </p>
+                    </Link>
+                  </div>
+
+                  <div className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/practice/inner-work" className="block p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                          <Eye className="w-5 h-5" />
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-400" />
+                      </div>
+                      <h3 className="text-xl font-normal text-gray-900 mb-2">
+                        Inner Work
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                      Understand how to map and work with your inner reality.
+                      </p>
+                    </Link>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </Section>
         </div>

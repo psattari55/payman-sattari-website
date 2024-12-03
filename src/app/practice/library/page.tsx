@@ -13,6 +13,7 @@ import {
   Sparkles,  // for Mantras
 } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
+import Link from 'next/link'
 
 interface Practice {
   id: string;
@@ -106,32 +107,34 @@ const DifficultyIndicator = ({ level }: { level: number }) => {
         whileHover={{ y: -4 }}
         className="h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md overflow-hidden transition-all duration-300"
       >
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center ${getColorClasses(practice.color)}`}>
-              <Icon className="w-6 h-6" />
+        <Link href={`/practice/library/${practice.id}`} className="block">
+          <div className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center ${getColorClasses(practice.color)}`}>
+                <Icon className="w-6 h-6" />
+              </div>
+              <DifficultyIndicator level={practice.difficulty} />
             </div>
-            <DifficultyIndicator level={practice.difficulty} />
+            
+            <h3 className="text-xl font-medium text-gray-900 mb-2">
+              {practice.title}
+            </h3>
+            
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              {practice.description}
+            </p>
+            
+            <motion.div 
+              className="flex items-center text-sm text-gray-500 hover:text-gray-700"
+              whileHover={{ x: 4 }}
+            >
+              Explore practice
+              <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </motion.div>
           </div>
-          
-          <h3 className="text-xl font-medium text-gray-900 mb-2">
-            {practice.title}
-          </h3>
-          
-          <p className="text-gray-600 text-sm leading-relaxed mb-4">
-            {practice.description}
-          </p>
-          
-          <motion.div 
-            className="flex items-center text-sm text-gray-500 hover:text-gray-700"
-            whileHover={{ x: 4 }}
-          >
-            Explore practice
-            <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </motion.div>
-        </div>
+        </Link>
       </motion.div>
     );
   };
