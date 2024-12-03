@@ -83,7 +83,7 @@ export default function ArticlePage() {
 
       <ReadingProgress />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
-        <Section width="default" className="pt-24 pb-16">
+        <Section width="default" className="pt-14 md:pt-24 pb-16">
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
             {/* Main Content */}
             <ArticleContent>

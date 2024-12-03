@@ -2,7 +2,6 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import Breadcrumb from '@/components/ui/Breadcrumb';
 
 interface ArticleHeaderProps {
     title: string;
