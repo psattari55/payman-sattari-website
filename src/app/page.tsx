@@ -55,7 +55,7 @@ export default function HomePage() {
         background="white" 
         width="narrow"
         padding="large"
-        className="text-center py-12 md:py-24"
+        className="text-center py-16 md:py-24"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
           Bridging Consciousness and Physical Reality

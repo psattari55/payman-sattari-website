@@ -15,6 +15,7 @@ export default function TheoreticalFrameworkPage() {
           background="white" 
           width="narrow"
           padding="large"
+          className="py-12 md:py-24"
         >
           <div className="mb-8">
             <InteractiveLink href="/research" className="inline-flex items-center text-gray-600 hover:text-gray-900">

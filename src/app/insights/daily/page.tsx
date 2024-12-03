@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Quote, Search, ChevronDown, ChevronUp, Filter } from 'lucide-react';
-import { FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaTwitter, FaFacebook } from 'react-icons/fa';
 import { HiLink } from 'react-icons/hi';
 import PageTransition from '@/components/ui/PageTransition';
 import Section from '@/components/ui/Section';

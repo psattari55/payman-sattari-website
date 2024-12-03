@@ -217,8 +217,8 @@ export default function InnerWorkPage() {
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col lg:flex-row gap-12">
                 {/* Main Content */}
-                <div className="lg:w-2/3 border-l border-r border-gray-100 px-8">
-                  {/* Introduction 
+                <div className="lg:w-2/3 border-l border-r border-gray-100 px-4 md:px-8">
+                  {/* Introduction */}
 
                 <div className="prose prose-lg max-w-none">
                   <p className="text-xl text-gray-700 mb-16">
@@ -227,7 +227,7 @@ export default function InnerWorkPage() {
                     understand, and actively work with our inner life. This
                     begins with knowing how to look inward.
                   </p>
-                </div>*/}
+                </div>
 
                   {/* Meditation Section */}
                   <div id="meditation" className="mb-16">
@@ -246,12 +246,6 @@ export default function InnerWorkPage() {
                       </motion.h1>
                     </div>
                     <div className="prose prose-lg max-w-none">
-                      <p className="text-xl text-gray-700 mb-6">
-                        The first step to learning how to use this framework to
-                        evolve our personal experience is understanding how to
-                        see, understand, and actively work with our inner life.
-                        This begins with knowing how to look inward.
-                      </p>
                       <p className="text-lg leading-relaxed text-gray-800">
                         Meditation is simply the act of looking inward. When
                         many hear this word, they think of specific techniques

@@ -72,6 +72,11 @@ export default function AboutPage() {
                 </p>
               </div>
 
+        {/* Subtle Divider */}
+        <div className="w-full max-w-2xl mx-auto">
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        </div>
+
               {/* Vision */}
               <div className="prose prose-lg max-w-none">
                 <h2 className="text-4xl font-semibold mb-6 text-gray-900">Vision</h2>
@@ -80,7 +85,10 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="w-5/6 border-t border-slate-100 mx-auto"></div>
+                      {/* Subtle Divider */}
+        <div className="w-full max-w-2xl mx-auto">
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        </div>
 
               {/* Current Projects Section */}
               <motion.div {...fadeIn}>

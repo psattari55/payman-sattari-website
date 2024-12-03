@@ -24,7 +24,7 @@ export default function ArticleFooterNavigation({
   doorHref
 }: ArticleFooterNavigationProps) {
   return (
-    <div className="mt-4 pt-4 border-t border-gray-100">
+    <div className="hidden md:block mt-4 pt-4 border-t border-gray-100">
       <div className="grid md:grid-cols-2 gap-8">
         {previousArticle && (
           <motion.div

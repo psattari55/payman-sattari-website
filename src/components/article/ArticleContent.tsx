@@ -10,7 +10,7 @@ interface ArticleContentProps {
 export default function ArticleContent({ children }: ArticleContentProps) {
   return (
     <motion.div 
-      className="lg:w-2/3 border-l border-r border-gray-100 px-8"
+      className="lg:w-2/3 border-l border-r border-gray-100 px-4 md:px-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

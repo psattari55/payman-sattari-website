@@ -1,7 +1,7 @@
 // src/components/article/ShareButtons.tsx
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { HiLink, HiMail } from 'react-icons/hi';
@@ -12,7 +12,14 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ title }: ShareButtonsProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    setIsMounted(true);
+    setCurrentUrl(window.location.href);
+  }, []);
 
   const copyToClipboard = async () => {
     try {
@@ -28,22 +35,22 @@ export default function ShareButtons({ title }: ShareButtonsProps) {
     {
       name: 'Twitter',
       icon: <FaTwitter className="w-5 h-5 text-[#1DA1F2]" />,
-      shareUrl: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`
+      shareUrl: isMounted ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(currentUrl)}` : '#'
     },
     {
       name: 'LinkedIn',
       icon: <FaLinkedin className="w-5 h-5 text-[#0A66C2]" />,
-      shareUrl: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`
+      shareUrl: isMounted ? `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}` : '#'
     },
     {
       name: 'Facebook',
       icon: <FaFacebook className="w-5 h-5 text-[#1877F2]" />,
-      shareUrl: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`
+      shareUrl: isMounted ? `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}` : '#'
     },
     {
       name: 'Email',
       icon: <HiMail className="w-5 h-5 text-gray-600" />,
-      shareUrl: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(window.location.href)}`
+      shareUrl: isMounted ? `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(currentUrl)}` : '#'
     },
     {
       name: 'Copy Link',

@@ -1,5 +1,6 @@
 // src/components/article/ArticleNavigation.tsx
-import { motion } from 'framer-motion';
+'use client'
+
 import { Eye, BookOpen, Lightbulb, CircleDot } from 'lucide-react';
 import InteractiveLink from '@/components/ui/InteractiveLink';
 import Link from 'next/link';
@@ -62,30 +63,13 @@ export default function ArticleNavigation({ previous, next, door = "Observer's D
       <Link href={doorStyle.href} className="block">
         <div className={`px-6 py-4 ${doorStyle.bgColor} border-b border-gray-200 group cursor-pointer`}>
           <div className="flex items-center gap-3">
-            <motion.div
-              animate={{ 
-                scale: [1, 1.1, 1],
-                rotate: [-5, 0, 5, 0, -5],
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <Icon 
-                className={`w-5 h-5 text-gray-600 transition-colors duration-200 ${doorStyle.hoverColor}`}
-                strokeWidth={1.5}
-              />
-            </motion.div>
-            <motion.h3 
-              className={`text-lg font-medium text-gray-800 transition-colors duration-200 ${doorStyle.hoverColor}`}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <Icon 
+              className="w-5 h-5 text-gray-600"
+              strokeWidth={1.5}
+            />
+            <h3 className={`text-lg font-medium text-gray-800 transition-colors duration-200 ${doorStyle.hoverColor}`}>
               {doorStyle.text}
-            </motion.h3>
+            </h3>
           </div>
         </div>
       </Link>

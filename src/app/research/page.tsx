@@ -60,6 +60,7 @@ export default function ResearchPage() {
           background="white" 
           width="narrow"
           padding="large"
+          className="py-16 md:py-24"
         >
           <h1 className="text-3xl font-normal mb-6 text-gray-900">Research Overview</h1>
           <div className="prose prose-lg max-w-none">
