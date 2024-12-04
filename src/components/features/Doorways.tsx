@@ -29,8 +29,8 @@ const doorways: Doorway[] = [
     icon: BookOpen,
     path: "/scholars-door",
     theme: {
-      primary: "from-emerald-100",
-      secondary: "to-emerald-100/25",
+      primary: "from-emerald-500/50",
+      secondary: "to-emerald-200/50",
       accent: "emerald-600",
       text: "emerald-900",
       shadow: "emerald-900/5"
@@ -43,8 +43,8 @@ const doorways: Doorway[] = [
     icon: Eye,
     path: "/observers-door",
     theme: {
-      primary: "from-blue-100",
-      secondary: "to-blue-100/25",
+      primary: "from-blue-500/50",
+      secondary: "to-blue-200/50",
       accent: "blue-600",
       text: "blue-900",
       shadow: "blue-900/5"
@@ -57,8 +57,8 @@ const doorways: Doorway[] = [
     icon: Lightbulb,
     path: "/practitioners-door",
     theme: {
-      primary: "from-amber-100",
-      secondary: "to-amber-100/25",
+      primary: "from-amber-500/50",
+      secondary: "to-amber-200/50",
       accent: "amber-600",
       text: "amber-900",
       shadow: "amber-900/5"
@@ -72,20 +72,19 @@ interface DoorwaysProps {
 
 const Doorways = ({ showHeader = true }: DoorwaysProps) => {
   const [hoveredDoor, setHoveredDoor] = useState<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
       {showHeader && (
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-light mb-4">Choose Your Path</h2>
+          <h2 className="text-4xl font-light mb-4">Choose A Door</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Three doorways, each offering a unique perspective on the relationship between consciousness and physical reality.
+            Each offers a unique perspective on the relationship between consciousness and physical reality.
           </p>
         </motion.div>
       )}
@@ -107,11 +106,9 @@ const Doorways = ({ showHeader = true }: DoorwaysProps) => {
                   className="relative h-full min-h-[400px] rounded-xl cursor-pointer perspective-1000"
                   onHoverStart={() => {
                     setHoveredDoor(index);
-                    setIsAnimating(true);
                   }}
                   onHoverEnd={() => {
                     setHoveredDoor(null);
-                    setIsAnimating(false);
                   }}
                   whileHover={{ scale: 1.02 }}
                 >

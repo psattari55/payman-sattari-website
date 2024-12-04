@@ -17,10 +17,10 @@ interface DoorConfig {
 const doorConfigs: Record<string, DoorConfig> = {
   'observers-door': {
     icon: Eye,
-    title: "The Observer's Door",
+    title: "Observer's Door",
     subtitle: "Exploring Inner Dynamics and the Nature of Experience",
     color: 'text-blue-600/80',
-    gradientFrom: 'from-slate-50'
+    gradientFrom: 'from-blue-50'
   },
   'scholars-door': {
     icon: BookOpen,
@@ -31,7 +31,7 @@ const doorConfigs: Record<string, DoorConfig> = {
   },
   'practitioners-door': {
     icon: Lightbulb,
-    title: "The Practitioner's Door",
+    title: "Practitioner's Door",
     subtitle: "Turning Insight into Action",
     color: 'text-amber-600/80',
     gradientFrom: 'from-amber-50'
@@ -63,7 +63,7 @@ const DoorHeader = ({
   
   return (
     <motion.div 
-      className="relative mb-6 md:mb-10 overflow-hidden rounded-lg border border-gray-100"
+      className="relative mb-6 md:mb-8 overflow-hidden rounded-lg border border-gray-100"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -114,9 +114,9 @@ const DoorHeader = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-12 py-8">
+      <div className="relative z-10 px-12 py-12 pb-6 md:pb-8">
         <div className="flex flex-col items-center text-center">
-          <div className="relative mb-8">
+          <div className="relative mb-12">
             {/* Outer rotating ring with gradient */}
             <motion.div 
               className="absolute -inset-4 rounded-full"
@@ -161,12 +161,12 @@ const DoorHeader = ({
                 ease: "easeInOut"
               }}
             >
-              <Icon className={`w-16 h-16 ${config.color}`} strokeWidth={1.5} />
+              <Icon className={`w-12 h-12 ${config.color}`} strokeWidth={1.5} />
             </motion.div>
           </div>
           
           <div className="relative">
-            {/* Decorative lines */}
+            {/* Decorative lines
             <motion.div 
               className="absolute -left-16 top-1/2 w-12 h-px bg-gradient-to-r from-transparent to-gray-300"
               initial={{ scaleX: 0, opacity: 0 }}
@@ -178,7 +178,7 @@ const DoorHeader = ({
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-            />
+            /> */}
             
             <motion.h1 
               className="text-3xl md:text-4xl font-light mb-2 tracking-wide text-gray-900"
@@ -202,7 +202,7 @@ const DoorHeader = ({
           </div>
           
           <motion.h2 
-            className="text-base md:text-lg font-light text-gray-600 max-w-2xl my-6 tracking-wide"
+            className="text-base md:text-lg font-light text-gray-600 max-w-2xl my-4 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}

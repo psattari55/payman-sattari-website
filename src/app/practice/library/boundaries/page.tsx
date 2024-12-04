@@ -11,7 +11,7 @@ export default function BoundariesPage() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
-        <Section width="default" className="pt-24 pb-16">
+        <Section width="default" className="pt-12 md:pt-24 pb-16">
           {/* Introduction */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="mb-8 border-b border-gray-200 pb-7">

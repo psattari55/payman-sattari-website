@@ -81,7 +81,7 @@ export default function HomePage() {
       </Section>
 
     {/* Three Doorways */}
-    <Section background="white" width="default" id="doorways">
+    <Section background="white" width="default" id="doorways" className="pt-12">
       <div className="max-w-6xl mx-auto">
         <Doorways showHeader={true} />
       </div>
