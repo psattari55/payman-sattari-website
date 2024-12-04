@@ -16,12 +16,9 @@ export default function HomePage() {
 
   const [isLoading, setIsLoading] = useState(true)
   
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
-    return () => clearTimeout(timer)
-  }, [])
+useEffect(() => {
+  setIsLoading(false)  // Remove the setTimeout entirely
+}, [])
 
   const publications = [
     {
