@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Ghost ${token}`,
+        'Authorization': 'Ghost ' + token,
         'Accept-Version': 'v5.103'
       },
       body: JSON.stringify({
