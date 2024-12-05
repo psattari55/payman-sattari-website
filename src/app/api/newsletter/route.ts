@@ -10,13 +10,15 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { email, name } = body
 
+    const [id, secret] = GHOST_KEY!.split(':')
+    const token = Buffer.from(`${id}:${secret}`).toString('base64')
+
     const response = await fetch(`${GHOST_URL}/ghost/api/admin/members/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Ghost ${GHOST_KEY}`,
-        'Accept-Version': 'v5.103',
-        'Accept': 'application/json'
+        'Authorization': `Ghost ${token}`,
+        'Accept-Version': 'v5.103'
       },
       body: JSON.stringify({
         members: [{
