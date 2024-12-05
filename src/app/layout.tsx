@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import MainNav from '@/components/layout/MainNav'
 import ScrollToTop from '@/components/ui/ScrollToTop'
@@ -50,6 +51,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-B6D1RK9WGF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B6D1RK9WGF');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.className} text-gray-700`}>
         <JsonLd data={generateSchemaOrgPerson()} />
         <JsonLd data={generateSchemaOrgWebsite()} />
