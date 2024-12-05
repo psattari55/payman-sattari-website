@@ -10,6 +10,7 @@ import JsonLd, {
   generateSchemaOrgPerson,
   generateSchemaOrgWebsite
 } from '@/components/ui/JsonLd'
+import Footer from '@/components/layout/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -73,6 +74,7 @@ export default function RootLayout({
           {children}
         </main>
         <ScrollToTop />
+        <Footer />
       </body>
     </html>
   )
