@@ -11,7 +11,6 @@ interface DoorCardProps {
   icon: LucideIcon;
   href: string;
   doorType: 'scholar' | 'observer' | 'practitioner';
-  variant?: 'default' | 'featured';
 }
 
 const doorStyles = {
@@ -44,7 +43,6 @@ const DoorCard = ({
   icon: Icon, 
   href, 
   doorType,
-  variant = 'default' 
 }: DoorCardProps) => {
   const styles = doorStyles[doorType];
   

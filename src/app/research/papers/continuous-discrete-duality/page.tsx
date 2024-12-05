@@ -2,7 +2,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowLeft, ArrowRight, Mail, Info } from 'lucide-react'
+import { ArrowLeft, Info } from 'lucide-react'
 import Section from '@/components/ui/Section'
 import PageTransition from '@/components/ui/PageTransition'
 import InteractiveLink from '@/components/ui/InteractiveLink'

@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Eye, Compass, Brain, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import PageTransition from '@/components/ui/PageTransition';
 import Section from '@/components/ui/Section';

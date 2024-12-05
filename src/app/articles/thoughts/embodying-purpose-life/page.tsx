@@ -3,16 +3,13 @@
 'use client'
 
 import React from 'react';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
 import { formatDate } from '@/lib/formatters';
 
-import { Toast } from '@/components/ui/Toast';
 import Section from '@/components/ui/Section';
 import PageTransition from '@/components/ui/PageTransition';
-import InteractiveLink from '@/components/ui/InteractiveLink';
 import ReadingProgress from '@/components/article/ReadingProgress';
 import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
@@ -25,12 +22,6 @@ import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
 import ExploreArticles from '@/components/article/ExploreArticles';
-
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
 
 export default function ArticlePage() {
 
@@ -46,20 +37,6 @@ export default function ArticlePage() {
 
     const currentPath = usePathname();
     const navigation = getArticleNavigation(currentPath);
-
-    const [isSubscribing, setIsSubscribing] = useState(false);
-
-    const [showToast, setShowToast] = useState(false);
-
-    const copyToClipboard = async () => {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          setShowToast(true);
-          setTimeout(() => setShowToast(false), 2000);
-        } catch (err) {
-          console.error('Failed to copy text: ', err);
-        }
-      };
 
     return (
     <PageTransition>
@@ -225,8 +202,6 @@ export default function ArticlePage() {
               coverImage="/images/books/science-of-energy-cover.jpg"
               title="The Science of Energy"
               description="A comprehensive introduction to a new framework for understanding reality, revealing the deep connections between consciousness and material reality."
-              learnMoreHref="/books/science-of-energy"
-              buyHref="#"
             />
 
             {/* Newsletter */}
@@ -254,7 +229,6 @@ export default function ArticlePage() {
           </div>
         </Section>
       </div>
-      {showToast && <Toast message="Link copied to clipboard!" />}
     </PageTransition>
   );
 }

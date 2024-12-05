@@ -6,7 +6,34 @@ import PageTransition from '@/components/ui/PageTransition';
 import Section from '@/components/ui/Section';
 import ConversationCard from '@/components/insights/ConversationCard';
 
-const conversations = [
+interface Speaker {
+  type: 'AI' | 'Payman';
+  name?: string;
+  version?: string;
+}
+
+interface Message {
+  speaker: Speaker;
+  content: string | JSX.Element;
+}
+
+interface RelatedInsight {
+  title: string;
+  path: string;
+}
+
+interface Conversation {
+  id: string;
+  date: string;
+  title: string;
+  summary: string;
+  themes: string[];
+  featured: boolean;
+  messages: Message[];
+  relatedInsights: RelatedInsight[];
+}
+
+const conversations: Conversation[] = [
   {
     id: 'human-connection',
     date: '2024-11-19',

@@ -4,7 +4,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Eye, BookOpen, Lightbulb } from 'lucide-react'
-import { usePathname } from 'next/navigation'
 
 interface DoorConfig {
   icon: typeof Eye | typeof BookOpen | typeof Lightbulb
@@ -51,10 +50,9 @@ const DoorHeader = ({
   customSubtitle,
   customIcon
 }: DoorHeaderProps) => {
-  const pathname = usePathname()
   
   // Determine which door configuration to use
-  let config = doorConfigs[doorType]
+  const config = doorConfigs[doorType]
   
   // Allow for custom overrides
   const Icon = customIcon || config.icon

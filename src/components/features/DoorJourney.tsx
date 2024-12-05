@@ -3,7 +3,6 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Eye, Book, Lightbulb } from 'lucide-react'
 import InteractiveLink from '@/components/ui/InteractiveLink'
 
 interface DoorJourneyConfig {

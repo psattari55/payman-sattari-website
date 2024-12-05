@@ -2,8 +2,8 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Eye, Scale } from "lucide-react";
 import Section from "@/components/ui/Section";
 import PageTransition from "@/components/ui/PageTransition";
@@ -15,8 +15,6 @@ import DoorJourney from "@/components/features/DoorJourney";
 import DoorSeriesNav from "@/components/features/DoorSeriesNav";
 
 export default function PractitionersDoorPage() {
-  const [isSubscribing, setIsSubscribing] = useState(false);
-
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -185,9 +183,11 @@ export default function PractitionersDoorPage() {
               >
                 <div className="flex gap-6">
                   <div className="w-1/3">
-                    <img
+                    <Image
                       src="/images/books/science-of-energy-cover.jpg"
                       alt="The Science of Energy Book Cover"
+                      width={300}
+                      height={450}
                       className="w-full rounded-sm shadow-sm"
                     />
                   </div>
@@ -229,13 +229,10 @@ export default function PractitionersDoorPage() {
                   className="w-full bg-gray-900 text-white p-2 rounded-md text-sm hover:bg-gray-800 transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  disabled={isSubscribing}
-                >
-                  {isSubscribing ? "Subscribing..." : "Subscribe"}
-                </motion.button>
+                ></motion.button>
               </div>
-                            {/* Door Card Component */}
-                            <DoorCard
+              {/* Door Card Component */}
+              <DoorCard
                 title="Balance"
                 description="Explore how to work with and understand the fundamental forces that shape our inner and outer reality."
                 icon={Scale}

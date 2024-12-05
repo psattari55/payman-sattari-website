@@ -2,8 +2,8 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 import { FileText, Grid } from "lucide-react";
 import Section from "@/components/ui/Section";
 import PageTransition from "@/components/ui/PageTransition";
@@ -15,8 +15,6 @@ import DoorJourney from "@/components/features/DoorJourney";
 import DoorSeriesNav from "@/components/features/DoorSeriesNav";
 
 export default function ScholarsDoorPage() {
-  const [isSubscribing, setIsSubscribing] = useState(false);
-
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -162,9 +160,11 @@ export default function ScholarsDoorPage() {
               >
                 <div className="flex gap-6">
                   <div className="w-1/3">
-                    <img
+                    <Image
                       src="/images/books/science-of-energy-cover.jpg"
                       alt="The Science of Energy Book Cover"
+                      width={300} // adjust this based on your needs
+                      height={450} // adjust this based on your needs
                       className="w-full rounded-sm shadow-sm"
                     />
                   </div>
@@ -206,10 +206,7 @@ export default function ScholarsDoorPage() {
                   className="w-full bg-gray-900 text-white p-2 rounded-md text-sm hover:bg-gray-800 transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  disabled={isSubscribing}
-                >
-                  {isSubscribing ? "Subscribing..." : "Subscribe"}
-                </motion.button>
+                ></motion.button>
               </div>
 
               {/* Door Card Component */}

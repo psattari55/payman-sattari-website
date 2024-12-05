@@ -453,7 +453,7 @@ export default function ScienceOfEnergyPage() {
             </div>
 
             <div className="space-y-8">
-              {seriesData.books.map((book, index) => (
+              {seriesData.books.map((book) => (
                 <motion.div
                   key={book.title}
                   className={`bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-sm ${

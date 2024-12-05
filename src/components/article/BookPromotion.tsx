@@ -1,6 +1,6 @@
-// src/components/article/BookPromotion.tsx
 'use client'
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import InteractiveLink from '@/components/ui/InteractiveLink';
 
@@ -8,16 +8,16 @@ interface BookPromotionProps {
   coverImage: string;
   title: string;
   description: string;
-  learnMoreHref: string;
-  buyHref: string;
+  learnMoreHref?: string;
+  buyHref?: string;
 }
 
 export default function BookPromotion({ 
   coverImage,
   title,
   description,
-  learnMoreHref,
-  buyHref
+  learnMoreHref = "/books/science-of-energy",
+  buyHref = "https://www.amazon.com/dp/B0CPC9CBJ2"
 }: BookPromotionProps) {
   return (
     <motion.div 
@@ -26,10 +26,13 @@ export default function BookPromotion({
       transition={{ duration: 0.2 }}
     >
       <div className="flex gap-6">
-        <div className="w-1/3">
-          <img 
+        <div className="w-1/3 relative">
+          <Image 
             src={coverImage}
             alt={`${title} Book Cover`}
+            width={150}
+            height={240}
+            sizes="150px"
             className="w-full rounded-sm shadow-sm"
           />
         </div>

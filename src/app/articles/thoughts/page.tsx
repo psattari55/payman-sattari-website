@@ -2,18 +2,11 @@
 
 'use client'
 
-import { articles, getArticlesByCategory } from '@/data/articles'
+import { getArticlesByCategory } from '@/data/articles'
 import PageTransition from '@/components/ui/PageTransition'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
 import Link from 'next/link'
-
-const categoryTitles = {
-  scientific: "Scientific Insights",
-  metaphysical: "Metaphysical Concepts",
-  development: "Personal Development",
-  thoughts: "Latest Thoughts"
-} as const;
 
 export default function ThoughtsPage() {
     const categoryArticles = getArticlesByCategory('thoughts');

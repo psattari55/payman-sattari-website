@@ -2,11 +2,6 @@
 
 import { scholarsDoorSequence, observersDoorSequence, practitionersDoorSequence } from '@/data/sequences';
 
-interface NavigationItem {
-  title: string;
-  href: string;  // Note: we'll convert 'path' to 'href' for compatibility
-}
-
 export function getArticleNavigation(currentPath: string) {
   const allSequences = {
     scholar: scholarsDoorSequence,

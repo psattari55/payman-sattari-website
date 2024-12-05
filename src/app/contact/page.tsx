@@ -96,7 +96,7 @@ export default function ContactPage() {
         subject: "",
         message: "",
       });
-    } catch (error) {
+    } catch {
       setToastMessage("Failed to send message. Please try again.");
       setShowToast(true);
     } finally {

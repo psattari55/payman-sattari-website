@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import Section from '@/components/ui/Section';
 import PageTransition from '@/components/ui/PageTransition';
 import InteractiveLink from '@/components/ui/InteractiveLink';
+import Image from 'next/image';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -40,10 +41,12 @@ export default function AboutPage() {
                 About Payman Sattari
               </h1>
               <div className="w-16 h-0.5 bg-blue-100 mx-auto mb-8"></div>
-              <img 
+              <Image 
                 src="/images/profile.jpg" 
                 alt="Payman Sattari"
-                className="w-32 h-32 rounded-full mx-auto mb-8 object-cover shadow-md"
+                width={128} // 32 * 4 since your class was w-32
+                height={128}
+                className="rounded-full mx-auto mb-8 object-cover shadow-md"
               />
             </motion.header>
 
