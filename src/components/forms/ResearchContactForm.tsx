@@ -23,24 +23,43 @@ export default function ResearchContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
     
-    // TODO: Implement actual form submission
-    // This is where we'll add the API endpoint connection
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulated delay
-    
-    setIsSubmitting(false)
-    setSubmitStatus('success')
-    setFormData({
-      name: '',
-      email: '',
-      institution: '',
-      subject: '',
-      message: ''
-    })
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setSubmitStatus('success')
+      setFormData({
+        name: '',
+        email: '',
+        institution: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -159,7 +178,7 @@ export default function ResearchContactForm() {
 
       {submitStatus === 'error' && (
         <div className="text-red-600 text-center mt-4">
-          There was an error sending your message. Please try again.
+          {errorMessage || 'There was an error sending your message. Please try again.'}
         </div>
       )}
     </form>
