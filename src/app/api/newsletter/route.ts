@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { email, name } = newsletterSchema.parse(body);
 
-    const response = await fetch(`${GHOST_URL}/ghost/api/v5/members/`, {
+    const response = await fetch(`${GHOST_URL}/ghost/api/v5/admin/members/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
