@@ -83,10 +83,22 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
+      const response = await fetch('/api/main-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+  
       setToastMessage("Message sent successfully!");
       setShowToast(true);
       setFormData({
@@ -96,8 +108,8 @@ export default function ContactPage() {
         subject: "",
         message: "",
       });
-    } catch {
-      setToastMessage("Failed to send message. Please try again.");
+    } catch (error) {
+      setToastMessage(error instanceof Error ? error.message : "Failed to send message. Please try again.");
       setShowToast(true);
     } finally {
       setIsSubmitting(false);
