@@ -1,32 +1,43 @@
 // src/app/about/page.tsx
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import Section from '@/components/ui/Section';
 import PageTransition from '@/components/ui/PageTransition';
 import InteractiveLink from '@/components/ui/InteractiveLink';
+import NewsletterModal from '@/components/ui/NewsletterModal';
 import Image from 'next/image';
 
+// Animations object
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6 }
 };
 
+// List Item Component
 const ListItem = ({ children }: { children: ReactNode }) => (
-    <motion.li 
-      className="flex items-start space-x-3 mb-4"
-      whileHover={{ x: 4 }}
-      transition={{ duration: 0.2 }}
-    >
-      <span className="w-2 h-2 mt-2 rounded-full bg-blue-100 flex-shrink-0" />
-      <span className="text-gray-700">{children}</span>
-    </motion.li>
-  );
+  <motion.li 
+    className="flex items-start space-x-3 mb-4"
+    whileHover={{ x: 4 }}
+    transition={{ duration: 0.2 }}
+  >
+    <span className="w-2 h-2 mt-2 rounded-full bg-blue-100 flex-shrink-0" />
+    <span className="text-gray-700">{children}</span>
+  </motion.li>
+);
 
+// Main Component
 export default function AboutPage() {
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+
+  const handleNewsletterClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsNewsletterOpen(true);
+  };
+
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
@@ -44,7 +55,7 @@ export default function AboutPage() {
               <Image 
                 src="/images/profile.jpg" 
                 alt="Payman Sattari"
-                width={128} // 32 * 4 since your class was w-32
+                width={128}
                 height={128}
                 className="rounded-full mx-auto mb-8 object-cover shadow-md"
               />
@@ -75,10 +86,10 @@ export default function AboutPage() {
                 </p>
               </div>
 
-        {/* Subtle Divider */}
-        <div className="w-full max-w-2xl mx-auto">
-          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-        </div>
+              {/* Subtle Divider */}
+              <div className="w-full max-w-2xl mx-auto">
+                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+              </div>
 
               {/* Vision */}
               <div className="prose prose-lg max-w-none">
@@ -88,10 +99,10 @@ export default function AboutPage() {
                 </p>
               </div>
 
-                      {/* Subtle Divider */}
-        <div className="w-full max-w-2xl mx-auto">
-          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-        </div>
+              {/* Subtle Divider */}
+              <div className="w-full max-w-2xl mx-auto">
+                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+              </div>
 
               {/* Current Projects Section */}
               <motion.div {...fadeIn}>
@@ -159,14 +170,23 @@ export default function AboutPage() {
                   <InteractiveLink href="/contact" variant="button">
                     Contact Me
                   </InteractiveLink>
-                  <InteractiveLink href="#newsletter" variant="button">
+                  <button
+                    onClick={handleNewsletterClick}
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
+                  >
                     Join Newsletter
-                  </InteractiveLink>
+                  </button>
                 </div>
               </motion.div>
             </motion.div>
           </div>
         </Section>
+
+        {/* Newsletter Modal */}
+        <NewsletterModal 
+          isOpen={isNewsletterOpen} 
+          onClose={() => setIsNewsletterOpen(false)} 
+        />
       </div>
     </PageTransition>
   );

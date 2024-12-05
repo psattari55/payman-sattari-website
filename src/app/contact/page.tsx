@@ -3,18 +3,12 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Send,
-  Mail,
-  MessageSquare,
-  Calendar,
-  Newspaper,
-  Camera,
-} from "lucide-react";
+import { Send, Mail, MessageSquare, Calendar, Newspaper, Camera } from "lucide-react";
 import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import PageTransition from "@/components/ui/PageTransition";
 import { Toast } from "@/components/ui/Toast";
+import NewsletterModal from "@/components/ui/NewsletterModal";
 
 type InquiryType = "general" | "research" | "speaking" | "media" | "newsletter";
 
@@ -46,6 +40,8 @@ export default function ContactPage() {
     { value: "media", label: "Media Inquiry", icon: Camera },
     { value: "newsletter", label: "Newsletter", icon: Newspaper },
   ];
+
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
 
   const socialLinks = [
     {
@@ -83,22 +79,22 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     try {
-      const response = await fetch('/api/main-contact', {
-        method: 'POST',
+      const response = await fetch("/api/main-contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-  
+
       const data = await response.json();
-  
+
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message');
+        throw new Error(data.error || "Failed to send message");
       }
-  
+
       setToastMessage("Message sent successfully!");
       setShowToast(true);
       setFormData({
@@ -109,7 +105,11 @@ export default function ContactPage() {
         message: "",
       });
     } catch (error) {
-      setToastMessage(error instanceof Error ? error.message : "Failed to send message. Please try again.");
+      setToastMessage(
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again."
+      );
       setShowToast(true);
     } finally {
       setIsSubmitting(false);
@@ -257,6 +257,31 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.div
+              className="mt-16 mb-16 bg-stone-50 rounded-lg border border-gray-200 p-8 text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h2 className="text-2xl font-light mb-4 text-gray-900">
+                Subscribe to My Newsletter
+              </h2>
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                Get monthly insights on consciousness, physics, and the nature
+                of reality. Stay updated with my latest research, publications,
+                and thoughts.
+              </p>
+              <motion.button
+                onClick={() => setIsNewsletterOpen(true)}
+                className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Newspaper className="w-5 h-5 mr-2" />
+                Subscribe to Newsletter
+              </motion.button>
+            </motion.div>
+
+            <motion.div
               className="mt-16"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -320,6 +345,10 @@ export default function ContactPage() {
         </Section>
         {showToast && <Toast message={toastMessage} />}
       </div>
+      <NewsletterModal
+        isOpen={isNewsletterOpen}
+        onClose={() => setIsNewsletterOpen(false)}
+      />
     </PageTransition>
   );
 }
