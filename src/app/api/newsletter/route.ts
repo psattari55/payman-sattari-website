@@ -10,15 +10,20 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { email, name } = body
 
-    const response = await fetch(`${GHOST_URL}/ghost/api/content/members/`, {
+    const response = await fetch(`${GHOST_URL}/ghost/api/admin/members/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Ghost ${GHOST_KEY}`
+        'Authorization': `Ghost ${GHOST_KEY}`,
+        'Accept-Version': 'v5.103',
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
-        email,
-        name: name || ''
+        members: [{
+          email,
+          name: name || '',
+          subscribed: true
+        }]
       })
     })
 
