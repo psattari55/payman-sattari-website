@@ -2,7 +2,7 @@
 export const siteConfig = {
     name: 'Payman Sattari',
     title: 'Payman Sattari - Bridging Consciousness and Physical Reality',
-    description: 'Exploring a unified framework that bridges quantum mechanics, consciousness, and physical reality through rigorous theoretical physics and experiential understanding.',
+    description: 'Exploring a unified framework of energy, consciousness, and matter.',
     url: 'https://paymansattari.com',
     ogImage: '/images/og-image.jpg',
     keywords: [
