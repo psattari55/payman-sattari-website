@@ -37,16 +37,12 @@ export const metadata: Metadata = {
       height: 630,
       alt: siteConfig.title,
     }],
-    // Add Facebook app ID
-    appId: 'your-fb-app-id-here'
   },
   twitter: {
     card: 'summary',
     title: siteConfig.title,
     description: siteConfig.description,
     images: [`${siteConfig.url}/images/og-image.jpg`],
-    creator: '@paymansattari',  // optional: your Twitter handle
-    site: '@paymansattari'      // optional: your Twitter handle
   },
   robots: {
     index: true,
