@@ -36,8 +36,19 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt: siteConfig.title,
-    }],
-},
+    }]
+  },
+  other: {
+    'fb:app_id': '1100997351655107'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/images/og-image.jpg`],
+    creator: '@langoftruth', 
+    site: '@langoftruth'
+  },
   robots: {
     index: true,
     follow: true,
@@ -48,7 +59,7 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
+  }
 }
 
 export default function RootLayout({
