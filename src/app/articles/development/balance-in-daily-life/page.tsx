@@ -215,7 +215,7 @@ export default function ArticlePage() {
                 description="Explore how to work with and understand the fundamental forces that shape our inner and outer reality."
                 icon={Scale}
                 href="/practice/balance"
-                doorType="observer"
+                doorType="practitioner"
               />
 
             {/* Explore Articles */}
