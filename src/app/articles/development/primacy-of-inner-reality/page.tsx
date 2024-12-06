@@ -170,7 +170,7 @@ export default function ArticlePage() {
                 description="Learning how to see, understand, and actively work with our inner life."
                 icon={Eye}
                 href="/practice/inner-work"
-                doorType="observer"
+                doorType="practitioner"
               />
 
             {/* Explore Articles
