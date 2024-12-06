@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     appId: 'your-fb-app-id-here'
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: siteConfig.title,
     description: siteConfig.description,
     images: [`${siteConfig.url}/images/og-image.jpg`],
