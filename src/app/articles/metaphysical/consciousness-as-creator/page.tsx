@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Target } from "lucide-react";
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
 import { formatDate } from '@/lib/formatters';
@@ -15,20 +16,22 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "Consciousness as the Creator",
       subtitle: "Shaping Reality from the Inside Out",
-      description: "Explores the role of consciousness as creator to transform reality through focus, intention, and awareness.",
-      publishDate: "2024-08-11",
+      description: "Exploring the role of consciousness as creator transforming reality through focus, intention, and awareness.",
+      publishDate: "2024-08-23",
       readTime: "7 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"
@@ -86,7 +89,7 @@ export default function ArticlePage() {
                 Imagine you enter a social gathering with a belief that “people don't really listen to me.” This belief colors your interactions—perhaps you speak less or feel less confident, which in turn influences how others respond. Here, consciousness is creating reality from the inside out, shaping an experience based on an inner belief. When we become aware of this power, we realize that consciousness isn't just a passive spectator; it's the creator of our unique experience.
                 </p>
 
-                <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">The Role of Focus and Intention in Shaping Realitye</h2>
+                <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">The Role of Focus and Intention in Shaping Reality</h2>
                 <p className="text-lg leading-relaxed text-gray-800">
                 One of the most accessible ways consciousness shapes reality is through focus and intention. What we focus on grows, becoming more prominent in our awareness. When we set an intention, we direct our consciousness toward a desired outcome, subtly shaping our experiences around that focus. Consider how setting an intention for patience in a stressful situation can shift your perception, making it easier to stay calm and centered.
                 </p>
@@ -197,23 +200,27 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            <DoorCard
+                title="Discipline"
+                description="Understanding the practice of conscious self-discipline through the integration of love and limits"
+                icon={Target}
+                href="/practice/discipline"
+                doorType="observer"
+              />
+
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "Inner and Outer Realities",
+                  href: "/articles/metaphysical/inner-outer-realities"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
-                },
-                {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "The Power of Belief Systems in Shaping Reality",
+                  href: "/articles/development/belief-systems-reality"
                 }
               ]}
-            /> */}
+            /> 
 
             </motion.aside>
           </div>

@@ -21,14 +21,15 @@ import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "The Significance of the Observer",
       subtitle: "Why Consciousness Completes the Picture of Reality",
-      description: "Explores the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
-      publishDate: "2024-10-10",
+      description: "Exploring the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
+      publishDate: "2024-09-28",
       readTime: "5 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"
@@ -176,23 +177,23 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Observer at the Center",
+                  href: "/articles/scientific/observer-at-center"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
+                  title: "The Subject and the Object",
+                  href: "/articles/scientific/subject-and-object"
                 },
                 {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "Qualities and the Observer",
+                  href: "/articles/scientific/qualities-and-observer"
                 }
               ]}
-            /> */}
+            /> 
 
             </motion.aside>
           </div>

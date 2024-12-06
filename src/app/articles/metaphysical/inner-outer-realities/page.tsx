@@ -3,6 +3,7 @@
 'use client'
 
 import React from 'react';
+import { Eye } from "lucide-react";
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
@@ -15,19 +16,21 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "Inner and Outer Realities",
       subtitle: "Understanding the Full Spectrum of Experience",
-      description: "The role of the relationship between inner and outer realities in life and the cosmos.",
+      description: "Exploring the relationship between the inner and outer in the nature of reality.",
       publishDate: "2024-09-10",
       readTime: "6 min",
       category: "Metaphysical Concepts",
@@ -168,23 +171,27 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            <DoorCard
+                title="Inner Work"
+                description="Learning how to see, understand, and actively work with our inner life."
+                icon={Eye}
+                href="/practice/inner-work"
+                doorType="observer"
+              />
+
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Subject and the Object",
+                  href: "/articles/scientific/subject-and-object"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
-                },
-                {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "Qualities and the Observer",
+                  href: "/articles/scientific/qualities-and-observer"
                 }
               ]}
-            /> */}
+            /> 
 
             </motion.aside>
           </div>

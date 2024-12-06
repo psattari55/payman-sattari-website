@@ -2,6 +2,7 @@
 'use client'
 
 import React from 'react';
+import { Lightbulb } from "lucide-react";
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
@@ -14,20 +15,22 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "The Importance of Integration",
       subtitle: "Turning Insight into Transformation",
-      description: "Learn how to transform moments of insight into lasting change through the practice of integration.",
-      publishDate: "2024-09-25",
+      description: "Exploring how to transform moments of insight into lasting change through the practice of integration.",
+      publishDate: "2024-09-23",
       readTime: "8 min",
       category: "Personal Development",
       door: "Practitioner's Door"
@@ -193,23 +196,31 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            <DoorCard
+                title="Daily Insights"
+                description="Explore contemplations on consciousness, reality, and human experience."
+                icon={Lightbulb}
+                href="/insights/daily"
+                doorType="practitioner"
+              />
+
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Art of Balance",
+                  href: "/articles/metaphysical/art-of-balance"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
+                  title: "The Significance of the Observer",
+                  href: "/articles/metaphysical/significance-of-observer"
                 },
                 {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "Consciousness as the Creator",
+                  href: "/articles/metaphysical/consciousness-as-creator"
                 }
               ]}
-            /> */}
+            /> 
 
             </motion.aside>
           </div>

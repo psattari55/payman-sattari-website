@@ -2,6 +2,7 @@
 'use client'
 
 import React from 'react';
+import { Unplug } from "lucide-react";
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
@@ -14,12 +15,14 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
   
@@ -27,7 +30,7 @@ export default function ArticlePage() {
       title: "The Nature of the Self",
       subtitle: "Beyond Thought and Identity",
       description: "Exploring the self beyond thoughts and roles, inviting readers to connect with the deeper awareness that transcends identity.",
-      publishDate: "2024-10-10",
+      publishDate: "2024-10-13",
       readTime: "5 min read",
       category: "Metaphysical Concepts",
       door: "Observer's Door" 
@@ -173,23 +176,27 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            <DoorCard
+                title="Detachment"
+                description="Gain clarity in your inner space through the practice of detachment."
+                icon={Unplug}
+                href="/practice/library/detachment"
+                doorType="observer"
+              />
+
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Observer at the Center",
+                  href: "/articles/scientific/observer-at-center"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
-                },
-                {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "Embodying the Purpose of Life",
+                  href: "/articles/thoughts/embodying-purpose-life"
                 }
               ]}
-            /> */}
+            /> 
 
             </motion.aside>
           </div>

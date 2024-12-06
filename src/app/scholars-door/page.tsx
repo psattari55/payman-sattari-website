@@ -3,7 +3,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 import { FileText, Grid } from "lucide-react";
 import Section from "@/components/ui/Section";
 import PageTransition from "@/components/ui/PageTransition";
@@ -143,15 +143,6 @@ export default function ScholarsDoorPage() {
               {/* Article Navigation */}
               <DoorSeriesNav doorType="scholars-door" />
 
-              {/* Door Card Component */}
-              <DoorCard
-                title="Research Papers"
-                description="Explore research publications on consciousness and quantum mechanics"
-                icon={FileText}
-                href="/research#papers"
-                doorType="scholar"
-              />
-
               {/* Book Promotion */}
               <motion.div
                 className="bg-white border border-gray-100 rounded-sm p-6"
@@ -185,6 +176,15 @@ export default function ScholarsDoorPage() {
                   </div>
                 </div>
               </motion.div>
+
+              {/* Door Card Component */}
+              <DoorCard
+                title="Research Papers"
+                description="Explore research publications on consciousness and quantum mechanics"
+                icon={FileText}
+                href="/research#papers"
+                doorType="scholar"
+              />
 
               {/* Newsletter */}
               <div className="bg-white border border-gray-100 p-6 rounded-lg">

@@ -20,6 +20,7 @@ import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
@@ -27,7 +28,7 @@ export default function ArticlePage() {
       title: "The Observer at the Center",
       subtitle: "An Exploration of Inner and Outer Realities",
       description: "Examining how modern science redefines the observer's role, highlighting the interplay between external reality and subjective experience.",
-      publishDate: "2024-07-27",
+      publishDate: "2024-07-24",
       readTime: "8 min",
       category: "Scientific Insights",
       door: "Scholar's Door"
@@ -186,23 +187,23 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Subject and the Object",
+                  href: "/articles/scientific/subject-and-object"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
+                  title: "The Significance of the Observer",
+                  href: "/articles/metaphysical/significance-of-observer"
                 },
                 {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "The Primacy of the Inner Reality",
+                  href: "/articles/development/primacy-of-inner-reality"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>

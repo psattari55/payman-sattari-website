@@ -26,8 +26,8 @@ export default function ArticlePage() {
     const articleInfo = {
       title: "Grounding",
       subtitle: "Coming Home to the Earth and the Body",
-      description: "Explore grounding as a practice of reconnecting with the Earth, your body, and the instinctual wisdom that brings stability and belonging.",
-      publishDate: "2024-07-27",
+      description: "Examining grounding as a practice of reconnecting with the Earth, our bodies, and an instinctual wisdom that brings stability and belonging.",
+      publishDate: "2024-06-30",
       readTime: "10 min",
       category: "Personal Development",
       door: "Practitioner's Door"

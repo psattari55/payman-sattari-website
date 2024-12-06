@@ -20,6 +20,7 @@ import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
@@ -176,23 +177,23 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Significance of the Observer",
+                  href: "/articles/metaphysical/significance-of-observer"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
+                  title: "The Nature of the Self",
+                  href: "/articles/metaphysical/nature-of-self"
                 },
                 {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "Inner and Outer Realities",
+                  href: "/articles/metaphysical/inner-outer-realities"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>

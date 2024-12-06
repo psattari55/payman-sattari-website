@@ -138,15 +138,6 @@ export default function ObserversDoorPage() {
               {/* Article Navigation */}
               <DoorSeriesNav doorType="observers-door" />
 
-              {/* Door Card Component */}
-              <DoorCard
-                title="Daily Insights"
-                description="Explore contemplations on consciousness, reality, and human experience."
-                icon={Lightbulb}
-                href="/insights/daily"
-                doorType="observer"
-              />
-
               {/* Book Promotion */}
               <motion.div
                 className="bg-white border border-gray-100 rounded-sm p-6"
@@ -180,6 +171,15 @@ export default function ObserversDoorPage() {
                   </div>
                 </div>
               </motion.div>
+
+              {/* Door Card Component */}
+              <DoorCard
+                title="Daily Insights"
+                description="Explore contemplations on consciousness, reality, and human experience."
+                icon={Lightbulb}
+                href="/insights/daily"
+                doorType="observer"
+              />
 
               {/* Newsletter */}
               <div className="bg-white border border-gray-100 p-6 rounded-lg">

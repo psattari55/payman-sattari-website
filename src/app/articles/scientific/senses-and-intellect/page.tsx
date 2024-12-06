@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Senses and the Intellect",
       subtitle: "Bridging Experience and Understanding in Our Quest for Reality",
       description: "Exploring the complementary roles of sensory experience and intellectual reasoning in forming a holistic understanding of reality.",
-      publishDate: "2024-07-27",
+      publishDate: "2024-07-13",
       readTime: "7 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

@@ -167,14 +167,6 @@ export default function PractitionersDoorPage() {
               {/* Article Navigation */}
               <DoorSeriesNav doorType="practitioners-door" />
 
-              {/* Door Card Component */}
-              <DoorCard
-                title="Inner Work"
-                description="Learn how to turn your attention inward, map the inner landscape, and deal with inner forces."
-                icon={Eye}
-                href="/practice/inner-work"
-                doorType="practitioner"
-              />
               {/* Book Promotion */}
               <motion.div
                 className="bg-white border border-gray-100 rounded-sm p-6"
@@ -208,6 +200,15 @@ export default function PractitionersDoorPage() {
                   </div>
                 </div>
               </motion.div>
+
+              {/* Door Card Component */}
+              <DoorCard
+                title="Inner Work"
+                description="Learn how to turn your attention inward, map the inner landscape, and deal with inner forces."
+                icon={Eye}
+                href="/practice/inner-work"
+                doorType="practitioner"
+              />
 
               {/* Newsletter */}
               <div className="bg-white border border-gray-100 p-6 rounded-lg">

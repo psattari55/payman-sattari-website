@@ -21,14 +21,15 @@ import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "The Ideal and the Actual",
       subtitle: "Understanding the Role of Abstraction in Science and Mathematics",
-      description: "A reflection on the role of idealization in science and math, balancing theoretical clarity with real-world complexity.",
-      publishDate: "2024-09-25",
+      description: "Examining the role of idealization in science and mathematics, balancing theoretical clarity with real-world complexity.",
+      publishDate: "2024-09-22",
       readTime: "6 min",
       category: "Scientific Insights",
       door: "Scholar's Door"
@@ -179,23 +180,23 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Senses and the Intellect",
+                  href: "/articles/scientific/senses-and-intellect"
                 },
                 {
-                  title: "Understanding Duality",
-                  href: "#"
+                  title: "Inner and Outer Realities",
+                  href: "/articles/metaphysical/inner-outer-realities"
                 },
                 {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  title: "From Natural Science to Technical Science",
+                  href: "/articles/scientific/natural-to-technical-science"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>

@@ -2,6 +2,7 @@
 'use client'
 
 import React from 'react';
+import { Scale } from "lucide-react";
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
@@ -14,19 +15,21 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "Balance in Daily Life",
       subtitle: "A Dance of Opposites",
-      description: "Discover how balancing opposites can create harmony, resilience, and flow in your daily life.",
+      description: "Examining how balancing opposites can create harmony, resilience, and flow in our daily lives.",
       publishDate: "2024-08-26",
       readTime: "6 min",
       category: "Personal Development",
@@ -207,23 +210,27 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            <DoorCard
+                title="Balance"
+                description="Explore how to work with and understand the fundamental forces that shape our inner and outer reality."
+                icon={Scale}
+                href="/practice/balance"
+                doorType="observer"
+              />
+
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "The Art of Balance",
+                  href: "/articles/metaphysical/art-of-balance"
                 },
                 {
                   title: "Understanding Duality",
-                  href: "#"
-                },
-                {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  href: "/articles/metaphysical/understanding-duality"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>

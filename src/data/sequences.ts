@@ -15,7 +15,7 @@ interface ArticleSequence {
         subtitle: "Toward an Integrated Ontology of Reality",
         slug: "/articles/scientific/history-of-truth",
         sequence: 1,
-        description: "Tracing the evolution of truth from ancient beliefs to modern science, and proposing a unified framework that embraces both subjective and objective reality.",
+        description: "Tracing the evolution of truth from ancient beliefs to modern science and proposing a unified framework embracing both subjective and objective reality.",
         readTime: "6 min"
     },
     {
@@ -30,7 +30,7 @@ interface ArticleSequence {
         subtitle: "Understanding the Role of Abstraction in Science and Mathematics",
         slug: "/articles/scientific/ideal-and-actual",
         sequence: 3,
-        description: "A reflection on the role of idealization in science and math, balancing theoretical clarity with real-world complexity.",
+        description: "Examining the role of idealization in science and mathematics, balancing theoretical clarity with real-world complexity.",
         readTime: "6 min"
     },
     {
@@ -81,7 +81,7 @@ interface ArticleSequence {
       subtitle: "Why Consciousness Completes the Picture of Reality",
       slug: "/articles/metaphysical/significance-of-observer",
       sequence: 1,
-      description: "Explores the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
+      description: "Exploring the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
       readTime: "5 min"
     },
     {
@@ -97,7 +97,7 @@ interface ArticleSequence {
       subtitle: "Understanding the Full Spectrum of Experience",
       slug: "/articles/metaphysical/inner-outer-realities",
       sequence: 3,
-      description: "The role of the relationship between inner and outer realities in life and the cosmos.",
+      description: "Exploring the relationship between the inner and outer in the nature of reality.",
       readTime: "6 min"
     },
     {
@@ -105,7 +105,7 @@ interface ArticleSequence {
         subtitle: "Why Opposites Unite",
         slug: "/articles/metaphysical/understanding-duality",
         sequence: 4,
-        description: "Explores how opposite yet complementary forces come together to form the foundation of reality.",
+        description: "Exploring how opposite yet complementary forces come together to form the foundation of reality.",
         readTime: "4 min"
     },
     {
@@ -121,7 +121,7 @@ interface ArticleSequence {
         subtitle: "Shaping Reality from the Inside Out",
         slug: "/articles/metaphysical/consciousness-as-creator",
         sequence: 6,
-        description: "Explores the role of consciousness as creator to transform reality through focus, intention, and awareness.",
+        description: "Exploring the role of consciousness as creator transforming reality through focus, intention, and awareness.",
         readTime: "7 min"
     }
   ] as const;
@@ -132,7 +132,7 @@ interface ArticleSequence {
       subtitle: "Turning Insight into Transformation",
       slug: "/articles/development/importance-of-integration",
       sequence: 1,
-      description: "Learn how to transform moments of insight into lasting change through the practice of integration.",
+      description: "Exploring how to transform moments of insight into lasting change through the practice of integration.",
       readTime: "6 min"
     },
     {
@@ -155,7 +155,7 @@ interface ArticleSequence {
         subtitle: "A Dance of Opposites",
         slug: "/articles/development/balance-in-daily-life",
         sequence: 4,
-        description: "Discover how balancing opposites can create harmony, resilience, and flow in your daily life.",
+        description: "Examining how balancing opposites can create harmony, resilience, and flow in our daily lives.",
         readTime: "6 min"
     },
     {
@@ -163,7 +163,7 @@ interface ArticleSequence {
         subtitle: "Navigating Life's Ups and Downs with Grace",
         slug: "/articles/development/emotional-resilience",
         sequence: 5,
-        description: "Learn how to build emotional resilience through self-compassion, presence with emotions, and finding meaning in challenges.",
+        description: "Exploring how to build emotional resilience through self-compassion, presence with emotions, and finding meaning in challenges.",
         readTime: "8 min"
     },
     {
@@ -171,7 +171,7 @@ interface ArticleSequence {
         subtitle: "Coming Home to the Earth and the Body",
         slug: "/articles/development/grounding",
         sequence: 6,
-        description: "Explore grounding as a practice of reconnecting with the Earth, your body, and the instinctual wisdom that brings stability and belonging.",
+        description: "Examining grounding as a practice of reconnecting with the Earth, our bodies, and an instinctual wisdom that brings stability and belonging.",
         readTime: "10 min"
     }
   ] as const;

@@ -2,6 +2,7 @@
 'use client'
 
 import React from 'react';
+import { Eye } from "lucide-react";
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
@@ -14,6 +15,7 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
@@ -27,7 +29,7 @@ export default function ArticlePage() {
       title: "The Primacy of the Inner Reality",
       subtitle: "How Your Inner World Shapes Your Outer Experience",
       description: "Understanding the relationship between our inner world and outer experience for a more fulfilling life.",
-      publishDate: "2024-09-25",
+      publishDate: "2024-10-12",
       readTime: "4 min",
       category: "Personal Development",
       door: "Practitioner's Door"
@@ -162,6 +164,14 @@ export default function ArticlePage() {
 
             {/* Newsletter */}
             <NewsletterSignup />
+
+            <DoorCard
+                title="Inner Work"
+                description="Learning how to see, understand, and actively work with our inner life."
+                icon={Eye}
+                href="/practice/inner-work"
+                doorType="observer"
+              />
 
             {/* Explore Articles
             <ExploreArticles 

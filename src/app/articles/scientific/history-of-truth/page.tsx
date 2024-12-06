@@ -21,14 +21,15 @@ import ArticleNavigation from '@/components/article/ArticleNavigation';
 import ShareButtons from '@/components/article/ShareButtons';
 import BookPromotion from '@/components/article/BookPromotion';
 import NewsletterSignup from '@/components/article/NewsletterSignup';
+import ExploreArticles from '@/components/article/ExploreArticles';
 
 export default function ArticlePage() {
 
     const articleInfo = {
       title: "The History of Truth",
       subtitle: "Toward an Integrated Ontology of Reality",
-      description: "Tracing the evolution of truth from ancient beliefs to modern science, and proposing a unified framework that embraces both subjective and objective reality.",
-      publishDate: "2024-10-25",
+      description: "Tracing the evolution of truth from ancient beliefs to modern science and proposing a unified framework embracing both subjective and objective reality.",
+      publishDate: "2024-10-23",
       readTime: "6 min",
       category: "Scientific Insights",
       door: "Scholar's Door"
@@ -173,23 +174,19 @@ export default function ArticlePage() {
             {/* Newsletter */}
             <NewsletterSignup />
 
-            {/* Explore Articles
+            {/* Explore Articles */}
             <ExploreArticles 
               articles={[
                 {
-                  title: "Energy Fields in Daily Life",
-                  href: "#"
+                  title: "From Natural Science to Technical Science",
+                  href: "/articles/scientific/natural-to-technical-science"
                 },
                 {
                   title: "Understanding Duality",
-                  href: "#"
-                },
-                {
-                  title: "The Nature of Consciousness",
-                  href: "#"
+                  href: "/articles/metaphysical/understanding-duality"
                 }
               ]}
-            /> */}
+            />
 
             </motion.aside>
           </div>

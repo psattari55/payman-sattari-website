@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Power of Belief Systems in Shaping Reality",
       subtitle: "",
       description: "Exploring the nature of belief and its effect on our experience of reality.",
-      publishDate: "2024-08-26",
+      publishDate: "2024-08-13",
       readTime: "6 min",
       category: "Personal Development",
       door: "Practitioner's Door"

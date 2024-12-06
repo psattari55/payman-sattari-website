@@ -3,6 +3,7 @@
 'use client'
 
 import React from 'react';
+import { Scale } from "lucide-react";
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { getArticleNavigation } from '@/lib/articleHelpers';
@@ -15,6 +16,7 @@ import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleContent from '@/components/article/ArticleContent';
 import ArticleEndSection from '@/components/article/ArticleEndSection';
 import ArticleFooterNavigation from '@/components/article/ArticleFooterNavigation';
+import DoorCard from "@/components/features/DoorCard";
 
 /* Sidebar Components */
 import ArticleNavigation from '@/components/article/ArticleNavigation';
@@ -27,8 +29,8 @@ export default function ArticlePage() {
     const articleInfo = {
       title: "Understanding Duality",
       subtitle: "Why Opposites Unite",
-      description: "Explores how opposite yet complementary forces come together to form the foundation of reality.",
-      publishDate: "2024-09-10",
+      description: "Exploring how opposite yet complementary forces come together to form the foundation of reality.",
+      publishDate: "2024-09-17",
       readTime: "4 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"
@@ -177,6 +179,14 @@ export default function ArticlePage() {
 
             {/* Newsletter */}
             <NewsletterSignup />
+
+            <DoorCard
+                title="Balance"
+                description="Explore how to work with and understand the fundamental forces that shape our inner and outer reality."
+                icon={Scale}
+                href="/practice/balance"
+                doorType="observer"
+              />
 
             {/* Explore Articles
             <ExploreArticles 

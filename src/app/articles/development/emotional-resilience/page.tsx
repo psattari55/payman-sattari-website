@@ -26,7 +26,7 @@ export default function ArticlePage() {
     const articleInfo = {
       title: "Building Emotional Resilience",
       subtitle: "Navigating Life's Ups and Downs with Grace",
-      description: "Learn how to build emotional resilience through self-compassion, presence with emotions, and finding meaning in challenges.",
+      description: "Exploring how to build emotional resilience through self-compassion, presence with emotions, and finding meaning in challenges.",
       publishDate: "2024-07-27",
       readTime: "8 min",
       category: "Personal Development",
