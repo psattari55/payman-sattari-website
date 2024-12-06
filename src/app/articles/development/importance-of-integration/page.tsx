@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Importance of Integration",
       subtitle: "Turning Insight into Transformation",
       description: "Learn how to transform moments of insight into lasting change through the practice of integration.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-09-25",
       readTime: "8 min",
       category: "Personal Development",
       door: "Practitioner's Door"

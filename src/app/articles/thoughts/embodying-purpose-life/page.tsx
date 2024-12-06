@@ -29,7 +29,7 @@ export default function ArticlePage() {
       title: "Embodying the Purpose of Life",
       subtitle: "Becoming Your True Self",
       description: "Exploring how true purpose emerges not from external achievements or validation, but through aligning with our authentic selves and building lives that reflect our inner truth.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-12-09",
       readTime: "10 min",
       category: "Latest Thoughts",
       door: undefined

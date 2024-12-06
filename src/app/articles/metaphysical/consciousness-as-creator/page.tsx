@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "Consciousness as the Creator",
       subtitle: "Shaping Reality from the Inside Out",
       description: "Explores the role of consciousness as creator to transform reality through focus, intention, and awareness.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-08-11",
       readTime: "7 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"

@@ -21,7 +21,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "Tracing the evolution of truth from ancient beliefs to modern science, and proposing a unified framework that embraces both subjective and objective reality.",
-        publishDate: "2024-01-01",
+        publishDate: "2024-10-25",
         readTime: "6 min"
     },
     {
@@ -31,7 +31,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "An ontological exploration of reality as a unified field, where discreteness emerges within a continuous, interconnected structure.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-10-25",
         readTime: "6 min"
     },
     {
@@ -41,7 +41,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "A reflection on the role of idealization in science and math, balancing theoretical clarity with real-world complexity.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-09-25",
         readTime: "6 min"
     },
     {
@@ -51,7 +51,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "Examining the limitations of zero-dimensional points in forming a continuum and the role of extension in constructing continuous space.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-09-25",
         readTime: "5 min"
     },
     {
@@ -61,7 +61,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "Exploring the foundational relationship between observer and observed, examining how perception and quantum mechanics challenge traditional notions of objectivity.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-08-26",
         readTime: "6 min"
     },
     {
@@ -71,7 +71,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "Exploring the role of the observer in experiencing qualities like color and sound, and its implications for a more complete view of reality in scientific inquiry.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-08-26",
         readTime: "5 min"
     },
     {
@@ -81,7 +81,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "Examining how modern science redefines the observer's role, highlighting the interplay between external reality and subjective experience.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-07-27",
         readTime: "8 min"
     },
     {
@@ -91,7 +91,7 @@ export interface Article {
         category: "scientific",
         door: "scholar",
         description: "Exploring the complementary roles of sensory experience and intellectual reasoning in forming a holistic understanding of reality.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-07-27",
         readTime: "7 min"
     },
     //Non-Door Articles (Scientific)
@@ -101,7 +101,7 @@ export interface Article {
         slug: "/articles/scientific/natural-to-technical-science",
         category: "scientific",
         description: "Examining the profound transition from natural science's philosophical inquiry to technical science's practical applications, and what this shift means for our understanding of reality and the purpose of scientific exploration.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-12-09",
         readTime: "8 min"
     },
   
@@ -113,7 +113,7 @@ export interface Article {
         category: "metaphysical",
         door: "observer",
         description: "Explores the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-10-10",
         readTime: "5 min"
     },
     {
@@ -123,7 +123,7 @@ export interface Article {
         category: "metaphysical",
         door: "observer",
         description: "Exploring the self beyond thoughts and roles, inviting readers to connect with the deeper awareness that transcends identity.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-10-10",
         readTime: "5 min"
       },
       {
@@ -133,7 +133,7 @@ export interface Article {
         category: "metaphysical",
         door: "observer",
         description: "The role of the relationship between inner and outer realities in life and the cosmos.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-09-10",
         readTime: "6 min"
       },
       {
@@ -143,7 +143,7 @@ export interface Article {
         category: "metaphysical",
         door: "observer",
         description: "Explores how opposite yet complementary forces come together to form the foundation of reality.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-09-10",
         readTime: "4 min"
       },
       {
@@ -153,7 +153,7 @@ export interface Article {
         category: "metaphysical",
         door: "observer",
         description: "An exploration of energy dynamics as the interplay between opposites creating a pathway toward inward harmony.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-08-11",
         readTime: "8 min"
       },
       {
@@ -163,7 +163,7 @@ export interface Article {
         category: "metaphysical",
         door: "observer",
         description: "Explores the role of consciousness as creator to transform reality through focus, intention, and awareness.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-08-11",
         readTime: "7 min"
       },
     //Non-Door Articles (Metaphysical)
@@ -176,7 +176,7 @@ export interface Article {
         category: "development",
         door: "practitioner",
         description: "Learn how to transform moments of insight into lasting change through the practice of integration.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-09-25",
         readTime: "6 min"
     },
     {
@@ -186,7 +186,7 @@ export interface Article {
         category: "development",
         door: "practitioner",
         description: "Understanding the relationship between our inner world and outer experience for a more fulfilling life.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-09-25",
         readTime: "4 min"
       },
       {
@@ -195,7 +195,7 @@ export interface Article {
           category: "development",
           door: "practitioner",
           description: "Exploring the nature of belief and its effect on our experience of reality.",
-          publishDate: "2024-11-11",
+          publishDate: "2024-08-26",
           readTime: "6 min"
       },
       {
@@ -205,7 +205,7 @@ export interface Article {
           category: "development",
           door: "practitioner",
           description: "Discover how balancing opposites can create harmony, resilience, and flow in your daily life.",
-          publishDate: "2024-11-11",
+          publishDate: "2024-08-26",
           readTime: "6 min"
       },
       {
@@ -215,7 +215,7 @@ export interface Article {
           category: "development",
           door: "practitioner",
           description: "Learn how to build emotional resilience through self-compassion, presence with emotions, and finding meaning in challenges.",
-          publishDate: "2024-11-11",
+          publishDate: "2024-07-27",
           readTime: "8 min"
       },
       {
@@ -225,7 +225,7 @@ export interface Article {
           category: "development",
           door: "practitioner",
           description: "Explore grounding as a practice of reconnecting with the Earth, your body, and the instinctual wisdom that brings stability and belonging.",
-          publishDate: "2024-11-11",
+          publishDate: "2024-07-27",
           readTime: "10 min"
       },
     // Add the rest of practitioner's door sequence...
@@ -238,7 +238,7 @@ export interface Article {
         slug: "/articles/thoughts/embodying-purpose-life",
         category: "thoughts",
         description: "Exploring how true purpose emerges not from external achievements or validation, but through aligning with our authentic selves and building lives that reflect our inner truth.",
-        publishDate: "2024-11-11",
+        publishDate: "2024-12-09",
         readTime: "10 min"
     }
 

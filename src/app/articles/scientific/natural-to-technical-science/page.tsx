@@ -29,7 +29,7 @@ export default function ArticlePage() {
       title: "From Natural Science to Technical Science",
       subtitle: "The Shift from Exploration to Application",
       description: "Examining the profound transition from natural science's philosophical inquiry to technical science's practical applications, and what this shift means for our understanding of reality and the purpose of scientific exploration.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-12-09",
       readTime: "8 min",
       category: "Scientific Insights",
       door: undefined

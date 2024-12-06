@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "The Art of Balance",
       subtitle: "Working with Energy Dynamics for Inner Harmony",
       description: "An exploration of energy dynamics as the interplay between opposites creating a pathway toward inward harmony.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-08-11",
       readTime: "8 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"

@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "The Significance of the Observer",
       subtitle: "Why Consciousness Completes the Picture of Reality",
       description: "Explores the fundamental role of the observer and consciousness in shaping and experiencing reality, bridging measurable phenomena and subjective experience.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-10-10",
       readTime: "5 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"

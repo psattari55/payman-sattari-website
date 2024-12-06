@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Nature of the Self",
       subtitle: "Beyond Thought and Identity",
       description: "Exploring the self beyond thoughts and roles, inviting readers to connect with the deeper awareness that transcends identity.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-10-10",
       readTime: "5 min read",
       category: "Metaphysical Concepts",
       door: "Observer's Door" 

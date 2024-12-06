@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Primacy of the Inner Reality",
       subtitle: "How Your Inner World Shapes Your Outer Experience",
       description: "Understanding the relationship between our inner world and outer experience for a more fulfilling life.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-09-25",
       readTime: "4 min",
       category: "Personal Development",
       door: "Practitioner's Door"

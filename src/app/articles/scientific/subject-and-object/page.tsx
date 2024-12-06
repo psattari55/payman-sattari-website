@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Subject and the Object",
       subtitle: "Foundations of Observation and Interpretation",
       description: "Exploring the foundational relationship between observer and observed, examining how perception and quantum mechanics challenge traditional notions of objectivity.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-08-26",
       readTime: "6 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "Fields, Continuity, and the Wholeness of Reality",
       subtitle: "",
       description: "An ontological exploration of reality as a unified field, where discreteness emerges within a continuous, interconnected structure.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-10-25",
       readTime: "6 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

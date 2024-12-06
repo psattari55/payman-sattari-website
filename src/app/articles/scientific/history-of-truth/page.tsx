@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "The History of Truth",
       subtitle: "Toward an Integrated Ontology of Reality",
       description: "Tracing the evolution of truth from ancient beliefs to modern science, and proposing a unified framework that embraces both subjective and objective reality.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-10-25",
       readTime: "6 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

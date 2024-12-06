@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "Understanding Duality",
       subtitle: "Why Opposites Unite",
       description: "Explores how opposite yet complementary forces come together to form the foundation of reality.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-09-10",
       readTime: "4 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"

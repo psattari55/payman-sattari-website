@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "Space and Extension",
       subtitle: "Why Zero-Dimensional Points Cannot Form a Continuum",
       description: "Examining the limitations of zero-dimensional points in forming a continuum and the role of extension in constructing continuous space.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-09-25",
       readTime: "5 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

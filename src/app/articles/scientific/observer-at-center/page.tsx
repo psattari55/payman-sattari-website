@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "The Observer at the Center",
       subtitle: "An Exploration of Inner and Outer Realities",
       description: "Examining how modern science redefines the observer's role, highlighting the interplay between external reality and subjective experience.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-07-27",
       readTime: "8 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

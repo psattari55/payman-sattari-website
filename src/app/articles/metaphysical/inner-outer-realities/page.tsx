@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "Inner and Outer Realities",
       subtitle: "Understanding the Full Spectrum of Experience",
       description: "The role of the relationship between inner and outer realities in life and the cosmos.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-09-10",
       readTime: "6 min",
       category: "Metaphysical Concepts",
       door: "Observer's Door"

@@ -28,7 +28,7 @@ export default function ArticlePage() {
       title: "The Ideal and the Actual",
       subtitle: "Understanding the Role of Abstraction in Science and Mathematics",
       description: "A reflection on the role of idealization in science and math, balancing theoretical clarity with real-world complexity.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-09-25",
       readTime: "6 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

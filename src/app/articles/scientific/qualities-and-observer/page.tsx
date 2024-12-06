@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "Qualities and the Observer",
       subtitle: "Rethinking the Nature of Experience",
       description: "Exploring the role of the observer in experiencing qualities like color and sound, and its implications for a more complete view of reality in scientific inquiry.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-08-26",
       readTime: "5 min",
       category: "Scientific Insights",
       door: "Scholar's Door"

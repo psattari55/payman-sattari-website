@@ -27,7 +27,7 @@ export default function ArticlePage() {
       title: "Balance in Daily Life",
       subtitle: "A Dance of Opposites",
       description: "Discover how balancing opposites can create harmony, resilience, and flow in your daily life.",
-      publishDate: "2024-11-11",
+      publishDate: "2024-08-26",
       readTime: "6 min",
       category: "Personal Development",
       door: "Practitioner's Door"

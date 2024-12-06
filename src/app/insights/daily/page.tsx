@@ -67,7 +67,7 @@ const categories: Category[] = [
 const insights: Insight[] = [
     {
         id: 'slow-down',
-        date: '2024-03-10',
+        date: '2024-12-09',
         categories: ['practical', 'consciousness'],
         mainQuote: "If you can't see what you're doing, slow down. Speed gives you focus, but stillness gives you visibility.",
         expandedContent: (
@@ -94,7 +94,7 @@ const insights: Insight[] = [
       },
       {
         id: 'ritualize',
-        date: '2024-03-09',
+        date: '2022-12-11',
         categories: ['practical', 'consciousness'],
         mainQuote: "Be mindful of the things you ritualize. They become your structure.",
         expandedContent: (
@@ -122,7 +122,7 @@ const insights: Insight[] = [
       },
       {
         id: 'fear-mask',
-        date: '2024-03-02',
+        date: '2023-04-21',
         categories: ['inner-truth', 'freedom', 'growth'],
         mainQuote: "When you take the 'evil mask' off the face of fear, it is the face of a frightened child you find beneath.",
         expandedContent: (
@@ -166,7 +166,7 @@ const insights: Insight[] = [
       },
       {
         id: 'doubt-trust',
-        date: '2024-03-08',
+        date: '2022-10-12',
         categories: ['inner-truth', 'consciousness'],
         mainQuote: "Doubt is the germ from which the energies of conspiracy and mistrust are born. Trust brings you back to yourself. Your belief again, in the goodness and integrity of what is.",
         expandedContent: (
@@ -199,7 +199,7 @@ const insights: Insight[] = [
       },
       {
         id: 'be-nothing',
-        date: '2024-03-07',
+        date: '2023-02-17',
         categories: ['consciousness', 'inner-truth'],
         mainQuote: "Only when you have learned how to be nothing can you truly be free.",
         expandedContent: (
@@ -227,7 +227,7 @@ const insights: Insight[] = [
       },
     {
     id: 'truth-love',
-    date: '2024-03-15',
+    date: '2024-03-28',
     categories: ['balance', 'relationships'],
     mainQuote: "Don't let your love change the truth. Don't let the truth change your love. These two stand as pillars.",
     expandedContent: (
@@ -252,7 +252,7 @@ const insights: Insight[] = [
   },
   {
     id: 'mind-and-heart',
-    date: '2024-03-09',
+    date: '2022-04-21',
     categories: ['consciousness', 'balance'],
     mainQuote: "The best of you is not in your head. It is in your heart.",
     expandedContent: (
@@ -287,7 +287,7 @@ const insights: Insight[] = [
   },
   {
     id: 'others-choices',
-    date: '2024-03-05',
+    date: '2022-03-25',
     categories: ['relationships', 'practical'],
     mainQuote: "You are not responsible for the outcomes of other people's choices.",
     expandedContent: (
@@ -318,7 +318,7 @@ const insights: Insight[] = [
   },
   {
     id: 'focus-abundance',
-    date: '2024-03-04',
+    date: '2022-02-02',
     categories: ['consciousness', 'practical'],
     mainQuote: "When we focus on what is not there, we create the experience of lack. When we focus on what is there, we create the experience of abundance.",
     expandedContent: (
@@ -343,7 +343,7 @@ const insights: Insight[] = [
   },
   {
     id: 'uncaged-love',
-    date: '2024-03-03',
+    date: '2024-06-03',
     categories: ['relationships', 'freedom'],
     mainQuote: "Love is like a bird. When you try to cage it, it loses everything that makes it beautiful.",
     expandedContent: (
@@ -363,7 +363,7 @@ const insights: Insight[] = [
   },
   {
     id: 'best-structures',
-    date: '2024-03-11',
+    date: '2022-06-28',
     categories: ['practical', 'growth'],
     mainQuote: "The best structures always leave room for change.",
     expandedContent: (
@@ -389,7 +389,7 @@ const insights: Insight[] = [
   },
   {
     id: 'acknowledge-value',
-    date: '2024-03-10',
+    date: '2022-09-05',
     categories: ['inner-truth', 'growth'],
     mainQuote: "If you aren't willing to acknowledge your own value, then you don't really know what you have to offer. If you want to live more abundantly, first acknowledge the value in you.",
     expandedContent: (
@@ -423,7 +423,7 @@ const insights: Insight[] = [
   },
   {
     id: 'next-step',
-    date: '2024-03-06',
+    date: '2022-05-10',
     categories: ['practical', 'growth'],
     mainQuote: "You don't have to worry about it all at once. Just the next step.",
     expandedContent: (
@@ -441,7 +441,7 @@ const insights: Insight[] = [
   },
   {
     id: 'childrens-emotions',
-    date: '2024-03-01',
+    date: '2024-05-06',
     categories: ['relationships', 'consciousness'],
     mainQuote: "Just because our children are little, it doesn't mean they don't have big emotions.",
     expandedContent: (
@@ -466,7 +466,7 @@ const insights: Insight[] = [
   },
   {
     id: 'inner-outer-reality',
-    date: '2024-02-28',
+    date: '2024-04-06',
     categories: ['consciousness', 'balance'],
     mainQuote: "There is an inner and an outer dimension to reality. Remember to give attention to your inner life, just as much as you do to your outer one. This is a part of balance.",
     expandedContent: (
@@ -491,7 +491,7 @@ const insights: Insight[] = [
   },
   {
     id: 'value-perception',
-    date: '2024-02-26',
+    date: '2024-06-26',
     categories: ['practical', 'consciousness'],
     mainQuote: "Value is where you see it. When you can truly see it in your Self, it won't matter what others think anymore.",
     expandedContent: (
