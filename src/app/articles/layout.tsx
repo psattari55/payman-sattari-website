@@ -4,11 +4,17 @@ import { Metadata } from 'next'
 import { siteConfig } from '@/config/metadata'
 import { articles } from '@/data/articles'
 
+type Props = {
+  params: {
+    slug: string[]
+  }
+}
+
 export async function generateMetadata(
-  { params }: { params: { slug?: string[] } }
+  props: Props
 ): Promise<Metadata> {
   // Get the current path
-  const currentPath = params.slug?.join('/') || '';
+  const currentPath = props.params.slug?.join('/') || '';
   
   // Find the article that matches this path
   const article = articles.find(article => 
