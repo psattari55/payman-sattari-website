@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next'
 import { siteConfig } from '@/config/metadata'
-import { articles } from '@/data/articles'
+import { articles } from '@/data/articles' 
 
 type GenerateMetadataProps = {
   params: { slug: string[] }
@@ -12,7 +12,7 @@ type GenerateMetadataProps = {
 export async function generateMetadata(
   { params }: GenerateMetadataProps
 ): Promise<Metadata> {
-  // Get the path from params
+ 
   const currentPath = params.slug?.join('/') || '';
   
   // Find the article that matches this path
