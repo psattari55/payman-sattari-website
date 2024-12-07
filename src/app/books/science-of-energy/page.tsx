@@ -266,7 +266,7 @@ export default function ScienceOfEnergyPage() {
             </motion.div>
 
             {/* Book Cover Column */}
-            <motion.div className="lg:col-span-5 order-1 md:order-2">
+            <motion.div className="md:col-span-5 order-1 md:order-2">
               <div className="relative max-w-[280px] md:max-w-[325px] mx-auto md:mb-10 -mb-6">
                 <div className="aspect-[11/17] rounded-xl overflow-hidden shadow-2xl">
                   <Image

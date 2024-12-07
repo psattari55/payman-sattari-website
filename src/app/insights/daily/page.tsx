@@ -558,60 +558,63 @@ const InsightCard = ({ insight, expanded, onToggle }: {
       id={insight.id}  // Add this line
       className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300"
     >
-      <div className="p-8">
-        {/* Header with date and categories */}
-        <div className="flex items-center justify-between text-gray-500 mb-6">
-          <div className="flex items-center gap-2">
-            <Calendar size={16} />
-            <time className="text-sm">
-              {new Date(insight.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </time>
+      <div className="p-4 md:p-8">
+      {/* Header with date and categories */}
+      <div className="flex flex-col space-y-4 sm:flex-row sm:justify-between sm:items-center text-gray-500 mb-6">
+        {/* Date */}
+        <div className="flex items-center gap-2">
+          <Calendar size={16} />
+          <time className="text-sm">
+            {new Date(insight.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </div>
+        
+        <div className="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-y-0 sm:gap-4">
+          {/* Categories */}
+          <div className="flex flex-wrap gap-2">
+            {insight.categories.map(catId => {
+              const category = categories.find(c => c.id === catId);
+              return (
+                <span 
+                  key={catId}
+                  className="text-xs px-2 py-1 bg-gray-50 text-gray-600 rounded-full"
+                >
+                  {category?.name}
+                </span>
+              );
+            })}
           </div>
-          <div className="flex gap-4">
-            {/* Categories */}
-            <div className="flex gap-2">
-              {insight.categories.map(catId => {
-                const category = categories.find(c => c.id === catId);
-                return (
-                  <span 
-                    key={catId}
-                    className="text-xs px-2 py-1 bg-gray-50 text-gray-600 rounded-full"
-                  >
-                    {category?.name}
-                  </span>
-                );
-              })}
-            </div>
-            {/* Share buttons */}
-            <div className="flex gap-2">
-              <button
-                onClick={() => share('twitter')}
-                className="p-1.5 hover:bg-gray-50 rounded-full transition-colors"
-                aria-label="Share on Twitter"
-              >
-                <FaTwitter className="w-4 h-4 text-[#1DA1F2]" />
-              </button>
-              <button
-                onClick={() => share('facebook')}
-                className="p-1.5 hover:bg-gray-50 rounded-full transition-colors"
-                aria-label="Share on Facebook"
-              >
-                <FaFacebook className="w-4 h-4 text-[#1877F2]" />
-              </button>
-              <button
-                onClick={copyToClipboard}
-                className="p-1.5 hover:bg-gray-50 rounded-full transition-colors"
-                aria-label="Copy link"
-              >
-                <HiLink className="w-4 h-4 text-gray-500" />
-              </button>
-            </div>
+          
+          {/* Share buttons */}
+          <div className="flex gap-2">
+            <button
+              onClick={() => share('twitter')}
+              className="p-1.5 hover:bg-gray-50 rounded-full transition-colors"
+              aria-label="Share on Twitter"
+            >
+              <FaTwitter className="w-4 h-4 text-[#1DA1F2]" />
+            </button>
+            <button
+              onClick={() => share('facebook')}
+              className="p-1.5 hover:bg-gray-50 rounded-full transition-colors"
+              aria-label="Share on Facebook"
+            >
+              <FaFacebook className="w-4 h-4 text-[#1877F2]" />
+            </button>
+            <button
+              onClick={copyToClipboard}
+              className="p-1.5 hover:bg-gray-50 rounded-full transition-colors"
+              aria-label="Copy link"
+            >
+              <HiLink className="w-4 h-4 text-gray-500" />
+            </button>
           </div>
         </div>
+      </div>
 
         {/* Main quote */}
         <div className="mb-6">
@@ -697,10 +700,10 @@ export default function DailyInsightsPage() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Section width="default" className="pt-24">
-          <div className="max-w-4xl mx-auto px-4">
+        <Section width="default" className="pt-16 md:pt-24">
+          <div className="max-w-4xl mx-auto px-2 md:px-4">
             {/* Header */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-14 md:mb-16">
               <h1 className="text-4xl font-light mb-4">Daily Insights</h1>
               <p className="text-xl text-gray-600">
                 Contemplations on consciousness, reality, and human experience
