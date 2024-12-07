@@ -38,6 +38,9 @@ export const metadata: Metadata = {
       alt: siteConfig.title,
     }],
   },
+  facebook: {
+    appId: '1100997351655107'
+  },
   twitter: {
     card: 'summary',
     title: siteConfig.title,

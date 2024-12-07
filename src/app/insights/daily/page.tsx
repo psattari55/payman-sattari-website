@@ -146,12 +146,12 @@ const insights: Insight[] = [
               It is critical to understand that fear is at the root of this. Part of the spiritual 
               path is learning how to see past appearances, to a deeper reality. The surface layer of things 
               is always malleable and changeable. It doesn't necessarily represent the truth. What is happening 
-              <em>within</em> is a better indicator. The truth is, life is an "inside-out" movement. The 
+              <em> within</em> is a better indicator. The truth is, life is an "inside-out" movement. The 
               surface layer of things is always a reflection of a deeper, <em>inner</em> reality.
             </p>
             <p>
               When you understand that the child is always there, underneath that mask of fear or hatred, 
-              <em>you</em> also become less afraid. You are not fooled. While others around you may be focused 
+              <em> you</em> also become less afraid. You are not fooled. While others around you may be focused 
               on the violent, destructive or "evil" face without, you are conscious of the frightened, broken, 
               and lost child within.
             </p>
