@@ -2,7 +2,7 @@
 
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Quote, Search, ChevronDown, ChevronUp, Filter } from 'lucide-react';
 import { FaTwitter, FaFacebook } from 'react-icons/fa';
@@ -529,7 +529,7 @@ const InsightCard = ({ insight, expanded, onToggle }: {
   const copyToClipboard = async () => {
     try {
       const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-      const insightUrl = `${baseUrl}/insights/daily/${insight.id}`;
+      const insightUrl = `${baseUrl}/insights/daily#${insight.id}`; 
       await navigator.clipboard.writeText(insightUrl);
       setShowToast(true);
       setTimeout(() => setShowToast(false), 2000);
@@ -540,7 +540,7 @@ const InsightCard = ({ insight, expanded, onToggle }: {
 
   const share = (platform: string) => {
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-    const insightUrl = `${baseUrl}/insights/daily/${insight.id}`;
+    const insightUrl = `${baseUrl}/insights/daily#${insight.id}`; 
     const text = `"${insight.mainQuote}" - Payman Sattari`;
     
     const urls = {
@@ -555,6 +555,7 @@ const InsightCard = ({ insight, expanded, onToggle }: {
   return (
     <motion.div
       layout
+      id={insight.id}  // Add this line
       className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300"
     >
       <div className="p-8">
@@ -667,6 +668,19 @@ export default function DailyInsightsPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [showCategories, setShowCategories] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.slice(1); // Remove the # character
+      if (hash) {
+        const insight = insights.find(i => i.id === hash);
+        if (insight) {
+          setExpandedId(hash); // Automatically expand the referenced insight
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  }, []);
 
   const filteredInsights = insights.filter(insight => {
     const matchesSearch = searchTerm === '' || 
