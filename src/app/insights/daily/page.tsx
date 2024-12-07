@@ -671,12 +671,14 @@ export default function DailyInsightsPage() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const hash = window.location.hash.slice(1); // Remove the # character
+      const hash = window.location.hash.slice(1);
       if (hash) {
         const insight = insights.find(i => i.id === hash);
         if (insight) {
-          setExpandedId(hash); // Automatically expand the referenced insight
-          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+          setExpandedId(hash);
+          setTimeout(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
         }
       }
     }
