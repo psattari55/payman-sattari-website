@@ -2,17 +2,12 @@
 
 import { Metadata } from 'next'
 import { siteConfig } from '@/config/metadata'
-import { articles } from '@/data/articles' 
-
-type GenerateMetadataProps = {
-  params: { slug: string[] }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+import { articles } from '@/data/articles'
 
 export async function generateMetadata(
-  { params }: GenerateMetadataProps
+  { params }: { params: { slug?: string[] } }
 ): Promise<Metadata> {
- 
+  // Get the current path
   const currentPath = params.slug?.join('/') || '';
   
   // Find the article that matches this path
@@ -43,7 +38,6 @@ export async function generateMetadata(
         height: 630,
         alt: article.title,
       }],
-      // Include these properties in the main openGraph object instead of nested
       authors: ['Payman Sattari'],
       publishedTime: article.publishDate,
       section: article.category,
