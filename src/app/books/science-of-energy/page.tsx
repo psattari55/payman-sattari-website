@@ -90,7 +90,7 @@ const editorialReviews = [
   {
     source: "Kirkus Reviews",
     quote:
-      "Sattari offers an excellent and engaging overview of milestones and key discoveries in science, covering Newton, Einstein, Planck, and many others, and he explicates confounding concepts with clarity and drama... The author effectively tees up his compelling metaphysical premise, that 'conscious experience is not spooky or mysterious. It is part of the natural order.'",
+      "Sattari offers an excellent and engaging overview of milestones and key discoveries in science, covering Newton, Einstein, Planck, and many others, and he explicates confounding concepts with clarity and drama... [He] effectively tees up his compelling metaphysical premise, that 'conscious experience is not spooky or mysterious. It is part of the natural order.'",
     logo: "/images/reviews/kirkus-logo.png",
   },
   {

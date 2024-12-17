@@ -2,7 +2,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowLeft, Info } from 'lucide-react'
+import { ArrowLeft, FileText, ExternalLink } from 'lucide-react'
 import Section from '@/components/ui/Section'
 import PageTransition from '@/components/ui/PageTransition'
 import InteractiveLink from '@/components/ui/InteractiveLink'
@@ -15,7 +15,9 @@ export default function PaperPage() {
           background="white" 
           width="narrow"
           padding="large"
+          className="pt-14 md:pt-24"
         >
+          {/* Navigation */}
           <div className="mb-8">
             <InteractiveLink href="/research" className="inline-flex items-center text-gray-600 hover:text-gray-900">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -23,25 +25,56 @@ export default function PaperPage() {
             </InteractiveLink>
           </div>
 
-          {/* Paper Header */}
-          <div className="mb-12">
-            <div className="text-sm text-gray-600 mb-3">Under Review at Foundations of Physics • 2024</div>
-            <h1 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">
-              The Toroidal Nature of Space-Time: A Novel Approach to Understanding Quantum Field Interactions
-            </h1>
-            <div className="text-gray-600">
-              <p className="mb-2 text-lg">Payman Sattari</p>
-              <p className="text-sm">Independent Researcher</p>
+          {/* Paper Header - More Compact and Integrated */}
+          <header className="mb-12">
+            {/* Status Bar */}
+            <div className="mb-6 flex items-center gap-x-3 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <FileText className="w-4 h-4" />
+                <span>Preprint • 2024</span>
+              </div>
+              <span>•</span>
+              <a 
+                href="https://doi.org/10.5281/zenodo.14506112"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:text-blue-600 transition-colors"
+              >
+                DOI
+              </a>
             </div>
-          </div>
 
-          {/* Publication Status */}
-          <div className="mb-12 flex items-start gap-3">
-            <Info className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-gray-700 italic">
-              This paper is currently under review at Foundations of Physics. Due to journal submission policies, the full manuscript cannot be shared publicly at this time. Qualified researchers interested in discussing this work may inquire through the research contact form.
-            </p>
-          </div>
+            {/* Title and Author Section */}
+            <div className="border-l-4 border-gray-100 pl-6">
+              <h1 className="text-4xl font-normal text-gray-900 leading-tight tracking-tight mb-6">
+                The Toroidal Nature of Space-Time: A Novel Approach to Understanding Quantum Field Interactions
+              </h1>
+              
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xl text-gray-700">Payman Sattari</p>
+                  <p className="text-gray-600 mt-1">Independent Researcher</p>
+                </div>
+                <a 
+                  href="https://doi.org/10.5281/zenodo.14506304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all group"
+                >
+                  <FileText className="w-4 h-4 mr-2 text-gray-500 group-hover:text-gray-700" />
+                  Access Paper
+                  <ExternalLink className="w-3 h-3 ml-2 text-gray-400 group-hover:text-gray-600" />
+                </a>
+              </div>
+            </div>
+
+            {/* Brief Description - Optional */}
+            <div className="mt-8 text-gray-600">
+              <p>
+                This paper presents a theoretical framework that reveals the toroidal structure underlying quantum field interactions and space-time geometry, offering new perspectives on vacuum fluctuations, field-particle duality, and the nature of cosmic expansion.
+              </p>
+            </div>
+          </header>
 
           {/* Main Content */}
           <div className="prose prose-lg max-w-none">
@@ -60,36 +93,38 @@ export default function PaperPage() {
               <div className="mb-12">
                 <h2 className="text-xl font-semibold mb-4">Theoretical Significance</h2>
                 <p className="text-gray-700">
-                  This work addresses fundamental challenges in modern physics by proposing a novel geometric understanding of space-time structure. Rather than treating space-time and quantum fields as separate phenomena, we demonstrate how both emerge from a more fundamental toroidal geometry. This approach offers new perspectives on quantum field behavior, cosmic expansion, and the relationship between different scales of physical reality.
+                  This work addresses fundamental challenges in modern physics by proposing a novel geometric understanding of space-time structure. Through examination of four-dimensional geometry, we demonstrate that what appears as spherical symmetry in three dimensions reveals itself as toroidal patterns in four dimensions. This geometric insight provides natural explanations for quantum field behavior, cosmic expansion, and the relationship between phenomena at different scales.
                 </p>
               </div>
 
               <div className="mb-12">
-                <h2 className="text-xl font-bold mb-4">Research Implications</h2>
+                <h2 className="text-xl font-semibold mb-4">Key Predictions</h2>
                 <p className="text-gray-700">
-                  The framework has profound implications for multiple areas of physics. In quantum field theory, it provides a geometric foundation for understanding field-particle duality and vacuum fluctuations. For cosmology, it suggests new approaches to understanding cosmic expansion and dark energy. The framework also offers fresh insights into the quantum measurement process and the emergence of classical behavior at larger scales.
+                  The framework makes several specific, testable predictions that distinguish it from conventional models. Most significantly, it predicts:
                 </p>
-                <p className="text-gray-700 mt-4">
-                  Most significantly, this geometric approach provides a unified explanation for phenomena that currently require separate theoretical frameworks. It suggests that the apparent complexity of physical behaviors at different scales emerges from a simpler, more fundamental geometric structure.
-                </p>
+                <ul className="mt-4">
+                  <li className="mb-4">Quantum field fluctuations should exhibit toroidal symmetry patterns at specific scales, observable through modified interferometry techniques</li>
+                  <li className="mb-4">Systematic variations in quantum measurement outcomes based on measurement geometry</li>
+                  <li>Observable relationships between phenomena at different scales following specific geometric patterns</li>
+                </ul>
               </div>
 
               <div className="mb-12">
-                <h2 className="text-xl font-semibold mb-4">Future Research Directions</h2>
+                <h2 className="text-xl font-semibold mb-4">Theoretical Implications</h2>
                 <p className="text-gray-700">
-                  This theoretical framework opens several promising avenues for future research, including the development of more detailed mathematical descriptions of toroidal field dynamics, extension of the framework to address specific problems in quantum gravity, and application to outstanding questions in cosmology. The framework's predictions can be tested through proposed experimental protocols, offering immediate opportunities for verification while suggesting new directions in our understanding of space-time structure.
+                  The toroidal framework has profound implications for our understanding of physics. It provides a geometric foundation for quantum field behavior, explains vacuum fluctuations as manifestations of toroidal flow patterns, and suggests new perspectives on cosmic expansion. Most significantly, it offers a unified explanation for phenomena that currently require separate theoretical frameworks, suggesting that quantum and classical behaviors emerge from the same underlying geometric structure.
                 </p>
               </div>
             </div>
 
             {/* Research Contact */}
             <div className="mt-16 border-t pt-8">
-              <p className="text-gray-700">
+              <p className="text-gray-700 mb-6">
                 For academic researchers interested in discussing this work or exploring potential collaboration, please use the research contact form.
               </p>
               <InteractiveLink 
                 href="/research/contact" 
-                className="text-blue-600 hover:text-blue-700"
+                variant="button"
               >
                 Contact for Research Inquiries
               </InteractiveLink>

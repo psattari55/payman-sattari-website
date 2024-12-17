@@ -2,7 +2,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowLeft, Info } from 'lucide-react'
+import { ArrowLeft, FileText, ExternalLink } from 'lucide-react'
 import Section from '@/components/ui/Section'
 import PageTransition from '@/components/ui/PageTransition'
 import InteractiveLink from '@/components/ui/InteractiveLink'
@@ -15,7 +15,9 @@ export default function PaperPage() {
           background="white" 
           width="narrow"
           padding="large"
+          className="pt-14 md:pt-24"
         >
+          {/* Navigation */}
           <div className="mb-8">
             <InteractiveLink href="/research" className="inline-flex items-center text-gray-600 hover:text-gray-900">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -23,25 +25,56 @@ export default function PaperPage() {
             </InteractiveLink>
           </div>
 
-          {/* Paper Header */}
-          <div className="mb-12">
-            <div className="text-sm text-gray-600 mb-3">Under Review at Foundations of Physics • 2024</div>
-            <h1 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">
-              A Unified Framework for Quantum Measurement: Time as Fields of Experience and Potential
-            </h1>
-            <div className="text-gray-600">
-              <p className="mb-2 text-lg">Payman Sattari</p>
-              <p className="text-sm">Independent Researcher</p>
+          {/* Paper Header - More Compact and Integrated */}
+          <header className="mb-12">
+            {/* Status Bar */}
+            <div className="mb-6 flex items-center gap-x-3 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <FileText className="w-4 h-4" />
+                <span>Preprint • 2024</span>
+              </div>
+              <span>•</span>
+              <a 
+                href="https://doi.org/10.5281/zenodo.14506304"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:text-blue-600 transition-colors"
+              >
+                DOI
+              </a>
             </div>
-          </div>
 
-          {/* Publication Status */}
-          <div className="mb-12 flex items-start gap-3">
-            <Info className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-gray-700 italic">
-              This paper is currently under review at Foundations of Physics. Due to journal submission policies, the full manuscript cannot be shared publicly at this time. Qualified researchers interested in discussing this work may inquire through the research contact form.
-            </p>
-          </div>
+            {/* Title and Author Section */}
+            <div className="border-l-4 border-gray-100 pl-6">
+              <h1 className="text-4xl font-normal text-gray-900 leading-tight tracking-tight mb-6">
+                A Unified Framework for Quantum Measurement: Time as Fields of Experience and Potential
+              </h1>
+              
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xl text-gray-700">Payman Sattari</p>
+                  <p className="text-gray-600 mt-1">Independent Researcher</p>
+                </div>
+                <a 
+                  href="https://doi.org/10.5281/zenodo.14506304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all group"
+                >
+                  <FileText className="w-4 h-4 mr-2 text-gray-500 group-hover:text-gray-700" />
+                  Access Paper
+                  <ExternalLink className="w-3 h-3 ml-2 text-gray-400 group-hover:text-gray-600" />
+                </a>
+              </div>
+            </div>
+
+            {/* Brief Description - Optional
+            <div className="mt-8 text-gray-600">
+              <p>
+                This paper presents a novel theoretical framework that reconceptualizes quantum measurement through interacting fields, offering testable predictions about measurement correlations while suggesting a natural resolution to the measurement problem.
+              </p>
+            </div> */}
+          </header>
 
           {/* Main Content */}
           <div className="prose prose-lg max-w-none">

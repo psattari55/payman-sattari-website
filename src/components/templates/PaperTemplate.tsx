@@ -6,11 +6,15 @@ import Section from '@/components/ui/Section'
 import PageTransition from '@/components/ui/PageTransition'
 import ProgressiveLoad from '@/components/ui/ProgressiveLoad'
 import Link from 'next/link'
+import { ExternalLink } from 'lucide-react'
 
 interface PaperTemplateProps {
   title: string
-  journal: string
-  status: string
+  status: {
+    type: 'preprint' | 'published' | 'under-review'
+    location: string
+    date: string
+  }
   abstract: string
   keyAreas: {
     title: string
@@ -18,17 +22,29 @@ interface PaperTemplateProps {
   }[]
   implications: string[]
   currentStatus: string
+  doi?: string
 }
 
 export default function PaperTemplate({
   title,
-  journal,
   status,
   abstract,
   keyAreas,
   implications,
-  currentStatus
+  currentStatus,
+  doi
 }: PaperTemplateProps) {
+  const getStatusDisplay = () => {
+    switch (status.type) {
+      case 'preprint':
+        return `Preprint on ${status.location}`;
+      case 'published':
+        return `Published in ${status.location}`;
+      case 'under-review':
+        return `Under Review at ${status.location}`;
+    }
+  };
+
   return (
     <PageTransition>
       <div className="min-h-screen">
@@ -49,12 +65,22 @@ export default function PaperTemplate({
             {title}
           </h1>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-xl text-gray-600">{journal}</p>
-            <p className="text-lg text-gray-500">{status}</p>
+            <p className="text-xl text-gray-600">{getStatusDisplay()}</p>
+            <p className="text-lg text-gray-500">{status.date}</p>
+            {doi && (
+              <a 
+                href={`https://doi.org/${doi}`}
+                className="flex items-center text-gray-600 hover:text-blue-600"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                DOI: {doi} <ExternalLink className="w-4 h-4 ml-1" />
+              </a>
+            )}
           </div>
         </Section>
 
-        {/* Abstract */}
+        {/* Rest of the component remains the same */}
         <Section background="gray" width="narrow">
           <ProgressiveLoad>
             <div className="prose prose-lg max-w-none">
@@ -64,7 +90,6 @@ export default function PaperTemplate({
           </ProgressiveLoad>
         </Section>
 
-        {/* Key Areas */}
         <Section background="white" width="narrow">
           <ProgressiveLoad>
             <div className="prose prose-lg max-w-none">
@@ -81,7 +106,6 @@ export default function PaperTemplate({
           </ProgressiveLoad>
         </Section>
 
-        {/* Implications */}
         <Section background="gray" width="narrow">
           <ProgressiveLoad>
             <div className="prose prose-lg max-w-none">
@@ -98,7 +122,6 @@ export default function PaperTemplate({
           </ProgressiveLoad>
         </Section>
 
-        {/* Status */}
         <Section background="white" width="narrow" className="text-center">
           <ProgressiveLoad>
             <div className="prose prose-lg max-w-none">
