@@ -42,6 +42,7 @@ export default function PaperPage() {
                 className="inline-flex items-center hover:text-blue-600 transition-colors"
               >
                 DOI
+                <ExternalLink className="w-3 h-3 ml-1 " />
               </a>
             </div>
 
@@ -60,7 +61,7 @@ export default function PaperPage() {
                   href="https://doi.org/10.5281/zenodo.14506304"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all group"
+                  className="hidden md:flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all group"
                 >
                   <FileText className="w-4 h-4 mr-2 text-gray-500 group-hover:text-gray-700" />
                   Access Paper

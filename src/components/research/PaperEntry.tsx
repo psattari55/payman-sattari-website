@@ -40,7 +40,7 @@ export default function PaperEntry({
     <div className="group">
       <Card className="hover:shadow-md transition-shadow">
         <div className="flex items-start gap-4">
-          <div className="p-3 bg-gray-50 rounded-md">
+          <div className="hidden md:flex p-3 bg-gray-50 rounded-md">
             <FileText className="w-6 h-6 text-gray-400" />
           </div>
           <div className="flex-1">
