@@ -9,6 +9,7 @@ export interface Article {
   description: string;
   publishDate: string;
   readTime: string;
+  image?: string;
 }
 
 // Combine door sequences with additional articles

@@ -96,7 +96,7 @@ export default function ResearchPage() {
           background="gray" 
           width="default"
           id="papers"
-          className="pt-8 md:pt-16"
+          className="pt-12 md:pt-16"
         >
           <h2 className="text-2xl font-normal mb-8">Current Papers</h2>
           <div className="space-y-6">
