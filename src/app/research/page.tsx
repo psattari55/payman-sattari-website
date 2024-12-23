@@ -45,6 +45,18 @@ export default function ResearchPage() {
       keywords: ["Quantum measurement", "Observer effect", "Time evolution", "Quantum mechanics"],
       doi: "10.5281/zenodo.14506304",
       slug: "unified-framework-quantum-measurement"
+    },
+    {
+      title: "The Fractal Nature of Field Organization",
+      status: {
+        type: "preprint" as const,
+        location: "Zenodo",
+        date: "2024"
+      },
+      abstract: "This paper demonstrates how fractal patterns emerge naturally from fundamental geometric relationships in field organization. We show how the interaction of toroidal dynamics and continuous-discrete duality creates similar structures across different scales, providing a unified explanation for nature's tendency toward fractal organization.",
+      keywords: ["Fractal organization", "Field theory", "Pattern formation", "Self-organization"],
+      doi: "10.5281/zenodo.14548007",
+      slug: "fractal-field-organization"
     }
   ]
 
