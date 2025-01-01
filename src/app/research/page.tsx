@@ -35,18 +35,6 @@ export default function ResearchPage() {
       slug: "toroidal-nature-spacetime"
     },
     {
-      title: "A Unified Framework for Quantum Measurement",
-      status: {
-        type: "preprint" as const,
-        location: "Zenodo",
-        date: "2024"
-      },
-      abstract: "This work proposes a comprehensive framework for understanding quantum measurement, examining the relationship between observation and physical reality. We introduce the concept of time as fields of experience and potential, offering new insights into quantum measurement and causality.",
-      keywords: ["Quantum measurement", "Observer effect", "Time evolution", "Quantum mechanics"],
-      doi: "10.5281/zenodo.14506304",
-      slug: "unified-framework-quantum-measurement"
-    },
-    {
       title: "The Fractal Nature of Field Organization",
       status: {
         type: "preprint" as const,
@@ -57,6 +45,18 @@ export default function ResearchPage() {
       keywords: ["Fractal organization", "Field theory", "Pattern formation", "Self-organization"],
       doi: "10.5281/zenodo.14548007",
       slug: "fractal-field-organization"
+    },
+    {
+      title: "A Unified Framework for Quantum Measurement",
+      status: {
+        type: "preprint" as const,
+        location: "Zenodo",
+        date: "2024"
+      },
+      abstract: "This work proposes a comprehensive framework for understanding quantum measurement, examining the relationship between observation and physical reality. We introduce the concept of time as fields of experience and potential, offering new insights into quantum measurement and causality.",
+      keywords: ["Quantum measurement", "Observer effect", "Time evolution", "Quantum mechanics"],
+      doi: "10.5281/zenodo.14506304",
+      slug: "unified-framework-quantum-measurement"
     }
   ]
 

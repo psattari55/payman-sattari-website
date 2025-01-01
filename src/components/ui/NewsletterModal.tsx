@@ -128,7 +128,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
 
                 {status === 'success' && (
                   <p className="text-center text-sm text-green-600">
-                    Thanks for subscribing! Please check your email to confirm.
+                    Thanks for subscribing! You have been successfully added.
                   </p>
                 )}
 

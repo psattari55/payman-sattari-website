@@ -80,7 +80,7 @@ export default function NewsletterSignup({
       
       {status === 'success' && (
         <p className="mt-2 text-sm text-green-600">
-          Thanks for subscribing! Please check your email to confirm.
+          Thanks for subscribing! You have been successfully added.
         </p>
       )}
       
