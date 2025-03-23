@@ -58,7 +58,7 @@ export default function PaperPage() {
                   <p className="text-gray-600 mt-1">Independent Researcher</p>
                 </div>
                 <a 
-                  href="https://doi.org/10.5281/zenodo.14506304"
+                  href="https://doi.org/10.5281/zenodo.14505849"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden md:flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all group"
