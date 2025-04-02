@@ -29,12 +29,12 @@ export default function PractitionersDoorPage() {
                 <p className="text-xl leading-relaxed text-gray-800">
                   The Practitioner's Door is where theory meets practice. Here,
                   you'll find tools, principles, and insights designed to
-                  support you in applying the concepts of energy, consciousness,
+                  support you in applying concepts in the realm of energy, consciousness,
                   and balance to your daily life. Whether you're looking to
-                  cultivate inner resilience, achieve harmony in your
+                  cultivate inner resilience, reach greater harmony in your
                   relationships, or manage your energy more effectively, this
-                  section offers practical guidance grounded in the core
-                  elements of our system.
+                  section offers practical guidance grounded in core
+                  elements of this system.
                 </p>
 
                 <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">
@@ -42,21 +42,21 @@ export default function PractitionersDoorPage() {
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-800">
                   Knowledge alone is powerful, but true transformation comes
-                  from practice. When we actively apply energy principles in our
+                  from practice. When we actively apply grounded energy principles in our
                   lives, we begin to see shifts—in how we respond to challenges,
                   how we relate to others, and how we cultivate balance in a
                   busy world. The exercises, articles, and resources here are
                   designed to help you turn insights into action, making these
-                  concepts a living, breathing part of your reality.
+                  concepts a living part of your reality.
                 </p>
 
                 <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
                   What You'll Find Here
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-800">
-                  In this section, we explore the practical side of ideas like
-                  duality, consciousness, and belief systems, and how they can
-                  serve you in real-life situations. Through articles, simple
+                  In this section, we explore the pragmatic side of ideas like
+                  duality, consciousness, and the role of belief systems, and how they can
+                  serve you in real-life situations. Through simple articles,
                   exercises, and energy principles, you'll gain tools to help
                   you:
                 </p>
@@ -65,23 +65,23 @@ export default function PractitionersDoorPage() {
                     <strong className="text-gray-900">
                       Balance Activity and Rest:{" "}
                     </strong>
-                    Discover how the forces of yin and yang apply to personal
+                    Discover how the forces of yin (rest/inwardness) and yang (action/expression) apply to personal
                     energy management, helping you know when to take action and
                     when to rest.
                   </li>
                   <li className="pl-6 border-l-2 border-blue-100">
                     <strong className="text-gray-900">
-                      Transform Limiting Beliefs:{" "}
+                      Identify Limiting Beliefs:{" "}
                     </strong>
                     Understand how belief systems shape your experience and
-                    learn practical ways to challenge and transform limiting
+                    learn to challenge and transform limiting
                     beliefs that no longer serve you.
                   </li>
                   <li className="pl-6 border-l-2 border-blue-100">
                     <strong className="text-gray-900">
-                      Embrace Inner and Outer Strengths:{" "}
+                      Embrace Inner and Outer Strength:{" "}
                     </strong>
-                    Explore the duality of strength and vulnerability, learning
+                    Explore how strength manifests on both inward and outward levels, learning
                     how to honor both aspects of yourself for a more fulfilling,
                     balanced life.
                   </li>
@@ -91,62 +91,10 @@ export default function PractitionersDoorPage() {
                   Explore, Apply, and Transform
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-800">
-                  Start with an article or practice that speaks to you, or try
-                  one of the exercises below to begin integrating these
-                  principles right now. Remember, even small steps can lead to
-                  meaningful changes over time. As you practice, notice how your
+                  Start with an article or practice that speaks to you. Remember that it's especially small steps that lead to
+                  meaningful change over time. As you practice, notice how your
                   awareness grows, and how each action brings you closer to a
-                  state of inner balance and clarity.
-                </p>
-
-                <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
-                  Getting Started: Suggested Exercises
-                </h2>
-                <ul className="list-none space-y-6 my-8">
-                  <li className="pl-6 border-l-2 border-blue-100">
-                    <strong className="text-gray-900">
-                      Daily Balance Check-In
-                    </strong>
-                    <br />
-                    Each day, take five minutes to reflect on the balance
-                    between activity and rest. Ask yourself: “Where can I allow
-                    more rest? Where can I add more intentional action?” This
-                    simple check-in helps you harness the natural flow of yin
-                    and yang to feel more balanced and energized.
-                  </li>
-                  <li className="pl-6 border-l-2 border-blue-100">
-                    <strong className="text-gray-900">
-                      Belief Shift Exercise
-                    </strong>
-                    <br />
-                    Identify a belief you hold about yourself or the world that
-                    feels limiting. For example, “I'm not good at managing
-                    stress.” Write down this belief, then gently question it:
-                    “Is this belief absolutely true? What evidence exists for
-                    and against it?” By examining and reframing beliefs, you can
-                    open yourself to new possibilities.
-                  </li>
-                  <li className="pl-6 border-l-2 border-blue-100">
-                    <strong className="text-gray-900">
-                      Mindful Energy Alignment
-                    </strong>
-                    <br />
-                    Take a few moments to focus on your breath. With each
-                    inhale, feel yourself drawing in supportive, nurturing
-                    energy (yin). With each exhale, feel yourself releasing any
-                    tension or resistance (yang). This practice centers and
-                    aligns your energy, leaving you refreshed and balanced.
-                  </li>
-                </ul>
-
-                <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">
-                  Dive Deeper
-                </h2>
-                <p className="text-lg leading-relaxed text-gray-800">
-                  Explore the articles, exercises, and glossary terms listed
-                  below to continue your journey. Remember, growth is a
-                  process—take it at your own pace and enjoy the transformation
-                  that unfolds.
+                  state of balance and clarity.
                 </p>
 
                 {/* Enter Button */}

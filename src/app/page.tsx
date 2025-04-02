@@ -63,15 +63,32 @@ useEffect(() => {
       </Section>
 
       {/* Introduction Section */}
-      <Section background="gray" width="narrow">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-          <ProfileImage />
-          <div className="flex-1 space-y-4">
+      <Section background="gray" width="narrow" className="text-center py-8 md:py-10">
+        <div className="flex flex-col">
+          <div className="mb-6 flex justify-center">
+            <ProfileImage />
+          </div>
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">Welcome</h2>
             <p className="text-lg text-gray-700 text-center md:text-left">
-              I'm Payman Sattari, an independent scholar working at the intersection of physics, consciousness, and metaphysics. My work offers a unified framework for understanding reality - from quantum mechanics to human experience.
+              I'm Payman Sattari, a philosopher and independent researcher working at the intersection of physics, consciousness, and metaphysics.
             </p>
             <p className="text-lg text-gray-700 text-center md:text-left">
-              Through peer-reviewed research, books, and practical guidance, I explore how energy shapes both our inner and outer reality. My framework provides new insights into fundamental questions in physics while offering practical tools for personal and collective transformation.
+              My work offers a unified ontological framework—one that integrates the measurable structures of the physical world with the lived reality of subjective experience. Through research spanning quantum mechanics, cognitive science, and contemplative traditions, I propose a system that restores the conscious observer to the heart of our understanding of reality.
+            </p>
+            <p className="text-lg text-gray-700 text-center md:text-left">
+              In <em>The Science of Energy</em> and its forthcoming second edition, <em>The Undivided Whole</em>, I examine how our fragmented understanding of reality developed historically and point toward a more comprehensive approach that honors both quantitative precision and qualitative depth.
+            </p>
+            <p className="text-lg text-gray-700 text-center md:text-left">
+              This site serves as a home for this work. You'll find:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700 text-left">
+              <li>Original research papers addressing paradoxes in physics and ontology</li>
+              <li>Articles exploring the philosophical implications of our models of reality</li>
+              <li>Practical tools for applying these insights to personal and collective transformation</li>
+            </ul>
+            <p className="text-lg text-gray-700 text-center md:text-left font-medium mt-4">
+              At the center of it all is a simple insight: <em>Reality is not fragmented. We only see it that way.</em>
             </p>
           </div>
         </div>
@@ -87,7 +104,7 @@ useEffect(() => {
       {/* Recent Publications */}
       <Section background="gray" width="default">
         <ProgressiveLoad>
-          <h2 className="text-3xl font-bold mb-12 text-center">Recent Publications</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Recent Papers & Publications</h2>
         </ProgressiveLoad>
         
         {/* Publications Grid */}

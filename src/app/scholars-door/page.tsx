@@ -29,12 +29,12 @@ export default function ScholarsDoorPage() {
                 <p className="text-lg leading-relaxed text-gray-800">
                   The Scholar's Door invites researchers, academics, and
                   intellectual explorers to engage deeply with the empirical and
-                  theoretical advancements within this ontological framework.
+                  theoretical aspects of this ontological framework.
                   Here, scientific inquiry meets metaphysical investigation,
-                  bridging the classical and quantum realms through foundational
+                  bridging classical and quantum realms through foundational
                   principles that reveal both the geometric and experiential
                   nature of reality. This section is designed for readers
-                  seeking precision, testable hypotheses, and groundbreaking
+                  seeking more precise, intellectual, and structural
                   approaches to longstanding questions in both science and
                   metaphysics.
                 </p>
@@ -116,10 +116,10 @@ export default function ScholarsDoorPage() {
                   An Invitation to Engage and Explore
                 </h2>
                 <p className="text-lg text-gray-800">
-                  More than a repository of resources, The Scholar's Door is an
+                  More than a repository of resources, this section of the site is an
                   invitation to question, investigate, and potentially reshape
                   our understanding of reality. We invite you to engage
-                  critically, test hypotheses, and consider how these principles
+                  critically and consider how these principles
                   might offer innovative solutions to contemporary challenges in
                   physics, metaphysics, and our understanding of the underlying
                   order of nature.

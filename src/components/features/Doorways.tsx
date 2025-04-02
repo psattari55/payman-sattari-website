@@ -24,8 +24,8 @@ interface Doorway {
 const doorways: Doorway[] = [
   {
     title: "Scholar's Door",
-    subtitle: "Research & Theory",
-    description: "Explore the scientific foundations and theoretical framework bridging consciousness and physical reality.",
+    subtitle: "Intellectual (Research & Theory)",
+    description: "Explore scientific and theoretical perspectives bridging conscious and material dimensions of reality.",
     icon: BookOpen,
     path: "/scholars-door",
     theme: {
@@ -38,8 +38,8 @@ const doorways: Doorway[] = [
   },
   {
     title: "Observer's Door",
-    subtitle: "Experience & Understanding",
-    description: "Discover through direct experience and insight how consciousness shapes our reality.",
+    subtitle: "Sensory (Observation & Experience)",
+    description: "Discover through the first-person perspective how consciousness shapes experience.",
     icon: Eye,
     path: "/observers-door",
     theme: {
@@ -52,8 +52,8 @@ const doorways: Doorway[] = [
   },
   {
     title: "Practitioner's Door",
-    subtitle: "Application & Integration",
-    description: "Apply these principles in daily life and experience transformation through practice.",
+    subtitle: "Embodied (Application & Integration)",
+    description: "Learn to integrate principles in daily life that lead to greater balance and stability.",
     icon: Lightbulb,
     path: "/practitioners-door",
     theme: {
