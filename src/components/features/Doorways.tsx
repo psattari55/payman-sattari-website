@@ -82,7 +82,7 @@ const Doorways = ({ showHeader = true }: DoorwaysProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-light mb-4">Choose A Door</h2>
+          <h2 className="text-4xl font-light mb-4">Choose an Entrance Point</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Each offers a unique perspective on the relationship between consciousness and physical reality.
           </p>

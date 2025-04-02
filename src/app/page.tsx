@@ -68,7 +68,7 @@ useEffect(() => {
           <ProfileImage />
           <div className="flex-1 space-y-4">
             <p className="text-lg text-gray-700 text-center md:text-left">
-              I'm Payman Sattari, an independent researcher and author working at the intersection of physics, consciousness, and metaphysics. My work offers a unified framework for understanding reality - from quantum mechanics to human experience.
+              I'm Payman Sattari, an independent scholar working at the intersection of physics, consciousness, and metaphysics. My work offers a unified framework for understanding reality - from quantum mechanics to human experience.
             </p>
             <p className="text-lg text-gray-700 text-center md:text-left">
               Through peer-reviewed research, books, and practical guidance, I explore how energy shapes both our inner and outer reality. My framework provides new insights into fundamental questions in physics while offering practical tools for personal and collective transformation.
