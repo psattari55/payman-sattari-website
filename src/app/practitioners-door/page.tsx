@@ -27,14 +27,14 @@ export default function PractitionersDoorPage() {
               {/* Main Content */}
               <div className="prose prose-lg max-w-none">
                 <p className="text-xl leading-relaxed text-gray-800">
-                  The Practitioner's Door is where theory meets practice. Here,
-                  you'll find tools, principles, and insights designed to
-                  support you in applying concepts in the realm of energy, consciousness,
-                  and balance to your daily life. Whether you're looking to
-                  cultivate inner resilience, reach greater harmony in your
-                  relationships, or manage your energy more effectively, this
-                  section offers practical guidance grounded in core
-                  elements of this system.
+                  The Practitioner's Door is where theory meets practice. Here
+                  you'll find tools and insights designed to
+                  faciliate the application of core principles of balance
+                  to your daily life. Whether it is to
+                  cultivate greater inner resilience, improve
+                  relationships, or manage energy more wisely, this
+                  section is focused on practical guidance grounded in core
+                  principles of balance and harmony.
                 </p>
 
                 <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">
@@ -42,7 +42,7 @@ export default function PractitionersDoorPage() {
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-800">
                   Knowledge alone is powerful, but true transformation comes
-                  from practice. When we actively apply grounded energy principles in our
+                  from practice. When we actively apply grounded principles in our
                   lives, we begin to see shifts—in how we respond to challenges,
                   how we relate to others, and how we cultivate balance in a
                   busy world. The exercises, articles, and resources here are
@@ -51,21 +51,20 @@ export default function PractitionersDoorPage() {
                 </p>
 
                 <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
-                  What You'll Find Here
+                  What You'll Find
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-800">
-                  In this section, we explore the pragmatic side of ideas like
+                  This section explores the pragmatic side of ideas like
                   duality, consciousness, and the role of belief systems, and how they can
                   serve you in real-life situations. Through simple articles,
-                  exercises, and energy principles, you'll gain tools to help
-                  you:
+                  exercises, and energy principles, you'll gain tools to help:
                 </p>
                 <ul className="list-none space-y-6 my-8">
                   <li className="pl-6 border-l-2 border-blue-100">
                     <strong className="text-gray-900">
                       Balance Activity and Rest:{" "}
                     </strong>
-                    Discover how the forces of yin (rest/inwardness) and yang (action/expression) apply to personal
+                    Learn how the duality between yin (inwardness/rest) and yang (outwardness/expression) apply to personal
                     energy management, helping you know when to take action and
                     when to rest.
                   </li>
@@ -73,13 +72,13 @@ export default function PractitionersDoorPage() {
                     <strong className="text-gray-900">
                       Identify Limiting Beliefs:{" "}
                     </strong>
-                    Understand how belief systems shape your experience and
-                    learn to challenge and transform limiting
+                    Understand how belief systems deeply impact your experience and
+                    how to release limiting
                     beliefs that no longer serve you.
                   </li>
                   <li className="pl-6 border-l-2 border-blue-100">
                     <strong className="text-gray-900">
-                      Embrace Inner and Outer Strength:{" "}
+                      Cultivate Inner and Outer Strength:{" "}
                     </strong>
                     Explore how strength manifests on both inward and outward levels, learning
                     how to honor both aspects of yourself for a more fulfilling,
@@ -91,10 +90,10 @@ export default function PractitionersDoorPage() {
                   Explore, Apply, and Transform
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-800">
-                  Start with an article or practice that speaks to you. Remember that it's especially small steps that lead to
-                  meaningful change over time. As you practice, notice how your
-                  awareness grows, and how each action brings you closer to a
-                  state of balance and clarity.
+                  Start with an article or practice that speaks to you and remember that small steps lead to
+                  meaningful changes over time. As you practice, take note of how your
+                  conscious awareness grows, and how each action brings you closer to a
+                  state of clarity and balance.
                 </p>
 
                 {/* Enter Button */}

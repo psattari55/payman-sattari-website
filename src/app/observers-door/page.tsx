@@ -60,16 +60,8 @@ export default function ObserversDoorPage() {
                   In every experience, we are both participant and observer,
                   shaping reality through our beliefs, perceptions, and states
                   of mind. While much of modern knowledge focuses on outward
-                  facts, the inner experience is equally vital—it's where we
-                  find purpose, meaning, and an understanding of our own role in everything.
-                </p>
-
-                <p className="text-lg leading-relaxed text-gray-800">
-                  Here you'll find resources that explore the subjective
-                  dynamics of reality: the role of consciousness, the impact of
-                  belief systems, and the way our inner state reflects and
-                  shapes the outer world. These topics contain insights on how to live
-                  with more greater awareness and use our consciousness to engage with deeper experiential truths.
+                  facts, inner experience is equally vital—it's where we
+                  find purpose, meaning, and an understanding of our own role in the universe.
                 </p>
 
                 <h2 className="text-2xl font-normal mt-12 mb-6 text-gray-900">

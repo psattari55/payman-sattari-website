@@ -72,7 +72,7 @@ export default function ScholarsDoorPage() {
                 </p>
 
                 <h2 className="text-2xl font-normal mt-8 mb-6 text-gray-900">
-                  What You'll Discover in the Scholar's Door
+                  What You'll Discover in this Section
                 </h2>
                 <p className="text-lg text-gray-800">
                   This section presents a range of resources and articles
@@ -87,7 +87,7 @@ export default function ScholarsDoorPage() {
                     Delve into core concepts like continuous-discrete duality,
                     space-time as a relational field, and the observer-observed
                     interaction. Each concept is presented with a focus on
-                    precision and clarity, inviting scholarly engagement.
+                    precision and clarity.
                   </li>
                   <li className="pl-6 border-l-2 border-emerald-100">
                     <strong className="text-gray-900">

@@ -38,8 +38,8 @@ const doorways: Doorway[] = [
   },
   {
     title: "Observer's Door",
-    subtitle: "Sensory (Observation & Experience)",
-    description: "Discover through the first-person perspective how consciousness shapes experience.",
+    subtitle: "Sensory (Inwardness & Experience)",
+    description: "Discover through the first-person perspective the nature of inner experience and its dynamics.",
     icon: Eye,
     path: "/observers-door",
     theme: {
@@ -53,7 +53,7 @@ const doorways: Doorway[] = [
   {
     title: "Practitioner's Door",
     subtitle: "Embodied (Application & Integration)",
-    description: "Learn to integrate principles in daily life that lead to greater balance and stability.",
+    description: "Learn to integrate principles in daily life that lead to greater balance and harmony.",
     icon: Lightbulb,
     path: "/practitioners-door",
     theme: {
