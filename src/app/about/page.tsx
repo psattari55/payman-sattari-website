@@ -82,7 +82,7 @@ export default function AboutPage() {
                   My journey began unconventionally. Rather than following a traditional academic path, I spent thirteen years developing a theoretical framework that has led to several papers currently under review in leading physics journals, including Physical Review Letters and Foundations of Physics. This work emerged from a relentless drive to understand the fundamental nature of reality—not just its physical aspects, but the relationship between consciousness and matter.
                 </p>
                 <p className="text-gray-800 leading-relaxed">
-                  In 2023, I published my first book, "The Science of Energy," which lays the groundwork for understanding how our current scientific paradigms evolved and why we need a more complete framework that includes consciousness. My second book, "Basic Duality" (forthcoming), builds on this foundation to present a unified theory of reality that bridges quantum mechanics, consciousness, and everyday experience.
+                  In 2023, I published my first book <em>The Science of Energy</em>, recipient of the Nautilus Silver Medal in Science & Cosmology. This book lays the groundwork for understanding how our current scientific paradigms evolved and why we need a more complete framework that includes consciousness. My second book, <em>Basic Duality</em> (forthcoming), builds on this foundation to present a unified theory of reality that bridges quantum mechanics, consciousness, and everyday experience.
                 </p>
               </div>
 
