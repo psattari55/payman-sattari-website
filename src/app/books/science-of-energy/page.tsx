@@ -3,7 +3,16 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Book, ShoppingCart, Download, BookOpen, Scale, Compass, Brain, ArrowRight } from "lucide-react";
+import {
+  Book,
+  ShoppingCart,
+  Download,
+  BookOpen,
+  Scale,
+  Compass,
+  Brain,
+  ArrowRight,
+} from "lucide-react";
 import Link from "next/link";
 import PageTransition from "@/components/ui/PageTransition";
 import Section from "@/components/ui/Section";
@@ -83,7 +92,6 @@ const seriesData = {
     },
   ],
 };
-
 
 // Review data structure
 const editorialReviews = [
@@ -204,6 +212,22 @@ export default function ScienceOfEnergyPage() {
                   </p>
                 </div>
 
+                {/* Award element */}
+                <div className="flex items-center gap-3 mt-2">
+                  <div className="relative w-12 h-12">
+                    <Image
+                      src="/images/awards/nautilus-medal.png"
+                      alt="Nautilus Silver Medal"
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">
+                    Nautilus Silver Medal Winner 2025 • Science & Cosmology
+                  </span>
+                </div>
+
                 <div className="prose prose-lg text-gray-700 max-w-none">
                   <p className="text-lg leading-relaxed">
                     A groundbreaking framework for understanding reality at its
@@ -212,8 +236,8 @@ export default function ScienceOfEnergyPage() {
                     existence emerges through complementary forces: the
                     universal and the relative, the measurable and the
                     immeasurable, the continuous and the discrete. Suitable for
-                    scholars, seekers, and practitioners alike, it provides both
-                    a rigorous theoretical foundation and practical insights for
+                    scholars and general readers alike, it provides both a
+                    rigorous theoretical foundation and practical insights for
                     transforming how we experience reality.
                   </p>
                   <p className="text-base text-gray-600 mt-4 leading-relaxed">

@@ -71,20 +71,20 @@ useEffect(() => {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">Welcome</h2>
             <p className="text-lg text-gray-700 text-center md:text-left">
-              I'm Payman Sattari, a philosopher and independent researcher working at the intersection of physics, consciousness, and metaphysics.
+              My name is Payman Sattari, a philosopher and transdisciplinary researcher working at the intersection of physics, consciousness, and metaphysics.
             </p>
             <p className="text-lg text-gray-700 text-center md:text-left">
-              My work offers a unified ontological framework—one that integrates the measurable structures of the physical world with the lived reality of subjective experience. Through research spanning quantum mechanics, cognitive science, and contemplative traditions, I propose a system that restores the conscious observer to the heart of our understanding of reality.
+              My work offers a unified ontological framework—one that integrates the measurable structures of the physical world with the lived reality of subjective experience. Through research spanning quantum mechanics, integrative systems theory, and first-principles ontology, I propose a system that restores the conscious observer to the heart of our understanding of reality.
             </p>
             <p className="text-lg text-gray-700 text-center md:text-left">
-              In <em>The Science of Energy</em> and its forthcoming second edition, <em>The Undivided Whole</em>, I examine how our fragmented understanding of reality developed historically and point toward a more comprehensive approach that honors both quantitative precision and qualitative depth.
+            In my book <em>The Science of Energy</em> (recipient of the Nautilus Silver Medal in Science & Cosmology), I examine how our fragmented understanding of reality developed historically and point toward a more comprehensive approach&mdash;one that honors both the quantitative precision of material science and the qualitative depth of conscious experience.
             </p>
             <p className="text-lg text-gray-700 text-center md:text-left">
               This site serves as a home for this work. You'll find:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700 text-left">
               <li>Original research papers addressing paradoxes in physics and ontology</li>
-              <li>Articles exploring the philosophical implications of our models of reality</li>
+              <li>Accessible articles on theoretical and experiential dimensions of this work</li>
               <li>Practical tools for applying these insights to personal and collective transformation</li>
             </ul>
             <p className="text-lg text-gray-700 text-center md:text-left font-medium mt-4">
