@@ -85,7 +85,7 @@ export default function SeriesOverview() {
             <div className="bg-white rounded-xl border border-gray-200 p-8 mb-16">
               <div className="max-w-3xl mx-auto">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  This three-volume series presents a revolutionary framework that bridges consciousness and physical reality. Moving from foundational concepts through deep metaphysical principles to practical application, it offers both a theoretical understanding and a path to personal transformation.
+                  Moving from foundational concepts through deep metaphysical principles to practical application, this three-volume series presents an integrated framework bridging consciousness and physical reality—offering both a theoretical understanding and a path to personal transformation.
                 </p>
               </div>
             </div>
