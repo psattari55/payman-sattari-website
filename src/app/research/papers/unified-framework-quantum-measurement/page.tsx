@@ -47,14 +47,14 @@ export default function PaperPage() {
 
             {/* Title and Author Section */}
             <div className="border-l-4 border-gray-100 pl-6">
-              <h1 className="text-4xl font-normal text-gray-900 leading-tight tracking-tight mb-6">
+              <h1 className="text-3xl font-normal text-gray-900 leading-tight tracking-tight mb-6">
                 A Unified Framework for Quantum Measurement: Time as Fields of Experience and Potential
               </h1>
               
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xl text-gray-700">Payman Sattari</p>
-                  <p className="text-gray-600 mt-1">Independent Researcher</p>
+                  <p className="text-gray-600 mt-1">Philosopher, Transdisciplinary Researcher</p>
                 </div>
                 <a 
                   href="https://doi.org/10.5281/zenodo.14506304"
@@ -69,12 +69,6 @@ export default function PaperPage() {
               </div>
             </div>
 
-            {/* Brief Description - Optional
-            <div className="mt-8 text-gray-600">
-              <p>
-                This paper presents a novel theoretical framework that reconceptualizes quantum measurement through interacting fields, offering testable predictions about measurement correlations while suggesting a natural resolution to the measurement problem.
-              </p>
-            </div> */}
           </header>
 
           {/* Main Content */}
@@ -82,7 +76,7 @@ export default function PaperPage() {
             {/* Abstract */}
             <div className="mb-12">
               <h2 className="text-lg font-bold mb-4">Abstract</h2>
-              <p className="text-gray-700">
+              <p className="text-base text-gray-700">
                 We propose a new theoretical framework that reconceptualizes time and quantum measurement through the interaction of two fundamental fields: a field of experience and a field of potential. Rather than treating quantum measurement as random collapse of probability waves, we suggest that measurement represents the structured conversion of potential states into experiential ones. This framework naturally resolves several persistent puzzles in quantum mechanics, including the measurement problem, the role of consciousness in measurement, and the quantum-to-classical transition. We present specific, testable predictions that distinguish our framework from standard quantum mechanics, including: systematic correlations between sequential measurements, observable differences between systems with identical current states but different measurement histories, and specific patterns in how probability distributions evolve based on measurement timing and observer conditions. While developed through metaphysical investigation, this framework offers concrete implications for physics that invite experimental testing and mathematical formalization.
               </p>
             </div>
@@ -92,26 +86,23 @@ export default function PaperPage() {
               <h2 className="text-3xl font-semibold text-gray-700 mb-10 mt-8">Research Overview</h2>
               
               <div className="mb-12">
-                <h2 className="text-xl font-semibold mb-4">Theoretical Significance</h2>
-                <p className="text-gray-700">
-                  This work addresses one of physics' most persistent challenges: the quantum measurement problem. Rather than treating measurement as a mysterious collapse of probability waves, we present a framework where measurement emerges naturally from the interaction between fields of experience and potential. This approach provides a unified explanation for quantum measurement, the role of consciousness in observation, and the quantum-to-classical transition, while maintaining scientific rigor and testability.
+                <h2 className="text-lg font-semibold mb-4">Theoretical Significance</h2>
+                <p className="text-base text-gray-700">
+                  This work proposes a novel approach to the quantum measurement problem by treating observation as an intrinsic structural process rather than an external intervention. Instead of viewing measurement as a mysterious “collapse,” the framework describes it as a natural transition between two complementary aspects of reality: actualized structure (experience) and unrealized potential. In this view, time functions as the dynamic interface through which potential configurations become actualized, with system history shaping the range and character of possible outcomes. This reconceptualization provides a unified way of understanding measurement, temporal behavior, and the emergence of classicality—without invoking hidden variables, many-worlds, or consciousness-based collapse models.
                 </p>
               </div>
 
               <div className="mb-12">
-                <h2 className="text-xl font-bold mb-4">Research Implications</h2>
-                <p className="text-gray-700">
-                  The framework makes several specific, testable predictions that distinguish it from standard quantum mechanics. These include systematic correlations in sequential measurements, observable patterns based on measurement timing, and specific relationships between observer conditions and measurement outcomes. Most significantly, it suggests that quantum measurement isn't fundamentally random but follows patterns reflecting the interaction between experiential and potential fields.
-                </p>
-                <p className="text-gray-700 mt-4">
-                  Beyond quantum mechanics, this framework has profound implications for our understanding of time, consciousness, and the nature of reality itself. It suggests new approaches to quantum computing, measurement technology, and information processing while offering fresh perspectives on fundamental questions in physics.
+                <h2 className="text-lg font-bold mb-4">Key Predictions</h2>
+                <p className="text-base text-gray-700">
+                  The framework makes several testable predictions that distinguish it from standard frameworks. These include systematic correlations in sequential measurements, observable patterns based on measurement timing, and specific relationships between observer conditions and measurement outcomes. Most significantly, it suggests that quantum measurement isn't fundamentally random but follows patterns reflecting the interaction between actualized and unactualized fields.
                 </p>
               </div>
 
               <div className="mb-12">
-                <h2 className="text-xl font-semibold mb-4">Future Research Directions</h2>
-                <p className="text-gray-700">
-                  This theoretical framework opens several promising avenues for future research, including the development of precise mathematical formalisms, implementation of proposed experimental tests, and exploration of technological applications. The framework's predictions can be tested using existing experimental techniques, offering immediate opportunities for verification while suggesting new directions in quantum measurement and control.
+                <h2 className="text-lg font-semibold mb-4">Theoretical Implications</h2>
+                <p className="text-base text-gray-700">
+                  This measurement framework provides a unified context for several areas where conventional quantum mechanics relies on interpretive add-ons. It clarifies the role of the observer without invoking mental causation, explains how classical behavior arises from accumulated actualization, and situates entanglement, decoherence, and collapse-like behavior within a single structural process. By treating potential and actualization as complementary aspects of one system, the approach links measurement, temporality, and system evolution into a coherent geometric model.
                 </p>
               </div>
             </div>
@@ -119,13 +110,13 @@ export default function PaperPage() {
             {/* Research Contact */}
             <div className="mt-16 border-t pt-8">
               <p className="text-gray-700">
-                For academic researchers interested in discussing this work or exploring potential collaboration, please use the research contact form.
+                For researchers interested in discussing this work or exploring potential collaboration, please use the form below.
               </p>
               <InteractiveLink 
-                href="/research/contact" 
+                href="/contact" 
                 className="text-blue-600 hover:text-blue-700"
               >
-                Contact for Research Inquiries
+                Contact
               </InteractiveLink>
             </div>
           </div>

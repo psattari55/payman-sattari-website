@@ -13,7 +13,7 @@ export default function ProfileImage() {
       {isLoading && <Skeleton variant="circle" className="absolute inset-0" />}
       <Image 
         src="/images/profile.jpg"
-        alt="Payman Sattari"
+        alt="P. Orelio Sattari"
         fill
         sizes="(max-width: 768px) 192px, 384px"
         className={`

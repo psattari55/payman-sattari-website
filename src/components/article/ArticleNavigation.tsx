@@ -19,28 +19,28 @@ interface ArticleNavigationProps {
 
 const getDoorStyles = (door: string) => {
   switch (door) {
-    case "Scholar's Door":
+    case "Foundations Series":
       return {
         bgColor: 'bg-gray-50',
         icon: BookOpen,
-        text: "Scholar's Door",
-        href: "/scholars-door",
+        text: "Foundations Series",
+        href: "#",
         hoverColor: "hover:text-emerald-600"
       };
-    case "Observer's Door":
+    case "Experience Series":
       return {
         bgColor: 'bg-gray-50',
         icon: Eye,
-        text: "The Observer's Road",
-        href: "/observers-door",
+        text: "Experience Series",
+        href: "#",
         hoverColor: "hover:text-blue-600"
       };
-    case "Practitioner's Door":
+    case "Practice Series":
       return {
         bgColor: 'bg-gray-50',
         icon: Lightbulb,
-        text: "Practitioner's Road",
-        href: "/practitioners-door",
+        text: "Practice Series",
+        href: "#",
         hoverColor: "hover:text-amber-600"
       };
     default:

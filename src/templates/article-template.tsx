@@ -52,7 +52,7 @@ export default function ArticlePage() {
             "datePublished": articleInfo.publishDate,
             "author": {
               "@type": "Person",
-              "name": "Payman Sattari"
+              "name": "P. Orelio Sattari"
             }
           })
         }}

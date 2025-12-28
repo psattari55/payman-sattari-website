@@ -41,20 +41,20 @@ export default function AboutPage() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
-        <Section width="default" className="pt-24 pb-6">
-          <div className="max-w-4xl mx-auto px-6">
+        <Section width="default" className="pt-20 pb-6">
+          <div className="max-w-4xl mx-auto px-2 md:px-6">
             {/* Header */}
             <motion.header 
               className="text-center mb-16"
               {...fadeIn}
             >
               <h1 className="text-4xl font-normal mb-6 tracking-wide text-gray-900">
-                About Payman Sattari
+                About
               </h1>
               <div className="w-16 h-0.5 bg-blue-100 mx-auto mb-8"></div>
               <Image 
                 src="/images/profile.jpg" 
-                alt="Payman Sattari"
+                alt="Orelio Sattari"
                 width={128}
                 height={128}
                 className="rounded-full mx-auto mb-8 object-cover shadow-md"
@@ -63,11 +63,11 @@ export default function AboutPage() {
 
             {/* Introduction */}
             <motion.div 
-              className="prose prose-lg max-w-none mb-10"
+              className="prose prose-lg max-w-none mb-6"
               {...fadeIn}
             >
-              <p className="text-xl text-gray-700 leading-relaxed">
-                For over a decade, I've dedicated myself to developing a comprehensive framework that bridges consciousness and physical reality. My work spans theoretical physics, metaphysics, and consciousness studies, offering new perspectives on how energy shapes both our inner and outer worlds.
+              <p className="text-base text-gray-700 leading-relaxed">
+                For more than fifteen years, my work has been devoted to a single pursuit: <b>understanding the fundamental nature of reality, and learning how to live in alignment with it</b>. I work across theoretical physics, ontology, systems theory, and the disciplined study of interiority and order — not as separate domains, but as aspects of one continuous investigation.
               </p>
             </motion.div>
         
@@ -77,12 +77,50 @@ export default function AboutPage() {
               {...fadeIn}
             >
               {/* Background Section */}
-              <div className="prose prose-lg max-w-none">
+              <div className="prose prose-base max-w-none">
                 <p className="text-gray-800 leading-relaxed">
-                  My journey began unconventionally. Rather than following a traditional academic path, I spent thirteen years developing a theoretical framework that has led to several papers currently under review in leading physics journals, including Physical Review Letters and Foundations of Physics. This work emerged from a relentless drive to understand the fundamental nature of reality—not just its physical aspects, but the relationship between consciousness and matter.
+                  My path has been unconventional. Rather than advancing through a traditional academic track, I spent more than ten years developing an integrated theoretical framework from first principles. Several of these works have been submitted to leading physics journals and circulated publicly through Zenodo. The system that has emerged bridges domains typically kept isolated — quantum behavior, field structure, conscious experience, and the dynamics of inner life.
                 </p>
                 <p className="text-gray-800 leading-relaxed">
-                  In 2023, I published my first book <em>The Science of Energy</em>, recipient of the Nautilus Silver Medal in Science & Cosmology. This book lays the groundwork for understanding how our current scientific paradigms evolved and why we need a more complete framework that includes consciousness. My second book, <em>Basic Duality</em> (forthcoming), builds on this foundation to present a unified theory of reality that bridges quantum mechanics, consciousness, and everyday experience.
+                  In 2023, I published <em>The Science of Energy</em> which received the Nautilus Silver Medal in Science & Cosmology. That book traces how modern science came to exclude consciousness from its foundations and outlines why a more complete framework is now necessary. My forthcoming book, <em>Basic Duality</em>, extends this work by presenting a unified model of the continuous and discrete aspects of reality, grounded both in physics and in the reality of the observer.
+                </p>
+                <p className="text-gray-800 leading-relaxed">
+                  This foundation has implications that extend beyond physics. It shapes how I think about artificial intelligence, governance, cultural coherence, and the conditions for meaningful life. The writings and work on this site reflect that breadth—not as separate subjects, but as expressions of first-principles thinking applied to the questions that matter most.
+                </p>
+              </div>
+
+              {/* Subtle Divider */}
+              <div className="w-full max-w-2xl mx-auto">
+                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+              </div>
+
+              {/* What I Am */}
+              <div className="prose prose-base max-w-none">
+                <h2 className="text-3xl font-semibold mb-6 text-gray-900">What I Am</h2>
+                <p className="text-gray-800 leading-relaxed text-lg">
+                  I describe myself as a philosopher, ashavan, and transdisciplinary researcher. 
+                </p>
+                <p className="text-gray-800 leading-relaxed text-base">
+                  <b>Philosopher</b>, because my work begins with ontology and first principles. 
+                </p>
+                <p className="text-gray-800 leading-relaxed text-base">
+                  <b>Ashavan</b>, because my commitment is not only to understanding reality, but to <em>aligning</em> with it — to living in accordance with the underlying order that gives rise to both truth and character. The term has ancient roots, but my use of it is contemporary and methodological, not religious or doctrinal.
+                </p>
+                <p className="text-gray-800 leading-relaxed text-base">
+                  <b>Transdisciplinary researcher</b>, because the questions I work with cut across physics, metaphysics, psychology, and the disciplined study of consciousness, and cannot be reasonably contained within a single field.
+                </p>
+              </div>
+
+              {/* Subtle Divider */}
+              <div className="w-full max-w-2xl mx-auto">
+                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+              </div>
+
+              {/* What is an ashavan? */}
+              <div className="prose prose-lg max-w-none">
+                <h2 className="text-3xl font-semibold mb-6 text-gray-900">What is an ashavan?</h2>
+                <p className="text-gray-800 leading-relaxed text-base">
+                  An ashavan is one who seeks to understand and live in accordance with the fundamental order of reality — not as a belief, but as a discipline of perception, character, and alignment. The term has ancient roots, but my use of it is contemporary: it names a way of seeing and acting that unites truth, integrity, and the pursuit of reality as it is.
                 </p>
               </div>
 
@@ -93,10 +131,19 @@ export default function AboutPage() {
 
               {/* Vision */}
               <div className="prose prose-lg max-w-none">
-                <h2 className="text-4xl font-semibold mb-6 text-gray-900">Vision</h2>
-                <p className="text-gray-800 leading-relaxed text-lg">
-                  We're at a crucial point in human understanding where we need to bridge the gap between scientific materialism and conscious experience. My work aims to provide a theoretical foundation for this integration, offering both practical insights for individual development and new directions for scientific research.
+                <h2 className="text-3xl font-semibold mb-6 text-gray-900">Vision</h2>
+                <p className="text-gray-800 leading-relaxed text-base">
+                  We are living at a moment when our scientific models and our lived experience no longer speak the same language. The divide between materialism and consciousness has reached its limit. My work aims to build a coherent foundation that reconnects these domains — one in which the observer, the physical world, and the dynamics of inner life form a unified structure rather than competing explanations.
                 </p>
+                <p className="text-gray-800 leading-relaxed text-base">
+                  This vision has both theoretical and practical implications:
+                </p>
+                  <ul className="space-y-2 text-gray-800 text-base mt-4">
+                    <li>new directions for physics and systems theory</li>
+                    <li>new ways of understanding perception and experience</li>
+                    <li>new tools for psychological balance, inner work, and human development</li>
+                    <li>a path toward integrating truth, character, and lived coherence</li>
+                  </ul>
               </div>
 
               {/* Subtle Divider */}
@@ -104,15 +151,16 @@ export default function AboutPage() {
                 <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
               </div>
 
-              {/* Current Projects Section */}
+              {/* Current Work Section */}
               <motion.div {...fadeIn}>
-                <h2 className="text-2xl font-normal mb-6 text-gray-900">Current Projects</h2>
+                <h2 className="text-2xl font-normal mb-6 text-gray-900">Current Work</h2>
                 <ul className="list-none space-y-4">
-                  <ListItem>Finishing Book 2: Basic Duality (in development)</ListItem>
-                  <ListItem>Developing new theoretical frameworks in physics and consciousness studies</ListItem>
-                  <ListItem>Research in quantum mechanics, field theory, and space-time cosmology</ListItem>
-                  <ListItem>Articles and insights for inner work and personal development</ListItem>
-                  <ListItem>Projects connecting metaphysical insight with practical applications</ListItem>
+                  <ListItem>A revised second edition of <em>The Science of Energy</em> is in the works.</ListItem>
+                  <ListItem>Preparing <em>Basic Duality</em> (Book 2)</ListItem>
+                  <ListItem>Developing new theoretical frameworks in physics, fields, and ontology</ListItem>
+                  <ListItem>Research into quantum mechanics, measurement, and space-time structure</ListItem>
+                  <ListItem>Essays covering natural science, society, culture, governance, history, consciousness, and inner development</ListItem>
+                  <ListItem>Developing practices and models for personal and collective transformation</ListItem>
                 </ul>
               </motion.div>
 
@@ -162,13 +210,13 @@ export default function AboutPage() {
                 className="bg-stone-50 p-8 rounded-lg text-center border-gray-200"
                 {...fadeIn}
               >
-                <h2 className="text-2xl font-normal mb-4 text-gray-900">Get in Touch</h2>
+                <h2 className="text-2xl font-normal mb-4 text-gray-900">Stay Connected</h2>
                 <p className="text-gray-700 mb-6">
-                  If you're interested in working together or learning more, please visit my Contact page or sign up for my newsletter to stay updated on new developments, publications, and opportunities to engage with me or this work.
+                  For updates on new research, publications, writing, or insights:
                 </p>
                 <div className="flex justify-center space-x-4">
                   <InteractiveLink href="/contact" variant="button">
-                    Contact Me
+                    Contact
                   </InteractiveLink>
                   <button
                     onClick={handleNewsletterClick}

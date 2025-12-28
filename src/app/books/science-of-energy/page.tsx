@@ -67,28 +67,28 @@ const formats = [
 // Book series data
 const seriesData = {
   description:
-    "Offering a unified scientific framework for understanding the nature of reality, experience, and energy. From theoretical foundations to practical applications, this series presents a revolutionary approach to reconciling objective and subjective aspects of existence.",
+    "A three-volume examination of reality from first principles—addressing the structural inadequacy of current models, constructing a complete ontological system, and applying it to lived experience.",
   books: [
     {
       number: 1,
       title: "The Science of Energy",
       status: "available",
       description:
-        "Establishes the foundational framework for a unified model of energy, consciousness, and matter. Challenges core assumptions about reality while building a bridge between physics and inner experience.",
+        "Shows how modern physics excluded consciousness, why that exclusion creates paradoxes, and what resolving them requires. Readers discover how wave and particle, continuous and discrete, subject and object express different aspects of the same underlying order.",
     },
     {
       number: 2,
       title: "Basic Duality",
       status: "forthcoming",
       description:
-        "Develops the complete metaphysical system, revealing fundamental laws that govern both physical reality and consciousness. Explores how universal principles manifest across all scales of existence through primary dualities that shape space, time, identity, and truth.",
+        "A first-principles account of reality's fundamental structure—from origins and manifestation to the nature of time, space, and order. Develops the complete ontological system, deriving the unifying principles that govern both physical systems and the reality of the observer.",
     },
     {
       number: 3,
       title: "The Language of Truth",
       status: "forthcoming",
       description:
-        "Culminates in practical mastery, offering a comprehensive guide to personal transformation through understanding and application of universal principles. Explores the nature of self, virtues, and the path to enlightened living.",
+        "Culminates in practical mastery, offering a comprehensive guide to personal transformation through understanding and application of universal principles. Explores the nature of the self, virtue, and a path to enlightened living.",
     },
   ],
 };

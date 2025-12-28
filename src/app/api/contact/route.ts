@@ -23,7 +23,7 @@ const contactSchema = z.object({
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'contact@paymansattari.com',
+    user: 'contact@oreliosattari.com',
     pass: process.env.EMAIL_PASSWORD // You'll need to set this in your Vercel environment variables
   }
 })
@@ -46,8 +46,8 @@ export async function POST(request: Request) {
 
     // Prepare email content
     const mailOptions = {
-      from: 'contact@paymansattari.com',
-      to: 'contact@paymansattari.com',
+      from: 'contact@oreliosattari.com',
+      to: 'contact@oreliosattari.com',
       subject: `Research Contact Form: ${validatedData.subject}`,
       text: `
 Name: ${validatedData.name}

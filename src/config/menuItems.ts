@@ -18,9 +18,9 @@ export interface MenuItem {
       name: 'Research',
       path: '/research',
       subItems: [
-        { name: 'Research Overview', path: '/research' },
-        { name: 'Academic Papers', path: '/research#papers' },
-        { name: 'Theoretical Framework', path: '/research/framework' },
+        { name: 'Overview', path: '/research' },
+        { name: 'Research Papers', path: '/research#papers' },
+        { name: 'Framework', path: '/research/framework' },
       ]
     },
     {
@@ -49,12 +49,12 @@ export interface MenuItem {
       subItems: [
         { name: 'Daily Insights', path: '/insights/daily' },
         { name: 'AI Conversations', path: '/insights/ai-conversations' },
-        { name: 'Multimedia Content', path: '' }
+        { name: 'Multimedia', path: '' }
       ]
     },
     {
       name: 'Practice',
-      path: '/practice/inner-work',
+      path: '/practice',
       subItems: [
         { name: 'Inner Work', path: '/practice/inner-work' },
         { name: 'Balance', path: '/practice/balance' },

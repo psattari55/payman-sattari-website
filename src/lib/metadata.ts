@@ -6,13 +6,13 @@ export function generateArticleMetadata(article: {
   path: string;
 }) {
   return {
-    title: `${article.title} | Payman Sattari`,
+    title: `${article.title} | P. Orelio Sattari`,
     description: article.description,
     openGraph: {
       title: article.title,
       description: article.description,
       type: 'article',
-      url: `https://paymansattari.com${article.path}`,
+      url: `https://oreliosattari.com${article.path}`,
     }
   };
 }

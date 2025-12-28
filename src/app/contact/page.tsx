@@ -35,9 +35,9 @@ export default function ContactPage() {
 
   const inquiryTypes = [
     { value: "general", label: "General Inquiry", icon: MessageSquare },
-    { value: "research", label: "Research Collaboration", icon: Mail },
-    { value: "speaking", label: "Speaking Request", icon: Calendar },
     { value: "media", label: "Media Inquiry", icon: Camera },
+    { value: "speaking", label: "Speaking Request", icon: Calendar },
+    { value: "research", label: "Research", icon: Mail },
     { value: "newsletter", label: "Newsletter", icon: Newspaper },
   ];
 
@@ -132,9 +132,7 @@ export default function ContactPage() {
                 Contact
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Whether you're interested in research collaboration, speaking
-                engagements, or have questions about my work, I'm here to
-                connect. Please use the form below to get in touch.
+                I'd love to hear from you. Questions, collaborations, and conversations are all welcome. Fill out the form below to get in touch.
               </p>
             </motion.header>
 
@@ -263,12 +261,10 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
             >
               <h2 className="text-2xl font-light mb-4 text-gray-900">
-                Subscribe to My Newsletter
+                Newsletter
               </h2>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Get monthly insights on consciousness, physics, and the nature
-                of reality. Stay updated with my latest research, publications,
-                and thoughts.
+                Explore consciousness, reality, and first principles. Regular updates with new research, writing, and reflections.
               </p>
               <motion.button
                 onClick={() => setIsNewsletterOpen(true)}
@@ -277,7 +273,7 @@ export default function ContactPage() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Newspaper className="w-5 h-5 mr-2" />
-                Subscribe to Newsletter
+                Subscribe
               </motion.button>
             </motion.div>
 
@@ -287,7 +283,7 @@ export default function ContactPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              <h2 className="text-2xl font-light text-center mb-8 text-gray-900">
+              {/*<h2 className="text-2xl font-light text-center mb-8 text-gray-900">
                 Connect on Social Media
               </h2>
               <div className="flex flex-col md:flex-row justify-center items-center gap-6">
@@ -332,7 +328,7 @@ export default function ContactPage() {
                     </div>
                   </motion.a>
                 ))}
-              </div>
+              </div>*/}
 
               <motion.div
                 className="mt-12 text-center"

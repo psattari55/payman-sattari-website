@@ -19,16 +19,20 @@ export function generateSchemaOrgPerson() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Payman Sattari',
-    url: 'https://paymansattari.com',
-    description: 'Independent researcher and author working at the intersection of physics, consciousness, and metaphysics.',
+    name: 'P. Orelio Sattari',
+    alternateName: ['Payman Sattari', 'Orelio Sattari', 'Payman Orelio Sattari'],
+    url: 'https://oreliosattari.com',
+    description: 'Philosopher, ashavan, and transdisciplinary researcher working at the intersection of physics, consciousness, and metaphysics.',
     knowsAbout: [
-      'Quantum Mechanics',
-      'Consciousness Studies',
-      'Theoretical Physics',
+      'Ontology',
+      'First Principles',
       'Metaphysics',
-      'Energy Systems',
-      'Reality Framework'
+      'Philosophy of Physics',
+      'Quantum Foundations',
+      'Systems Theory',
+      'Consciousness Studies',
+      'Philosophy of Mind',
+      'Field Theory'
     ]
   }
 }
@@ -37,9 +41,9 @@ export function generateSchemaOrgWebsite() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Payman Sattari',
-    url: 'https://paymansattari.com',
-    description: 'Exploring the fundamental nature of reality through a unified framework of energy, consciousness, and matter.'
+    name: 'P. Orelio Sattari',
+    url: 'https://oreliosattari.com',
+    description: 'A first-principles framework unifying physics, consciousness, and ontology. Exploring the fundamental structure of reality and the role of the observer within it.'
   }
 }
 
@@ -54,7 +58,7 @@ export function generatePublicationSchema(publication: {
     headline: publication.title,
     author: {
       '@type': 'Person',
-      name: 'Payman Sattari'
+      name: 'P. Orelio Sattari'
     },
     publisher: {
       '@type': 'Organization',

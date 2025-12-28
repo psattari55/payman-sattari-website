@@ -85,7 +85,7 @@ export default function SeriesOverview() {
             <div className="bg-white rounded-xl border border-gray-200 p-8 mb-16">
               <div className="max-w-3xl mx-auto">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Moving from foundational concepts through deep metaphysical principles to practical application, this three-volume series presents an integrated framework bridging consciousness and physical reality—offering both a theoretical understanding and a path to personal transformation.
+                  Moving from diagnosis to construction to application, this three-volume series develops a complete ontological framework from first principles—examining how physical structure and conscious experience emerge from a coherent underlying order.
                 </p>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function SeriesOverview() {
               <BookSection
                 number={1}
                 title="The Science of Energy"
-                description="Establishes the foundational framework, challenging core assumptions about reality while building a bridge between physics and human experience. Through an examination of consciousness, matter, and their relationship, it lays the groundwork for understanding how reality emerges through complementary forces."
+                description="Shows how modern physics excluded consciousness from its foundations, the paradoxes that emerge from it, and what bridging the gap requires. Readers discover how seemingly incompatible domains—wave and particle, continuous and discrete, subject and object—express complementary aspects of a unified structure."
                 themes={[
                   "Subject & Object",
                   "Continuous & Discrete",
@@ -108,7 +108,7 @@ export default function SeriesOverview() {
               <BookSection
                 number={2}
                 title="Basic Duality"
-                description="Develops the complete metaphysical system, revealing fundamental laws that govern both physical reality and consciousness. Explores how universal principles manifest across all scales of existence through primary dualities that shape space, time, identity, and truth."
+                description="A first-principles account of reality's fundamental structure—from origins and manifestation to the nature of time, space, and order. This work develops the complete ontological system, demonstrating how both physical phenomena and conscious experience emerge from a coherent underlying pattern."
                 themes={[
                   "Inner & Outer",
                   "Active & Passive",
@@ -121,7 +121,7 @@ export default function SeriesOverview() {
               <BookSection
                 number={3}
                 title="The Language of Truth"
-                description="Culminates in practical mastery, offering a comprehensive guide to personal transformation through understanding and application of universal principles. Explores the nature of self, virtues, and the path to enlightened living."
+                description="Culminates in practical mastery, offering a comprehensive guide to personal transformation through understanding and application of universal principles. Explores the nature of the self, virtue, and a path to enlightened living."
                 themes={[
                   "The Self",
                   "The Virtues",

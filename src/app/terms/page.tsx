@@ -5,10 +5,10 @@ import PageTransition from '@/components/ui/PageTransition'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms of Service for paymansattari.com - Understanding your rights and responsibilities when using our website.',
+  description: 'Terms of Service for oreliosattari.com - Understanding your rights and responsibilities when using our website.',
   openGraph: {
-    title: 'Terms of Service | Payman Sattari',
-    description: 'Terms of Service for paymansattari.com - Understanding your rights and responsibilities when using our website.',
+    title: 'Terms of Service | P. Orelio Sattari',
+    description: 'Terms of Service for oreliosattari.com - Understanding your rights and responsibilities when using our website.',
     type: 'website'
   }
 }
@@ -19,9 +19,9 @@ export default function TermsOfService() {
       <Section background="white" width="narrow">
         <article className="prose prose-gray max-w-none">
           <h1>Terms of Service</h1>
-          <p className="text-gray-600">Last updated: December 6, 2024</p>
+          <p className="text-gray-600">Last updated: December 6, 2025</p>
 
-          <h2>Welcome to paymansattari.com</h2>
+          <h2>Welcome to oreliosattari.com</h2>
           <p>By accessing and using this website, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use this website.</p>
 
           <h2>Intellectual Property</h2>
@@ -48,10 +48,13 @@ export default function TermsOfService() {
           <h3>Citation and Attribution</h3>
           <p>When referencing or citing content from this website:</p>
           <ul>
-            <li>Include proper attribution to Payman Sattari</li>
+            <li>Include proper attribution to P. Orelio Sattari</li>
             <li>Link back to the original content where applicable</li>
             <li>Follow standard academic citation practices</li>
           </ul>
+          <p className="text-sm text-gray-600 mt-2">
+            Note: Earlier works may be published under Payman Sattari.
+          </p>
 
           <h2>User Conduct</h2>
           <p>When using this website, you agree to:</p>
@@ -104,7 +107,7 @@ export default function TermsOfService() {
 
           <h2>Contact</h2>
           <p>If you have any questions about these Terms of Service, please contact us through our contact form at {' '}
-            <a href="/contact">paymansattari.com/contact</a>
+            <a href="/contact">oreliosattari.com/contact</a>
           </p>
         </article>
       </Section>

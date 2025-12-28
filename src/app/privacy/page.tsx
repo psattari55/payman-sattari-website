@@ -5,10 +5,10 @@ import PageTransition from '@/components/ui/PageTransition'
 
 export const metadata: Metadata = {
     title: 'Privacy Policy',
-    description: 'Privacy Policy for paymansattari.com - Learn how we collect, use, and protect your information.',
+    description: 'Privacy Policy for oreliosattari.com - Learn how we collect, use, and protect your information.',
     openGraph: {
-      title: 'Privacy Policy | Payman Sattari',
-      description: 'Privacy Policy for paymansattari.com - Learn how we collect, use, and protect your information.',
+      title: 'Privacy Policy | P. Orelio Sattari',
+      description: 'Privacy Policy for oreliosattari.com - Learn how we collect, use, and protect your information.',
       type: 'website'
     }
   }
@@ -19,10 +19,10 @@ export default function PrivacyPolicy() {
       <Section background="white" width="narrow">
         <article className="prose prose-gray max-w-none">
           <h1>Privacy Policy</h1>
-          <p className="text-gray-600">Last updated: December 6, 2024</p>
+          <p className="text-gray-600">Last updated: December 6, 2025</p>
 
           <h2>Overview</h2>
-          <p>This Privacy Policy explains how paymansattari.com ("we," "our," or "the Site") collects, uses, and protects your information when you visit our website. We respect your privacy and are committed to protecting your personal data.</p>
+          <p>This Privacy Policy explains how oreliosattari.com ("we," "our," or "the Site") collects, uses, and protects your information when you visit our website. We respect your privacy and are committed to protecting your personal data.</p>
 
           <h2>Information We Collect</h2>
           
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
 
           <h2>Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us through our contact form at {' '}
-            <a href="/contact">paymansattari.com/contact</a>
+            <a href="/contact">oreliosattari.com/contact</a>
           </p>
 
           <h2>Children's Privacy</h2>

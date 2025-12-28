@@ -45,18 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return routes;
   });
 
-  // Door pages
-  const doorRoutes = [
-    'scholars-door',
-    'observers-door',
-    'practitioners-door'
-  ].map(door => ({
-    url: `${baseUrl}/${door}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
-
   // Practice library pages (frequently updated)
   const practiceLibraryRoutes = [
     'meditation',
@@ -83,7 +71,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     homeRoute,
     ...menuRoutes,
-    ...doorRoutes,
     ...practiceLibraryRoutes,
     ...articleRoutes,
   ];

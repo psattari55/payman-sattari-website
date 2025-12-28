@@ -30,7 +30,7 @@ export default function ArticlePage() {
       publishDate: "2024-06-30",
       readTime: "10 min",
       category: "Personal Development",
-      door: "Practitioner's Door"
+      door: "Practice Series"
     };
 
     const currentPath = usePathname();
@@ -51,7 +51,7 @@ export default function ArticlePage() {
             "datePublished": articleInfo.publishDate,
             "author": {
               "@type": "Person",
-              "name": "Payman Sattari"
+              "name": "P. Orelio Sattari"
             }
           })
         }}

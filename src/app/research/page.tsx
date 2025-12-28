@@ -17,7 +17,7 @@ export default function ResearchPage() {
         location: "Zenodo",
         date: "2024"
       },
-      abstract: "This paper presents a geometric foundation for understanding the relationship between quantum and classical behaviors. We propose a novel framework that bridges the apparent gap between continuous and discrete aspects of physical reality, offering new insights into wave-particle duality and measurement theory.",
+      abstract: "This paper develops the idea that quantum and classical behaviors can be understood as different expressions of a deeper geometric relationship between continuity and discreteness. The approach reframes wave-particle duality as a scale and context-dependent expression of a single underlying structure, rather than as a fundamental discontinuity between models. The paper outlines several testable predictions about interference patterns, decoherence, and quantum correlations—patterns that emerge naturally once the continuous-discrete structure is treated as primary rather than derivative. Many of these predictions can be examined using existing experimental setups with minimal modifications.",
       keywords: ["Quantum mechanics", "Classical physics", "Wave-particle duality", "Geometric framework"],
       doi: "10.5281/zenodo.14505849",
       slug: "continuous-discrete-duality"
@@ -29,7 +29,7 @@ export default function ResearchPage() {
         location: "Zenodo",
         date: "2024"
       },
-      abstract: "We present a novel theoretical framework for understanding the structure of space-time through a toroidal model that accommodates both quantum field interactions and classical space-time behavior. This approach offers new perspectives on field dynamics and the relationship between inner and outer dimensions of reality.",
+      abstract: "This paper introduces a geometric model in which space-time exhibits an intrinsic toroidal structure, producing inner and outer spatial dimensions that shape how fields organize, propagate, and interact. Within this framework, familiar quantum features—coherence, symmetry behavior, and the emergence of localized states—arise from geometric relationships rather than from independent principles. The toroidal structure also provides the spatial context in which continuous–discrete duality manifests across scales. The paper concludes with testable predictions about field structure and measurement geometry that can be investigated using modified versions of existing experimental setups.",
       keywords: ["Space-time structure", "Quantum field theory", "Toroidal geometry", "Field dynamics"],
       doi: "10.5281/zenodo.14506112",
       slug: "toroidal-nature-spacetime"
@@ -41,7 +41,7 @@ export default function ResearchPage() {
         location: "Zenodo",
         date: "2024"
       },
-      abstract: "This paper demonstrates how fractal patterns emerge naturally from fundamental geometric relationships in field organization. We show how the interaction of toroidal dynamics and continuous-discrete duality creates similar structures across different scales, providing a unified explanation for nature's tendency toward fractal organization.",
+      abstract: "This paper develops the idea that fractal organization arises naturally from the same geometric principles underlying toroidal field structure and the continuous–discrete duality. Rather than treating self-similarity as a descriptive curiosity, the framework shows how repeating patterns across scales emerge from consistent structural relationships in field organization. The model suggests why similar forms appear from quantum systems to biological growth to galactic structure: not through coincidence, but because similar geometric conditions recur at different scales. The paper outlines testable predictions concerning pattern formation, cross-scale correlations, and transitions between organizational states, offering a unified context for understanding natural self-organization.",
       keywords: ["Fractal organization", "Field theory", "Pattern formation", "Self-organization"],
       doi: "10.5281/zenodo.14548007",
       slug: "fractal-field-organization"
@@ -53,7 +53,7 @@ export default function ResearchPage() {
         location: "Zenodo",
         date: "2024"
       },
-      abstract: "This work proposes a comprehensive framework for understanding quantum measurement, examining the relationship between observation and physical reality. We introduce the concept of time as fields of experience and potential, offering new insights into quantum measurement and causality.",
+      abstract: "A conceptual framework for the measurement problem that treats observation as an intrinsic structural process rather than an external intervention. The paper examines how measurement arises from the interaction between two complementary aspects of reality — actualized structure and unrealized potential — and reframes time as the dynamic interface between them. Within this approach, “collapse” becomes a natural transition from potential configurations to actualized states, influenced by accumulated system history rather than by randomness alone. The framework yields testable predictions — including sequential-measurement correlations and history-dependent probability distributions — and provides a coherent account of entanglement, decoherence, and the emergence of classical behavior.",
       keywords: ["Quantum measurement", "Observer effect", "Time evolution", "Quantum mechanics"],
       doi: "10.5281/zenodo.14506304",
       slug: "unified-framework-quantum-measurement"
@@ -62,16 +62,16 @@ export default function ResearchPage() {
 
   const researchAreas = [
     {
-      title: "Quantum-Classical Relationship",
-      description: "Investigation of the fundamental relationship between quantum and classical physics, focusing on the emergence of classical behavior from quantum systems and the role of measurement in this transition.",
+      title: "Quantum Foundations & The Nature of Measurement",
+      description: "Investigating the structural basis of quantum behavior, the nature of measurement, and the transition from potential to actualized states. This work develops a unified account of observation, system history, and the emergence of classical behavior.",
     },
     {
-      title: "Space-Time Structure",
-      description: "Development of novel theoretical frameworks for understanding the nature of space-time, particularly in relation to quantum field theory and consciousness.",
+      title: "Spacetime Structure & Field Organization",
+      description: "Investigating the underlying geometry that shapes physical phenomena. This includes the structure of spacetime, the interplay of continuity and discreteness, and the principles by which fields organize across all scales.",
     },
     {
-      title: "Measurement Theory",
-      description: "Examination of the measurement problem in quantum mechanics and its implications for our understanding of physical reality and consciousness.",
+      title: "Consciousness & The Structure of Reality",
+      description: "Clarifying the ontological role of consciousness in physical processes, and integrating qualitative experience with measurable structure through a unified account of actualization, potentiality, and observation.",
     }
   ]
 
@@ -96,9 +96,15 @@ export default function ResearchPage() {
               <Globe className="w-5 h-5" />
             </a>
           </div>
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-base max-w-none">
             <p className="text-gray-700">
-              My research focuses on developing theoretical frameworks that bridge quantum mechanics, consciousness, and physical reality. These works form part of a broader unified framework that addresses fundamental questions in physics, particularly around quantum measurement, the structure of space-time, and the quantum-classical transition. Through this research, I aim to resolve persistent paradoxes in quantum mechanics while maintaining scientific rigor and experimental testability.
+              Since 2011, I have been developing a unified ontological framework that addresses foundational questions in physics, consciousness, and the nature of reality. This work examines how the measurable structure of the physical world and the interior dimensions of conscious experience emerge from a coherent underlying order.
+            </p>
+            <p className="text-gray-700">
+              The papers here represent key components of this larger system. They address persistent problems in quantum mechanics—measurement, the quantum-classical transition, field structure, and the role of the observer—not through incremental adjustments to existing models, but by rethinking the foundations themselves.
+            </p>
+            <p className="text-gray-700">
+              This research is grounded in first-principles reasoning and the systematic study of patterns that appear across domains: physical, phenomenological, and conceptual. It proposes that the divisions we perceive between domains—mind and matter, continuous and discrete, inner and outer—reflect the limits of our current methods rather than the structure of reality itself.
             </p>
           </div>
         </Section>
@@ -118,17 +124,17 @@ export default function ResearchPage() {
           </div>
         </Section>
 
-        {/* Research Areas */}
+        {/* Research Focus */}
         <Section background="white" width="default">
-          <h2 className="text-2xl font-normal mb-8">Primary Research Areas</h2>
+          <h2 className="text-2xl font-normal mb-8">Research Focus</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {researchAreas.map((area) => (
               <div 
                 key={area.title}
                 className="p-6 bg-gray-50 rounded-lg border border-gray-100"
               >
-                <h3 className="text-xl font-normal mb-4 text-gray-900">{area.title}</h3>
-                <p className="text-gray-700">{area.description}</p>
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">{area.title}</h3>
+                <p className="text-base text-gray-700">{area.description}</p>
               </div>
             ))}
           </div>
@@ -137,12 +143,12 @@ export default function ResearchPage() {
         {/* Research Collaboration */}
         <Section background="gray" width="narrow">
           <div className="text-center">
-            <h2 className="text-2xl font-normal mb-6">Research Collaboration</h2>
+            <h2 className="text-2xl font-normal mb-6">Collaboration & Dialogue</h2>
             <p className="text-gray-700 mb-8">
-              I welcome dialogue with researchers interested in these areas of theoretical physics and consciousness studies. All papers are available as preprints through their DOI links above.
+              This research is intended for those working at the foundations of physics, consciousness studies, and ontology. I welcome substantive engagement from researchers, philosophers, and serious independent thinkers who are addressing these questions. All papers are available as open-access preprints. For research dialogue or collaboration, contact me here.
             </p>
-            <InteractiveLink href="/research/contact" variant="button">
-              Contact for Research Inquiries
+            <InteractiveLink href="/contact" variant="button">
+              Contact
             </InteractiveLink>
           </div>
         </Section>

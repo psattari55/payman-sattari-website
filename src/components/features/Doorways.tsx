@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { BookOpen, Eye, Lightbulb } from 'lucide-react';
+import { BookOpen, Eye, Lightbulb, DoorOpen } from 'lucide-react';
 
 interface Doorway {
   title: string;
@@ -82,10 +82,13 @@ const Doorways = ({ showHeader = true }: DoorwaysProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-light mb-4">Choose an Entrance</h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          <h2 className="text-4xl font-light mb-4 flex items-center justify-center gap-3">
+            <DoorOpen className="w-8 h-8 text-gray-700" />
+            Choose a Door
+          </h2>
+          {/*<p className="text-lg text-gray-600 max-w-xl mx-auto">
             Each offers a unique perspective on the relationship between consciousness and matter.
-          </p>
+          </p>*/}
         </motion.div>
       )}
 

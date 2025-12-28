@@ -541,7 +541,7 @@ const InsightCard = ({ insight, expanded, onToggle }: {
   const share = (platform: string) => {
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
     const insightUrl = `${baseUrl}/insights/daily#${insight.id}`; 
-    const text = `"${insight.mainQuote}" - Payman Sattari`;
+    const text = `"${insight.mainQuote}" - P. Orelio Sattari`;
     
     const urls = {
       twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(insightUrl)}`,

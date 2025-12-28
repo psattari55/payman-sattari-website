@@ -1,4 +1,4 @@
-// src/app/layour/MainNav.tsx
+// src/app/layout/MainNav.tsx
 
 'use client'
 
@@ -43,7 +43,7 @@ export default function MainNav() {
           {/* Mobile: Full width for logo and menu button */}
           <div className="flex justify-between items-center w-full md:w-auto">
             <Link href="/" className="font-semibold text-lg text-gray-900 hover:text-gray-600 transition-colors">
-              Payman Sattari
+              P. Orelio Sattari
             </Link>
             
             <div className="md:hidden">

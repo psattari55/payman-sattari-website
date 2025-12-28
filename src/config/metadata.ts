@@ -1,27 +1,28 @@
 // src/config/metadata.ts
 export const siteConfig = {
-    name: 'Payman Sattari',
-    title: 'Payman Sattari - Bridging Consciousness and Physical Reality',
-    description: 'Exploring a unified framework of energy, consciousness, and matter.',
-    url: 'https://paymansattari.com',
+    name: 'P. Orelio Sattari',
+    title: 'Orelio Sattari - Foundations of Reality',
+    description: 'A first-principles framework unifying physics, consciousness, and ontology.',
+    url: 'https://oreliosattari.com',
     ogImage: '/images/og-image.jpg',
     keywords: [
       // Academic/Scientific Keywords
       'quantum mechanics',
       'theoretical physics',
       'consciousness studies',
+      'ontology',
       'unified field theory',
       'quantum measurement theory',
       'space-time physics',
       'continuous-discrete duality',
       
       // Framework Keywords
-      'consciousness framework',
+      'first-principles ontology',
       'unified framework',
-      'energy principles',
       'metaphysical systems',
       'reality structure',
-      'toroidal model',
+      'continuous field geometry',
+      'foundations of reality',
       
       // Integration Keywords
       'science and consciousness',
@@ -42,18 +43,18 @@ export const siteConfig = {
     topicAreas: {
       academic: {
         title: 'Academic Research in Physics and Consciousness',
-        description: 'Peer-reviewed research exploring quantum mechanics, consciousness, and the fundamental nature of reality.',
-        keywords: ['quantum mechanics', 'theoretical physics', 'consciousness studies']
+        description: 'Research exploring quantum mechanics, field structure, consciousness, and the first principles underlying reality.',
+        keywords: ['quantum mechanics', 'theoretical physics', 'ontology', 'consciousness studies']
       },
       experiential: {
-        title: 'Experiential Understanding of Reality',
-        description: 'Exploring the direct experience of consciousness and its relationship to physical reality.',
-        keywords: ['consciousness exploration', 'experiential wisdom', 'inner work']
+        title: 'Experiential Dimensions of Reality',
+        description: 'Exploring the interior dimensions of experience and the role of the observer in shaping reality.',
+        keywords: ['consciousness', 'experiential wisdom', 'inner work']
       },
       practical: {
-        title: 'Practical Applications of Energy Principles',
-        description: 'Applying theoretical understanding to personal development and real-world transformation.',
-        keywords: ['energy principles', 'practical applications', 'personal development']
+        title: 'Practical Applications',
+        description: 'Applying first-principles understanding to inner development, coherence, and real-world transformation.',
+        keywords: ['practical applications', 'personal development', 'collective change']
       }
     }
   }

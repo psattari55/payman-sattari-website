@@ -135,7 +135,7 @@ useEffect(() => {
                 className="text-lg font-semibold text-gray-900 hover:text-gray-600 transition-colors duration-200"
                 onClick={handleLinkClick}
               >
-                Payman Sattari
+                P. Orelio Sattari
               </Link>
               <button
                 onClick={handleClose}

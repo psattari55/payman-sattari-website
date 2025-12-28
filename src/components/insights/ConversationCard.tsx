@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 interface Message {
   speaker: {
-    type: 'Payman' | 'AI';
+    type: 'Orelio' | 'AI';
     name?: string;    // For AI type
     version?: string; // For AI type
   };
@@ -109,8 +109,8 @@ export default function ConversationCard({
                       }`}
                     >
                       <div className="text-sm text-gray-500 mb-2">
-                        {message.speaker.type === 'Payman' 
-                          ? 'Payman Sattari'
+                        {message.speaker.type === 'Orelio' 
+                          ? 'Orelio Sattari'
                           : `${message.speaker.name}${message.speaker.version ? ` ${message.speaker.version}` : ''}`
                         }
                       </div>

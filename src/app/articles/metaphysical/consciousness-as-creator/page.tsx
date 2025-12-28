@@ -34,7 +34,7 @@ export default function ArticlePage() {
       publishDate: "2024-08-23",
       readTime: "7 min",
       category: "Metaphysical Concepts",
-      door: "Observer's Door"
+      door: "Experience Series"
     };
 
     const currentPath = usePathname();
@@ -55,7 +55,7 @@ export default function ArticlePage() {
             "datePublished": articleInfo.publishDate,
             "author": {
               "@type": "Person",
-              "name": "Payman Sattari"
+              "name": "P. Orelio Sattari"
             }
           })
         }}

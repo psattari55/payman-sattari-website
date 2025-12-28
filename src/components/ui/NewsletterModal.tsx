@@ -84,29 +84,19 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
               </button>
 
               <div className="mb-6">
-                <h2 className="text-2xl font-semibold text-gray-900">Stay Connected</h2>
+                <h2 className="text-2xl font-semibold text-gray-900">
+                  <span className="text-amber-600 mr-1">☉</span> Stay Connected
+                </h2>
                 <p className="mt-2 text-gray-600">
-                  Get monthly insights on consciousness, physics, and the nature of reality.
+                  Get the latest research and writing, plus first looks at new books, upcoming talks, and projects.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Name (optional)
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email address
+                    Email address*
                   </label>
                   <input
                     type="email"
@@ -114,6 +104,19 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
@@ -128,7 +131,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
 
                 {status === 'success' && (
                   <p className="text-center text-sm text-green-600">
-                    Thanks for subscribing! You have been successfully added.
+                    You have been successfully added. Thanks for subscribing!
                   </p>
                 )}
 

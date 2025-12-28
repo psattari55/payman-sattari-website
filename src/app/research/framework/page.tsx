@@ -26,19 +26,19 @@ export default function TheoreticalFrameworkPage() {
 
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-3xl font-normal text-gray-900 mb-6">Theoretical Framework</h1>
+            <h1 className="text-3xl font-normal text-gray-900 mb-6">Conceptual Framework</h1>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-800 text-lg leading-relaxed">
-                Reality presents us with an apparent paradox: the objective world studied by physics and the subjective world of conscious experience seem to follow different rules. Yet these two aspects of reality must be unified, as they clearly interact - consciousness affects physical systems, and physical systems affect consciousness. This interaction is most visible in quantum mechanics, where observation itself appears to influence physical reality.
+              <p className="text-gray-800 text-base leading-relaxed">
+                All investigation begins from a simple premise: reality is observable. From this starting point, we encounter a longstanding tension — the measurable structures studied by physics and the qualitative dimensions of conscious experience appear to obey different rules. Yet in practice we observe a reciprocal relationship: physical systems shape experience, and observation shapes the manifestation of physical systems. Nowhere is this more evident than in quantum mechanics, where measurement conditions participate directly in the behavior of the system being measured.
               </p>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                Our theoretical framework proposes that this interaction isn't paradoxical but essential to understanding reality itself. By reexamining fundamental assumptions about the nature of reality, we've developed a unified framework that:
+              <p className="text-gray-800 text-base leading-relaxed">
+                This framework proposes that this relationship is not an anomaly but a structural feature of reality. By revisiting several foundational assumptions about mind, matter, and measurement, the framework develops an integrated account that:
               </p>
-              <ul className="text-gray-800 text-lg leading-relaxed">
-                <li>Bridges subjective and objective reality without reducing either to the other</li>
-                <li>Explains quantum phenomena without sacrificing mathematical rigor</li>
-                <li>Resolves long-standing paradoxes in physics through geometric principles</li>
-                <li>Suggests new experimental approaches and practical applications</li>
+              <ul className="text-gray-800 text-base leading-relaxed">
+                <li>Clarifies the relationship between subjective and objective domains without reducing either</li>
+                <li>Interprets quantum phenomena through structural and geometric principles</li>
+                <li>Reframes persistent paradoxes as artifacts of incomplete ontology</li>
+                <li>Identifies new experimental and conceptual directions</li>
               </ul>
             </div>
           </div>
@@ -48,96 +48,45 @@ export default function TheoreticalFrameworkPage() {
             <h2 className="text-2xl font-normal mb-8">Foundational Principles</h2>
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-semibold mb-3">The Unity of Reality</h3>
-                <p className="text-gray-700">
-                  Reality is fundamentally unified, with apparent divisions arising from our perspective within it. This unity manifests through complementary relationships - continuous/discrete, potential/actual, subject/object - that aren't truly separate but represent different aspects of an underlying whole.
+                <h3 className="text-lg font-semibold mb-3">The Unity of Reality</h3>
+                <p className="text-base text-gray-700">
+                  Apparent divisions — continuous and discrete, potential and actual, subject and object — arise from perspective rather than from separate underlying substances. These complementarities express different aspects of a single, coherent order.
                 </p>
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-3">Geometric Foundation</h3>
-                <p className="text-gray-700">
-                  These relationships express themselves through fundamental geometric and topological principles that govern both physical behavior and conscious experience. This geometry isn't just mathematical abstraction but reflects the deep structure of reality itself.
+                <h3 className="text-lg font-semibold mb-3">Geometric Foundation</h3>
+                <p className="text-base text-gray-700">
+                  This order manifests through geometric and topological structure. Geometry here is not merely a mathematical convenience but reflects deeper organizational principles through which phenomena, conscious and material, take shape.
                 </p>
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-3">Field Dynamics</h3>
-                <p className="text-gray-700">
-                  Fields represent the interface between potential and actual states of reality. Understanding field behavior - especially at quantum scales - requires recognizing how consciousness and physical reality interact through field dynamics.
+                <h3 className="text-lg font-semibold mb-3">Field Dynamics</h3>
+                <p className="text-base text-gray-700">
+                  Understanding field dynamics — particularly at quantum scales — requires recognizing how measurement, information, and structure interact to produce observable outcomes.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Theoretical Implications */}
+          {/* Reading This Work */}
           <div className="mb-12">
-            <h2 className="text-2xl font-normal mb-8">Theoretical Implications</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Quantum Mechanics</h3>
-                <ul className="list-disc pl-4 text-gray-700 space-y-2">
-                  <li>Explains measurement effects without invoking consciousness as an exception</li>
-                  <li>Provides natural interpretation of wave-particle duality</li>
-                  <li>Suggests new approaches to quantum field theory</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Space-Time</h3>
-                <ul className="list-disc pl-4 text-gray-700 space-y-2">
-                  <li>Offers new perspectives on cosmic expansion</li>
-                  <li>Suggests natural relationship between gravity and quantum effects</li>
-                  <li>Provides geometric basis for understanding field interactions</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Consciousness</h3>
-                <ul className="list-disc pl-4 text-gray-700 space-y-2">
-                  <li>Shows how consciousness fits within physical reality without reduction</li>
-                  <li>Explains observer effects through fundamental principles</li>
-                  <li>Suggests new approaches to mind-matter interaction</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Research Directions & Significance */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-normal mb-6">Research Directions</h2>
-            <p className="text-gray-700 mb-4">Current investigations focus on:</p>
-            <ol className="text-gray-700 space-y-2 mb-8">
-              <li>1. Mathematical formalization of key principles</li>
-              <li>2. Development of testable predictions</li>
-              <li>3. Application to specific problems in physics</li>
-              <li>4. Experimental design and validation</li>
-              <li>5. Practical technological applications</li>
-            </ol>
-
-            <h2 className="text-2xl font-normal mb-6">Significance</h2>
+            <h2 className="text-2xl font-normal mb-6">Reading This Work</h2>
             <p className="text-gray-700 mb-4">
-              This framework represents not just another interpretation of quantum mechanics or theory of consciousness, but a fundamental reconceptualization of reality itself. It suggests that many apparent paradoxes in modern physics arise from incomplete understanding of the relationship between consciousness and physical reality.
-            </p>
-            <p className="text-gray-700 mb-4">The framework's power lies in its ability to:</p>
-            <ul className="list-disc pl-4 text-gray-700 space-y-2">
-              <li>Resolve paradoxes through natural principles rather than additional assumptions</li>
-              <li>Suggest new experimental approaches</li>
-              <li>Unify seemingly disparate phenomena under common principles</li>
-              <li>Maintain mathematical rigor while explaining subjective experience</li>
-            </ul>
+              Each of the research papers develops one aspect of the larger system outlined here. They can be read independently, but together they form a coherent picture of how physical structure, conscious experience, and fundamental geometry relate. This page provides the conceptual background while the papers present the details.            </p>
           </div>
 
           {/* Research Contact */}
           <div className="mt-16 border-t pt-8">
-            <p className="text-gray-700 mb-6">
-              For researchers interested in discussing this theoretical framework or exploring potential collaboration, please use the research contact form.
+            <p className="text-lg text-gray-700 mb-6">
+              To discuss the framework, explore potential collaboration, or inquire about ongoing research, please use the contact form below.
             </p>
             <InteractiveLink 
-              href="/research/contact" 
+              href="/contact" 
               className="text-blue-600 hover:text-blue-700"
             >
-              Contact for Research Inquiries
+              Contact
             </InteractiveLink>
           </div>
         </Section>

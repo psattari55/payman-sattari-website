@@ -48,14 +48,14 @@ export default function PaperPage() {
 
             {/* Title and Author Section */}
             <div className="border-l-4 border-gray-100 pl-6">
-              <h1 className="text-4xl font-normal text-gray-900 leading-tight tracking-tight mb-6">
+              <h1 className="text-3xl font-normal text-gray-900 leading-tight tracking-tight mb-6">
                 The Fractal Nature of Field Organization: A Geometric Framework for Understanding Self-Organization in Physical Systems
               </h1>
               
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xl text-gray-700">Payman Sattari</p>
-                  <p className="text-gray-600 mt-1">Independent Researcher</p>
+                  <p className="text-gray-600 mt-1">Philosopher, Transdisciplinary Researcher</p>
                 </div>
                 <a 
                   href="https://doi.org/10.5281/zenodo.14548007"
@@ -76,7 +76,7 @@ export default function PaperPage() {
             {/* Abstract */}
             <div className="mb-12">
               <h2 className="text-lg font-bold mb-4">Abstract</h2>
-              <p className="text-gray-700">
+              <p className="text-base text-gray-700">
                 The ubiquitous presence of fractal patterns across physical scales - from quantum fluctuations to cosmic structures - suggests an underlying organizational principle in nature that current theories fail to fully explain. We demonstrate that these patterns emerge naturally from fundamental geometric relationships in field organization, particularly through the interaction of toroidal dynamics and continuous-discrete duality. This framework explains why similar structures appear at different scales, how self-organization emerges from basic field principles, and why certain patterns repeatedly manifest throughout nature. The model makes specific, testable predictions about pattern formation and scaling relationships that can be verified through existing experimental techniques. These predictions include observable correlations between organization at different scales, specific patterns in how systems transition between organizational states, and measurable relationships in field behavior across scale boundaries. Our approach provides a unified explanation for the emergence of ordered structures across all scales of reality, suggesting a deeper principle underlying nature's tendency toward fractal organization.
               </p>
             </div>
@@ -86,29 +86,28 @@ export default function PaperPage() {
               <h2 className="text-3xl font-semibold text-gray-700 mb-10 mt-8">Research Overview</h2>
               
               <div className="mb-12">
-                <h2 className="text-xl font-semibold mb-4">Theoretical Significance</h2>
-                <p className="text-gray-700">
-                  This work addresses a fundamental question in physics: why does nature consistently organize itself in fractal patterns across different scales? Rather than treating these patterns as merely descriptive tools, we demonstrate how they emerge naturally from basic geometric principles governing field organization. This approach provides a unified framework for understanding pattern formation and self-organization across all scales of reality.
+                <h2 className="text-lg font-semibold mb-4">Theoretical Context</h2>
+                <p className="text-base text-gray-700">
+                  Fractals are typically treated either as mathematical tools or as emergent properties of complex systems. This work approaches the question differently: it suggests that fractal organization reflects deeper geometric principles governing field behavior. When toroidal dynamics and the continuous–discrete relationship interact, self-similar patterns appear as natural and structurally stable outcomes.
                 </p>
               </div>
 
               <div className="mb-12">
                 <h2 className="text-xl font-semibold mb-4">Key Predictions</h2>
-                <p className="text-gray-700">
-                  The framework makes several specific, testable predictions about pattern formation and scaling relationships:
+                <p className="text-base text-gray-700">
+                  The model yields several testable predictions:
                 </p>
-                <ul className="mt-4">
-                  <li className="mb-4">Observable correlations between pattern formation at different scales following predicted geometric relationships</li>
-                  <li className="mb-4">Specific geometric regularities in how systems transition between organizational states</li>
-                  <li className="mb-4">Measurable coherence between different levels of organization</li>
-                  <li>Cross-scale correlations that follow toroidal geometry</li>
+                <ul className="text-base mt-4">
+                  <li>Observable correlations between pattern formation at different scales following predicted geometric relationships</li>
+                  <li>Specific geometric regularities in how systems transition between organizational states</li>
+                  <li>Measurable coherence between different levels of organization</li>
                 </ul>
               </div>
 
               <div className="mb-12">
-                <h2 className="text-xl font-semibold mb-4">Theoretical Implications</h2>
-                <p className="text-gray-700">
-                  This framework reveals that fractal organization isn't merely a mathematical description but reflects fundamental geometric principles underlying reality itself. It suggests a profound unity in physics where quantum behavior, classical phenomena, and complex organization emerge as manifestations of the same underlying principles. The framework has significant implications for our understanding of pattern formation, stability, cross-scale coherence, and system organization.
+                <h2 className="text-lg font-semibold mb-4">Theoretical Implications</h2>
+                <p className="text-base text-gray-700">
+                  The approach suggests that fractal organization may reflect deeper geometric properties of field behavior rather than surface-level complexity. By linking scale relationships to toroidal and continuous–discrete structures, the framework provides a unified perspective on pattern formation across physical, biological, and cosmological domains.
                 </p>
               </div>
             </div>
@@ -116,13 +115,13 @@ export default function PaperPage() {
             {/* Research Contact */}
             <div className="mt-16 border-t pt-8">
               <p className="text-gray-700 mb-6">
-                For academic researchers interested in discussing this work or exploring potential collaboration, please use the research contact form.
+                For researchers interested in discussing this work or exploring potential collaboration, please use the form below.
               </p>
               <InteractiveLink 
-                href="/research/contact" 
+                href="/contact" 
                 variant="button"
               >
-                Contact for Research Inquiries
+                Contact
               </InteractiveLink>
             </div>
           </div>
