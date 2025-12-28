@@ -46,8 +46,8 @@ export async function POST(request: Request) {
 
     // Prepare email content with inquiry type highlight
     const mailOptions = {
-      from: 'contact@oreliosattari.com',
-      to: 'contact@oreliosattari.com',
+      from: 'orelio@oreliosattari.com',
+      to: 'orelio@oreliosattari.com',
       subject: `[${validatedData.inquiryType.toUpperCase()}] ${validatedData.subject}`,
       text: `
 Type: ${validatedData.inquiryType}
