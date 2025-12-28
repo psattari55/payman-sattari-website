@@ -23,7 +23,7 @@ const contactSchema = z.object({
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'contact@oreliosattari.com',
+    user: 'orelio@oreliosattari.com',
     pass: process.env.EMAIL_PASSWORD
   }
 })
