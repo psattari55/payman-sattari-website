@@ -7,7 +7,7 @@ import Section from '@/components/ui/Section';
 import ConversationCard from '@/components/insights/ConversationCard';
 
 interface Speaker {
-  type: 'AI' | 'Payman';
+  type: 'AI' | 'Orelio';
   name?: string;
   version?: string;
 }
@@ -51,7 +51,7 @@ const conversations: Conversation[] = [
         content: "What do you think makes people feel truly connected in today's world?"
       },
       {
-        speaker: { type: 'Payman' },
+        speaker: { type: 'Orelio' },
         content: "I think something that makes people feel truly connected to each other in general is intimacy. I should probably also clarify that I mean intimacy in the more general sense, rather than in the romantic or sexual sense how it is often interpreted."
       },
       {
@@ -71,7 +71,7 @@ const conversations: Conversation[] = [
         </>
       },
       {
-        speaker: { type: 'Payman' },
+        speaker: { type: 'Orelio' },
         content:
         <>
           <p>
@@ -102,7 +102,7 @@ const conversations: Conversation[] = [
         </>
       },
       {
-        speaker: { type: 'Payman' },
+        speaker: { type: 'Orelio' },
         content:
         <>
           <p>
