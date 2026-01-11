@@ -26,27 +26,21 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, name }),
       })
 
       const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Subscription failed')
-      }
+      if (!response.ok) throw new Error(data.error || 'Subscription failed')
 
       setStatus('success')
       setEmail('')
       setName('')
       
-      // Close modal after success (optional)
       setTimeout(() => {
         onClose()
         setStatus('idle')
-      }, 2000)
+      }, 2500)
     } catch (error) {
       setStatus('error')
       setErrorMessage(error instanceof Error ? error.message : 'Something went wrong')
@@ -58,89 +52,105 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div className="flex min-h-screen items-center justify-center p-4">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6">
+          {/* 1. Sophisticated Backdrop: Darker with a blur */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+          />
+
+          {/* 2. Modal: Sharp corners and stark contrast */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="relative w-full max-w-md bg-white p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]"
+          >
+            <button
               onClick={onClose}
-              className="fixed inset-0 bg-black/50"
-            />
-
-            {/* Modal */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="relative w-full max-w-lg rounded-lg bg-white p-6 shadow-xl"
+              className="absolute right-6 top-6 text-gray-400 hover:text-gray-900 transition-colors"
             >
-              <button
-                onClick={onClose}
-                className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
-              >
-                <X className="h-5 w-5" />
-              </button>
+              <X size={20} strokeWidth={1.5} />
+            </button>
 
-              <div className="mb-6">
-                <h2 className="text-2xl font-semibold text-gray-900">
-                  <span className="text-amber-600 mr-1">☉</span> Stay Connected
-                </h2>
-                <p className="mt-2 text-gray-600">
-                  Get the latest research and writing, plus first looks at new books, upcoming talks, and projects.
-                </p>
-              </div>
+            <div className="mb-10">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 block">
+                Correspondence
+              </span>
+              <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
+                Stay Connected
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-gray-500 font-serif italic">
+                Essays and insights on first principles, updates on research, and announcements regarding upcoming projects or publications.
+              </p>
+            </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email address*
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Name
-                  </label>
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-6">
+                {/* 3. Refined Inputs: Bottom-border only for that "architectural" feel */}
+                <div className="relative">
                   <input
                     type="text"
-                    id="name"
+                    placeholder="Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full border-b border-gray-200 py-2 text-sm placeholder:text-gray-300 focus:border-gray-900 focus:outline-none transition-colors bg-transparent"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full rounded-md bg-gray-900 px-4 py-2 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50"
-                >
-                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-                </button>
+                <div className="relative">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Email Address*"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full border-b border-gray-200 py-2 text-sm placeholder:text-gray-300 focus:border-gray-900 focus:outline-none transition-colors bg-transparent"
+                  />
+                </div>
+              </div>
 
+              {/* Premium Button: No rounding, tracked-out text */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gray-900 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white hover:bg-black transition-all disabled:opacity-50 active:scale-[0.98]"
+              >
+                {isSubmitting ? 'Joining...' : 'Join the Newsletter'}
+              </button>
+
+              <AnimatePresence mode="wait">
                 {status === 'success' && (
-                  <p className="text-center text-sm text-green-600">
-                    You have been successfully added. Thanks for subscribing!
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center space-y-4"
+                >
+                  <span className="text-2xl">☉</span>
+                  <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
+                    Thank You
+                  </h2>
+                  <p className="text-sm text-gray-500 leading-relaxed max-w-xs mx-auto">
+                    You have been added to the archive index. I look forward to sharing new work with you.
                   </p>
+                </motion.div>
                 )}
 
                 {status === 'error' && (
-                  <p className="text-center text-sm text-red-600">{errorMessage}</p>
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center text-xs text-red-500"
+                  >
+                    {errorMessage}
+                  </motion.p>
                 )}
-              </form>
-            </motion.div>
-          </div>
+              </AnimatePresence>
+            </form>
+          </motion.div>
         </div>
       )}
     </AnimatePresence>
