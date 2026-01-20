@@ -15,51 +15,40 @@ export interface MenuItem {
       path: '/about',
     },
     {
-      name: 'Research',
-      path: '/research',
-      subItems: [
-        { name: 'Overview', path: '/research' },
-        { name: 'Research Papers', path: '/research#papers' },
-        { name: 'Framework', path: '/research/framework' },
-      ]
+      name: 'Writing',
+      path: '/writing',
     },
     {
       name: 'Books',
       path: '/books/science-of-energy',
       subItems: [
         { name: 'The Science of Energy', path: '/books/science-of-energy' },
-        { name: 'Framework', path: '/books/science-of-energy/framework' },
-        { name: 'Understanding', path: '/books/science-of-energy/understanding' },
         { name: 'Series Overview', path: '/books/series' }
       ]
     },
     {
-      name: 'Articles',
-      path: '/articles',
+      name: 'Research',
+      path: '/research',
       subItems: [
-        { name: 'Scientific Insights', path: '/articles/scientific' },
-        { name: 'Metaphysical Insights', path: '/articles/metaphysical' },
-        { name: 'Personal Development', path: '/articles/development' },
-        { name: 'Latest Thoughts', path: '/articles/thoughts' },
+        { name: 'Papers', path: '/research#papers' },
+        { name: 'Framework', path: '/research/framework' },
       ]
     },
     {
-      name: 'Insights',
-      path: '/insights/daily',
+      name: 'Reflections',
+      path: '/insights',
       subItems: [
-        { name: 'Daily Insights', path: '/insights/daily' },
-        { name: 'AI Conversations', path: '/insights/ai-conversations' },
-        { name: 'Multimedia', path: '' }
+        { name: 'Focused Insights', path: '/insights' },
+        { name: 'Conversations', path: '' },
+        { name: 'Media', path: '' }
       ]
     },
     {
       name: 'Practice',
       path: '/practice',
       subItems: [
-        { name: 'Inner Work', path: '/practice/inner-work' },
-        { name: 'Balance', path: '/practice/balance' },
-        { name: 'Discipline', path: '/practice/discipline' },
-        { name: 'Practice Library', path: '/practice/library' },
+        { name: 'Core Practices', path: '/practice#core' },
+        { name: 'Library', path: '/practice/library' },
       ]
     },
     {

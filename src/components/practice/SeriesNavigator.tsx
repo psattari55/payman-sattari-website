@@ -1,3 +1,5 @@
+// src/components/practice/SeriesNavigator.tsx
+
 'use client'
 
 import React from 'react'

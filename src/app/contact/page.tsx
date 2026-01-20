@@ -2,26 +2,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, Mail, MessageSquare, Calendar, Newspaper, Camera } from "lucide-react";
-import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
-import Section from "@/components/ui/Section";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send, MessageSquare, Calendar, Mail, Newspaper, Camera, ArrowRight } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
 import { Toast } from "@/components/ui/Toast";
 import NewsletterModal from "@/components/ui/NewsletterModal";
 
-type InquiryType = "general" | "research" | "speaking" | "media" | "newsletter";
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  inquiryType: InquiryType;
-  subject: string;
-  message: string;
-}
+const fadeIn = {
+  initial: { opacity: 0, y: 15 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" }
+};
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     inquiryType: "general",
@@ -32,46 +26,16 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-
-  const inquiryTypes = [
-    { value: "general", label: "General Inquiry", icon: MessageSquare },
-    { value: "media", label: "Media Inquiry", icon: Camera },
-    { value: "speaking", label: "Speaking Request", icon: Calendar },
-    { value: "research", label: "Research", icon: Mail },
-    { value: "newsletter", label: "Newsletter", icon: Newspaper },
-  ];
-
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
 
-  const socialLinks = [
-    {
-      href: "https://x.com/langoftruth",
-      label: "X (Twitter)",
-      icon: FaTwitter,
-      color: "from-gray-600 to-gray-900",
-      hoverColor: "group-hover:from-gray-700 group-hover:to-black",
-    },
-    {
-      href: "https://www.instagram.com/the.language.of.truth",
-      label: "Instagram",
-      icon: FaInstagram,
-      color: "from-purple-500 to-pink-500",
-      hoverColor: "group-hover:from-purple-600 group-hover:to-pink-600",
-    },
-    {
-      href: "https://www.facebook.com/thelanguageoftruth/",
-      label: "Facebook",
-      icon: FaFacebook,
-      color: "from-blue-500 to-blue-600",
-      hoverColor: "group-hover:from-blue-600 group-hover:to-blue-700",
-    },
+  const inquiryTypes = [
+    { value: "general", label: "General Inquiry"},
+    { value: "media", label: "Media Request"},
+    { value: "research", label: "Research"},
+    { value: "newsletter", label: "Newsletter"},
   ];
 
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -79,37 +43,19 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const response = await fetch("/api/main-contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
-
-      setToastMessage("Message sent successfully!");
+      if (!response.ok) throw new Error("Failed to send message");
+      
+      setToastMessage("Message sent successfully.");
       setShowToast(true);
-      setFormData({
-        name: "",
-        email: "",
-        inquiryType: "general",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", inquiryType: "general", subject: "", message: "" });
     } catch (error) {
-      setToastMessage(
-        error instanceof Error
-          ? error.message
-          : "Failed to send message. Please try again."
-      );
+      setToastMessage("Failed to send. Please try again.");
       setShowToast(true);
     } finally {
       setIsSubmitting(false);
@@ -119,232 +65,136 @@ export default function ContactPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Section width="default" className="pt-24 pb-16">
-          <div className="max-w-4xl mx-auto px-6">
-            <motion.header
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-4xl font-normal mb-6 tracking-wide text-gray-900">
-                Contact
-              </h1>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                I'd love to hear from you. Questions, collaborations, and conversations are all welcome. Fill out the form below to get in touch.
-              </p>
-            </motion.header>
+      <div className="min-h-screen bg-white">
+        <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+          
+          <motion.header className="mb-20 text-center md:text-left" {...fadeIn}>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 block">
+              Correspondence
+            </span>
+            <h1 className="text-4xl font-bold text-gray-900 tracking-tight">Contact</h1>
+            <p className="mt-8 text-[17px] text-gray-500 font-serif italic max-w-xl leading-relaxed">
+              I'd love to hear from you. Questions, collaborations, and conversations are all welcome. Fill out the form below to get in touch.
+            </p>
+          </motion.header>
 
-            <motion.div
-              className="bg-white rounded-lg border border-gray-200 p-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="inquiryType"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Type of Inquiry
-                  </label>
-                  <select
-                    id="inquiryType"
-                    name="inquiryType"
-                    value={formData.inquiryType}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors"
-                  >
-                    {inquiryTypes.map((type) => (
-                      <option key={type.value} value={type.value}>
-                        {type.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Subject
-                  </label>
+          <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
+            <form onSubmit={handleSubmit} className="space-y-8">
+              
+              {/* Name & Email Group */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-gray-50/50 border-b-2 border-gray-100 focus-within:border-gray-900 focus-within:bg-gray-50 transition-all px-4 py-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block mb-1">Name</label>
                   <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors"
+                    type="text" name="name" value={formData.name} onChange={handleInputChange} required
+                    className="w-full bg-transparent text-gray-900 focus:outline-none text-base py-1"
                   />
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors"
+                <div className="bg-gray-50/50 border-b-2 border-gray-100 focus-within:border-gray-900 focus-within:bg-gray-50 transition-all px-4 py-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block mb-1">Email</label>
+                  <input
+                    type="email" name="email" value={formData.email} onChange={handleInputChange} required
+                    className="w-full bg-transparent text-gray-900 focus:outline-none text-base py-1"
                   />
                 </div>
+              </div>
 
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+              {/* Inquiry Type & Subject Group */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-gray-50/50 border-b-2 border-gray-100 focus-within:border-gray-900 focus-within:bg-gray-50 transition-all px-4 py-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block mb-1">Inquiry Type</label>
+                  <div className="relative">
+                    <select
+                      name="inquiryType" value={formData.inquiryType} onChange={handleInputChange}
+                      className="w-full bg-transparent text-gray-900 focus:outline-none text-base py-1 appearance-none cursor-pointer"
+                    >
+                      {inquiryTypes.map((type) => (
+                        <option key={type.value} value={type.value}>{type.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="bg-gray-50/50 border-b-2 border-gray-100 focus-within:border-gray-900 focus-within:bg-gray-50 transition-all px-4 py-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block mb-1">Subject</label>
+                  <input
+                    type="text" name="subject" value={formData.subject} onChange={handleInputChange} required
+                    className="w-full bg-transparent text-gray-900 focus:outline-none text-base py-1"
+                  />
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="bg-gray-50/50 border-b-2 border-gray-100 focus-within:border-gray-900 focus-within:bg-gray-50 transition-all px-4 py-3">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block mb-1">Message</label>
+                <textarea
+                  name="message" value={formData.message} onChange={handleInputChange} required rows={5}
+                  className="w-full bg-transparent text-gray-900 focus:outline-none text-base py-1 resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-4">
+                <button
+                  type="submit" disabled={isSubmitting}
+                  className="group flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-900 transition-all hover:gap-6"
                 >
-                  <span className="flex items-center justify-center gap-2">
-                    <Send className="w-4 h-4" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </span>
-                </motion.button>
-              </form>
-            </motion.div>
+                  <Send size={14} className={isSubmitting ? "animate-pulse" : ""} />
+                  {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                  <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </form>
+          </motion.div>
 
-            <motion.div
-              className="mt-16 mb-16 bg-stone-50 rounded-lg border border-gray-200 p-8 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+          {/* Social Media */}
+          <motion.section 
+            className="mt-20 pt-8 border-t border-gray-100"
+            {...fadeIn}
+          >
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-8">
+              Social Media Protocol
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-tight">Outreach & Broadcast</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  My presence on <strong><a href="https://x.com/oreliosattari" target="_blank" className="hover:text-gray-400 hover:border-gray-400 transition-colors">X</a></strong> and <strong>Facebook</strong> is strictly for the distribution of new research and publications. I do not monitor these platforms for direct messages or personal engagement.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-tight">Personal</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  For a peek into my private world, <strong>Instagram Stories</strong> is the only digital space where I remain active. 
+                </p>
+                <a 
+                  href="https://instagram.com/oreliosattari"
+                  target="_blank"
+                  className="inline-block mt-4 text-[10px] font-bold uppercase tracking-widest text-gray-900 border-b border-gray-900 pb-0.5 hover:text-gray-500 hover:border-gray-500 transition-colors"
+                >
+                  Follow on Instagram
+                </a>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Unified Footer CTA */}
+          <motion.footer className="mt-20 pt-8 border-t border-gray-50 text-center" {...fadeIn}>
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-6 block">Newsletter</h2>
+            <p className="text-gray-500 text-sm mb-8 max-w-sm mx-auto leading-relaxed">
+              Essays on first principles, insights on living better, and updates on coming events and publications.
+            </p>
+            <button
+              onClick={() => setIsNewsletterOpen(true)}
+              className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-900 border-b border-gray-900 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors"
             >
-              <h2 className="text-2xl font-light mb-4 text-gray-900">
-                Newsletter
-              </h2>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Explore consciousness, reality, and first principles. Regular updates with new research, writing, and reflections.
-              </p>
-              <motion.button
-                onClick={() => setIsNewsletterOpen(true)}
-                className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Newspaper className="w-5 h-5 mr-2" />
-                Subscribe
-              </motion.button>
-            </motion.div>
+              Subscribe
+            </button>
+          </motion.footer>
 
-            <motion.div
-              className="mt-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              {/*<h2 className="text-2xl font-light text-center mb-8 text-gray-900">
-                Connect on Social Media
-              </h2>
-              <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-full md:w-auto"
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="relative overflow-hidden rounded-lg border border-gray-200 group-hover:border-transparent transition-colors duration-300">
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${social.color} ${social.hoverColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                      />
-
-                      <div className="relative p-6 flex flex-col items-center">
-                        <span className="text-xl mb-2 text-gray-700 group-hover:text-white transition-colors duration-300">
-                          {React.createElement(social.icon, {
-                            className: "w-6 h-6",
-                          })}
-                        </span>
-                        <span className="text-sm font-medium text-gray-600 group-hover:text-white/90 transition-colors duration-300">
-                          {social.label}
-                        </span>
-
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                          initial={false}
-                          animate={{
-                            x: ["100%", "-100%"],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            repeatDelay: 1,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>*/}
-
-              <motion.div
-                className="mt-12 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              ></motion.div>
-            </motion.div>
-          </div>
-        </Section>
+        </div>
         {showToast && <Toast message={toastMessage} />}
+        <NewsletterModal isOpen={isNewsletterOpen} onClose={() => setIsNewsletterOpen(false)} />
       </div>
-      <NewsletterModal
-        isOpen={isNewsletterOpen}
-        onClose={() => setIsNewsletterOpen(false)}
-      />
     </PageTransition>
   );
 }

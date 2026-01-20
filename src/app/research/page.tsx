@@ -83,29 +83,40 @@ export default function ResearchPage() {
           background="white" 
           width="narrow"
           padding="large"
-          className="py-16 md:py-24"
+          className="pt-16 pb-12 md:py-20"
         >
-          <div className="flex items-center gap-2 mb-6">
-            <h1 className="text-3xl font-normal text-gray-900">Research Overview</h1>
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-6 block">
+            Archive / 03
+          </span>
+
+          <div className="flex items-baseline justify-between mb-12 border-b border-gray-100 pb-8">
+            <h1 className="text-4xl font-bold text-gray-900 tracking-tight">Research</h1>
             <a 
               href="https://orcid.org/0009-0003-0236-0130"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-500 hover:text-gray-700"
+              className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gray-900 transition-colors flex items-center gap-2"
             >
-              <Globe className="w-5 h-5" />
+              ORCID <Globe className="w-3 h-3" />
             </a>
           </div>
-          <div className="prose prose-base max-w-none">
-            <p className="text-gray-700">
-              Since 2011, I have been developing a unified ontological framework that addresses foundational questions in physics, consciousness, and the nature of reality. This work examines how the measurable structure of the physical world and the interior dimensions of conscious experience emerge from a coherent underlying order.
-            </p>
-            <p className="text-gray-700">
-              The papers here represent key components of this larger system. They address persistent problems in quantum mechanics—measurement, the quantum-classical transition, field structure, and the role of the observer—not through incremental adjustments to existing models, but by rethinking the foundations themselves.
-            </p>
-            <p className="text-gray-700">
-              This research is grounded in first-principles reasoning and the systematic study of patterns that appear across domains: physical, phenomenological, and conceptual. It proposes that the divisions we perceive between domains—mind and matter, continuous and discrete, inner and outer—reflect the limits of our current methods rather than the structure of reality itself.
-            </p>
+
+          <div className="space-y-12">
+            {/* Thesis: Quiet, authoritative, non-italic */}
+            <div className="border-l border-gray-200 pl-8 max-w-2xl">
+              <p className="text-xl text-gray-900 leading-relaxed font-serif">
+                Since 2011, I have been developing a unified ontological framework that addresses foundational questions in physics, consciousness, and the structure of reality.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-7 md:gap-12 text-[15px] leading-relaxed text-gray-600 font-light">
+              <p>
+                This work examines how the measurable structures of the physical world and the interior dimensions of reality emerge from a coherent underlying order. The papers here represent key components of this larger system. They address persistent problems in quantum mechanics—measurement, the quantum-classical transition, and field structure—not through incremental adjustments, but by rethinking the foundations themselves.
+              </p>
+              <p>
+                This research is grounded in first-principles reasoning and the systematic study of patterns across physical and phenomenological domains. It proposes that the divisions we perceive between spheres traditionally kept separate—mind and matter, subject and object—reflect the limits of our current methods rather than the structure of reality itself.
+              </p>
+            </div>
           </div>
         </Section>
 

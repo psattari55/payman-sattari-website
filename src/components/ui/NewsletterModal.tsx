@@ -53,7 +53,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6">
-          {/* 1. Sophisticated Backdrop: Darker with a blur */}
+          {/* Sophisticated Backdrop: Darker with a blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -62,7 +62,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
             className="fixed inset-0 bg-black/60 backdrop-blur-sm"
           />
 
-          {/* 2. Modal: Sharp corners and stark contrast */}
+          {/* Modal: Sharp corners and stark contrast */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,13 +84,13 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                 Stay Connected
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-gray-500 font-serif italic">
-                Essays and insights on first principles, updates on research, and announcements regarding upcoming projects or publications.
+                Essays on first principles, insights on living better, and updates on upcoming research, projects, and publications.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-6">
-                {/* 3. Refined Inputs: Bottom-border only for that "architectural" feel */}
+                {/* Refined Inputs: Bottom-border only for that "architectural" feel */}
                 <div className="relative">
                   <input
                     type="text"
@@ -124,19 +124,25 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
 
               <AnimatePresence mode="wait">
                 {status === 'success' && (
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center space-y-4"
-                >
-                  <span className="text-2xl">☉</span>
-                  <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
-                    Thank You
-                  </h2>
-                  <p className="text-sm text-gray-500 leading-relaxed max-w-xs mx-auto">
-                    You have been added to the archive index. I look forward to sharing new work with you.
-                  </p>
-                </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center pt-6 pb-2"
+                  >
+                    {/* Institutional Label in the muted Emerald */}
+                    <h3 className="text-sm font-bold uppercase tracking-[0.1em] text-emerald-800 mb-6">
+                      Subscription Confirmed
+                    </h3>
+
+                    {/* The Divider: Anchors the message and replaces the "odd" symbol */}
+                    <div className="w-8 h-px bg-gray-200 mx-auto mb-6" />
+                    
+                    {/* The Body: High-contrast and elegant */}
+                    <p className="text-sm text-gray-900 leading-relaxed font-serif italic max-w-[280px] mx-auto">
+                      Thank you. Your email has been added to the register. 
+                      I look forward to sharing new work with you soon.
+                    </p>
+                  </motion.div>
                 )}
 
                 {status === 'error' && (

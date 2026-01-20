@@ -6,7 +6,7 @@ import Section from "@/components/ui/Section";
 import { Scale, CircleDot, Infinity, ArrowRight, Compass, Library, Eye } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
 import SeriesNavigator from "@/components/practice/SeriesNavigator";
-import NewsletterSignup from "@/components/article/NewsletterSignup";
+import NewsletterSignup from "@/components/practice/NewsletterSignup";
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 

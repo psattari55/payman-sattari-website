@@ -42,7 +42,10 @@ export default function MainNav() {
         <div className="flex justify-between items-center h-16">
           {/* Mobile: Full width for logo and menu button */}
           <div className="flex justify-between items-center w-full md:w-auto">
-            <Link href="/" className="font-semibold text-lg text-gray-900 hover:text-gray-600 transition-colors">
+            <Link 
+              href="/" 
+              className="text-[15px] font-bold uppercase tracking-[0.1em] text-gray-900 hover:text-gray-500 transition-colors"
+            >
               P. Orelio Sattari
             </Link>
             
@@ -50,7 +53,7 @@ export default function MainNav() {
               <MobileNav />
             </div>
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
@@ -62,24 +65,23 @@ export default function MainNav() {
               >
                 <Link
                   href={item.path}
-                  className="flex items-center space-x-1 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                  className="py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  <span>{item.name}</span>
-                  {item.subItems && <ChevronDown className="w-4 h-4" />}
+                  {item.name}
                 </Link>
                 
                 {activeSection === item.name && item.subItems && (
                   <div 
-                    className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
+                    className="absolute left-0 mt-1 w-48 bg-white shadow-xl ring-1 ring-black ring-opacity-5 z-[60]"
                     onMouseEnter={() => handleMouseEnter(item.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="py-1">
+                    <div className="py-2">
                       {item.subItems.map((subItem) => (
                         <Link
                           key={subItem.name}
                           href={subItem.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
                         >
                           {subItem.name}
                         </Link>

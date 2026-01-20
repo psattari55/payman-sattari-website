@@ -132,17 +132,18 @@ useEffect(() => {
             <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b bg-white/90 backdrop-blur-sm">
               <Link 
                 href="/" 
-                className="text-lg font-semibold text-gray-900 hover:text-gray-600 transition-colors duration-200"
+                className="text-[15px] font-bold uppercase tracking-[0.1em] text-gray-900"
                 onClick={handleLinkClick}
               >
                 P. Orelio Sattari
               </Link>
               <button
                 onClick={handleClose}
-                className="p-4 -mr-4 rounded-md text-gray-600 hover:text-gray-900 active:text-gray-900 touch-manipulation transition-colors duration-200"
+                /* We use text-gray-400 to make the X recede slightly compared to your name */
+                className="p-4 -mr-4 text-gray-400 hover:text-gray-900 transition-colors duration-200"
                 aria-label="Close menu"
               >
-                <X size={24} className="transform transition-transform duration-200 hover:scale-110" />
+                <X size={21} strokeWidth={1.5} />
               </button>
             </div>
 
@@ -152,37 +153,38 @@ useEffect(() => {
               role="navigation"
             >
               {menuItems.map((item) => (
-                <div key={item.name} className="border-b">
+                <div key={item.name} className="border-b border-gray-50">
                   {item.subItems ? (
                     <>
                       <button
                         onClick={() => handleMenuItemClick(item)}
-                        className="w-full p-5 flex justify-between items-center bg-white text-left transition-colors duration-200 hover:bg-gray-50 active:bg-gray-100"
-                        aria-expanded={openSubmenu === item.name}
-                        aria-controls={`submenu-${item.name}`}
+                        className="w-full p-6 flex justify-between items-center bg-white text-left transition-colors"
                       >
-                        <span className="font-medium text-gray-900">{item.name}</span>
+                        {/* 1. Sentence Case at 15px is the "Sweet Spot" for Legibility */}
+                        <span className="text-[15px] font-medium text-gray-800">
+                          {item.name}
+                        </span>
                         <ChevronRight
-                          size={20}
-                          className={`text-gray-600 transform transition-transform duration-300 ${
+                          size={18}
+                          strokeWidth={1.5}
+                          className={`text-gray-300 transform transition-transform duration-300 ${
                             openSubmenu === item.name ? 'rotate-90' : ''
                           }`}
                         />
                       </button>
                       
                       <div 
-                        id={`submenu-${item.name}`}
-                        className={`overflow-hidden transition-all duration-300 ease-out ${
-                          openSubmenu === item.name ? 'max-h-[400px]' : 'max-h-0'
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                          openSubmenu === item.name ? 'max-h-[500px] bg-gray-50' : 'max-h-0'
                         }`}
                       >
-                        <div className="bg-gray-50 py-1">
+                        <div className="py-2">
                           {item.subItems.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.path}
                               onClick={handleLinkClick}
-                              className="block w-full p-5 text-sm text-gray-600 transition-colors duration-200 hover:bg-gray-100 active:bg-gray-200"
+                              className="block w-full px-10 py-4 text-[14px] text-gray-500 hover:text-gray-900 active:bg-gray-100 transition-colors"
                             >
                               {subItem.name}
                             </Link>
@@ -194,7 +196,7 @@ useEffect(() => {
                     <Link
                       href={item.path}
                       onClick={handleLinkClick}
-                      className="block w-full p-5 font-medium text-gray-900 bg-white transition-colors duration-200 hover:bg-gray-50 active:bg-gray-100"
+                      className="block w-full p-6 text-[15px] font-medium text-gray-800 bg-white hover:bg-gray-50 transition-colors"
                     >
                       {item.name}
                     </Link>

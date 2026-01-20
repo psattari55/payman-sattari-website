@@ -8,7 +8,7 @@ import type { LucideIcon } from "lucide-react";
 import { Shield, Compass, Sprout, Target, ArrowRight, Library, Eye, Scale } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
 import SeriesNavigator from "@/components/practice/SeriesNavigator";
-import NewsletterSignup from "@/components/article/NewsletterSignup";
+import NewsletterSignup from "@/components/practice/NewsletterSignup";
 import Link from "next/link";
 
 // Helper Components

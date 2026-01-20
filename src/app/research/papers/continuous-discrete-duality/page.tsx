@@ -55,7 +55,7 @@ export default function PaperPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xl text-gray-700">Payman Sattari</p>
-                  <p className="text-gray-600 mt-1">Philosopher, Transdisciplinary Researcher</p>
+                  <p className="text-gray-600 mt-1">Philosopher, Researcher</p>
                 </div>
                 <a 
                   href="https://doi.org/10.5281/zenodo.14505849"

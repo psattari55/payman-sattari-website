@@ -1,36 +1,13 @@
 // src/app/books/science-of-energy/page.tsx
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import {
-  Book,
-  ShoppingCart,
-  Download,
-  BookOpen,
-  Scale,
-  Compass,
-  Brain,
-  ArrowRight,
-} from "lucide-react";
+import { Book, BookOpen, Download, Award } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import PageTransition from "@/components/ui/PageTransition";
 import Section from "@/components/ui/Section";
 import ReviewsSection from "@/components/features/reviews/ReviewsSection";
-import Image from "next/image";
-
-// Retailer links
-const retailers = [
-  { name: "Amazon", href: "http://www.amazon.com/dp/B0CPWDH5SQ" },
-  {
-    name: "Barnes & Noble",
-    href: "https://www.barnesandnoble.com/w/the-science-of-energy-payman-sattari/1144454501?ean=9798989627523",
-  },
-  {
-    name: "Kobo",
-    href: "https://www.kobo.com/ww/en/ebook/the-science-of-energy",
-  },
-];
 
 // Book formats
 const formats = [
@@ -63,35 +40,6 @@ const formats = [
     url: "http://www.amazon.com/dp/B0CPWDH5SQ",
   },
 ];
-
-// Book series data
-const seriesData = {
-  description:
-    "A three-volume examination of reality from first principles—addressing the structural inadequacy of current models, constructing a complete ontological system, and applying it to lived experience.",
-  books: [
-    {
-      number: 1,
-      title: "The Science of Energy",
-      status: "available",
-      description:
-        "Shows how modern physics excluded consciousness, why that exclusion creates paradoxes, and what resolving them requires. Readers discover how wave and particle, continuous and discrete, subject and object express different aspects of the same underlying order.",
-    },
-    {
-      number: 2,
-      title: "Basic Duality",
-      status: "forthcoming",
-      description:
-        "A first-principles account of reality's fundamental structure—from origins and manifestation to the nature of time, space, and order. Develops the complete ontological system, deriving the unifying principles that govern both physical systems and the reality of the observer.",
-    },
-    {
-      number: 3,
-      title: "The Language of Truth",
-      status: "forthcoming",
-      description:
-        "Culminates in practical mastery, offering a comprehensive guide to personal transformation through understanding and application of universal principles. Explores the nature of the self, virtue, and a path to enlightened living.",
-    },
-  ],
-};
 
 // Review data structure
 const editorialReviews = [
@@ -186,341 +134,143 @@ const readerReviews = [
 export default function ScienceOfEnergyPage() {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        {/* Hero Section */}
-        <Section width="default" className="py-16 md:pt-20 md:pb-16">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-16 items-center">
-            {/* Content Column */}
-            <motion.div
-              className="md:col-span-7 space-y-6 md:space-y-8 order-2 md:order-1"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="space-y-6">
-                <div className="space-y-3">
-                  <div className="hidden md:block text-sm text-gray-500 uppercase tracking-wider font-light">
-                    Book One in The Language of Truth Series
-                  </div>
+      <div className="min-h-screen bg-white">
+        {/* Editorial Header & Hero */}
+        <Section width="narrow" className="pt-16 md:pt-20 pb-6">
+          <motion.header 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-16"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-6 block">
+              Volume 01 / Series Archive
+            </span>
+            <div className="flex flex-col md:flex-row gap-12 items-start">
+              {/* Book Cover: Architectural Shadow, No Gradients */}
+              <div className="w-[90%] md:w-1/3 shrink-0">
+                <div className="relative aspect-[11/17] shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm overflow-hidden bg-gray-50">
+                  <Image
+                    src="/images/books/science-of-energy-cover.jpg"
+                    alt="The Science of Energy Book Cover"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
 
-                  <h1 className="text-4xl font-serif md:text-5xl tracking-wide text-gray-900">
+              {/* Core Metadata */}
+              <div className="flex-1 space-y-6">
+                <div className="border-b border-gray-50">
+                  <h1 className="text-4xl font-bold text-gray-900 tracking-tight leading-tight">
                     The Science of Energy
                   </h1>
-
-                  <p className="text-xl md:text-2xl text-gray-600 font-light">
-                    Bridging Consciousness and Physical Reality
-                  </p>
                 </div>
 
-                {/* Award element */}
-                <div className="flex items-center gap-3 mt-2">
-                  <div className="relative w-12 h-12">
-                    <Image
-                      src="/images/awards/nautilus-medal.png"
-                      alt="Nautilus Silver Medal"
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="text-sm font-medium text-gray-700">
+                {/* Award: Clean Academic Styling */}
+                <div className="flex items-center gap-4 py-2">
+                  <Award className="w-5 h-5 text-gray-900" strokeWidth={1.5} />
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-gray-900">
                     Nautilus Silver Medal Winner 2025 • Science & Cosmology
                   </span>
                 </div>
 
-                <div className="prose prose-lg text-gray-700 max-w-none">
-                  <p className="text-lg leading-relaxed">
-                    A groundbreaking framework for understanding reality at its
-                    most fundamental level. Moving beyond traditional divisions
-                    between physics and consciousness, this work reveals how
-                    existence emerges through complementary forces: the
-                    universal and the relative, the measurable and the
-                    immeasurable, the continuous and the discrete. Suitable for
-                    scholars and general readers alike, it provides both a
-                    rigorous theoretical foundation and practical insights for
-                    transforming how we experience reality.
-                  </p>
-                  <p className="text-base text-gray-600 mt-4 leading-relaxed">
-                    This first volume establishes the conceptual bedrock
-                    necessary for a complete reimagining of reality. Drawing
-                    from physics, philosophy, and direct observation, it
-                    demonstrates how consciousness and physical matter are two
-                    faces of the same cosmic order.
+                <div className="prose prose-base text-gray-600 font-light leading-relaxed max-w-none">
+                  <p>
+                    A foundational inquiry into reality at its most fundamental level. 
+                    Moving beyond traditional divisions between physics and consciousness, 
+                    this work reveals how existence emerges through complementary forces: 
+                    the universal and the relative, the measurable and the immeasurable.
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
+                {/* Refined Actions: "Purchase Now" to "Obtain" tone */}
+                <div className="flex flex-wrap gap-6 pt-4">
                   <Link href="http://www.amazon.com/dp/B0CPC9CBJ2">
-                    <motion.button
-                      whileHover={{ y: -2 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      <ShoppingCart className="w-5 h-5" />
-                      <span>Purchase Now</span>
-                    </motion.button>
+                    <button className="px-8 py-4 bg-gray-900 text-white text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-gray-700 transition-colors">
+                      Acquire Volume
+                    </button>
                   </Link>
-                  <Link href="/books/science-of-energy/preview">
-                    <motion.button
-                      whileHover={{ y: -2 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-gray-200 rounded-lg hover:bg-gray-50 hover:shadow-md transition-all duration-300"
-                    >
-                      <BookOpen className="w-5 h-5" />
-                      <span>Preview Content</span>
-                    </motion.button>
-                  </Link>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-                  <span className="font-light">Available at:</span>
-                  {retailers.map((retailer) => (
-                    <Link
-                      key={retailer.name}
-                      href={retailer.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-gray-900 transition-colors"
-                    >
-                      {retailer.name}
-                    </Link>
-                  ))}
+                  {/*<Link href="/books/science-of-energy/preview">
+                    <button className="px-8 py-4 border border-gray-200 text-gray-900 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-gray-50 transition-colors">
+                      Examine Preview
+                    </button>
+                  </Link>*/}
                 </div>
               </div>
-            </motion.div>
-
-            {/* Book Cover Column */}
-            <motion.div className="md:col-span-5 order-1 md:order-2">
-              <div className="relative max-w-[280px] md:max-w-[325px] mx-auto md:mb-10 -mb-6">
-                <div className="aspect-[11/17] rounded-xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/books/science-of-energy-cover.jpg"
-                    alt="The Science of Energy Book Cover"
-                    width={325}
-                    height={500}
-                    sizes="(max-width: 768px) 280px, 325px"
-                    quality={90}
-                    priority
-                    className="w-full h-full object-cover transform hover:scale-102 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute -z-10 -inset-10 bg-gradient-to-br from-blue-50/50 to-purple-50/30 rounded-2xl blur-2xl" />
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.header>
         </Section>
 
-        {/* Available Formats */}
-        <Section background="white" width="default" className="pt-16">
-          <h2 className="text-3xl font-light mb-12 text-center text-gray-900">
-            Available Formats
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {formats.map((format) => {
-              const Icon = format.icon;
-              return (
-                <Link
-                  key={format.isbn}
-                  href={format.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block relative"
-                >
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-100 transition-shadow duration-300 hover:shadow-lg"
-                  >
-                    <Icon
-                      className="w-6 h-6 text-gray-600 mb-4"
-                      strokeWidth={1.5}
-                    />
-                    <h3 className="text-lg font-normal mb-2">{format.title}</h3>
-                    <p className="text-sm text-gray-500 mb-2">
-                      ISBN: {format.isbn}
-                    </p>
-                    <p className="text-lg font-medium text-gray-900">
-                      {format.price}
-                    </p>
-                  </motion.div>
-                </Link>
-              );
-            })}
-          </div>
-        </Section>
-
-        {/* Editorial Reviews */}
-        <Section background="gray" width="default">
-          <div className="max-w-6xl mx-auto">
-            <ReviewsSection
-              editorialReviews={editorialReviews}
-              readerReviews={readerReviews}
-            />
-          </div>
-        </Section>
-
-        {/* Core Framework */}
-        <Section background="white" width="default">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-light mb-12 text-center">
-              A Bridge Between Worlds
+        {/* Formats: Archival Table Style */}
+        <Section background="gray" width="narrow" className="py-12 md:py-20">
+          <div className="max-w-3xl">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-12">
+              Technical Specifications
             </h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {[
-                {
-                  icon: Scale,
-                  color: "blue",
-                  title: "A Unified Framework",
-                  description:
-                    "Discover how consciousness and physical reality are two faces of the same cosmic order",
-                },
-                {
-                  icon: Brain,
-                  color: "purple",
-                  title: "Beyond the Physical",
-                  description:
-                    "Explore how subjective experience fits into the natural laws governing reality",
-                },
-                {
-                  icon: Compass,
-                  color: "green",
-                  title: "Personal Integration",
-                  description:
-                    "Learn how understanding these principles can transform your experience of life",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  className="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg transition-shadow"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <div
-                    className={`p-3 bg-${item.color}-50 rounded-lg w-fit mb-6`}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+              {formats.map((format) => (
+                <div key={format.isbn} className="space-y-2 border-l border-gray-200 pl-6">
+                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-widest">{format.title}</h3>
+                  <div className="text-[12px] text-gray-500 font-mono tracking-tighter">ISBN: {format.isbn}</div>
+                  <div className="text-lg font-serif italic text-gray-900">{format.price}</div>
+                  <Link 
+                    href={format.url} 
+                    className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gray-900 block pt-2"
                   >
-                    <item.icon className={`w-6 h-6 text-${item.color}-600`} />
-                  </div>
-                  <h3 className="text-xl font-medium mb-3">{item.title}</h3>
-                  <p className="text-gray-600 mb-6">{item.description}</p>
-                  <Link
-                    href="/books/science-of-energy/framework"
-                    className="inline-flex items-center text-gray-600 hover:text-gray-900"
-                  >
-                    Explore More
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    View Merchant →
                   </Link>
-                </motion.div>
+                </div>
               ))}
-            </div>
-
-            {/* Core Principles Preview */}
-            <div className="bg-gray-50 rounded-xl p-8">
-              <h3 className="text-2xl font-light mb-6 text-center">
-                Core Principles
-              </h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  {
-                    principle: "The Observer & Relativity",
-                    description:
-                      "Reality is defined relative to the observer. Understanding this relationship is key to grasping the nature of existence.",
-                  },
-                  {
-                    principle: "Complementary Forces",
-                    description:
-                      "Reality emerges through the interplay of apparent opposites: subject/object, continuous/discrete, measurable/immeasurable.",
-                  },
-                  {
-                    principle: "Relative & Universal Truth",
-                    description:
-                      "Individual experience and universal laws are not contradictory but complementary aspects of reality.",
-                  },
-                  {
-                    principle: "The Power of Belief",
-                    description:
-                      "Our beliefs shape our relative reality, making understanding truth essential to transforming experience.",
-                  },
-                ].map((item) => (
-                  <div key={item.principle} className="bg-white rounded-lg p-6">
-                    <h4 className="font-medium mb-2">{item.principle}</h4>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="text-center mt-8">
-                <Link
-                  href="/books/science-of-energy/understanding"
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
-                >
-                  Explore the Framework
-                </Link>
-              </div>
             </div>
           </div>
         </Section>
 
-        {/* Subtle Divider */}
-        <div className="w-full max-w-2xl mx-auto py-8">
-          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-        </div>
-
-        {/* Book Series Section */}
+        {/* Reviews Section: Maintain existing but ensure Section is "white" */}
         <Section background="white" width="default">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-light mb-4 text-gray-900">
-                The Language of Truth Series
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                {seriesData.description}
-              </p>
-            </div>
+          <ReviewsSection
+            editorialReviews={editorialReviews}
+            readerReviews={readerReviews}
+          />
+        </Section>
 
-            <div className="space-y-8">
-              {seriesData.books.map((book) => (
-                <motion.div
-                  key={book.title}
-                  className={`bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-sm ${
-                    book.status === "available"
-                      ? "border-2 border-blue-600/20"
-                      : "border border-gray-200"
-                  } overflow-hidden`}
-                  whileHover={{ y: -2 }}
-                >
-                  <div className="grid md:grid-cols-[auto,1fr] gap-6 p-8">
-                    <div className="flex items-center justify-center">
-                      <Book
-                        className={`w-12 h-12 ${
-                          book.status === "available"
-                            ? "text-blue-600/80"
-                            : "text-gray-400"
-                        }`}
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span
-                          className={`text-sm font-medium ${
-                            book.status === "available"
-                              ? "text-blue-600"
-                              : "text-gray-500"
-                          }`}
-                        >
-                          {book.status === "available"
-                            ? "Available Now"
-                            : "Coming Soon"}
-                        </span>
-                        <div className="h-px flex-1 bg-gray-100" />
-                      </div>
-                      <h3 className="text-xl font-normal mb-3">
-                        Book {book.number}: {book.title}
-                      </h3>
-                      <p className="text-gray-600">{book.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+        {/* Framework: Chapter-Style Summary */}
+        <Section background="gray" width="narrow" className="pt-20 pb-16">
+           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-12 block text-center">
+            Structural Principles
+          </span>
+          <div className="grid md:grid-cols-2 gap-16">
+            <div className="space-y-12">
+              <div className="space-y-4">
+                <h4 className="text-lg font-bold text-gray-900 tracking-tight">The Observer & Relativity</h4>
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
+                  Reality is defined relative to the observer. Understanding this relationship 
+                  is key to grasping the nature of existence.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-lg font-bold text-gray-900 tracking-tight">Complementary Forces</h4>
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
+                  Reality emerges through the interplay of apparent opposites: subject/object, 
+                  continuous/discrete, measurable/immeasurable.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-12">
+               <div className="space-y-4">
+                <h4 className="text-lg font-bold text-gray-900 tracking-tight">Relative & Universal Truth</h4>
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
+                  Individual experience and universal laws are not contradictory but 
+                  complementary aspects of reality.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-lg font-bold text-gray-900 tracking-tight">The Power of Belief</h4>
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
+                  Our beliefs shape our relative reality, making understanding truth 
+                  essential to transforming experience.
+                </p>
+              </div>
             </div>
           </div>
         </Section>

@@ -2,240 +2,181 @@
 'use client'
 
 import React, { useState } from 'react';
-import { type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import Section from '@/components/ui/Section';
-import PageTransition from '@/components/ui/PageTransition';
-import InteractiveLink from '@/components/ui/InteractiveLink';
 import NewsletterModal from '@/components/ui/NewsletterModal';
 import Image from 'next/image';
 
-// Animations object
 const fadeIn = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 15 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.8, ease: "easeOut" }
 };
 
-// List Item Component
-const ListItem = ({ children }: { children: ReactNode }) => (
-  <motion.li 
-    className="flex items-start space-x-3 mb-4"
-    whileHover={{ x: 4 }}
-    transition={{ duration: 0.2 }}
-  >
-    <span className="w-2 h-2 mt-2 rounded-full bg-blue-100 flex-shrink-0" />
-    <span className="text-gray-700">{children}</span>
-  </motion.li>
-);
-
-// Main Component
 export default function AboutPage() {
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
 
-  const handleNewsletterClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsNewsletterOpen(true);
-  };
-
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
-        <Section width="default" className="pt-20 pb-6">
-          <div className="max-w-4xl mx-auto px-2 md:px-6">
-            {/* Header */}
-            <motion.header 
-              className="text-center mb-16"
-              {...fadeIn}
-            >
-              <h1 className="text-4xl font-normal mb-6 tracking-wide text-gray-900">
-                About
-              </h1>
-              <div className="w-16 h-0.5 bg-blue-100 mx-auto mb-8"></div>
-              <Image 
-                src="/images/profile.jpg" 
-                alt="Orelio Sattari"
-                width={128}
-                height={128}
-                className="rounded-full mx-auto mb-8 object-cover shadow-md"
-              />
-            </motion.header>
-
-            {/* Introduction */}
-            <motion.div 
-              className="prose prose-lg max-w-none mb-6"
-              {...fadeIn}
-            >
-              <p className="text-base text-gray-700 leading-relaxed">
-                For more than fifteen years, my work has been devoted to a single pursuit: <b>understanding the fundamental nature of reality, and learning how to live in alignment with it</b>. I work across theoretical physics, ontology, systems theory, and the disciplined study of interiority and order — not as separate domains, but as aspects of one continuous investigation.
-              </p>
-            </motion.div>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
         
-            {/* Main Content Sections */}
-            <motion.div 
-              className="space-y-16"
-              {...fadeIn}
-            >
-              {/* Background Section */}
-              <div className="prose prose-base max-w-none">
-                <p className="text-gray-800 leading-relaxed">
-                  My path has been unconventional. Rather than advancing through a traditional academic track, I spent more than ten years developing an integrated theoretical framework from first principles. Several of these works have been submitted to leading physics journals and circulated publicly through Zenodo. The system that has emerged bridges domains typically kept isolated — quantum behavior, field structure, conscious experience, and the dynamics of inner life.
-                </p>
-                <p className="text-gray-800 leading-relaxed">
-                  In 2023, I published <em>The Science of Energy</em> which received the Nautilus Silver Medal in Science & Cosmology. That book traces how modern science came to exclude consciousness from its foundations and outlines why a more complete framework is now necessary. My forthcoming book, <em>Basic Duality</em>, extends this work by presenting a unified model of the continuous and discrete aspects of reality, grounded both in physics and in the reality of the observer.
-                </p>
-                <p className="text-gray-800 leading-relaxed">
-                  This foundation has implications that extend beyond physics. It shapes how I think about artificial intelligence, governance, cultural coherence, and the conditions for meaningful life. The writings and work on this site reflect that breadth—not as separate subjects, but as expressions of first-principles thinking applied to the questions that matter most.
-                </p>
-              </div>
-
-              {/* Subtle Divider */}
-              <div className="w-full max-w-2xl mx-auto">
-                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-              </div>
-
-              {/* What I Am */}
-              <div className="prose prose-base max-w-none">
-                <h2 className="text-3xl font-semibold mb-6 text-gray-900">What I Am</h2>
-                <p className="text-gray-800 leading-relaxed text-lg">
-                  I describe myself as a philosopher, ashavan, and transdisciplinary researcher. 
-                </p>
-                <p className="text-gray-800 leading-relaxed text-base">
-                  <b>Philosopher</b>, because my work begins with ontology and first principles. 
-                </p>
-                <p className="text-gray-800 leading-relaxed text-base">
-                  <b>Ashavan</b>, because my commitment is not only to understanding reality, but to <em>aligning</em> with it — to living in accordance with the underlying order that gives rise to both truth and character. The term has ancient roots, but my use of it is contemporary and methodological, not religious or doctrinal.
-                </p>
-                <p className="text-gray-800 leading-relaxed text-base">
-                  <b>Transdisciplinary researcher</b>, because the questions I work with cut across physics, metaphysics, psychology, and the disciplined study of consciousness, and cannot be reasonably contained within a single field.
-                </p>
-              </div>
-
-              {/* Subtle Divider */}
-              <div className="w-full max-w-2xl mx-auto">
-                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-              </div>
-
-              {/* What is an ashavan? */}
-              <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-semibold mb-6 text-gray-900">What is an ashavan?</h2>
-                <p className="text-gray-800 leading-relaxed text-base">
-                  An ashavan is one who seeks to understand and live in accordance with the fundamental order of reality — not as a belief, but as a discipline of perception, character, and alignment. The term has ancient roots, but my use of it is contemporary: it names a way of seeing and acting that unites truth, integrity, and the pursuit of reality as it is.
-                </p>
-              </div>
-
-              {/* Subtle Divider */}
-              <div className="w-full max-w-2xl mx-auto">
-                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-              </div>
-
-              {/* Vision */}
-              <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-semibold mb-6 text-gray-900">Vision</h2>
-                <p className="text-gray-800 leading-relaxed text-base">
-                  We are living at a moment when our scientific models and our lived experience no longer speak the same language. The divide between materialism and consciousness has reached its limit. My work aims to build a coherent foundation that reconnects these domains — one in which the observer, the physical world, and the dynamics of inner life form a unified structure rather than competing explanations.
-                </p>
-                <p className="text-gray-800 leading-relaxed text-base">
-                  This vision has both theoretical and practical implications:
-                </p>
-                  <ul className="space-y-2 text-gray-800 text-base mt-4">
-                    <li>new directions for physics and systems theory</li>
-                    <li>new ways of understanding perception and experience</li>
-                    <li>new tools for psychological balance, inner work, and human development</li>
-                    <li>a path toward integrating truth, character, and lived coherence</li>
-                  </ul>
-              </div>
-
-              {/* Subtle Divider */}
-              <div className="w-full max-w-2xl mx-auto">
-                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-              </div>
-
-              {/* Current Work Section */}
-              <motion.div {...fadeIn}>
-                <h2 className="text-2xl font-normal mb-6 text-gray-900">Current Work</h2>
-                <ul className="list-none space-y-4">
-                  <ListItem>A revised second edition of <em>The Science of Energy</em> is in the works.</ListItem>
-                  <ListItem>Preparing <em>Basic Duality</em> (Book 2)</ListItem>
-                  <ListItem>Developing new theoretical frameworks in physics, fields, and ontology</ListItem>
-                  <ListItem>Research into quantum mechanics, measurement, and space-time structure</ListItem>
-                  <ListItem>Essays covering natural science, society, culture, governance, history, consciousness, and inner development</ListItem>
-                  <ListItem>Developing practices and models for personal and collective transformation</ListItem>
-                </ul>
-              </motion.div>
-
-            {/* Working Together
-            <div className="mb-10">
-              <h2 className="text-2xl font-normal mb-6 text-gray-900">Working Together</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                My role is to serve as a bridge—between different ways of understanding reality, scientific and experiential knowledge, and between theoretical frameworks and practical application. I offer several ways to engage with this work:
-              </p>
-              <div className="grid gap-6">
-                {[
-                  {
-                    title: "Speaking & Workshops",
-                    description: "I'm available for speaking engagements and workshops that explore these ideas in group settings, whether in academic, corporate, or personal development contexts."
-                  },
-                  {
-                    title: "Research Collaboration",
-                    description: "I welcome dialogue and collaboration with researchers, academics, and practitioners interested in exploring these frameworks further."
-                  },
-                  {
-                    title: "Writing & Publications",
-                    description: "Beyond my books and papers, I am regularly publishing articles and insights on this website and various platforms, making these ideas accessible to different audiences."
-                  }
-                ].map((item, index) => (
-                  <motion.div 
-                    key={index}
-                    className="bg-gray-50 p-6 rounded-lg border border-transparent"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    whileHover={{ 
-                      y: -4, 
-                      borderColor: 'rgba(59, 130, 246, 0.1)',
-                      backgroundColor: 'rgba(249, 250, 251, 0.8)'
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <h3 className="text-xl font-normal mb-3 text-gray-900">{item.title}</h3>
-                    <p className="text-gray-700">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div> */}
-
-              {/* Contact Section */}
-              <motion.div 
-                className="bg-stone-50 p-8 rounded-lg text-center border-gray-200"
-                {...fadeIn}
-              >
-                <h2 className="text-2xl font-normal mb-4 text-gray-900">Stay Connected</h2>
-                <p className="text-gray-700 mb-6">
-                  For updates on new research, publications, writing, or insights:
-                </p>
-                <div className="flex justify-center space-x-4">
-                  <InteractiveLink href="/contact" variant="button">
-                    Contact
-                  </InteractiveLink>
-                  <button
-                    onClick={handleNewsletterClick}
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
-                  >
-                    Join Newsletter
-                  </button>
-                </div>
-              </motion.div>
-            </motion.div>
+        {/* Header Section */}
+        <motion.header className="mb-20" {...fadeIn}>
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 block">
+            Biography
+          </span>
+          <h1 className="text-4xl font-bold text-gray-900 tracking-tight mb-12">
+            P. Orelio Sattari
+          </h1>
+          
+          <div className="relative w-full aspect-[21/9] overflow-hidden bg-gray-100 rounded-sm mb-16">
+            <Image 
+              src="/images/orelio.jpg" 
+              alt="P. Orelio Sattari"
+              fill
+              className="object-cover object-[center_18%] md:object-[center_12%] grayscale contrast-110 brightness-95 transition-opacity duration-1000"
+              priority
+            />
+            {/* Olive Green Overlay */}
+            <div 
+              className="absolute inset-0 bg-[#556b2f] opacity-15 mix-blend-multiply pointer-events-none" 
+              aria-hidden="true"
+            />
           </div>
-        </Section>
+        </motion.header>
 
-        {/* Newsletter Modal */}
-        <NewsletterModal 
-          isOpen={isNewsletterOpen} 
-          onClose={() => setIsNewsletterOpen(false)} 
-        />
+        <motion.div className="space-y-16 text-gray-800" {...fadeIn}>
+          
+          {/* Introduction & Background */}
+          <section className="space-y-8">
+            <p className="text-xl text-gray-900 leading-relaxed font-serif italic border-l-2 border-gray-900 pl-6">
+              For more than fifteen years, my work has been devoted to a single pursuit: understanding the fundamental nature of reality, and learning how to live in alignment with it.
+            </p>
+            
+            <div className="space-y-6 text-[17px] leading-relaxed text-gray-700">
+              <p>
+                I work across theoretical physics, ontology, systems theory, and the disciplined study of interiority and order—not as separate domains, but as aspects of one continuous investigation.
+              </p>
+              <p>
+                My path has been unconventional. Rather than advancing through a traditional academic track, I spent more than ten years developing an integrated theoretical framework from first principles. Several of these works have been submitted to leading physics journals and circulated publicly through Zenodo. The system that has emerged bridges domains typically kept isolated — quantum behavior, field structure, conscious experience, and the dynamics of inner life.
+              </p>
+              <p>
+                In 2023, I published <em>The Science of Energy</em>, which received the Nautilus Silver Medal in Science & Cosmology. That book traces how modern science came to exclude consciousness from its foundations and outlines why a more complete framework is now necessary. My forthcoming book, <em>Basic Duality</em>, extends this work by presenting a unified model of the continuous and discrete aspects of reality, grounded both in physics and in the experience of the observer.
+              </p>
+            </div>
+          </section>
+
+          {/* Identity Section (What I Am) */}
+          <section className="pt-12 border-t border-gray-100">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-8">
+              Identity & Methodology
+            </h2>
+            <div className="space-y-8">
+              <div>
+                <p  className="text-base text-gray-900"><em>I describe myself as a philosopher, ashavan, and transdisciplinary researcher.</em></p>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-gray-900 mb-3">Philosopher,</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">because my work begins with ontology and first principles.</p>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-gray-900 mb-3">Ashavan,</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  because my commitment is not only to understanding reality, but to <em>aligning</em> with it — to living in accordance with the underlying order that gives rise to both truth and character. The term has ancient roots, but my use of it is contemporary and methodological, not religious or doctrinal. 
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-gray-900 mb-3">Transdisciplinary Researcher,</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  because the questions I work with cut across physics, metaphysics, psychology, and the disciplined study of consciousness, and cannot be reasonably contained within a single field. For me, transdisciplinary does not simply mean "studying multiple fields", but working from a level that precedes disciplinary fragmentation.
+                </p>
+             </div>
+            </div>
+          </section>
+
+          {/* 3. The Ashavan Concept - Place this between Identity and Vision */}
+          <section className="pt-12 border-t border-gray-100">
+            <div className="bg-gray-50/50 p-10 md:p-12 rounded-sm border-l-4 border-gray-900">
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-6 block">
+                Concept
+              </span>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">What is an ashavan?</h2>
+              <div className="prose prose-gray max-w-none">
+                <p className="text-base leading-relaxed text-gray-700">
+                  An ashavan is one who seeks to understand and live in accordance with the fundamental order of reality — not as a belief, but as a discipline of perception, character, and alignment.
+                </p>
+                <p className="text-base leading-relaxed text-gray-700 mt-4">
+                  The term has ancient roots, but my use of it is contemporary: it names a way of seeing and acting that unites truth, integrity, and the pursuit of reality as it is.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Vision Section */}
+          <section className="pt-12 border-t border-gray-100">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-8">
+              Vision
+            </h2>
+            <p className="text-sm leading-relaxed text-gray-700 mb-8">
+              We are living at a moment when our scientific models and our lived experience no longer speak the same language. The divide between materialism and consciousness has reached its limit. My work aims to build a coherent foundation that reconnects these domains—one in which the observer, the physical world, and the dynamics of inner life form a unified structure rather than competing explanations.
+            </p>
+            {/* <ul className="space-y-4 text-gray-700">
+              {['New directions for physics and systems theory', 'New ways of understanding perception and experience', 'New tools for psychological balance and human development', 'Pathways to integrating truth, character, and lived coherence'].map((item) => (
+                <li key={item} className="flex gap-4 items-baseline">
+                  <span className="text-gray-300 text-xs">—</span>
+                  <span className="text-sm">{item}</span>
+                </li>
+              ))}
+            </ul> */}
+          </section>
+
+          {/* Current Work: Bibliography Style */}
+          <section className="bg-gray-50 p-10 rounded-sm">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-8">
+              Current Work
+            </h2>
+            <ul className="space-y-6 text-sm text-gray-700">
+              <li className="flex gap-4">
+                <span className="text-gray-300">—</span>
+                <span>Revised second edition of <em className="text-gray-900 font-medium">The Science of Energy</em>.</span>
+              </li>
+              <li className="flex gap-4">
+                <span className="text-gray-300">—</span>
+                <span>Preparing <em className="text-gray-900 font-medium">Basic Duality</em> (Book 2).</span>
+              </li>
+              <li className="flex gap-4">
+                <span className="text-gray-300">—</span>
+                <span>Theoretical research into quantum mechanics, measurement, and space-time structure.</span>
+              </li>
+              <li className="flex gap-4">
+                <span className="text-gray-300">—</span>
+                <span>Essays and deep dives from first principles.</span>
+              </li>
+            </ul>
+          </section>
+
+        {/* Contact Section */}
+          <footer className="py-12 text-center border-t border-gray-50">
+             <h2 className="text-2xl font-bold text-gray-900 mb-6">Stay Connected</h2>
+             <div className="flex justify-center gap-8">
+                <button
+                  onClick={() => setIsNewsletterOpen(true)}
+                  className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-900 border-b border-gray-900 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors"
+                >
+                  Newsletter
+                </button>
+                <a 
+                  href="/contact"
+                  className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-900 border-b border-gray-900 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors"
+                >
+                  Contact
+                </a>
+             </div>
+          </footer>
+
+        </motion.div>
       </div>
-    </PageTransition>
+
+      <NewsletterModal isOpen={isNewsletterOpen} onClose={() => setIsNewsletterOpen(false)} />
+    </div>
   );
 }

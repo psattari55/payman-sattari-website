@@ -1,7 +1,8 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Merriweather, EB_Garamond } from 'next/font/google'
 import Script from 'next/script'
+// @ts-ignore: CSS import usually generates errors in Typescript because it doesn't know how to handle them. This code instructs to ignore TS on the next line.
 import './globals.css'
 import MainNav from '@/components/layout/MainNav'
 import ScrollToTop from '@/components/ui/ScrollToTop'
@@ -12,7 +13,28 @@ import JsonLd, {
 } from '@/components/ui/JsonLd'
 import Footer from '@/components/layout/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const merriweather = Merriweather({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+})
+
+// NEW: Add Lora for insights
+const ebgaramond = EB_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-insight',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -81,7 +103,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.className} text-gray-700`}>
+      <body className={`${inter.variable} ${merriweather.variable} ${ebgaramond.variable} ${inter.className} text-gray-700`}>
         <JsonLd data={generateSchemaOrgPerson()} />
         <JsonLd data={generateSchemaOrgWebsite()} />
         <MainNav />
