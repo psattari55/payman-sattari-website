@@ -24,7 +24,7 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 
 // Rate limiter: 5 submissions per IP per hour
 const limiter = new RateLimiter({
-  tokensPerInterval: 5,
+  tokensPerInterval: 10,
   interval: 'hour',
   fireImmediately: true,
 })
@@ -33,7 +33,7 @@ const limiter = new RateLimiter({
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
-  inquiryType: z.enum(['general', 'research', 'speaking', 'media', 'newsletter']),
+  inquiryType: z.enum(['general', 'media', 'research', 'newsletter']),
   subject: z.string().min(2, 'Subject must be at least 2 characters'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
   turnstileToken: z.string().min(1, 'Security verification required')
