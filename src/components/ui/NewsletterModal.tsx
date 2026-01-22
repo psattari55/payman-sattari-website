@@ -1,9 +1,11 @@
 // src/components/ui/NewsletterModal.tsx
+
 'use client'
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
+import { Turnstile } from '@marsidev/react-turnstile'
 
 interface NewsletterModalProps {
   isOpen: boolean
@@ -16,6 +18,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,7 +30,11 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ 
+          email, 
+          name, 
+          turnstileToken  // ← Add this line
+        }),
       })
 
       const data = await response.json()
@@ -36,6 +43,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
       setStatus('success')
       setEmail('')
       setName('')
+      setTurnstileToken('')  // ← Add this line
       
       setTimeout(() => {
         onClose()
@@ -112,6 +120,16 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                   />
                 </div>
               </div>
+
+              {/* Turnstile Verification Box */}
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => setTurnstileToken(token)}
+                onExpire={() => setTurnstileToken('')}
+                options={{
+                  appearance: 'interaction-only'
+                }}
+              />
 
               {/* Premium Button: No rounding, tracked-out text */}
               <button

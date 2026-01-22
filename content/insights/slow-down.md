@@ -1,6 +1,6 @@
 ---
 number: 6
-publishedAt: '2026-01-21'
+publishedAt: '2026-01-22'
 categories: ['attention-focus']
 featuredImage: '/images/insights/slow-down/hero.jpg'
 published: true

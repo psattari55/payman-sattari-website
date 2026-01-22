@@ -2,7 +2,7 @@
 title: "Healthcare and Security: Why Some Industries Cannot Functionally Be For-Profit"
 subtitle: "When an institution’s success is measured by the absence of its own services, the logic of the market becomes a blueprint for failure."
 excerpt: "Healthcare and security share a fundamental characteristic that makes them incompatible with profit-seeking organization: success means reduced activity. When these maintenance functions are structured to generate revenue, the system becomes dependent on perpetuating the problems it is meant to solve."
-publishedAt: "2026-01-21"
+publishedAt: "2026-01-22"
 status:
 type: "long-essay"
 category: "governance"

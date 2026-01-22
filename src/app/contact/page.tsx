@@ -1,4 +1,5 @@
 // src/app/contact/page.tsx
+
 "use client";
 
 import React, { useState } from "react";
@@ -7,6 +8,7 @@ import { Send, MessageSquare, Calendar, Mail, Newspaper, Camera, ArrowRight } fr
 import PageTransition from "@/components/ui/PageTransition";
 import { Toast } from "@/components/ui/Toast";
 import NewsletterModal from "@/components/ui/NewsletterModal";
+import { Turnstile } from '@marsidev/react-turnstile'
 
 const fadeIn = {
   initial: { opacity: 0, y: 15 },
@@ -27,6 +29,7 @@ export default function ContactPage() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   const inquiryTypes = [
     { value: "general", label: "General Inquiry"},
@@ -47,13 +50,17 @@ export default function ContactPage() {
       const response = await fetch("/api/main-contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+        ...formData,
+        turnstileToken  // ← Add this
+      }),
       });
       if (!response.ok) throw new Error("Failed to send message");
       
       setToastMessage("Message sent successfully.");
       setShowToast(true);
       setFormData({ name: "", email: "", inquiryType: "general", subject: "", message: "" });
+      setTurnstileToken('');  // ← Add this
     } catch (error) {
       setToastMessage("Failed to send. Please try again.");
       setShowToast(true);
@@ -131,6 +138,16 @@ export default function ContactPage() {
                   className="w-full bg-transparent text-gray-900 focus:outline-none text-base py-1 resize-none"
                 />
               </div>
+
+              {/* Turnstile */}
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => setTurnstileToken(token)}
+                onExpire={() => setTurnstileToken('')}
+                options={{
+                  appearance: 'interaction-only'
+                }}
+              />
 
               {/* Submit Button */}
               <div className="pt-4">

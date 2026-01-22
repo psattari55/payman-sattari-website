@@ -1,8 +1,26 @@
 // src/app/api/main-contact/route.ts
+
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import { RateLimiter } from 'limiter'
 import { z } from 'zod'
+
+// Turnstile verification function
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      secret: process.env.TURNSTILE_SECRET_KEY,
+      response: token,
+    }),
+  });
+
+  const data = await response.json();
+  return data.success;
+}
 
 // Rate limiter: 5 submissions per IP per hour
 const limiter = new RateLimiter({
@@ -18,6 +36,7 @@ const contactSchema = z.object({
   inquiryType: z.enum(['general', 'research', 'speaking', 'media', 'newsletter']),
   subject: z.string().min(2, 'Subject must be at least 2 characters'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  turnstileToken: z.string().min(1, 'Security verification required')
 })
 
 const transporter = nodemailer.createTransport({
@@ -43,6 +62,15 @@ export async function POST(request: Request) {
     
     // Validate the request body
     const validatedData = contactSchema.parse(body)
+
+    // Verify Turnstile token
+    const isValidToken = await verifyTurnstile(validatedData.turnstileToken);
+    if (!isValidToken) {
+      return NextResponse.json(
+        { error: 'Security verification failed. Please try again.' },
+        { status: 403 }
+      );
+    }
 
     // Prepare email content with inquiry type highlight
     const mailOptions = {

@@ -1,12 +1,31 @@
 // src/app/api/newsletter/route.ts
+
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import jwt from 'jsonwebtoken'
+
+// Turnstile verification function
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      secret: process.env.TURNSTILE_SECRET_KEY,
+      response: token,
+    }),
+  });
+
+  const data = await response.json();
+  return data.success;
+}
 
 // Validation schema
 const subscribeSchema = z.object({
   email: z.string().email('Invalid email address'),
   name: z.string().optional(),
+  turnstileToken: z.string().min(1, 'Security verification required')
 })
 
 // Split the key into ID and Secret
@@ -37,8 +56,17 @@ function createToken() {
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { email, name } = subscribeSchema.parse(body)
+    const { email, name, turnstileToken } = subscribeSchema.parse(body)  // ← Add turnstileToken
 
+    // Verify Turnstile token
+    const isValidToken = await verifyTurnstile(turnstileToken);
+    if (!isValidToken) {
+      return NextResponse.json(
+        { error: 'Security verification failed. Please try again.' },
+        { status: 403 }
+      );
+    }
+    
     // Create JWT token
     const token = createToken()
 

@@ -3,6 +3,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile'
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -10,6 +11,7 @@ export function NewsletterSignup() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');  // ← Add this
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +25,11 @@ export function NewsletterSignup() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ 
+          email, 
+          name, 
+          turnstileToken  // ← Add this
+        }),
       });
 
       const data = await response.json();
@@ -35,6 +41,7 @@ export function NewsletterSignup() {
       setStatus('success');
       setEmail('');
       setName('');
+      setTurnstileToken('');  // ← Add this
     } catch (error) {
       setStatus('error');
       setErrorMessage(error instanceof Error ? error.message : 'Something went wrong');
@@ -69,6 +76,16 @@ export function NewsletterSignup() {
                 onChange={(e) => setEmail(e.target.value)}
                 suppressHydrationWarning
                 className="w-full md:flex-1 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 shadow-sm transition-shadow focus:border-gray-950 focus:ring-0 focus:shadow-md outline-none"
+            />
+
+            {/* Turnstile Box */}
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken('')}
+              options={{
+                appearance: 'interaction-only'
+              }}
             />
 
             {/* Submit Button */}
