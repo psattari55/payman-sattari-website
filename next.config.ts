@@ -19,17 +19,6 @@ const nextConfig: NextConfig = {
         destination: '/insights',
         permanent: true, 
       },
-    // ADD THESE TWO NEW REDIRECTS:
-    {
-      source: '/insights/example',
-      destination: '/insights/slow-down',
-      permanent: false, // temporary redirect (307)
-    },
-    {
-      source: '/articles/example',
-      destination: '/writing/why-healthcare-security-cannot-be-for-profit',
-      permanent: false, // temporary redirect (307)
-    },
     ];
   },
 };
