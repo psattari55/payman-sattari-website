@@ -24,7 +24,7 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 
 // Rate limiter: 5 submissions per IP per hour
 const limiter = new RateLimiter({
-  tokensPerInterval: 10,
+  tokensPerInterval: 7,
   interval: 'hour',
   fireImmediately: true,
 })

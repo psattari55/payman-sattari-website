@@ -52,17 +52,22 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
         ...formData,
-        turnstileToken  // ← Add this
+        turnstileToken
       }),
       });
-      if (!response.ok) throw new Error("Failed to send message");
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
       
       setToastMessage("Message sent successfully.");
       setShowToast(true);
       setFormData({ name: "", email: "", inquiryType: "general", subject: "", message: "" });
-      setTurnstileToken('');  // ← Add this
+      setTurnstileToken('');
     } catch (error) {
-      setToastMessage("Failed to send. Please try again.");
+      setToastMessage(error instanceof Error ? error.message : "Failed to send. Please try again.");
       setShowToast(true);
     } finally {
       setIsSubmitting(false);
