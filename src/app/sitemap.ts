@@ -2,9 +2,9 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/metadata';
 import { menuItems } from '@/config/menuItems';
-import { articles } from '@/data/articles';
+import { getAllWritings, getAllInsights } from '@/lib/content';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
   
   // Homepage (most static)
@@ -21,8 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       {
         url: `${baseUrl}${item.path}`,
         lastModified: new Date(),
-        changeFrequency: item.path.includes('/articles') || item.path.includes('/insights') 
-          ? 'daily' as const 
+        changeFrequency: item.path.includes('/writing') || item.path.includes('/insights') 
+          ? 'weekly' as const 
           : 'monthly' as const,
         priority: 0.8,
       }
@@ -34,8 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         .map(subItem => ({
           url: `${baseUrl}${subItem.path}`,
           lastModified: new Date(),
-          changeFrequency: subItem.path.includes('/articles') || subItem.path.includes('/insights')
-            ? 'daily' as const
+          changeFrequency: subItem.path.includes('/writing') || subItem.path.includes('/insights')
+            ? 'weekly' as const
             : 'monthly' as const,
           priority: 0.7,
         }));
@@ -45,33 +45,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return routes;
   });
 
+  // Writing routes (new markdown-based essays)
+  const writings = await getAllWritings();
+  const writingRoutes = writings.map((writing) => ({
+    url: `${baseUrl}/writing/${writing.slug}`,
+    lastModified: new Date(writing.updatedAt || writing.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  // Insights routes (new markdown-based insights)
+  const insights = await getAllInsights();
+  const insightRoutes = insights.map((insight) => ({
+    url: `${baseUrl}/insights/${insight.slug}`,
+    lastModified: new Date(insight.updatedAt || insight.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   // Practice library pages (frequently updated)
   const practiceLibraryRoutes = [
     'meditation',
-    'mantras',
     'boundaries',
     'detachment',
     'empathy'
   ].map(practice => ({
     url: `${baseUrl}/practice/library/${practice}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
-
-  // Article routes
-  const articleRoutes = articles.map((article) => ({
-    url: `${baseUrl}${article.slug}`,
-    lastModified: new Date(article.publishDate),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
+    changeFrequency: 'yearly' as const,
+    priority: 0.5,
   }));
 
   // Combine all routes
   return [
     homeRoute,
     ...menuRoutes,
+    ...writingRoutes,
+    ...insightRoutes,
     ...practiceLibraryRoutes,
-    ...articleRoutes,
   ];
 }
