@@ -1,8 +1,11 @@
 // src/app/sitemap.ts
+
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/metadata';
 import { menuItems } from '@/config/menuItems';
 import { getAllWritings, getAllInsights } from '@/lib/content';
+import fs from 'fs';
+import path from 'path';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
@@ -63,6 +66,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  // Research paper routes
+  function getResearchPapers(): string[] {
+    const papersDir = path.join(process.cwd(), 'src/app/research/papers');
+    
+    if (!fs.existsSync(papersDir)) {
+      return [];
+    }
+
+    return fs.readdirSync(papersDir, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+  }
+
+  const researchPapers = getResearchPapers();
+  const researchRoutes = researchPapers.map(slug => ({
+    url: `${baseUrl}/research/papers/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   // Practice library pages (frequently updated)
   const practiceLibraryRoutes = [
     'meditation',
@@ -77,11 +101,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Combine all routes
-  return [
+  const allRoutes = [
     homeRoute,
     ...menuRoutes,
     ...writingRoutes,
     ...insightRoutes,
+    ...researchRoutes,
     ...practiceLibraryRoutes,
   ];
+
+  // Deduplicate by URL
+  const uniqueRoutes = Array.from(
+    new Map(allRoutes.map((item) => [item.url, item])).values()
+  ) as MetadataRoute.Sitemap;
+
+  return uniqueRoutes;
+
 }
