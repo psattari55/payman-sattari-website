@@ -48,14 +48,13 @@ export const TAGS: Tag[] = [
 
     { id: 'artificial-intelligence', label: 'Artificial Intelligence' },
     { id: 'neutrality', label: 'Neutrality' },
-    { id: 'epistemic-distortion', label: 'Epistemic Distortion' },
-    { id: 'language-and-power', label: 'Language and Power' },
     { id: 'objectivity', label: 'Objectivity' },
-    { id: 'both-sidesism', label: 'Both-Sidesism' },
+    { id: 'power-asymmetry', label: 'Power Asymmetry' },
+    { id: 'language-and-reality', label: 'Language and Reality' },
     { id: 'form-and-substance', label: 'Form and Substance' },
-    { id: 'passive-voice', label: 'Passive Voice' },
-    { id: 'power-asymmetries', label: 'Power Asymmetries' },
-    { id: 'historical-revisionism', label: 'Historical Revisionism' },
+    { id: 'both-sidesism', label: 'Both-Sidesism' },
+    { id: 'epistemology', label: 'Epistemology' },
+    { id: 'philosophy-of-technology', label: 'Philosophy of Technology' },
 ];
 
 /**

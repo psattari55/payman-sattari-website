@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, MessageSquare, Calendar, Mail, Newspaper, Camera, ArrowRight } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
@@ -30,6 +30,15 @@ export default function ContactPage() {
   const [toastMessage, setToastMessage] = useState("");
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState('');
+
+  // Open newsletter modal if somebody arrives with #newsletter in URL. Cleans the hash from URL after.
+  useEffect(() => {
+    if (window.location.hash === '#newsletter') {
+      setIsNewsletterOpen(true);
+
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, []);
 
   const inquiryTypes = [
     { value: "general", label: "General Inquiry"},
