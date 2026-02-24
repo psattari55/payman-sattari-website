@@ -57,7 +57,12 @@ export default async function InsightPage({ params }: InsightPageProps) {
           <div className="max-w-2xl mx-auto">
             <InsightAxiom axiom={insight.axiom} />
             <InsightContent expansion={insight.expansion} />
-            <InsightFooter insight={insight} />
+            <InsightFooter insight={{ 
+              number: insight.number, 
+              slug: insight.slug, 
+              axiom: insight.axiom,
+              expansion: insight.expansion
+            }} />
           </div>
         </div>
       </article>

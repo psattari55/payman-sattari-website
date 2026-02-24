@@ -14,7 +14,7 @@ export default function Footer() {
           {[
             { name: 'About', href: '/about' },
             { name: 'Writing', href: '/writing' },
-            { name: 'Books', href: '/books' },
+            { name: 'Books', href: '/books/science-of-energy' },
             { name: 'Contact', href: '/contact' },
             { name: 'RSS', href: '/writing/rss.xml' },
             { name: 'Privacy', href: '/privacy' },

@@ -111,7 +111,7 @@ export default function ResearchPage() {
             
             <div className="grid md:grid-cols-2 gap-7 md:gap-12 text-[15px] leading-relaxed text-gray-600 font-light">
               <p>
-                This work examines how the measurable structures of the physical world and the interior dimensions of reality emerge from a coherent underlying order. The papers here represent key components of this larger system. They address persistent problems in quantum mechanics—measurement, the quantum-classical transition, and field structure—not through incremental adjustments, but by rethinking the foundations themselves.
+                This work examines how the measurable structures of the physical world and the interior dimensions of reality emerge from a coherent underlying order. The papers here represent key components of this larger system. They address persistent problems in quantum mechanics—measurement, the quantum-classical transition, and field structure—not through incremental adjustments, but by rethinking the foundations.
               </p>
               <p>
                 This research is grounded in first-principles reasoning and the systematic study of patterns across physical and phenomenological domains. It proposes that the divisions we perceive between spheres traditionally kept separate—mind and matter, subject and object—reflect the limits of our current methods rather than the structure of reality itself.

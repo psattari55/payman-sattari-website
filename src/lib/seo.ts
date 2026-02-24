@@ -217,6 +217,42 @@ export function formatWritingForRSS(writing: Writing) {
 // ============================================================================
 
 import { Insight } from '@/types/content';
+import { formatInsightNumber } from '@/lib/utils';
+
+/**
+ * Extract clean preview snippet from expansion text
+ * Strips markdown, limits to ~150 chars, ends at sentence boundary
+ */
+
+function getExpansionSnippet(expansion: string, maxLength = 150): string {
+  // Strip markdown
+  const clean = expansion
+    .replace(/\*(.*?)\*/g, '$1')  // Remove italic markers
+    .replace(/\*\*(.*?)\*\*/g, '$1')  // Remove bold markers
+    .replace(/\n/g, ' ')  // Replace newlines with spaces
+    .trim();
+
+  if (clean.length <= maxLength) {
+    return clean;
+  }
+
+  // Find last sentence boundary within maxLength
+  const truncated = clean.substring(0, maxLength);
+  const lastPeriod = truncated.lastIndexOf('.');
+  const lastQuestion = truncated.lastIndexOf('?');
+  const lastExclamation = truncated.lastIndexOf('!');
+  
+  const lastSentence = Math.max(lastPeriod, lastQuestion, lastExclamation);
+  
+  if (lastSentence > 50) {
+    // End at sentence if we found one reasonably far in
+    return clean.substring(0, lastSentence + 1);
+  } else {
+    // Otherwise truncate at word boundary and add ellipsis
+    const lastSpace = truncated.lastIndexOf(' ');
+    return clean.substring(0, lastSpace) + '...';
+  }
+}
 
 /**
  * Generate Next.js metadata for an insight
@@ -230,18 +266,21 @@ export function generateInsightMetadata(insight: Insight): Metadata {
 
   // Strip markdown for clean SEO snippets
   const cleanAxiom = insight.axiom.replace(/\*(.*?)\*/g, '$1');
+  
+  // Create richer description: axiom + expansion snippet
+  const expansionSnippet = getExpansionSnippet(insight.expansion, 150);
+  const fullDescription = `${cleanAxiom} — ${expansionSnippet}`;
 
   return {
-    // Return only the subject; the layout template adds "| P. Orelio Sattari"
-    title: `Insight #${insight.number}`, 
-    description: cleanAxiom,
+    title: `Insight #${formatInsightNumber(insight.number)}`, 
+    description: fullDescription,
     authors: [{ name: AUTHOR_NAME }],
     
     openGraph: {
       type: 'article',
       url: canonicalUrl,
-      title: `Insight #${insight.number}`,
-      description: cleanAxiom,
+      title: `Insight #${formatInsightNumber(insight.number)}`,
+      description: fullDescription,  // Updated
       siteName: SITE_NAME,
       publishedTime: insight.publishedAt,
       modifiedTime: insight.updatedAt || insight.publishedAt,
@@ -252,7 +291,7 @@ export function generateInsightMetadata(insight: Insight): Metadata {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `Insight #${insight.number}`,
+          alt: `Insight #${formatInsightNumber(insight.number)}`,
         },
       ],
     },
@@ -261,8 +300,8 @@ export function generateInsightMetadata(insight: Insight): Metadata {
       card: 'summary_large_image',
       site: TWITTER_HANDLE,
       creator: TWITTER_HANDLE,
-      title: `Insight #${insight.number}`,
-      description: cleanAxiom,
+      title: `Insight #${formatInsightNumber(insight.number)}`,
+      description: fullDescription,  // Updated
       images: [imageUrl],
     },
 
@@ -324,13 +363,14 @@ export function generateInsightJsonLd(insight: Insight) {
     : `${SITE_URL}/images/og-image.jpg`;
   
   const cleanAxiom = insight.axiom.replace(/\*(.*?)\*/g, '$1');
+  const formattedNumber = formatInsightNumber(insight.number);
 
   return [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       // Schema headlines can be slightly more descriptive than browser tabs
-      headline: `Insight #${insight.number}: ${cleanAxiom}`,
+      headline: `Insight #${formattedNumber}: ${cleanAxiom}`,
       description: cleanAxiom,
       image: imageUrl,
       datePublished: insight.publishedAt,
@@ -373,7 +413,7 @@ export function generateInsightJsonLd(insight: Insight) {
         {
           '@type': 'ListItem',
           position: 3,
-          name: `No. ${insight.number}`,
+          name: `No. ${formattedNumber}`,
           item: canonicalUrl,
         },
       ],

@@ -6,22 +6,41 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Twitter, Link as LinkIcon, Mail, ArrowLeft } from 'lucide-react';
 import { FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { formatInsightNumber } from '@/lib/utils';
 
 interface InsightFooterProps {
   insight: {
     number: number;
     slug: string;
     axiom: string;
+    expansion: string;
   };
+}
+
+/**
+ * Extract clean snippet for sharing
+ */
+function getShareSnippet(text: string, maxLength = 120): string {
+  const clean = text
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/\n/g, ' ')
+    .trim();
+
+  if (clean.length <= maxLength) {
+    return clean;
+  }
+
+  const truncated = clean.substring(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return clean.substring(0, lastSpace) + '...';
 }
 
 export default function InsightFooter({ insight }: InsightFooterProps) {
   const [copied, setCopied] = useState(false);
 
   const insightUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/insights/${insight.slug}`;
-  // Clean markdown italics for sharing text
   const cleanAxiom = insight.axiom.replace(/\*/g, '');
-  const shareText = `"${cleanAxiom}"\n\n— P. Orelio Sattari`;
+  const expansionSnippet = getShareSnippet(insight.expansion, 120);
 
   const copyLink = async () => {
     try {
@@ -34,23 +53,27 @@ export default function InsightFooter({ insight }: InsightFooterProps) {
   };
 
   const shareTwitter = () => {
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(insightUrl)}`;
+    // X: Just axiom + URL (no attribution, no snippet)
+    const text = `"${cleanAxiom}"\n\n${insightUrl}`;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
   const shareLinkedIn = () => {
+    // LinkedIn pulls from metadata automatically
     const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(insightUrl)}`;
     window.open(url, '_blank');
   };
 
   const shareFacebook = () => {
+    // Facebook pulls from metadata automatically
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(insightUrl)}`;
     window.open(url, '_blank');
   };
 
   const shareEmail = () => {
-    const subject = `Insight #${insight.number} — P. Orelio Sattari`;
-    const body = `${shareText}\n\nRead more: ${insightUrl}`;
+    const subject = `Insight #${formatInsightNumber(insight.number)} — P. Orelio Sattari`;
+    const body = `"${cleanAxiom}"\n\n${expansionSnippet}\n\nRead more: ${insightUrl}`;
     const mailtoUrl = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
   };
