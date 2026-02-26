@@ -21,29 +21,21 @@ export const TAGS: Tag[] = [
   
   // General tags
   
-    { id: 'systems-thinking', label: 'Systems Thinking' },
     { id: 'ontology', label: 'Ontology' },
     { id: 'first-principles', label: 'First Principles' },
     { id: 'reality', label: 'Reality' },
 
-    { id: 'healthcare', label: 'Healthcare' },
-    { id: 'security', label: 'Security' },
-
     // Healthcare and Security: Why Some Industries Cannot Functionally Be For-Profit
 
-    { id: 'public-health', label: 'Public Health' },
+    { id: 'healthcare', label: 'Healthcare' },
+    { id: 'security', label: 'Security' },
     { id: 'criminal-justice', label: 'Criminal Justice' },
-    { id: 'maintenance-functions', label: 'Maintenance Functions' },
-    { id: 'profit-motive', label: 'Profit Motive' },
-    { id: 'systems-thinking', label: 'Systems Thinking' },
     { id: 'institutional-design', label: 'Institutional Design' },
-    { id: 'healthcare-systems', label: 'Healthcare Systems' },
-    { id: 'healthcare-reform', label: 'Healthcare Reform' },
-    { id: 'for-profit-incentives', label: 'For-Profit Incentives' },
-    { id: 'security-apparatus', label: 'Security Apparatus' },
-    { id: 'chronic-disease-management', label: 'Chronic Disease Management' },
+    { id: 'systems-thinking', label: 'Systems Thinking' },
+    { id: 'profit-motive', label: 'Profit Motive' },
     { id: 'market-logic', label: 'Market Logic' },
-
+    { id: 'maintenance-functions', label: 'Maintenance Functions' },
+    
   // AI and the Performance of Neutrality
 
     { id: 'artificial-intelligence', label: 'Artificial Intelligence' },
@@ -55,7 +47,16 @@ export const TAGS: Tag[] = [
     { id: 'both-sidesism', label: 'Both-Sidesism' },
     { id: 'epistemology', label: 'Epistemology' },
     { id: 'philosophy-of-technology', label: 'Philosophy of Technology' },
-];
+
+  // The Primacy of Continuity
+
+    { id: 'continuity', label: 'Continuity' },
+    { id: 'geometry', label: 'Geometry' },
+    { id: 'philosophy-of-science', label: 'Philosophy of Science' },
+    { id: 'metaphysics', label: 'Metaphysics' },
+    { id: 'measurement', label: 'Measurement' },   
+    { id: 'field-theory', label: 'Field Theory' },
+  ];
 
 /**
  * Tag lookup helper
