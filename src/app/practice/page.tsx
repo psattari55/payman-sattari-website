@@ -1,7 +1,7 @@
 // src/app/practice/page.tsx
+
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { Library, ArrowRight } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
@@ -51,7 +51,7 @@ export default function PracticeOverview() {
             <h1 className="text-4xl font-bold text-gray-900 tracking-tight mb-8">Practice</h1>
             <div className="space-y-6 text-[17px] text-gray-500 font-serif italic leading-relaxed">
               <p>
-                Understanding reality is not enough. Living in alignment requires practice—deliberate, structured work that integrates what we know with how we are. These practices are designed to help develop inner clarity, coherence, and capacity.
+                Living in alignment requires practice—deliberate, structured work that integrates what we know with how we are. These practices are designed to help develop inner clarity, coherence, and capacity.
               </p>
             </div>
           </motion.header>
@@ -65,7 +65,7 @@ export default function PracticeOverview() {
             
               {/* New Guidance Text */}
               <p className="text-[15px] text-gray-500 leading-relaxed font-light">
-              Transformation requires a sequential movement. First, we must map the terrain of our own consciousness to understand how to navigate it. From that clarity, we can learn to work with the equilibrium of opposites. Finally, we establish a system of discipline to reify these insights into a permanent structure of character.
+              There is a certain logic to inner development. First, we must map the terrain of our own consciousness to learn how to navigate it. From there, we must understand what to do with what we find, which involves stabilizing the equilibrium of opposites. Finally, we establish a system of discipline to reify these insights into a permanent structure of character.
               </p>
           </div>
 

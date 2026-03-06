@@ -189,7 +189,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-tight">Outreach & Broadcast</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  My presence on <strong><a href="https://x.com/oreliosattari" target="_blank" className="hover:text-gray-400 hover:border-gray-400 transition-colors">X</a></strong> and <strong>Facebook</strong> is strictly for the distribution of new research and publications. I do not monitor these platforms for direct messages or personal engagement.
+                  My presence on <strong><a href="https://medium.com/@orelio" target="_blank" className="hover:text-gray-400 hover:border-gray-400 transition-colors">Medium</a></strong> and <strong><a href="https://x.com/oreliosattari" target="_blank" className="hover:text-gray-400 hover:border-gray-400 transition-colors">X</a></strong> is strictly for the distribution of new research and publications. I do not monitor these platforms for direct messages or personal engagement.
                 </p>
               </div>
               <div>
