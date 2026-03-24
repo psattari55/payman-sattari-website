@@ -56,6 +56,15 @@ export const TAGS: Tag[] = [
     { id: 'metaphysics', label: 'Metaphysics' },
     { id: 'measurement', label: 'Measurement' },   
     { id: 'field-theory', label: 'Field Theory' },
+
+  // Magus: Ethics as Ontology
+
+    { id: 'ethics', label: 'Ethics' },
+    { id: 'knowledge', label: 'Knowledge' },
+    { id: 'character', label: 'Character' },
+    { id: 'fragmentation', label: 'Fragmentation' },
+    { id: 'perception', label: 'Perception' },   
+
   ];
 
 /**

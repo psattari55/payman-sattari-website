@@ -1,8 +1,9 @@
 ---
-title: "AI and the Performance of Neutrality: How the Modern Institution Prevents True Objectivity"
-subtitle: "When 'objectivity' becomes a tool for institutional self-protection, the accurate description of reality is the first casualty."
+title: "AI and the Performance of Neutrality"
+subtitle: "How the Modern Institution Prevents True Objectivity"
 excerpt: "There are two incompatible definitions of neutrality: lack of bias and avoidance of taking sides. AI systems inherit the second while claiming the first. This essay traces how neutrality was redefined to serve institutions rather than truth, and why AI has systematized this distortion at unprecedented scale."
 publishedAt: "2026-02-05"
+updatedAt: "2026-03-25"
 status:
 type: "long-essay"
 category: "technology"

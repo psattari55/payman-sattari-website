@@ -85,6 +85,44 @@ const config: Config = {
               marginBottom: '1.5em',
               lineHeight: '1.8',
             },
+            
+            // Unordered lists (bullets)
+            ul: {
+              marginTop: '1.5em',
+              marginBottom: '1.5em',
+              paddingLeft: '1.5em',
+            },
+            'ul > li': {
+              marginTop: '0.75em',
+              marginBottom: '0.75em',
+              paddingLeft: '0.5em',
+            },
+            'ul > li::marker': {
+              color: '#6b7280', // gray-500
+              fontSize: '1.1em',
+            },
+
+            // Ordered lists (numbered)
+            ol: {
+              marginTop: '1.5em',
+              marginBottom: '1.5em',
+              paddingLeft: '1.5em',
+            },
+            'ol > li': {
+              marginTop: '0.75em',
+              marginBottom: '0.75em',
+              paddingLeft: '0.5em',
+            },
+            'ol > li::marker': {
+              color: '#6b7280', // gray-500
+              fontWeight: '600',
+            },
+
+            // Nested lists
+            'ul ul, ul ol, ol ul, ol ol': {
+              marginTop: '0.5em',
+              marginBottom: '0.5em',
+            },
           },
         },
         lg: {
