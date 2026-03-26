@@ -77,6 +77,10 @@ This reveals something crucial: what AI systems call "neutrality" is actually a 
 
 This becomes particularly visible in how these systems handle historical events. Consider an AI system asked about state-engineered famines occurring under imperial rule. If it responds with "food shortages occurred," it has not achieved neutrality. It has obscured the causal relationship between imperial policy and mass death. If it adds "perspectives differ on the causes," it has created false equivalence between documented historical evidence and revisionist apologetics.
 
+<PullQuote 
+  text="The question is not whether artificial intelligence can be neutral. The question is whether we are willing to inhabit a civilization that has structurally prohibited the naming of reality."
+/>
+
 The truly neutral response—neutral in the sense of lacking bias—would name what happened: state-engineered policies, enacted by specific administrations, produced famine conditions that killed millions. This would be proportional to evidence, faithful to historical record, and accurate in its assignment of causality. But it would also identify responsibility in a way that institutional definitions of neutrality forbid.
 
 So the system learns to flatten. It learns that "both sides" framings are safe even when they're false. It learns that passive voice protects it from accusations of bias. It learns that refusing to name perpetrators is called "objectivity" while naming them is called "taking sides."

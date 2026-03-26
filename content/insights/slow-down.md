@@ -1,6 +1,7 @@
 ---
 number: 6
 publishedAt: '2026-01-22'
+updatedAt?: '2026-03-25'
 categories: ['attention-focus']
 featuredImage: '/images/insights/slow-down/hero.jpg'
 published: true
@@ -14,4 +15,4 @@ Imagine you are driving a vehicle. As it speeds up, the things on the periphery 
 
 Now consider what happens when you slow down. As the vehicle approaches stillness, the images on the sides become clearer while visibility of your destination becomes unfocused, until the vehicle has come to a full stop and you have regained full visibility.
 
-Speed gives you visibility of your objectives, where you are going. But it is when you slow down that you can really see what's going on around you, where you are. If you can't see what is happening, you are probably moving too fast. Breathe, cool down. Close your eyes. Refrain from doing, fixing, focusing for awhile. Return to your center, let the cells of your body breathe. *Slow down*, then once you feel calm, look again.
+Speed gives you visibility of your objectives—where you are going. But it is when you slow down that you can really see what's going on around you—where you are. If you can't see what is happening, you are probably moving too fast. Breathe, cool down. Close your eyes. Refrain from doing, fixing, focusing for a while. *Slow down.* Then once you feel calm, look again.

@@ -92,7 +92,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                 Stay Connected
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-gray-500 font-serif italic">
-                Essays on first principles, insights on living better, and updates on upcoming research, projects, and publications.
+                Essays on first principles, reflections on living well, and updates on research, projects, and publications.
               </p>
             </div>
 
